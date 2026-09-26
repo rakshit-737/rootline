@@ -19,10 +19,15 @@ from .graph import ProvenanceGraph
 from .models import Alert, Edge, NodeType, Reconstruction, Relation
 
 # processes at which backward expansion stops (session roots, not causes)
-STOP_COMMS = {"systemd", "init", "sshd", "gnome-session", "gdm", "lightdm", "cron", "kthreadd", "login"}
+STOP_COMMS = {"systemd", "init", "sshd", "gnome-session", "gdm", "lightdm", "cron", "kthreadd", "login",
+              # Windows session/service roots (ATLAS traces are Windows audit logs)
+              "services.exe", "wininit.exe", "winlogon.exe", "smss.exe", "csrss.exe", "explorer.exe",
+              "svchost.exe", "lsass.exe", "system"}
 ENTRY_EXT = re.compile(r"\.(docm?|xlsm?|pptm?|pdf|rtf|odt|zip|rar|7z|iso|lnk|js|hta|jar|sh|py|elf|bin|deb)$", re.I)
-USER_DIRS = re.compile(r"^/(home/[^/]+|root)/(Downloads|Desktop|Documents|tmp)/|^/tmp/")
-SYSTEM_PATHS = re.compile(r"^/(usr|bin|sbin|lib|etc|opt|proc|sys)/")
+USER_DIRS = re.compile(r"^/(home/[^/]+|root)/(Downloads|Desktop|Documents|tmp)/|^/tmp/|"
+                       r"^c:/users/[^/]+/(downloads|desktop|documents|appdata/local/temp)/", re.I)
+SYSTEM_PATHS = re.compile(r"^/(usr|bin|sbin|lib|etc|opt|proc|sys)/|^c:/(windows|program files|programdata)/", re.I)
+APP_STATE = re.compile(r"/(\.mozilla|\.config|\.cache)/|/appdata/(roaming|locallow)/|/appdata/local/(?!temp/)", re.I)
 
 STAGE_ORDER = ["initial-access", "delivery", "execution", "persistence", "privilege-escalation",
                "defense-evasion", "credential-access", "discovery", "lateral-movement", "collection",
@@ -52,13 +57,21 @@ def backward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) ->
     return set(best), edges
 
 
-def forward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) -> tuple[set[str], list[Edge]]:
+def forward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000,
+            stop: frozenset[str] | set[str] | None = None) -> tuple[set[str], list[Edge]]:
+    """Time-respecting descendants of ``start``. Session/service roots in ``stop``
+    (default :data:`STOP_COMMS`) are included but not expanded: a system service
+    that merely *touched* a malicious file (indexer, AV, crash reporter) must not
+    pull its entire lifetime into the blast radius."""
+    stop = STOP_COMMS if stop is None else stop
     best: dict[str, float] = {start: t}
     heap = [(t, start)]
     edges: list[Edge] = []
     while heap and len(best) < max_nodes:
         bound, nid = heapq.heappop(heap)
         if bound > best.get(nid, float("inf")):
+            continue
+        if nid != start and g.nodes[nid].type is NodeType.PROCESS and comm(g, nid) in stop:
             continue
         for e in g.out_edges.get(nid, []):
             if e.end_ts < bound:
@@ -90,6 +103,8 @@ def score_entry(g: ProvenanceGraph, nid: str) -> float:
             s += 2
         if SYSTEM_PATHS.search(path):
             s -= 5
+        if APP_STATE.search(path):  # browser profiles / app caches: churn, not entry points
+            s -= 4
         # written by a process that received network data -> downloaded artifact
         for e in g.in_edges.get(nid, []):
             if e.rel is Relation.WROTE and any(i.rel is Relation.RECEIVED for i in g.in_edges.get(e.src, [])):
@@ -121,22 +136,49 @@ def _describe(g: ProvenanceGraph, e: Edge) -> str:
     return f"{s} {verb} {d}{x}"
 
 
-def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = None) -> Reconstruction:
-    back, bedges = backward(g, alert.node_id, alert.ts)
-    rc = root_causes(g, back, bedges, t=alert.ts)
-    # keep only the causal spine: backward nodes that can reach the alert from a root cause
+def contact_window(g: ProvenanceGraph, nid: str) -> tuple[float, float]:
+    """First and last time anything flowed into or out of a vertex."""
+    touching = g.in_edges.get(nid, []) + g.out_edges.get(nid, [])
+    if not touching:
+        return g.nodes[nid].first_ts, g.nodes[nid].first_ts
+    return min(e.ts for e in touching), max(e.end_ts for e in touching)
+
+
+def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = None,
+                seeds: list[tuple[str, float, float]] | None = None) -> Reconstruction:
+    """Reconstruct around ``alert`` (backward from, and forward after, alert.ts).
+
+    ``seeds`` = extra ``(vertex, t_backward, t_forward)`` pivots traced together
+    with the alert - used for IOC pivots, where an attacker IP maps to several
+    socket vertices and influence starts at first contact, not last.
+    """
+    seeds = seeds or [(alert.node_id, alert.ts, alert.ts)]
+    back: set[str] = set()
+    bedges: list[Edge] = []
+    fwd: set[str] = set()
+    for nid, tb, _ in seeds:
+        b, be = backward(g, nid, tb)
+        back |= b
+        bedges += be
+    t0 = min(tf for _, _, tf in seeds)
+    rc = root_causes(g, back, bedges, t=max(tb for _, tb, _ in seeds) if len(seeds) > 1 else alert.ts)
+    # keep only the causal spine: backward nodes that can reach a pivot from a root cause
     if rc:
         spine: set[str] = set()
         for r in rc:
             f, _ = forward(g, r, g.nodes[r].first_ts)
             spine |= f & back
-        back = spine | {alert.node_id}
-    fwd, fedges = forward(g, alert.node_id, alert.ts)
+        back = spine | {nid for nid, _, _ in seeds}
+    for nid, _, tf in seeds:
+        f, _ = forward(g, nid, tf)
+        fwd |= f
     accessed: set[str] = set()
     for p in fwd:
-        if g.nodes[p].type is NodeType.PROCESS:
+        # "accessed" (e.g. credentials read) only for processes the intrusion created;
+        # a long-lived process that was merely tainted (a browser) reads its whole cache
+        if g.nodes[p].type is NodeType.PROCESS and g.nodes[p].first_ts >= t0:
             for e in g.in_edges.get(p, []):
-                if e.rel is Relation.READ and e.ts >= alert.ts:
+                if e.rel is Relation.READ and e.ts >= t0:
                     accessed.add(e.src)
     for p in back | fwd:  # binary images that story processes were executed from
         for e in g.in_edges.get(p, []):
@@ -145,7 +187,7 @@ def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = N
     accessed -= back | fwd
     nodes = back | fwd | accessed
     edges = sorted({id(e): e for e in g.edges if e.src in nodes and e.dst in nodes
-                    and (e.src in back and e.dst in back or e.ts >= alert.ts or e.dst == alert.node_id
+                    and (e.src in back and e.dst in back or e.ts >= t0 or e.dst == alert.node_id
                          or e.rel is Relation.EXECUTED)}.values(),
                    key=lambda e: (e.ts, e.seq))
 
