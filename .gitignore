@@ -6,3 +6,6 @@ out/
 build/
 dist/
 .venv/
+site/
+docs/demo/
+docs/img/results/

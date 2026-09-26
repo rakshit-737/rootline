@@ -7,7 +7,7 @@
   "root_causes": [],
   "reaches_java": false,
   "reaches_ldap_1389": false,
-  "seconds": 0.034
+  "seconds": 0.315
  },
  "sysmon+auoms": {
   "events": 108,
@@ -20,6 +20,6 @@
   ],
   "reaches_java": true,
   "reaches_ldap_1389": true,
-  "seconds": 0.034
+  "seconds": 0.363
  }
 }

@@ -6,12 +6,32 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-09-26
+
+Docs site, static demo, release pipeline, and statistically honest anomaly numbers.
+
 ### Added
+- MkDocs Material documentation site on GitHub Pages
+  (https://rakshit-737.github.io/rootline/), with architecture, datasets,
+  benchmarks, CLI, Python API (mkdocstrings) and HTTP API reference, the threat
+  model, ADRs and limitations. It is built with `mkdocs build --strict`.
+- A static build of the attack-replay UI under `/demo/`
+  (`scripts/build_demo.py`). It is rendered from the committed Log4Shell excerpt
+  and one synthetic intrusion.
+- Release workflow: on a `v*` tag it pushes the image to
+  `ghcr.io/rakshit-737/rootline` and creates a GitHub Release with the wheel and
+  sdist.
+- CI: a Docker image job that checks the preloaded story is served, and a
+  docker-compose job that imports the Cypher export into Neo4j.
 - Committed benchmark results (`results/`): ATLAS S1-S4, Splunk dev/holdout
   coverage, OTRF Log4Shell fusion, plus figures.
 - `rootline serve --fuse` loads several sensor captures as one story.
 - `Dockerfile` and `docker-compose.yml`, with a Neo4j service for Cypher
   imports.
+
+### Changed
+- The IsolationForest benchmark now runs 10 seeds and reports the mean with a
+  95 % t-interval, instead of a single seed.
 
 ### Fixed
 - `reduction_stats` rebuilt the attack-sequence set for every edge (O(E*N)).

@@ -60,3 +60,18 @@ def test_api_roundtrip():
     assert c.post("/api/analyze", params={"format": "nope"}, content=b"x").status_code == 400
     assert c.post("/api/analyze", content=b"garbage\n").status_code == 422
     assert c.get("/api/stories/nope").status_code == 404
+
+
+def test_static_demo_build(tmp_path):
+    pytest.importorskip("fastapi")
+    pytest.importorskip("httpx")
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("build_demo", Path(__file__).parent.parent / "scripts" / "build_demo.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    names = mod.build(tmp_path)
+    assert len(names) == 2
+    assert 'data-static="1"' in (tmp_path / "index.html").read_text(encoding="utf-8")
+    stories = json.loads((tmp_path / "api" / "stories.json").read_text(encoding="utf-8"))
+    for s in stories:
+        assert (tmp_path / "api" / "stories" / f"{s['id']}.json").exists()

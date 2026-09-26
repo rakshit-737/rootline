@@ -224,7 +224,25 @@ def summarize_coverage(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 # ------------------------------------------------------------ vertex tagging
-def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | None = None) -> list[dict[str, Any]]:
+_T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262,
+         10: 2.228, 15: 2.131, 20: 2.086, 30: 2.042}
+
+
+def mean_ci(vals: list[float]) -> tuple[float, float, float]:
+    """Mean and two-sided 95 % Student-t confidence interval (stdlib only)."""
+    n = len(vals)
+    m = sum(vals) / n
+    if n < 2:
+        return m, m, m
+    sd = (sum((v - m) ** 2 for v in vals) / (n - 1)) ** 0.5
+    df = n - 1
+    t = _T975.get(df) or _T975[max(d for d in _T975 if d <= df)]
+    h = t * sd / n ** 0.5
+    return m, m - h, m + h
+
+
+def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | None = None,
+                         seeds: int = 10) -> list[dict[str, Any]]:
     """Rank process vertices; GT = processes whose image is an ATLAS malicious entity."""
     from .anomaly import IForestTagger, degree_ranking
 
@@ -234,13 +252,26 @@ def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | No
            and any(entity_matches(v.label, v.attrs, lab) for lab in names)}
     procs = sum(1 for v in g.nodes.values() if v.type is NodeType.PROCESS)
     rows = []
-    for method, ranking in (("iforest", IForestTagger().score(g)), ("degree", degree_ranking(g))):
+
+    def row(method: str, ranking: list[tuple[str, float]]) -> dict[str, Any]:
         ids = [n for n, _ in ranking]
         first = next((i + 1 for i, n in enumerate(ids) if n in bad), None)
         hits = sum(1 for n in ids[:k] if n in bad)
-        rows.append({"scenario": sc.name, "method": method, "processes": procs, "malicious": len(bad),
-                     "first_hit_rank": first, f"hits@{k}": hits,
-                     f"recall@{k}": round(hits / max(1, len(bad)), 3)})
+        return {"scenario": sc.name, "method": method, "processes": procs, "malicious": len(bad),
+                "first_hit_rank": first, f"hits@{k}": hits,
+                f"recall@{k}": round(hits / max(1, len(bad)), 3)}
+
+    # IsolationForest is stochastic: report mean and 95 % t-interval over `seeds` forests.
+    per_seed = [row("iforest", IForestTagger(seed=s).score(g)) for s in range(seeds)]
+    agg = dict(per_seed[0])
+    agg["seeds"] = seeds
+    for key in ("first_hit_rank", f"hits@{k}", f"recall@{k}"):
+        vals = [r[key] if r[key] is not None else procs + 1 for r in per_seed]
+        m, lo, hi = mean_ci(vals)
+        agg[key] = round(m, 3)
+        agg[f"{key}_ci95"] = [round(lo, 3), round(hi, 3)]
+    rows.append(agg)
+    rows.append(row("degree", degree_ranking(g)))
     rows.append({"scenario": sc.name, "method": "random (expected)", "processes": procs, "malicious": len(bad),
                  "first_hit_rank": round((procs + 1) / (len(bad) + 1), 1) if bad else None,
                  f"hits@{k}": round(k * len(bad) / max(1, procs), 3),

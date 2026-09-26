@@ -86,3 +86,10 @@ def test_committed_results_match_schema():
         pytest.skip("results/atlas.json not generated")
     res = json.loads(f.read_text())
     assert {"atlas", "reduction"} <= set(res)
+
+
+def test_mean_ci():
+    from rootline.bench import mean_ci
+    assert mean_ci([2.0]) == (2.0, 2.0, 2.0)
+    m, lo, hi = mean_ci([1.0, 2.0, 3.0])
+    assert m == 2.0 and lo < 2.0 < hi and abs((hi - m) - 4.303 / 3 ** 0.5) < 1e-9

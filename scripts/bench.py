@@ -6,7 +6,7 @@
     python scripts/bench.py --only atlas     # atlas | coverage | log4shell
 
 Writes results/*.json (raw), results/RESULTS.md (tables) and
-results/figures/*.png. Deterministic: IsolationForest uses a fixed seed.
+results/figures/*.png. Deterministic: IsolationForest runs seeds 0-9 and reports mean + 95 % CI.
 """
 from __future__ import annotations
 
@@ -146,8 +146,11 @@ def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
                                                    "seconds"]))
         if atlas.get("anomaly"):
             parts.append("\n## ATLAS: anomaly tagging of process vertices (unsupervised)\n")
-            parts.append(md_table(atlas["anomaly"], ["scenario", "method", "processes", "malicious",
-                                                     "first_hit_rank", "hits@10", "recall@10"]))
+            parts.append("IsolationForest rows are the mean over 10 seeds with a 95 % t-interval; "
+                         "degree ranking is deterministic.\n")
+            parts.append(md_table(atlas["anomaly"], ["scenario", "method", "processes", "malicious", "seeds",
+                                                     "first_hit_rank", "first_hit_rank_ci95", "hits@10",
+                                                     "recall@10", "recall@10_ci95"]))
     if cov:
         parts.append("\n## Tagger coverage: Splunk attack_data Sysmon-for-Linux captures\n")
         summ = [{"split": k, **v} for k, v in cov["summary"].items()]

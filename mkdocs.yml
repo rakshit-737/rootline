@@ -1,0 +1,69 @@
+site_name: ROOTLINE
+site_description: Provenance-graph attack reconstruction from eBPF / Sysmon / auditd telemetry
+site_url: https://rakshit-737.github.io/rootline/
+repo_url: https://github.com/rakshit-737/rootline
+repo_name: rakshit-737/rootline
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: {icon: material/weather-sunny, name: Light mode}
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc: {permalink: true}
+  - pymdownx.details
+  - pymdownx.snippets: {base_path: ["."], check_paths: true}
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_source: false
+            members_order: source
+            docstring_style: google
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Architecture: architecture.md
+  - Datasets: datasets.md
+  - Benchmarks: benchmarks.md
+  - Live demo: demo.md
+  - Reference:
+      - CLI: reference/cli.md
+      - Python API: reference/api.md
+      - HTTP API: reference/http.md
+  - Threat model: threat-model.md
+  - Security: security.md
+  - ADRs:
+      - 0001 Process-image vertices: adr/0001-process-image-vertices.md
+      - 0002 Time-respecting traversal: adr/0002-time-respecting-traversal.md
+      - 0003 Causality-preserving reduction: adr/0003-causality-preserving-reduction.md
+      - 0004 Evaluation protocol: adr/0004-evaluation-protocol.md
+      - 0005 Stdlib core, optional extras: adr/0005-stdlib-core-optional-extras.md
+      - 0006 Multi-sensor fusion: adr/0006-multi-sensor-fusion.md
+      - 0007 eBPF probe as reference: adr/0007-ebpf-probe-as-reference.md
+  - Changelog: changelog.md
+  - Limitations & roadmap: limitations.md

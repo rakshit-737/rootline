@@ -48,3 +48,40 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install -e . pytest
       - run: python -m pytest -q
+
+  docker:
+    # builds the image and checks the preloaded Log4Shell story is served
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t rootline:ci .
+      - run: docker run -d --name rl -p 8000:8000 rootline:ci
+      - name: health and preloaded story
+        run: |
+          for i in $(seq 1 30); do curl -fs http://127.0.0.1:8000/api/health && break; sleep 2; done
+          curl -fs http://127.0.0.1:8000/api/stories | python3 -c "import json,sys; s=json.load(sys.stdin); assert s and s[0]['story_vertices'] > 0, s; print(s)"
+      - if: failure()
+        run: docker logs rl
+
+  compose-neo4j:
+    # docker-compose stack: UI up, and the Cypher export actually imports into Neo4j
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e .
+      - run: docker compose config -q && docker compose up -d --build
+      - run: python -m rootline.cli analyze tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_auoms.json --cypher story.cypher
+      - name: wait for UI and Neo4j
+        run: |
+          for i in $(seq 1 60); do curl -fs http://127.0.0.1:8000/api/health && break; sleep 2; done
+          for i in $(seq 1 60); do docker compose exec -T neo4j cypher-shell -u neo4j -p rootline-lab "RETURN 1" && break; sleep 3; done
+      - name: import story and check it
+        run: |
+          docker compose exec -T neo4j cypher-shell -u neo4j -p rootline-lab < story.cypher
+          n=$(docker compose exec -T neo4j cypher-shell -u neo4j -p rootline-lab --format plain "MATCH (n:Rootline) RETURN count(n)" | tail -1)
+          echo "nodes: $n"; test "$n" -gt 0
+      - if: failure()
+        run: docker compose logs

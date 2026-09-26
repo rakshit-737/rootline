@@ -1,6 +1,8 @@
 # ROOTLINE
 
 [![ci](https://github.com/rakshit-737/rootline/actions/workflows/ci.yml/badge.svg)](https://github.com/rakshit-737/rootline/actions/workflows/ci.yml)
+[![docs](https://github.com/rakshit-737/rootline/actions/workflows/docs.yml/badge.svg)](https://rakshit-737.github.io/rootline/)
+[![release](https://img.shields.io/github/v/release/rakshit-737/rootline)](https://github.com/rakshit-737/rootline/releases)
 ![python](https://img.shields.io/badge/python-3.10%E2%80%933.14-blue)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![runtime deps](https://img.shields.io/badge/runtime%20deps-0-brightgreen)
@@ -24,6 +26,7 @@ In every scenario, **graph reduction removes 3.8–4.4× of the edges and keeps 
 
 ## Contents
 
+- **Docs:** <https://rakshit-737.github.io/rootline/> · **Live replay UI:** <https://rakshit-737.github.io/rootline/demo/>
 - [Architecture](#architecture) · [Quickstart](#quickstart) · [Results on real data](#results-on-real-data) · [Datasets](#datasets)
 - [Reproducibility](#reproducibility) · [Prior art](#prior-art-and-how-this-differs) · [Limitations](#limitations) · [Roadmap](#roadmap) · [Safety](#safety)
 
@@ -31,21 +34,21 @@ In every scenario, **graph reduction removes 3.8–4.4× of the edges and keeps 
 
 ```mermaid
 flowchart LR
-  subgraph Sources
-    S1[Sysmon for Linux<br/>loaders/sysmon.py]
-    S2[auditd / AUOMS<br/>loaders/auditd.py]
-    S3[ATLAS audit logs<br/>loaders/atlas.py]
-    S4[bpftrace probe<br/>probes/rootline.bt]
-    S5[SentinelCore stream]
+  subgraph SRC["Sources"]
+    S1["Sysmon for Linux<br/>loaders/sysmon.py"]
+    S2["auditd / AUOMS<br/>loaders/auditd.py"]
+    S3["ATLAS audit logs<br/>loaders/atlas.py"]
+    S4["bpftrace probe<br/>probes/rootline.bt"]
+    S5["SentinelCore stream"]
   end
-  Sources --> NORM[Normalizer + multi-sensor fusion<br/>validate, canonicalise, dedup execs]
-  NORM --> PG[(Provenance graph<br/>append-only, SHA-256 hash chain)]
-  PG --> DET[Tagger<br/>RL-001..018 ATT&CK rules<br/>rare-transition + IsolationForest]
-  PG --> RED[Reduction<br/>CPR-style edge merge, benign-leaf prune]
+  SRC --> NORM["Normalizer + multi-sensor fusion<br/>validate, canonicalise, dedup execs"]
+  NORM --> PG[("Provenance graph<br/>append-only, SHA-256 hash chain")]
+  PG --> DET["Tagger<br/>RL-001..018 ATT&CK rules<br/>rare-transition + IsolationForest"]
+  PG --> RED["Reduction<br/>CPR-style edge merge, benign-leaf prune"]
   DET --> REC
-  RED --> REC[Reconstructor<br/>time-respecting backward/forward,<br/>session-root stops, causal spine]
-  REC --> API[FastAPI + replay UI]
-  REC --> EXP[Story JSON for REVENANT · STIX 2.1 · Mermaid · Neo4j Cypher]
+  RED --> REC["Reconstructor<br/>time-respecting backward/forward,<br/>session-root stops, causal spine"]
+  REC --> API["FastAPI + replay UI"]
+  REC --> EXP["Story JSON for REVENANT · STIX 2.1 · Mermaid · Neo4j Cypher"]
 ```
 
 | Module | File | What it does |
@@ -68,7 +71,7 @@ Requires Python 3.10 or newer.
 
 ```bash
 pip install -e ".[dev]"            # core + test deps (the core itself needs nothing)
-python -m pytest -q                # 75 tests; real-data tests skip when the data is absent
+python -m pytest -q                # 77 tests; real-data tests skip when the data is absent
 rootline demo --outdir out         # synthetic intrusion -> story.json, stix.json, story.mmd
 
 # A real capture: OTRF Log4Shell (CVE-2021-44228), with Sysmon and AUOMS fused into one host view
@@ -124,7 +127,7 @@ Every method starts from ATLAS' `user_artifact.txt`, the attacker IP handed to t
 | | | | naive BFS | 8,323 | 0.236 | 1.000 | 0.381 |
 | | | | **ROOTLINE** | **5,893** | **0.590** | **0.999** | **0.742** |
 
-At the same ~100 % recall, time-respecting traversal with session-root stops is **2.0–4.5× more precise** than plain reachability. It also produces 29–60 % smaller stories and never misses a malicious entity. Reconstruction takes 0.3–0.7 s per scenario.
+At the same ~100 % recall, time-respecting traversal with session-root stops is **2.0–4.5× more precise** than plain reachability. It also produces 29–60 % smaller stories and never misses a malicious entity. Reconstruction took 0.3–0.7 s per scenario on an idle laptop; the timings in the latest RESULTS.md re-run (up to ~4 s) were measured while many other jobs shared the CPU, and the accuracy columns are identical.
 
 ### 2. Graph reduction (the spec's research question)
 
@@ -143,12 +146,12 @@ Reduction is lossless for causality by construction ([ADR 0003](docs/adr/0003-ca
 
 Process vertices are ranked per scenario with no labels, and the ranking is compared with ATLAS' malicious process images.
 
-| Scenario | Processes | Malicious | IsolationForest first hit | Degree ranking first hit | Random (expected) |
-|---|---|---|---|---|---|
-| S1 | 324 | 2 | **rank 2** (recall@10 = 1.00) | rank 5 | 108 |
-| S2 | 704 | 1 | **rank 1** (1.00) | rank 3 | 353 |
-| S3 | 334 | 6 | **rank 2** (0.67) | rank 8 | 48 |
-| S4 | 318 | 3 | rank 2 (0.67) | **rank 1** | 80 |
+| Scenario | Processes | Malicious | IsolationForest first hit (mean, 95 % CI, 10 seeds) | IsolationForest recall@10 | Degree ranking first hit | Random (expected) |
+|---|---|---|---|---|---|---|
+| S1 | 324 | 2 | **1.9** [1.7, 2.1] | 0.95 [0.84, 1.00] | 5 | 108 |
+| S2 | 704 | 1 | **1.1** [0.9, 1.3] | 1.00 | 3 | 353 |
+| S3 | 334 | 6 | **2.0** (all seeds) | 0.67 | 8 | 48 |
+| S4 | 318 | 3 | 2.0 (all seeds) | 0.83 [0.71, 0.96] | **1** | 80 |
 
 ### 4. Rule coverage on real Linux telemetry (Splunk attack_data, Sysmon for Linux)
 
@@ -197,7 +200,7 @@ python -m pytest -q -m realdata          # tests that need the downloads
 python scripts/bench.py                  # regenerates results/*.json, RESULTS.md and figures
 ```
 
-The benchmarks are deterministic: IsolationForest uses a fixed seed and the traversals involve no randomness. CI runs lint, the test suite on Ubuntu and Windows with Python 3.10/3.12/3.13, a standard-library-only job, and a smoke test on the committed real Log4Shell excerpt. It needs none of the large downloads.
+The benchmarks are deterministic: IsolationForest runs with seeds 0-9 (mean and 95 % t-interval are reported) and the traversals involve no randomness. CI runs lint, the test suite on Ubuntu and Windows with Python 3.10/3.12/3.13, a standard-library-only job, a smoke test on the committed real Log4Shell excerpt, a Docker image check, and a docker-compose job that imports the story into Neo4j. Docs are built with `mkdocs build --strict` and deployed to GitHub Pages; tags `v*` publish the image to GHCR and a GitHub Release. It needs none of the large downloads.
 
 ## Demo scenarios (from the spec)
 
@@ -225,7 +228,7 @@ The benchmarks are deterministic: IsolationForest uses a fixed seed and the trav
 - **The eBPF probe is a documented reference.** It is not run in CI or on a live host from this Windows development machine ([ADR 0007](docs/adr/0007-ebpf-probe-as-reference.md)). Tamper resistance is shown with the hash chain, not measured in-kernel.
 - The ATLAS scenarios are Windows. The Linux evidence comes from OTRF and Splunk, which are real but small single-technique captures.
 - The SentinelCore field map is still an assumption until it is aligned with the real schema.
-- Neo4j support is an export (Cypher script), not a live store. The docker-compose setup has not been tested in CI.
+- Neo4j support is an export (Cypher script), not a live store. CI brings up the docker-compose stack and imports the Log4Shell story into Neo4j, but ROOTLINE does not query Neo4j itself.
 
 ## Roadmap
 

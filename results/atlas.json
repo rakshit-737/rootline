@@ -24,7 +24,7 @@
    "recall": 0.9994,
    "f1": 0.1545,
    "entity_recall": 1.0,
-   "seconds": 0.014
+   "seconds": 0.008
   },
   {
    "scenario": "S1-CVE-2015-5122_windows",
@@ -37,7 +37,7 @@
    "recall": 0.9997,
    "f1": 0.5481,
    "entity_recall": 1.0,
-   "seconds": 0.188
+   "seconds": 0.101
   },
   {
    "scenario": "S1-CVE-2015-5122_windows",
@@ -50,7 +50,7 @@
    "recall": 0.9997,
    "f1": 0.5481,
    "entity_recall": 1.0,
-   "seconds": 0.265
+   "seconds": 0.125
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -76,7 +76,7 @@
    "recall": 1.0,
    "f1": 0.3921,
    "entity_recall": 1.0,
-   "seconds": 0.036
+   "seconds": 0.198
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -89,7 +89,7 @@
    "recall": 0.9999,
    "f1": 0.6686,
    "entity_recall": 1.0,
-   "seconds": 0.62
+   "seconds": 2.939
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -102,7 +102,7 @@
    "recall": 0.9999,
    "f1": 0.6686,
    "entity_recall": 1.0,
-   "seconds": 0.732
+   "seconds": 3.729
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -128,7 +128,7 @@
    "recall": 0.9986,
    "f1": 0.1461,
    "entity_recall": 1.0,
-   "seconds": 0.035
+   "seconds": 0.08
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -141,7 +141,7 @@
    "recall": 0.9957,
    "f1": 0.2771,
    "entity_recall": 1.0,
-   "seconds": 0.496
+   "seconds": 7.178
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -154,7 +154,7 @@
    "recall": 0.9957,
    "f1": 0.2771,
    "entity_recall": 1.0,
-   "seconds": 0.536
+   "seconds": 2.154
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -180,7 +180,7 @@
    "recall": 1.0,
    "f1": 0.3814,
    "entity_recall": 1.0,
-   "seconds": 0.032
+   "seconds": 0.232
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -193,7 +193,7 @@
    "recall": 0.9988,
    "f1": 0.742,
    "entity_recall": 1.0,
-   "seconds": 0.655
+   "seconds": 2.167
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -206,7 +206,7 @@
    "recall": 0.9988,
    "f1": 0.742,
    "entity_recall": 1.0,
-   "seconds": 0.559
+   "seconds": 1.822
   }
  ],
  "reduction": [
@@ -220,7 +220,7 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 1492,
    "attack_edges_preserved": 1.0,
-   "seconds": 0.199
+   "seconds": 0.993
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -232,7 +232,7 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 2998,
    "attack_edges_preserved": 1.0,
-   "seconds": 0.197
+   "seconds": 1.281
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -244,7 +244,7 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 1557,
    "attack_edges_preserved": 1.0,
-   "seconds": 0.192
+   "seconds": 0.972
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -256,7 +256,7 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 5376,
    "attack_edges_preserved": 1.0,
-   "seconds": 0.24
+   "seconds": 2.33
   }
  ],
  "anomaly": [
@@ -265,9 +265,22 @@
    "method": "iforest",
    "processes": 324,
    "malicious": 2,
-   "first_hit_rank": 2,
-   "hits@10": 2,
-   "recall@10": 1.0
+   "first_hit_rank": 1.9,
+   "hits@10": 1.9,
+   "recall@10": 0.95,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.674,
+    2.126
+   ],
+   "hits@10_ci95": [
+    1.674,
+    2.126
+   ],
+   "recall@10_ci95": [
+    0.837,
+    1.063
+   ]
   },
   {
    "scenario": "S1-CVE-2015-5122_windows",
@@ -292,9 +305,22 @@
    "method": "iforest",
    "processes": 704,
    "malicious": 1,
-   "first_hit_rank": 1,
-   "hits@10": 1,
-   "recall@10": 1.0
+   "first_hit_rank": 1.1,
+   "hits@10": 1.0,
+   "recall@10": 1.0,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    0.874,
+    1.326
+   ],
+   "hits@10_ci95": [
+    1.0,
+    1.0
+   ],
+   "recall@10_ci95": [
+    1.0,
+    1.0
+   ]
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -319,9 +345,22 @@
    "method": "iforest",
    "processes": 334,
    "malicious": 6,
-   "first_hit_rank": 2,
-   "hits@10": 4,
-   "recall@10": 0.667
+   "first_hit_rank": 2.0,
+   "hits@10": 4.0,
+   "recall@10": 0.667,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    2.0,
+    2.0
+   ],
+   "hits@10_ci95": [
+    4.0,
+    4.0
+   ],
+   "recall@10_ci95": [
+    0.667,
+    0.667
+   ]
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -346,9 +385,22 @@
    "method": "iforest",
    "processes": 318,
    "malicious": 3,
-   "first_hit_rank": 2,
-   "hits@10": 2,
-   "recall@10": 0.667
+   "first_hit_rank": 2.0,
+   "hits@10": 2.5,
+   "recall@10": 0.834,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    2.0,
+    2.0
+   ],
+   "hits@10_ci95": [
+    2.123,
+    2.877
+   ],
+   "recall@10_ci95": [
+    0.708,
+    0.959
+   ]
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -369,5 +421,5 @@
    "recall@10": 0.031
   }
  ],
- "wall_seconds": 59.2
+ "wall_seconds": 542.1
 }
