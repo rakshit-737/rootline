@@ -1,0 +1,680 @@
+26516690,,,,,,,,,,request,incoming.telemetry.mozilla.org/submit/telemetry/d29394d9-a485-494d-96f9-c13ad5c08c7f/main/firefox/52.0/release/20170302120751?v=4,,,,,,,,-LB-
+26516690,,,,,,,,,,request,www.google.com/xjs/_/js/k=xjs.s.en_us.byx5aqwm01e.o/am=dibfmiea8n8kiaecq2cdbeagxkae/rt=j/d=1/exm=sxfkg7bdhcfegbivluemc8mtfof7gzcrmhbfet4bactjw5qbtbahgcy33vzccdoscrhsmidpopbjsamvytsertg8oteuz938cvwnddews9tlcxpltpbyq43ffdcsi/ed=1/dg=2/rs=act90ohlt0903ch7gxmk4aiikyuetynajg/m=sb_wizaaabdaspnasyncbgddvlfootipv6lummpckmusftlvsssckaeexdcshrbtnqatqtftccxz7ccdqik19baam1tf8frndtxzwccvugqbb?xjs=s1,,,,,,,,-LB-
+26516690,,,,,,,,,,request,www.gstatic.com/og/_/js/k=og.og2.en_us.jvz6scntxcy.o/rt=j/m=drtdef/exm=infot/d=1/ed=1/rs=aa2yrttfxushvjsiq_u0u8lrjdls3ymvoa,,,,,,,,-LB-
+26516691,,,,,,,,,,request,ocsp.pki.goog/gtsgiag3,,,,,,,,-LB-
+26516691,,,,,,,,,,request,,/gen_204?atyp=i&ei=ogvdw7tnbapgjwssiaxidw&ved=0ahukewi0wiiwmrfeahuj8imkhaxecfkq39udcak&zx=1541213091643,,www.google.com,www.google.com/search?site=&q=day+of+the+dead&oi=ddle&ct=day-of-the-dead-2018-5705827255058432-law&hl=en&kgmid=/m/0drlh&sa=x&ved=0ahukewjzjykvmrfeahuwiimkhclrbwiqpqgo&biw=1536&bih=755&dpr=1.25,,,,-LB-
+26516695,,,,,,,,,,request,clients5.google.com/pagead/drt/dn/dn.js,,,,,,,,-LB-
+26516695,,,,,,,,,,response,,,200,,,,,,-LB-
+26516696,,,,,,,,,,response,,,204,,,,,,-LB-
+26516700,,,,,,,,,,request,notifications.google.com/_/scs/social-static/_/js/k=boq.notificationsogbui.en.sfceviddmgu.o/ck=boq.notificationsogbui.rgxkywhcl_i.l.f4.o/am=aaaaiaaaaaae/rt=j/d=1/exm=_b_tp/excm=home_b_tp/ed=1/rs=agltccpn4zgnta-ppjjtzjdf7ippsobpbq/m=wmwg8b,,,,,,,,-LB-
+26516702,,,,,,,,,,request,encrypted-tbn0.gstatic.com/images?q=tbn:and9gctajwtcq3hggfqkirggdotwyhjjfseddji8txy3zgno7u3hxbxkjjmkjw,,,,,,,,-LB-
+26516702,,,,,,,,,,request,www.google.com/pagead/drt/ui?ogt=1,,,,,,,,-LB-
+26516703,,,,,,,,,,request,googleads.g.doubleclick.net/pagead/drt/si?ogt=1&pli=1&auth=qwymrlog9vehtifytfqlteatevtxbhkblr5wfoo4it5goupu9bqz-mul1_aqjd3j8tzlwa.,,,,,,,,-LB-
+26516707,,,,,,,,,,request,i1.ytimg.com/vi/rh9kl6xzixo/mqdefault.jpg,,,,,,,,-LB-
+26516710,,,,,,,,,,response,,,200,,,,,,-LB-
+26516819,,,,,,,,,,request,detectportal.firefox.com/success.txt,,,,,,,,-LB-
+26519780,,,524,,c:/windows/system32/lsass.exe,,,,,,,,,,,,sam_server_delete_read_control_write_dac_write_owner_connecttoserver_shutdownserver_initializeserver_createdomain_enumeratedomains_lookupdomain,sam,-LA-
+26519781,,,2144,2536,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/tzres.dll,-LA-
+26519784,,,1552,,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26519796,,,1848,516,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26519802,,,1900,,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/start menu/programs,-LA-
+26519812,,,3212,3236,c:/windows/system32/logonui.exe,,,,,,,,,,,,,,-LA-
+26519815,,,464,628,c:/windows/system32/winlogon.exe,,,,,,,,,,,,,,-LA-
+26519816,,,356,,c:/windows/system32/csrss.exe,,,,,,,,,,,,,,-LA-
+26519816,,,356,,c:/windows/system32/csrss.exe,,,,,,,,,,,,,,-LA-
+26519875,,,524,,c:/windows/system32/lsass.exe,,,,,,,,,,,,,,-LA-
+26519876,,,516,2560,c:/windows/system32/services.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/svchost.exe,-LA-
+26519877,,,704,516,c:/program files/vmware/vmware tools/vmacthlp.exe,,,,,,,,,,,,file_synchronize_execute/traverse,c:/windows/system32,-LA-
+26519878,,,704,516,c:/program files/vmware/vmware tools/vmacthlp.exe,,,,,,,,,,,,file_synchronize_execute/traverse,c:/program files/vmware/vmware tools,-LA-
+26519879,,,516,2560,c:/windows/system32/services.exe,,,,,,,,,,,,,,-LA-
+26519879,,,748,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/wship6.dll,-LA-
+26519880,,,412,,c:/windows/system32/csrss.exe,,,,,,,,,,,,,,-LA-
+26519882,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519882,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519882,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519883,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/fonts,-LA-
+26519883,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/fonts,-LA-
+26519883,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/fonts,-LA-
+26519883,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse_readattributes,c:/windows/system32/audiodg.exe,-LA-
+26519883,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/fonts,-LA-
+26519884,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/rsaenh.dll,-LA-
+26519884,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/cryptsp.dll,-LA-
+26519885,,,824,464,c:/windows/system32/logonui.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/hid.dll,-LA-
+26519885,,,1184,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519888,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_writeattributes,c:/windows/tasks/sa.dat,-LA-
+26519888,,,824,464,c:/windows/system32/logonui.exe,,,,,,,,,,,,,,-LA-
+26519888,,,824,464,c:/windows/system32/logonui.exe,,,,,,,,,,,,,,-LA-
+26519888,,,824,464,c:/windows/system32/logonui.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/credui.dll,-LA-
+26519889,,,1300,516,c:/windows/system32/spoolsv.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/rpcss.dll,-LA-
+26519889,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/en-us/firewallapi.dll.mui,-LA-
+26519889,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519889,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519890,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519890,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/en-us/firewallapi.dll.mui,-LA-
+26519890,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26519892,,,456,,c:/windows/system32/winlogon.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/cryptsp.dll,-LA-
+26519892,,,456,,c:/windows/system32/winlogon.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/rsaenh.dll,-LA-
+26519892,,,456,,c:/windows/system32/winlogon.exe,,,,,,,,,,,,,,-LA-
+26519893,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/fwpuclnt.dll,-LA-
+26519989,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/tzres.dll,-LA-
+26519990,,,1796,408,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26519998,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520005,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/program files,-LA-
+26520005,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26520005,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26520005,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26520005,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/windows,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/programdata/microsoft/windows/start menu/programs/administrative tools,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/microsoft/windows/start menu/programs/games,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/sensorscpl.dll,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/recent,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/recent,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/recent,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/desktop/new folder/cve-2015-5122_flash_13.x_x86_logs,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26520006,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26520006,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520006,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/,-LA-
+26520006,,,3800,628,c:/windows/system32/consent.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/systemcertificates/my/certificates/0f0a9e837926233c419c933a219b712cc14420b4,-LA-
+26520006,,,3800,628,c:/windows/system32/consent.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/microsoft/systemcertificates/my/certificates/9a7861522fb5de0795b1133bf598dcf0ae26252a,-LA-
+26520006,,,3800,628,c:/windows/system32/consent.exe,,,,,,,,,,,,,,-LA-
+26520007,,,3908,628,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26520007,,,3908,628,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26520007,,,3908,628,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/microsoft.net/framework/v4.0.30319/mscoreei.dll,-LA-
+26520007,,,3908,628,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/assembly/gac_msil/microsoft.managementconsole/3.0.0.0__31bf3856ad364e35,-LA-
+26520007,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/windows/system32/rpcrtremote.dll,-LA-
+26520007,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520007,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/msctf.dll,-LA-
+26520008,,,3908,628,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/fonts/segoeuii.ttf,-LA-
+26520010,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/windows/system32/winevt/logs/microsoft-windows-application-experience0x3e5program-compatibility-troubleshooter.evtx,-LA-
+26520010,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/authui.dll,-LA-
+26520010,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/en-us/wpd_ci.dll.mui,-LA-
+26520011,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/dps.dll,-LA-
+26520011,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520012,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/en-us/dnsapi.dll.mui,-LA-
+26520013,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520014,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/program files/windows media player/en-us/wmpnetwk.exe.mui,-LA-
+26520014,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520014,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520016,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/connect.dll,-LA-
+26520018,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/speech/speechux/en-us/speechux.dll.mui,-LA-
+26520020,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/en-us/wpd_ci.dll.mui,-LA-
+26520021,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/en-us/magnification.dll.mui,-LA-
+26520021,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/oobe/oobeldr.exe,-LA-
+26520021,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/sppsvc.exe,-LA-
+26520021,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/mpssvc.dll,-LA-
+26520021,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/drivers/en-us/tunnel.sys.mui,-LA-
+26520022,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/setupetw.dll,-LA-
+26520025,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/program files/internet explorer/iedvtool.dll,-LA-
+26520025,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/en-us/locationnotifications.exe.mui,-LA-
+26520025,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520026,,,356,,c:/windows/system32/csrss.exe,,,,,,,,,,,,,,-LA-
+26520026,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/csrsrv.dll,-LA-
+26520026,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520026,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/rdpendp.dll,-LA-
+26520026,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/drivers/tcpip.sys,-LA-
+26520027,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/winsrv.dll,-LA-
+26520027,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520028,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/softwaredistribution/datastore,-LA-
+26520028,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520029,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_-_access_mask:	0x0_privileges_used_for_access_check:	-"_audit_success	11/2/2018_10:40:29_pm	microsoft-windows-security-auditing	4663	file_system	"an_attempt_was_made_to_access_an_object.,c:/windows/softwaredistribution/datastore/logs/tmp.edb,-LA-
+26520060,,,2780,1776,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/rasctrs.dll,-LA-
+26520060,,,2996,516,c:/windows/system32/wbem/wmiapsrv.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/sechost.dll,-LA-
+26520074,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/tzres.dll,-LA-
+26520107,,,2612,,c:/windows/system32/searchindexer.exe,,,,,,,,,,,,,,-LA-
+26520107,,,2708,,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_readattributes,c:/users/desktop.ini,-LA-
+26520107,,,2708,,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,,,-LA-
+26520109,,,2708,,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee,-LA-
+26520109,,,2708,,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,,,-LA-
+26520110,,,2708,,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users,-LA-
+26520110,,,2708,,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,,,-LA-
+26520135,,,1796,408,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26520140,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26520165,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26520165,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26520190,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/tzres.dll,-LA-
+26520215,,,3476,,c:/windows/system32/cmd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/program files/wireshark,-LA-
+26520217,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/desktop/logs,-LA-
+26520217,,,3072,3476,c:/program files/wireshark/tshark.exe,,,,,,,,,,,,,,-LA-
+26520217,,,3072,3476,c:/program files/wireshark/tshark.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/api-ms-win-crt-utility-l1-1-0.dll,-LA-
+26520217,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520219,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520219,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/wsock32.dll,-LA-
+26520228,,,2968,412,c:/windows/system32/conhost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/en-us/conhost.exe.mui,-LA-
+26520228,,,1272,3072,c:/program files/wireshark/dumpcap.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/ucrtbase.dll,-LA-
+26520228,,,1272,3072,c:/program files/wireshark/dumpcap.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/api-ms-win-crt-time-l1-1-0.dll,-LA-
+26520228,,,1272,3072,c:/program files/wireshark/dumpcap.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/api-ms-win-crt-environment-l1-1-0.dll,-LA-
+26520228,,,3852,3072,c:/program files/wireshark/dumpcap.exe,,,,,,,,,,,,,,-LA-
+26520228,,,2056,412,c:/windows/system32/conhost.exe,,,,,,,,,,,,file_synchronize_execute/traverse,c:/windows/system32,-LA-
+26520228,,,2436,528,c:/program files/wireshark/dumpcap.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/api-ms-win-core-file-l1-2-0.dll,-LA-
+26520228,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520230,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/tzres.dll,-LA-
+26520230,,,1012,1684,c:/windows/system32/dllhost.exe,,,,,,,,,,,,,,-LA-
+26520230,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_read_control,c:/users/aalsahee/desktop,-LA-
+26520231,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/program files/mozilla firefox,-LA-
+26520231,,,3216,2536,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/uxtheme.dll,-LA-
+26520232,,,3216,2536,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520232,,,3216,2536,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/wshqos.dll,-LA-
+26520232,,,2460,2612,,,,,,,,,,,,,,,-LA-
+26520232,,,2460,2612,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,,,-LA-
+26520232,,,2460,2612,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/desktop,-LA-
+26520233,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/macromed/flash,-LA-
+26520233,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/ole32.dll,-LA-
+26520233,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26520233,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/psapi.dll,-LA-
+26520233,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/windows/system32/searchfilterhost.exe,-LA-
+26520233,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/searchfilterhost.exe,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/test-unwanted-simple.sbstore,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete_read_control_synchronize_readdata_(or_listdirectory)_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/except-flashsubdoc-digest256.pset,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/google4/goog-downloadwhite-proto.pset,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/google4/goog-phish-proto.pset,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/test-phish-simple.pset,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing,-LA-
+26520234,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_writedata_(or_addfile),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing,-LA-
+26520235,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32/ras,-LA-
+26520235,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,security_unknown_specific_access_(bit_1),plugplaysecurityobject,-LA-
+26520235,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/microsoft/network/connections/pbk/_hiddenpbk,-LA-
+26520236,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520237,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/google4/goog-malware-proto.pset,-LA-
+26520241,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup/except-flashallow-digest256.pset,-LA-
+26520241,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520241,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520241,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520241,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520242,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520242,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-to_delete/test-flash-simple.sbstore,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/allow-flashallow-digest256.pset,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup/goog-badbinurl-shavar.pset,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup/google4,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup/google4,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/google4/goog-unwanted-proto.metadata,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/mozplugin-block-digest256.pset,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/test-harmful-simple.sbstore,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520243,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing,-LA-
+26520244,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-to_delete/goog-phish-shavar.sbstore,-LA-
+26520244,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-to_delete/google4/goog-unwanted-proto.pset,-LA-
+26520262,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/roaming/mozilla/firefox/profiles/a6gl280b.default/prefs-1.js,-LA-
+26520262,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/roaming/mozilla/firefox/profiles/a6gl280b.default,-LA-
+26520266,,,1796,408,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520270,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/tzres.dll,-LA-
+26520286,,,2644,516,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/program files/mozilla firefox/api-ms-win-crt-utility-l1-1-0.dll,-LA-
+26520286,,,2644,516,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520286,,,2644,516,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520286,,,2644,516,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/winrnr.dll,-LA-
+26520286,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/217d63521078eb1347865e77cdd0a7c830d208dd,-LA-
+26520287,,,2644,516,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/appdata/local/microsoft/windows/temporary internet files/counters.dat,-LA-
+26520288,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/7a7ac631b2d4ee3a3a9c7a54256500fe3042da88,-LA-
+26520290,,,1184,516,/device/harddiskvolume1/windows/system32/svchost.exe,0.0.0.0,58337,,,,,,,,,,,,-LA-
+26520290,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26520295,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/2b39a6b29818657c52b2a89bc772d7ace1d1e0f3,-LA-
+26520302,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/2b39a6b29818657c52b2a89bc772d7ace1d1e0f3,-LA-
+26520305,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/doomed/26967,-LA-
+26520305,,,3148,1760,/device/harddiskvolume1/program files/mozilla firefox/firefox.exe,0.0.0.0,49228,,,,,,,,,,,,-LA-
+26520307,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_readea_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/86bf9e7dcbfd385e9324ba8ab78593059c3ab1e3,-LA-
+26520309,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/44fb1253a5a1d7a499fe6bcfdb5a2ec24a51667c,-LA-
+26520310,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/5bb586f2cea39f48e8591bc63c03039625e80862,-LA-
+26520310,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/e8f9400fd28bf06e72e0d43481547bf8e5e1d34d,-LA-
+26520310,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/162ed9618c7b68ee876c013758ce10f31006ff8a,-LA-
+26520310,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26520310,,,3284,2004,c:/windows/system32/audiodg.exe,,,,,,,,,,,,,,-LA-
+26520310,,,3284,2004,c:/windows/system32/audiodg.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/globalization/sorting/sortdefault.nls,-LA-
+26520311,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/windows/fonts/timesbi.ttf,-LA-
+26520313,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/677f0c133249dfe5df0540c93e6008b781354708,-LA-
+26520346,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520347,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/programdata/microsoft/windows/start menu/programs/administrative tools/desktop.ini,-LA-
+26520359,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/program files/windows sidebar/sidebar.exe,-LA-
+26520359,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/xpsrchvw.exe,-LA-
+26520359,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/program files/common files/microsoft shared/ink/en-us/mip.exe.mui,-LA-
+26520360,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520361,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/comres.dll,-LA-
+26520362,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520365,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/rstrui.exe,-LA-
+26520370,,,516,2560,c:/windows/system32/services.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_readea_writeea_readattributes_writeattributes,c:/windows/security/database/edb.chk,-LA-
+26520435,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520435,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520436,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520448,,,2612,,c:/windows/system32/searchindexer.exe,,,,,,,,,,,,,,-LA-
+26520453,,,2612,,c:/windows/system32/searchindexer.exe,,,,,,,,,,,,,,-LA-
+26520453,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26520453,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26520764,encrypted-tbn2.gstatic.com,216.58.192.142,,,,,,,,,,,,,,,,,-LD-
+26520771,accounts.google.com,,,,,,,,,,,,,,,,,,-LD-
+26520786,ssl.gstatic.com,172.217.4.227,,,,,,,,,,,,,,,,,-LD-
+26520793,0xalsaheel.com,192.168.223.3,,,,,,,,,,,,,,,,,-LD+
+26520793,googlehosted.l.googleusercontent.com,172.217.4.193,,,,,,,,,,,,,,,,,-LD-
+26520799,googlemail.l.google.com,216.58.192.133,,,,,,,,,,,,,,,,,-LD-
+26520809,clients6.google.com,172.217.1.46,,,,,,,,,,,,,,,,,-LD-
+26520971,play.google.com,172.217.0.14,,,,,,,,,,,,,,,,,-LD-
+26521277,ssl.gstatic.com,216.58.216.67,,,,,,,,,,,,,,,,,-LD-
+26770541,,,516,2560,c:/windows/system32/services.exe,,,,,,,,,,,,file_read_control,c:/windows/system32/tasks/microsoft/windows/certificateservicesclient/usertask,-LA-
+26770542,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/windows/softwaredistribution/datastore/logs/edb.chk,-LA-
+26770542,,,516,2560,c:/windows/system32/services.exe,,,,,,,,,,,,,,-LA-
+26770542,,,356,,c:/windows/system32/csrss.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/winsxs/manifests/x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2.manifest,-LA-
+26770543,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26770543,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26770543,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26770546,,,0,,-,172.217.4.238,443,192.168.223.128,49294,,,,,,,,,,-LA-
+26770549,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/w32time.dll,-LA-
+26770551,,,3300,1684,c:/windows/system32/conhost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/en-us/conhost.exe.mui,-LA-
+26770553,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/netip6.pnf,-LA-
+26770553,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/eappcfg.dll,-LA-
+26770553,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/wlanhlp.dll,-LA-
+26770553,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/onex.dll,-LA-
+26770553,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/wlanapi.dll,-LA-
+26770553,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/microsoft/network/connections/pbk/_hiddenpbk,-LA-
+26770553,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770553,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/dot3api.dll,-LA-
+26770554,,,1052,636,c:/windows/system32/mobsync.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/wtsapi32.dll,-LA-
+26770554,,,1052,636,c:/windows/system32/mobsync.exe,,,,,,,,,,,,,,-LA-
+26770556,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,,,-LA-
+26770557,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/driverstore/infpub.dat,-LA-
+26770557,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,,,-LA-
+26770557,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,,,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/aspnet_state/001d,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/msdtc bridge 4.0.0.0/000c,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,,,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/rdyboost,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,,,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/0007,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/0008,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/000d,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/0011,-LA-
+26770558,,,1148,2164,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/0816,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/driverstore/filerepository/vm3d.inf_x86_neutral_f21862aeec8c46e8,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/secrecs.inf,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/.net memory cache 4.0,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/aspnet_state/0001,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770561,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/msdtc bridge 4.0.0.0/0012,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/servicemodeloperation 3.0.0.0/0409,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/ugatherer/0409,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory)_writedata_(or_addfile),c:/windows/inf/setupapi.app.log,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/driverstore/infpub.dat,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/asp.net_4.0.30319/0014,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/msdtc bridge 4.0.0.0/000a,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/msdtc bridge 4.0.0.0/000c,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/servicemodelendpoint 3.0.0.0,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/smsvchost 3.0.0.0,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/0014,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/ugatherer,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/windows workflow foundation 4.0.0.0/0012,-LA-
+26770562,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/windows workflow foundation 4.0.0.0/0804,-LA-
+26770562,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/oem10.pnf,-LA-
+26770562,,,1984,2608,c:/windows/system32/schtasks.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/sechost.dll,-LA-
+26770563,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf,-LA-
+26770563,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/.net clr networking 4.0.0.0/0007,-LA-
+26770563,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/.netframework/0000,-LA-
+26770563,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/aspnet_state/000c,-LA-
+26770563,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/aspnet_state/0015,-LA-
+26770564,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/0006,-LA-
+26770564,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/windows workflow foundation 4.0.0.0/0007,-LA-
+26770564,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/windows workflow foundation 4.0.0.0/0014,-LA-
+26770564,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/wmvcore.dll,-LA-
+26770567,,,2552,516,c:/windows/system32/sdclt.exe,,,,,,,,,,,,,,-LA-
+26770567,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/program files,-LA-
+26770567,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26770569,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/drivers/bthusb.sys,-LA-
+26770569,,,0,,-,172.217.4.238,443,192.168.223.128,49281,,,,,,,,,,-LA-
+26770571,,,1796,408,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26770572,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/windows/system32/sdclt.exe,-LA-
+26770573,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/cscsvc.dll,-LA-
+26770573,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770575,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770575,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/inf/mshdc.pnf,-LA-
+26770575,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf,-LA-
+26770575,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/mshdc.pnf,-LA-
+26770576,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/microsoft/windows/start menu/programs/accessories/desktop.ini,-LA-
+26770576,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/programdata/microsoft/windows/start menu/programs/accessories/desktop.ini,-LA-
+26770576,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/en-us/synccenter.dll.mui,-LA-
+26770576,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770576,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/en-us/recdisc.exe.mui,-LA-
+26770576,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26770577,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770577,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770577,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf,-LA-
+26770578,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770578,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf,-LA-
+26770578,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/inf/machine.pnf,-LA-
+26770578,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/inf/machine.pnf,-LA-
+26770578,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770578,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/driverstore/en-us,-LA-
+26770579,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770579,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770579,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf,-LA-
+26770579,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770579,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770579,,,636,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32/driverstore/en-us,-LA-
+26770583,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770583,,,840,516,/device/harddiskvolume1/windows/system32/svchost.exe,172.217.4.37,443,192.168.223.128,49276,,,,,,,,,,-LA-
+26770583,,,0,,-,172.217.4.238,443,192.168.223.128,49281,,,,,,,,,,-LA-
+26770588,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32/wdi/{86432a0b-3c7d-4ddf-a89c-172faa90485d},-LA-
+26770611,,,1796,408,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26770635,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/wscisvif.dll,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/driverstore/filerepository/vm3d.inf_x86_neutral_f21862aeec8c46e8/vm3d.pnf,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/driverstore/infpub.dat,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/printupg.inf,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/asp.net/0013,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/msdtc bridge 4.0.0.0/0014,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/windows workflow foundation 4.0.0.0/0012,-LA-
+26770669,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/driverstore/infpub.dat,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/.net clr networking/0409,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/asp.net/0804,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/asp.net_4.0.30319/0008,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/asp.net_4.0.30319/0009,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/aspnet_state/0012,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/inf/msdtc bridge 4.0.0.0/0005,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/smsvchost 4.0.0.0/000b,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/inf/windows workflow foundation 4.0.0.0/0804,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/driverstore/infpub.dat,-LA-
+26770670,,,3340,1764,c:/windows/system32/winsat.exe,,,,,,,,,,,,,,-LA-
+26770670,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770688,,,872,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770689,,,0,,-,192.168.223.3,8612,192.168.223.255,8612,,,,,,,,,,-LA+
+26770691,,,0,,-,192.168.223.3,37032,255.255.255.255,3289,,,,,,,,,,-LA+
+26770764,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/,-LA-
+26770800,,,3732,2480,c:/windows/system32/wbem/wmiadap.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/windows/system32/perfh009.dat,-LA-
+26770800,,,3732,2480,c:/windows/system32/wbem/wmiadap.exe,,,,,,,,,,,,,,-LA-
+26770851,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/685a1cde152e5e03d8e24672275a89952eb70a78,-LA-
+26770851,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_write_dac,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/doomed/18807,-LA-
+26770851,,,,,,,,,,request,clients5.google.com/pagead/drt/dn/dn.js,,,,,,,,-LB-
+26770854,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/2732bcc97e7eb9ec9de3e8ea8f56d7971cbdcd22,-LA-
+26770855,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_write_dac,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/doomed/2741,-LA-
+26770856,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries,-LA-
+26770857,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26770857,,,,,,,,,,request,apis.google.com/js/api.js,,,,,,,,-LB-
+26770860,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26770860,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/f18d85f52ebbba2ab081ef739ed0d6e8a76d497c,-LA-
+26770862,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_readea_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/6777ba2070ce2970f92706b8bf221d7b8a836cbe,-LA-
+26770862,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/f4754352506fc40628e43c7372bfd1c938c0d50d,-LA-
+26770865,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/windows/fonts/arial.ttf,-LA-
+26770865,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26770866,,,,,,,,,,response,,,302,mail.google.com,,mail.google.com/mail/u/0,,,-LB-
+26770867,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/7d02e555fb1b95b1b6f47a09eba3cdeffeee3afd,-LA-
+26770870,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/6377f93e2fd66360fa65722439988dbcf58fda9e,-LA-
+26770872,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_readea_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/80185f0cd267b4c51b229df8e04b45f10ad9226b,-LA-
+26770873,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_readea_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/f2ad831b8956f619a2957024e667c978a36ce2cd,-LA-
+26770873,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/50401333b277767409b071af000df7fa7233b53e,-LA-
+26770873,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control,c:/windows/fonts/arial.ttf,-LA-
+26770875,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/07de072eb24ab751fa4ae9ea70bba32ae633da37,-LA-
+26770881,,,1184,516,/device/harddiskvolume1/windows/system32/svchost.exe,192.168.223.128,60881,192.168.223.2,53,,,,,,,,,,-LA-
+26770882,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/309e29b01dbe395be9c666b95c2e5e1a798766fa,-LA-
+26770882,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/586a78b45dac68a357b6203744d1b267685eb4dd,-LA-
+26770882,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/roaming/mozilla/firefox/profiles/a6gl280b.default/sessionstore-backups/recovery.js.tmp,-LA-
+26770884,,,,,,,,,,request,,/chat/v1/conversations/syncrecentconversations?key=aizasyd7innyr3vkdb4j2rmuebtcir2vyeazl6k&reqid=cs1510008647270&alt=protojson,,clients6.google.com,hangouts.google.com/webchat/u/0/load?client=sm&prop=gmail&nav=true&fid=gtn-roster-iframe-id&os=win32&stime=1541467281376&xpc=%7b%22cn%22%3a%22iu3nx4%22%2c%22tp%22%3a1%2c%22ifrid%22%3a%22gtn-roster-iframe-id%22%2c%22pu%22%3a%22https%3a%2f%2fhangouts.google.com%2fwebchat%2fu%2f0%2f%22%7d&ec=%5b%22ci%3aec%22%2ctrue%2ctrue%2cfalse%5d&pvt=amp3uwzgkadvmyfyvjm6kosgkstu4dya8q5boiedmc2dayuw_ooerzrikvw3xd5zof7_tyc0ompjrwl2eyn8pgyey84mhlbnqw%3d%3d&href=https%3a%2f%2fmail.google.com%2fmail%2fu%2f0%2f%23inbox%2ffmfcgxvzlxbnlbxnghmdswfwtdrgdbzl%3frel%3d1&pos=l&uiv=2&hl=en-gb&hpc=true&hsm=true&hrc=true&pal=1&uqp=false&gooa=false&gltsi=true&gusm=true&sl=false&hs=%5b%22h_hs%22%2cnull%2cnull%2c%5b2%2c0%5d%5d&moleh=380&mmoleh=36&two=https%3a%2f%2fmail.google.com&host=1&zx=4xakc8pbfqw7,,,,-LB-
+26770884,,,,,,,,,,request,,,,clients6.google.com,,,,,-LB-
+26770885,,,,,,,,,,response,,,200,,,,,,-LB-
+26770885,,,,,,,,,,response,,,200,,,,,,-LB-
+26770885,,,,,,,,,,request,mail.google.com/_/scs/mail-static/_/js/k=gmail.main.en_gb.j_d1keiqmmk.o/am=_ot4mb6qr-9zfbro2xgbdgddurga9n9gkewlb_sbewiqzqkc-cpj_2z8af7_kw4gaaaaaaaaaaaaaaaaaaaav6cjfg/rt=j/d=1/exm=aqzzkav2a7cb00vacctcdedunnfeevzc0dff0r9cgz34uis2gkiibrjfj03diekgu6tem25vpbmaqnkfmhpzhfmmhummiggyn35dycnvcosoixrwpksrlepzhdzbpabahdps3hacq8azufri4gosz7w7ctrl7bcuzdbgeuq2dtdvoaugdvetcobvtsflcwi7wtwqkexdwwwwbcxwpl1cyesrdbzuhrffzdoxdbaegfwfatvcxmwhecoicsdfpypfdjobodfhif4bdigbf5itjgpo6jperqbkdvnwbkl0rjfluppndlhj7rme4mjm_imlnxdxbdo2ajqepa5mjbpaupvpk1i4dpmckacpupi7ermqdjcsmsospcspitsplspssptttnecjdtou7exmduuoh9cvxhlbevlbw0fypdwhcxddws0dlbwvjfzdx8nlqexgitfdywjzbc/ed=1/im=1/rs=ahgwq9aloreqg39dqdav4chm-m4gd-6ctq/m=laqh9b,,,,,,,,-LB-
+26770886,,,3148,1760,/device/harddiskvolume1/program files/mozilla firefox/firefox.exe,192.168.223.128,49306,192.168.223.3,9999,,,,,,,,,,-LA+
+26770886,,,,,,,,,,request,mail.google.com/favicon.ico,,,,,,,,-LB-
+26770887,,,,,,,,,,request,ssl.gstatic.com/chat/babble/sprites/common-517bca7f07a37c64c3263a1411e266a5.png,,,,,,,,-LB-
+26770888,,,2644,516,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/windows/fonts/segoeui.ttf,-LA-
+26770889,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26770890,,,1328,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770891,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/entries/08adffe07b7daeec8da79a2f7b55bc1cdc3c00e2,-LA-
+26770891,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26770891,,,,,,,,,,request,9.client-channel.google.com/client-channel/client?cfg=%7b%222%22%3a%22hangouts%22%2c%226%22%3a%22gmail%22%2c%227%22%3a%22chat_frontend_20181031.07_p0%22%2c%228%22%3afalse%2c%2213%22%3afalse%7d&ctype=hangouts&xpc=%7b%22cn%22%3a%227qdivwqkvz%22%2c%22tp%22%3anull%2c%22osh%22%3anull%2c%22ppu%22%3a%22https%3a%2f%2fhangouts.google.com%2frobots.txt%22%2c%22lpu%22%3a%22https%3a%2f%2f9.client-channel.google.com%2frobots.txt%22%7d,,,,,,,,-LB-
+26770892,,,2504,1796,c:/program files/vmware/vmware tools/vmwareresolutionset.exe,,,,,,,,,,,,,,-LA-
+26770896,,,1796,408,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse_readattributes,c:/program files/vmware/vmware tools/vmwareresolutionset.exe,-LA-
+26770897,,,1184,516,/device/harddiskvolume1/windows/system32/svchost.exe,192.168.223.128,65503,192.168.223.2,53,,,,,,,,,,-LA-
+26770897,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/roaming/mozilla/firefox/profiles/a6gl280b.default/sessionstore-backups/recovery.js,-LA-
+26770900,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/roaming/mozilla/firefox/profiles/a6gl280b.default/permissions.sqlite-journal,-LA-
+26770900,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/wtsapi32.dll,-LA-
+26770901,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,,,-LA-
+26770901,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/adobe/flash player,-LA-
+26770901,,,3456,2540,c:/windows/system32/audiodg.exe,,,,,,,,,,,,,,-LA-
+26770901,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770901,,,3456,2540,c:/windows/system32/audiodg.exe,,,,,,,,,,,,,,-LA-
+26770903,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770928,,,896,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control,c:/windows/fonts/segoeuii.ttf,-LA-
+26770935,,,296,1796,c:/program files/vmware/vmware tools/vmwareresolutionset.exe,,,,,,,,,,,,,,-LA-
+26770941,,,3976,1796,c:/program files/vmware/vmware tools/vmwareresolutionset.exe,,,,,,,,,,,,,,-LA-
+26770943,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26770943,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/adobe/flash player,-LA-
+26770943,,,,,,,,,,request,0xalsaheel.com:9999/utblfno,,,,,,,,-LB+
+26770944,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,,,-LA-
+26770946,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/roaming/mozilla/firefox/profiles/a6gl280b.default/sessionstore-backups/recovery.js.tmp,-LA-
+26770964,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/tzres.dll,-LA-
+26770975,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32/macromed/flash,-LA-
+26770975,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/adobe/flash player,-LA-
+26770975,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/adobe/flash player,-LA-
+26770976,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/doomed,-LA-
+26770976,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/cache2/doomed/13158,-LA-
+26770981,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/adobe/flash player,-LA-
+26770981,,,,,,,,,,response,,,200,,,,,,-LB-
+26770983,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,,,-LA-
+26770984,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26770984,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,,,-LA-
+26770984,,,1656,,c:/windows/system32/taskhost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/microsoft,-LA-
+26770985,,,2012,3148,/device/harddiskvolume1/program files/mozilla firefox/plugin-container.exe,192.168.223.128,49311,192.168.223.3,8888,,,,,,,,,,-LA+
+26770987,,,1312,2164,c:/windows/system32/dllhost.exe,,,,,,,,,,,,,,-LA-
+26770987,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/usp10.dll,-LA-
+26770987,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/wininet.dll,-LA-
+26770987,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26770988,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,,,-LA-
+26771004,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26771016,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_read_control_synchronize_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_writeea_readattributes_writeattributes,c:/users/aalsahee/payload.exe,-LA+
+26771016,,,2012,3148,c:/program files/mozilla firefox/plugin-container.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/payload.exe,-LA+
+26771017,,,2540,2480,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,,,-LA-
+26771017,,,2540,2480,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771017,,,2540,2480,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771017,,,2540,2480,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_read_control,c:/users/aalsahee/payload.exe,-LA+
+26771017,,,2540,2480,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/payload.exe,-LA+
+26771017,,,2540,2480,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_read_control_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771026,,,1184,516,/device/harddiskvolume1/windows/system32/svchost.exe,0.0.0.0,61453,,,,,,,,,,,,-LA-
+26771033,,,744,2012,c:/windows/system32/cmd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,744,2012,c:/windows/system32/cmd.exe,,,,,,,,,,,,file_execute/traverse,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,,,-LA+
+26771033,,,744,2012,c:/windows/system32/cmd.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,744,2012,c:/windows/system32/cmd.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,744,2012,c:/windows/system32/cmd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/payload.exe,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_synchronize_execute/traverse,c:/users/aalsahee,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/version.dll,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/version.dll,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32/imm32.dll,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/imm32.dll,-LA+
+26771033,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/globalization/sorting/sortdefault.nls,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_readea_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/local/microsoft/windows/temporary internet files/counters.dat,-LA+
+26771033,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_readdata_(or_listdirectory)_writedata_(or_addfile),c:/users/aalsahee/appdata/local/microsoft/windows/temporary internet files/counters.dat,-LA+
+26771033,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_readea,c:/users/aalsahee/payload.exe,-LA+
+26771033,,,920,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/payload.exe,-LA+
+26771033,,,892,516,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_-_access_mask:	0x0_privileges_used_for_access_check:	-"_audit_success	11/5/2018_8:23:53_pm	microsoft-windows-security-auditing	4658	file_system	"the_handle_to_an_object_was_closed.,c:/windows/temp/tmpb81d613831d1ee05,-LA+
+26771037,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readea,c:/users/aalsahee/payload.exe,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_readattributes,c:/windows/system32/wininet.dll,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_execute/traverse_readattributes,c:/windows/windowsshell.manifest,-LA+
+26771037,,,2592,744,/device/harddiskvolume1/users/aalsahee/payload.exe,0.0.0.0,49314,,,,,,,,,,,,-LA+
+26771037,,,2592,744,/device/harddiskvolume1/users/aalsahee/payload.exe,192.168.223.128,49314,192.168.223.3,8080,,,,,,,,,,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_read_control,c:/users/aalsahee/appdata/locallow,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_read_control_synchronize_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance)_writeea_readattributes_writeattributes,c:/users/aalsahee/appdata/local/temp/cabd28a.tmp,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_writedata_(or_addfile)_appenddata_(or_addsubdirectory_or_createpipeinstance),c:/users/aalsahee/appdata/local/temp/cabd28a.tmp,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_writeattributes,c:/users/aalsahee/appdata/local/temp/tard28b.tmp,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_delete_readattributes,c:/users/aalsahee/appdata/local/temp/cabd28a.tmp,-LA+
+26771037,,,2592,744,c:/users/aalsahee/payload.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/temp/cabd28a.tmp,-LA+
+26771047,,,3148,1760,,,,,,,,,,,,,,,-LA-
+26771064,,,,,,,,,,request,,/log?format=json&hasfast=true&u=0&authuser=0,,play.google.com,mail.google.com/mail/u/0,,,,-LB-
+26771085,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26771124,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26771124,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/tzres.dll,-LA-
+26771144,,,,,,,,,,request,ssl.gstatic.com/ui/v1/icons/mail/images/cleardot.gif?zx=tkxhpnlvas53,,,,,,,,-LB-
+26771167,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/program files/mozilla firefox,-LA-
+26771167,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26771176,,,1796,408,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26771184,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/tzres.dll,-LA-
+26771224,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/tzres.dll,-LA-
+26771284,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,,,-LA-
+26771300,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26771315,,,3400,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/wer.dll,-LA-
+26771315,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/payload.exe,-LA+
+26771315,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/payload.exe,-LA+
+26771315,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,,,-LA-
+26771315,,,412,,c:/windows/system32/csrss.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/winsxs/manifests/x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2.manifest,-LA-
+26771316,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26771316,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/imm32.dll,-LA-
+26771383,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32/rsaenh.dll,-LA-
+26771383,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/users/aalsahee/appdata/local/microsoft/windows/wer/reportarchive/appcrash_payload.exe_9a5092658ed366c3e4ebcdbbc19ba8acff40623_0b821a05,-LA+
+26771383,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_synchronize_writedata_(or_addfile)_readattributes,c:/users/aalsahee/appdata/local/microsoft/windows/wer/reportarchive/appcrash_payload.exe_9a5092658ed366c3e4ebcdbbc19ba8acff40623_0b821a05/report.wer,-LA+
+26771383,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_synchronize_writeattributes,c:/users/aalsahee/appdata/local/microsoft/windows/wer/reportarchive/appcrash_payload.exe_9a5092658ed366c3e4ebcdbbc19ba8acff40623_0b821a05/report.wer,-LA+
+26771383,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_writeattributes,c:/users/aalsahee/appdata/local/microsoft/windows/wer/reportarchive/appcrash_payload.exe_9a5092658ed366c3e4ebcdbbc19ba8acff40623_0b821a05/report.wer,-LA+
+26771383,,,2964,3400,c:/windows/system32/werfault.exe,,,,,,,,,,,,file_writedata_(or_addfile),c:/users/aalsahee/appdata/local/microsoft/windows/wer/reportarchive/appcrash_payload.exe_9a5092658ed366c3e4ebcdbbc19ba8acff40623_0b821a05/report.wer,-LA+
+26771388,,,3680,628,c:/program files/vmware/vmware tools/vmwareresolutionset.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/program files/vmware/vmware tools/intl.dll,-LA-
+26771390,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/searchfilterhost.exe,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/start menu/programs,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/internet explorer/quick launch/user pinned/taskbar/windows explorer.lnk,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/microsoft/windows/start menu/programs/accessories/system tools,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/microsoft/windows/start menu/programs/accessories/desktop.ini,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771395,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/programdata/microsoft/windows/start menu/programs/accessories/desktop.ini,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/start menu/programs/accessories/system tools,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/roaming,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/microsoft/windows/start menu/programs/games,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/microsoft/windows/recent,-LA-
+26771396,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/programdata/microsoft/windows/start menu/programs/winpcap,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/programdata/microsoft/windows/start menu,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/recent,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/recent/security_events (2).lnk,-LA-
+26771397,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771397,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/test-unwanted-simple.sbstore,-LA-
+26771397,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing,-LA-
+26771397,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26771397,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writedata_(or_addfile),c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/except-flashsubdoc-digest256.sbstore,-LA-
+26771397,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,,,-LA-
+26771397,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_writeattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing/goog-downloadwhite-digest256.sbstore,-LA-
+26771398,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup/mozplugin-block-digest256.pset,-LA-
+26771398,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-backup,-LA-
+26771399,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,,,-LA-
+26771399,,,412,,c:/windows/system32/csrss.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/winsxs/manifests/x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2.manifest,-LA-
+26771399,,,412,,c:/windows/system32/csrss.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/winsxs/manifests/x86_microsoft.windows.c..-controls.resources_6595b64144ccf1df_6.0.7600.16385_en-us_581cd2bf5825dde9.manifest,-LA-
+26771399,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/zipfldr.dll,-LA-
+26771399,,,412,,c:/windows/system32/csrss.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/winsxs/manifests/x86_microsoft.windows.c..-controls.resources_6595b64144ccf1df_6.0.7600.16385_en-us_581cd2bf5825dde9.manifest,-LA-
+26771399,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-to_delete/except-flash-digest256.sbstore,-LA-
+26771399,,,3148,1760,c:/program files/mozilla firefox/firefox.exe,,,,,,,,,,,,file_delete,c:/users/aalsahee/appdata/local/mozilla/firefox/profiles/a6gl280b.default/safebrowsing-to_delete/goog-malware-shavar.sbstore,-LA-
+26771400,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/programdata/microsoft/windows/start menu,-LA-
+26771400,,,2508,1776,c:/windows/system32/consent.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/uxtheme.dll,-LA-
+26771400,,,2508,1776,c:/windows/system32/consent.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/rsaenh.dll,-LA-
+26771400,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26771400,,,2508,1776,c:/windows/system32/consent.exe,,,,,,,,,,,,,,-LA-
+26771401,,,2508,1776,c:/windows/system32/consent.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/users/aalsahee/appdata/roaming/microsoft/systemcertificates/my/ctls,-LA-
+26771401,,,2508,1776,c:/windows/system32/consent.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee/appdata/locallow/microsoft/cryptneturlcache/metadata/696f3de637e6de85b458996d49d759ad,-LA-
+26771401,,,3724,632,c:/windows/system32/dllhost.exe,,,,,,,,,,,,,,-LA-
+26771401,,,3724,632,c:/windows/system32/dllhost.exe,,,,,,,,,,,,,,-LA-
+26771401,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26771401,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/usp10.dll,-LA-
+26771401,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readattributes,c:/windows/system32/mmc.exe,-LA-
+26771402,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows,-LA-
+26771402,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32,-LA-
+26771402,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32,-LA-
+26771403,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/sxs.dll,-LA-
+26771405,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26771405,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26771406,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/assembly/gac_msil/mmcfxcommon/3.0.0.0__31bf3856ad364e35,-LA-
+26771407,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/en-us/msctf.dll.mui,-LA-
+26771407,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/,-LA-
+26771410,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/wevtapi.dll,-LA-
+26771413,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26771414,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/winhttp.dll,-LA-
+26771416,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/oobe/cmisetup.dll,-LA-
+26771416,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/deviceuxres.dll,-LA-
+26771417,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26771418,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/oleaccrc.dll,-LA-
+26771420,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/perfos.dll,-LA-
+26771420,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/d3d10level9.dll,-LA-
+26771420,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/en-us/adsldpc.dll.mui,-LA-
+26771421,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/dwmcore.dll,-LA-
+26771422,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/drt.dll,-LA-
+26771422,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/setupetw.dll,-LA-
+26771423,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,,,-LA-
+26771423,,,840,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/sharemediacpl.dll,-LA-
+26771424,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/windows/system32/tzres.dll,-LA-
+26771425,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,,,-LA-
+26771428,,,412,,c:/windows/system32/csrss.exe,,,,,,,,,,,,,,-LA-
+26771428,,,412,,c:/windows/system32/csrss.exe,,,,,,,,,,,,file_readattributes,c:/windows/winsxs/manifests/x86_microsoft.windows.c..-controls.resources_6595b64144ccf1df_6.0.7600.16385_en-us_581cd2bf5825dde9.manifest,-LA-
+26771429,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/secur32.dll,-LA-
+26771429,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/pictures/desktop.ini,-LA-
+26771429,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/links/desktop.ini,-LA-
+26771429,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming,-LA-
+26771429,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26771429,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/network shortcuts,-LA-
+26771429,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/appdata/roaming/microsoft/windows/network shortcuts,-LA-
+26771430,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/downloads/desktop.ini,-LA-
+26771430,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users,-LA-
+26771433,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26771444,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/,-LA-
+26771452,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/public/desktop/desktop.ini,-LA-
+26771452,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26771452,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26771480,,,2232,,c:/program files/vmware/vmware tools/vmtoolsd.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/programdata/vmware/vmware tools,-LA-
+26771484,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/tzres.dll,-LA-
+26771484,,,2180,,c:/windows/system32/wbem/wmiprvse.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/,-LA-
+26771502,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/users/aalsahee/links/desktop.ini,-LA-
+26771502,,,3560,916,c:/windows/system32/dllhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory),c:/windows/system32/rpcss.dll,-LA-
+26771502,,,3560,916,c:/windows/system32/dllhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/winsxs/x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.17514_none_ec83dffa859149af/comctl32.dll,-LA-
+26771502,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users,-LA-
+26771502,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users,-LA-
+26771502,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,,,-LA-
+26771502,,,892,516,c:/windows/system32/svchost.exe,,,,,,,,,,,,file_synchronize_readattributes,c:/windows/system32/shlwapi.dll,-LA-
+26771503,,,2332,636,c:/windows/system32/dllhost.exe,,,,,,,,,,,,file_execute/traverse,c:/windows/system32/thumbcache.dll,-LA-
+26771504,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/,-LA-
+26771504,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readattributes,c:/users/aalsahee/desktop/logs,-LA-
+26771504,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_readattributes,c:/users/aalsahee,-LA-
+26771516,,,1632,3904,c:/windows/system32/mmc.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users,-LA-
+26771516,,,1636,628,c:/windows/system32/searchfilterhost.exe,,,,,,,,,,,,file_synchronize_readdata_(or_listdirectory)_execute/traverse,c:/windows/system32/mssprxy.dll,-LA-
+26771516,,,3396,1684,c:/windows/system32/searchprotocolhost.exe,,,,,,,,,,,,file_read_control_synchronize_readdata_(or_listdirectory)_readea_readattributes,c:/windows/system32/rsaenh.dll,-LA-
+26771516,,,1760,,c:/windows/explorer.exe,,,,,,,,,,,,file_readdata_(or_listdirectory),c:/users/aalsahee,-LA-

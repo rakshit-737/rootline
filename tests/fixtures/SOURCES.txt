@@ -1,0 +1,23 @@
+Test fixtures: small, unmodified (or line-sampled) excerpts of public datasets.
+None contain executable content; they are event logs.
+
+sysmon_t1548_find.log
+    Splunk attack_data, datasets/attack_techniques/T1548/find/sysmon_linux.log
+    https://github.com/splunk/attack_data  (Apache-2.0)
+
+auditd_arp_cache.log
+    OTRF Security-Datasets, datasets/atomic/linux/discovery/host/sh_arp_cache.zip
+    https://github.com/OTRF/Security-Datasets  (MIT)
+
+log4shell_sysmon.json, log4shell_auoms.json
+    OTRF Security-Datasets, datasets/compound/Log4Shell/
+      syslog_sysmon_log4shell_cve2021_44228_jndi_reference.zip
+      syslog_auoms_auditd_log4shell_cve2021_44228_jndi_reference.zip  (MIT)
+
+atlas_mini/
+    680-line sample of ATLAS paper_experiments/S1 (CVE-2015-5122):
+    every distinct attack-labelled line kind + 600 random benign audit lines
+    + 30 browser lines, original order. Metadata files copied from
+    testing_logs/S1-CVE-2015-5122_windows. https://github.com/purseclab/ATLAS
+    (Apache-2.0). Alsaheel et al., "ATLAS: A Sequence-based Learning Approach
+    for Attack Investigation", USENIX Security 2021.
