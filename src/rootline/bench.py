@@ -147,8 +147,8 @@ def run_atlas_scenario(sc: AtlasScenario, ioc: str | None = None,
 
 def reduction_stats(sc: AtlasScenario, raw: ProvenanceGraph | None = None) -> dict[str, Any]:
     raw = raw if raw is not None else build_graph(sc.records)[0]
-    gt_keys = {(e.src, e.dst, e.rel) for e in raw.edges
-               if e.seq in {ev.seq for ev in raw.events if ev.label == "attack"}}
+    attack_seqs = {ev.seq for ev in raw.events if ev.label == "attack"}  # hoisted: was rebuilt per edge (O(E*N))
+    gt_keys = {(e.src, e.dst, e.rel) for e in raw.edges if e.seq in attack_seqs}
     t0 = time.perf_counter()
     red, rep = reduce_graph(raw)
     dt = time.perf_counter() - t0
