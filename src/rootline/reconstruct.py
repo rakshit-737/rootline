@@ -24,8 +24,9 @@ ENTRY_EXT = re.compile(r"\.(docm?|xlsm?|pptm?|pdf|rtf|odt|zip|rar|7z|iso|lnk|js|
 USER_DIRS = re.compile(r"^/(home/[^/]+|root)/(Downloads|Desktop|Documents|tmp)/|^/tmp/")
 SYSTEM_PATHS = re.compile(r"^/(usr|bin|sbin|lib|etc|opt|proc|sys)/")
 
-STAGE_ORDER = ["initial-access", "delivery", "execution", "persistence", "credential-access",
-               "defense-evasion", "command-and-control", "exfiltration", "impact"]
+STAGE_ORDER = ["initial-access", "delivery", "execution", "persistence", "privilege-escalation",
+               "defense-evasion", "credential-access", "discovery", "lateral-movement", "collection",
+               "command-and-control", "exfiltration", "impact"]
 
 
 def backward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) -> tuple[set[str], list[Edge]]:

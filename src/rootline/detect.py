@@ -16,6 +16,7 @@ from typing import Callable, Iterable
 
 from .graph import ProvenanceGraph
 from .models import Alert, Edge, NodeType, Relation, Severity
+from .rules_linux import LINUX_RULES, discovery_bursts
 
 SHELLS = {"sh", "bash", "dash", "zsh", "ksh", "busybox"}
 DOC_HANDLERS = {"soffice", "soffice.bin", "libreoffice", "evince", "okular", "thunderbird",
@@ -122,10 +123,12 @@ def r_download(g: ProvenanceGraph, e: Edge) -> Alert | None:
     return None
 
 
-RULES: list[Callable[[ProvenanceGraph, Edge], Alert | None]] = [
+Rule = Callable[[ProvenanceGraph, Edge], "Alert | None"]
+RULES_V01: list[Rule] = [
     r_doc_spawns_shell, r_exec_from_writable, r_suspicious_connect, r_cred_access,
     r_persistence, r_log_tamper, r_download,
 ]
+RULES: list[Rule] = RULES_V01 + LINUX_RULES  # v0.2: + command-line rules for real telemetry
 
 
 # ------------------------------------------------------------------- anomaly
@@ -175,8 +178,13 @@ class RareTransitionModel:
         return out
 
 
-def detect(g: ProvenanceGraph, model: RareTransitionModel | None = None) -> list[Alert]:
-    alerts = [a for e in g.edges for r in RULES if (a := r(g, e)) is not None]
+def detect(g: ProvenanceGraph, model: RareTransitionModel | None = None,
+           rules: list[Rule] | None = None) -> list[Alert]:
+    """Run edge rules (default: all), the RL-018 aggregate, and optionally the anomaly model."""
+    rules = RULES if rules is None else rules
+    alerts = [a for e in g.edges for r in rules if (a := r(g, e)) is not None]
+    if rules is RULES:
+        alerts += discovery_bursts(g)
     if model is not None:
         alerts += model.tag(g)
     alerts.sort(key=lambda a: (a.ts, a.rule_id))
