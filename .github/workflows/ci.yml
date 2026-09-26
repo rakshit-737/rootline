@@ -8,6 +8,16 @@ permissions:
   contents: read
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "ruff>=0.5"
+      - run: ruff check src tests scripts
+
   test:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -21,6 +31,20 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e ".[dev]"
+      # real-data tests skip themselves: the public datasets are not in the repo
       - run: python -m pytest -q
       - name: demo smoke test
         run: python -m rootline.cli demo --outdir out --benign 200
+      - name: real-capture smoke test (committed OTRF Log4Shell excerpt)
+        run: python -m rootline.cli analyze tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_auoms.json
+
+  core-no-extras:
+    # the engine itself must keep working with the standard library only
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest -q
