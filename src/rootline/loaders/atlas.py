@@ -45,6 +45,7 @@ class AtlasScenario:
     host_ip: str
     attacker_ips: list[str]
     labels: list[str]            # malicious_labels.txt (entity ground truth)
+    artifacts: list[str] = field(default_factory=list)  # user_artifact.txt: the analyst's starting IOC
     records: list[dict[str, Any]] = field(default_factory=list)
     dropped: dict[str, int] = field(default_factory=dict)
 
@@ -139,7 +140,8 @@ def load_scenario(exp_dir: str, scenario: str) -> AtlasScenario:
     ips = _read_list(os.path.join(meta, "ips.txt"))
     labels = _read_list(os.path.join(meta, "malicious_labels.txt"))
     host_ip = ips[0] if ips else ""
-    sc = AtlasScenario(scenario, log, host_ip, ips[1:], labels)
+    artifacts = _read_list(os.path.join(meta, "user_artifact.txt"))
+    sc = AtlasScenario(scenario, log, host_ip, ips[1:], labels, artifacts)
     with open(log, encoding="utf-8", errors="replace") as fh:
         sc.records, sc.dropped = parse_lines(fh, host_ip, host=scenario.split("-")[0].lower())
     return sc
