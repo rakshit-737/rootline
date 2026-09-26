@@ -186,7 +186,7 @@ def read_auoms(lines: Iterable[str]) -> Iterator[dict[str, Any]]:
         f = kv(m.group(4))
         host = f.get("node", host)
         names, types = _auoms_list(f.get("path_name")), _auoms_list(f.get("path_nametype"))
-        paths = [{"name": n, "nametype": t, "item": str(i)} for i, (n, t) in enumerate(zip(names, types + [""] * len(names)))]
+        paths = [{"name": n, "nametype": t, "item": str(i)} for i, (n, t) in enumerate(zip(names, types + [""] * len(names), strict=False))]
         execve = None
         if f.get("syscall") in ("execve", "execveat"):
             pt = f.get("proctitle", "")
