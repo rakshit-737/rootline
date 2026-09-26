@@ -1,0 +1,25 @@
+{
+ "sysmon-only": {
+  "events": 103,
+  "vertices": 101,
+  "alerts": 2,
+  "story_vertices": 10,
+  "root_causes": [],
+  "reaches_java": false,
+  "reaches_ldap_1389": false,
+  "seconds": 0.034
+ },
+ "sysmon+auoms": {
+  "events": 108,
+  "vertices": 105,
+  "alerts": 2,
+  "story_vertices": 13,
+  "root_causes": [
+   "192.168.2.6:8888",
+   "192.168.2.6:1389"
+  ],
+  "reaches_java": true,
+  "reaches_ldap_1389": true,
+  "seconds": 0.034
+ }
+}

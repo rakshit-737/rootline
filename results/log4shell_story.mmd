@@ -1,0 +1,35 @@
+flowchart LR
+  n0[/"/bin/bash"/]
+  n1[/"/usr/bin/whoami"/]
+  n2(["java[1340]"])
+  n3(["bash[17790]"])
+  n4(["bash[17794]"])
+  n5(["bash[17794]"])
+  n6(["bash[17806]"])
+  n7(["bash[17806]"])
+  n8(["bash[17832]"])
+  n9(["whoami[17832]"])
+  n10{{"192.168.2.6:1389"}}
+  n11{{"192.168.2.6:443"}}
+  n12{{"192.168.2.6:8888"}}
+  n2 -->|connected| n10
+  n10 -->|received| n2
+  n2 -->|connected| n12
+  n12 -->|received| n2
+  n2 -->|forked| n3
+  n3 -->|forked| n3
+  n0 -->|executed| n3
+  n3 -->|forked| n4
+  n4 -->|forked| n5
+  n0 -->|executed| n5
+  n5 -->|forked| n6
+  n6 -->|forked| n7
+  n0 -->|executed| n7
+  n7 -->|connected| n11
+  n11 -->|received| n7
+  n7 -->|forked| n8
+  n8 -->|forked| n9
+  n1 -->|executed| n9
+  style n12 stroke:#d33,stroke-width:3px
+  style n10 stroke:#d33,stroke-width:3px
+  style n7 fill:#fdd

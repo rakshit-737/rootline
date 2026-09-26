@@ -1,0 +1,527 @@
+{
+  "schema": "rootline.story/v1",
+  "alert": {
+    "rule_id": "RL-003",
+    "node_id": "proc:ubuntu5:17806:36",
+    "ts": 1652292622.139,
+    "severity": "critical",
+    "description": "bash opened outbound connection to 192.168.2.6:443 (reverse shell / C2)",
+    "attack_technique": "T1071",
+    "kill_chain": "command-and-control",
+    "score": 1.0,
+    "evidence": [
+      37
+    ]
+  },
+  "root_causes": [
+    "192.168.2.6:8888",
+    "192.168.2.6:1389"
+  ],
+  "root_cause_ids": [
+    "sock:192.168.2.6:8888",
+    "sock:192.168.2.6:1389"
+  ],
+  "kill_chain": {
+    "initial-access": [
+      "192.168.2.6:8888",
+      "192.168.2.6:1389"
+    ],
+    "command-and-control": [
+      "bash[17806] connected to 192.168.2.6:443",
+      "192.168.2.6:443 sent data to bash[17806]"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "file:ubuntu5:/bin/bash",
+      "type": "file",
+      "label": "/bin/bash",
+      "role": "accessed",
+      "attrs": {
+        "path": "/bin/bash",
+        "host": "ubuntu5"
+      }
+    },
+    {
+      "id": "file:ubuntu5:/usr/bin/whoami",
+      "type": "file",
+      "label": "/usr/bin/whoami",
+      "role": "accessed",
+      "attrs": {
+        "path": "/usr/bin/whoami",
+        "host": "ubuntu5"
+      }
+    },
+    {
+      "id": "proc:ubuntu5:1340:3",
+      "type": "process",
+      "label": "java[1340]",
+      "role": "backward",
+      "attrs": {
+        "pid": 1340,
+        "ppid": 0,
+        "comm": "java",
+        "exe": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
+        "uid": 0,
+        "host": "ubuntu5"
+      }
+    },
+    {
+      "id": "proc:ubuntu5:17790:7",
+      "type": "process",
+      "label": "bash[17790]",
+      "role": "backward",
+      "attrs": {
+        "pid": 17790,
+        "ppid": 1340,
+        "comm": "bash",
+        "exe": "/bin/bash",
+        "uid": 1001,
+        "host": "ubuntu5",
+        "argv": ""
+      }
+    },
+    {
+      "id": "proc:ubuntu5:17794:10",
+      "type": "process",
+      "label": "bash[17794]",
+      "role": "backward",
+      "attrs": {
+        "pid": 17794,
+        "ppid": 17790,
+        "comm": "bash",
+        "exe": "/bin/bash",
+        "uid": 0,
+        "host": "ubuntu5"
+      }
+    },
+    {
+      "id": "proc:ubuntu5:17794:11",
+      "type": "process",
+      "label": "bash[17794]",
+      "role": "backward",
+      "attrs": {
+        "pid": 17794,
+        "ppid": 17790,
+        "comm": "bash",
+        "exe": "/bin/bash",
+        "uid": 0,
+        "host": "ubuntu5",
+        "argv": "bash -i"
+      }
+    },
+    {
+      "id": "proc:ubuntu5:17806:35",
+      "type": "process",
+      "label": "bash[17806]",
+      "role": "backward",
+      "attrs": {
+        "pid": 17806,
+        "ppid": 17794,
+        "comm": "bash",
+        "exe": "/bin/bash",
+        "uid": 0,
+        "host": "ubuntu5"
+      }
+    },
+    {
+      "id": "proc:ubuntu5:17806:36",
+      "type": "process",
+      "label": "bash[17806]",
+      "role": "backward",
+      "attrs": {
+        "pid": 17806,
+        "ppid": 17794,
+        "comm": "bash",
+        "exe": "/bin/bash",
+        "uid": 0,
+        "host": "ubuntu5",
+        "argv": "bash -i"
+      }
+    },
+    {
+      "id": "proc:ubuntu5:17832:89",
+      "type": "process",
+      "label": "bash[17832]",
+      "role": "forward",
+      "attrs": {
+        "pid": 17832,
+        "ppid": 17806,
+        "comm": "bash",
+        "exe": "/bin/bash",
+        "uid": 0,
+        "host": "ubuntu5"
+      }
+    },
+    {
+      "id": "proc:ubuntu5:17832:90",
+      "type": "process",
+      "label": "whoami[17832]",
+      "role": "forward",
+      "attrs": {
+        "pid": 17832,
+        "ppid": 17806,
+        "comm": "whoami",
+        "exe": "/usr/bin/whoami",
+        "uid": 0,
+        "host": "ubuntu5",
+        "argv": "whoami"
+      }
+    },
+    {
+      "id": "sock:192.168.2.6:1389",
+      "type": "socket",
+      "label": "192.168.2.6:1389",
+      "role": "root",
+      "attrs": {
+        "ip": "192.168.2.6",
+        "port": 1389
+      }
+    },
+    {
+      "id": "sock:192.168.2.6:443",
+      "type": "socket",
+      "label": "192.168.2.6:443",
+      "role": "backward",
+      "attrs": {
+        "ip": "192.168.2.6",
+        "port": 443
+      }
+    },
+    {
+      "id": "sock:192.168.2.6:8888",
+      "type": "socket",
+      "label": "192.168.2.6:8888",
+      "role": "root",
+      "attrs": {
+        "ip": "192.168.2.6",
+        "port": 8888
+      }
+    }
+  ],
+  "edges": [
+    {
+      "src": "proc:ubuntu5:1340:3",
+      "dst": "sock:192.168.2.6:1389",
+      "rel": "connected",
+      "ts": 1652292621.79,
+      "count": 1
+    },
+    {
+      "src": "sock:192.168.2.6:1389",
+      "dst": "proc:ubuntu5:1340:3",
+      "rel": "received",
+      "ts": 1652292621.79,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:1340:3",
+      "dst": "sock:192.168.2.6:8888",
+      "rel": "connected",
+      "ts": 1652292621.925,
+      "count": 1
+    },
+    {
+      "src": "sock:192.168.2.6:8888",
+      "dst": "proc:ubuntu5:1340:3",
+      "rel": "received",
+      "ts": 1652292621.925,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:1340:3",
+      "dst": "proc:ubuntu5:17790:7",
+      "rel": "forked",
+      "ts": 1652292621.99,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17790:7",
+      "dst": "proc:ubuntu5:17790:7",
+      "rel": "forked",
+      "ts": 1652292621.99,
+      "count": 1
+    },
+    {
+      "src": "file:ubuntu5:/bin/bash",
+      "dst": "proc:ubuntu5:17790:7",
+      "rel": "executed",
+      "ts": 1652292621.99,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17790:7",
+      "dst": "proc:ubuntu5:17794:10",
+      "rel": "forked",
+      "ts": 1652292622.018,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17794:10",
+      "dst": "proc:ubuntu5:17794:11",
+      "rel": "forked",
+      "ts": 1652292622.018,
+      "count": 1
+    },
+    {
+      "src": "file:ubuntu5:/bin/bash",
+      "dst": "proc:ubuntu5:17794:11",
+      "rel": "executed",
+      "ts": 1652292622.018,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17794:11",
+      "dst": "proc:ubuntu5:17806:35",
+      "rel": "forked",
+      "ts": 1652292622.138,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17806:35",
+      "dst": "proc:ubuntu5:17806:36",
+      "rel": "forked",
+      "ts": 1652292622.138,
+      "count": 1
+    },
+    {
+      "src": "file:ubuntu5:/bin/bash",
+      "dst": "proc:ubuntu5:17806:36",
+      "rel": "executed",
+      "ts": 1652292622.138,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17806:36",
+      "dst": "sock:192.168.2.6:443",
+      "rel": "connected",
+      "ts": 1652292622.139,
+      "count": 1
+    },
+    {
+      "src": "sock:192.168.2.6:443",
+      "dst": "proc:ubuntu5:17806:36",
+      "rel": "received",
+      "ts": 1652292622.139,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17806:36",
+      "dst": "proc:ubuntu5:17832:89",
+      "rel": "forked",
+      "ts": 1652292633.154,
+      "count": 1
+    },
+    {
+      "src": "proc:ubuntu5:17832:89",
+      "dst": "proc:ubuntu5:17832:90",
+      "rel": "forked",
+      "ts": 1652292633.154,
+      "count": 1
+    },
+    {
+      "src": "file:ubuntu5:/usr/bin/whoami",
+      "dst": "proc:ubuntu5:17832:90",
+      "rel": "executed",
+      "ts": 1652292633.154,
+      "count": 1
+    }
+  ],
+  "timeline": [
+    {
+      "ts": 1652292621.79,
+      "seq": 5,
+      "rel": "connected",
+      "src": "proc:ubuntu5:1340:3",
+      "dst": "sock:192.168.2.6:1389",
+      "text": "java[1340] connected to 192.168.2.6:1389",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292621.79,
+      "seq": 5,
+      "rel": "received",
+      "src": "sock:192.168.2.6:1389",
+      "dst": "proc:ubuntu5:1340:3",
+      "text": "192.168.2.6:1389 sent data to java[1340]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292621.925,
+      "seq": 6,
+      "rel": "connected",
+      "src": "proc:ubuntu5:1340:3",
+      "dst": "sock:192.168.2.6:8888",
+      "text": "java[1340] connected to 192.168.2.6:8888",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292621.925,
+      "seq": 6,
+      "rel": "received",
+      "src": "sock:192.168.2.6:8888",
+      "dst": "proc:ubuntu5:1340:3",
+      "text": "192.168.2.6:8888 sent data to java[1340]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292621.99,
+      "seq": 7,
+      "rel": "forked",
+      "src": "proc:ubuntu5:1340:3",
+      "dst": "proc:ubuntu5:17790:7",
+      "text": "java[1340] spawned bash[17790]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292621.99,
+      "seq": 7,
+      "rel": "forked",
+      "src": "proc:ubuntu5:17790:7",
+      "dst": "proc:ubuntu5:17790:7",
+      "text": "bash[17790] spawned bash[17790]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292621.99,
+      "seq": 7,
+      "rel": "executed",
+      "src": "file:ubuntu5:/bin/bash",
+      "dst": "proc:ubuntu5:17790:7",
+      "text": "/bin/bash was executed as bash[17790]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292622.018,
+      "seq": 10,
+      "rel": "forked",
+      "src": "proc:ubuntu5:17790:7",
+      "dst": "proc:ubuntu5:17794:10",
+      "text": "bash[17790] spawned bash[17794]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292622.018,
+      "seq": 11,
+      "rel": "forked",
+      "src": "proc:ubuntu5:17794:10",
+      "dst": "proc:ubuntu5:17794:11",
+      "text": "bash[17794] spawned bash[17794]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292622.018,
+      "seq": 11,
+      "rel": "executed",
+      "src": "file:ubuntu5:/bin/bash",
+      "dst": "proc:ubuntu5:17794:11",
+      "text": "/bin/bash was executed as bash[17794]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292622.138,
+      "seq": 35,
+      "rel": "forked",
+      "src": "proc:ubuntu5:17794:11",
+      "dst": "proc:ubuntu5:17806:35",
+      "text": "bash[17794] spawned bash[17806]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292622.138,
+      "seq": 36,
+      "rel": "forked",
+      "src": "proc:ubuntu5:17806:35",
+      "dst": "proc:ubuntu5:17806:36",
+      "text": "bash[17806] spawned bash[17806]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292622.138,
+      "seq": 36,
+      "rel": "executed",
+      "src": "file:ubuntu5:/bin/bash",
+      "dst": "proc:ubuntu5:17806:36",
+      "text": "/bin/bash was executed as bash[17806]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292622.139,
+      "seq": 37,
+      "rel": "connected",
+      "src": "proc:ubuntu5:17806:36",
+      "dst": "sock:192.168.2.6:443",
+      "text": "bash[17806] connected to 192.168.2.6:443",
+      "stage": "command-and-control",
+      "alerts": [
+        "RL-003"
+      ]
+    },
+    {
+      "ts": 1652292622.139,
+      "seq": 37,
+      "rel": "received",
+      "src": "sock:192.168.2.6:443",
+      "dst": "proc:ubuntu5:17806:36",
+      "text": "192.168.2.6:443 sent data to bash[17806]",
+      "stage": "command-and-control",
+      "alerts": [
+        "RL-003"
+      ]
+    },
+    {
+      "ts": 1652292633.154,
+      "seq": 89,
+      "rel": "forked",
+      "src": "proc:ubuntu5:17806:36",
+      "dst": "proc:ubuntu5:17832:89",
+      "text": "bash[17806] spawned bash[17832]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292633.154,
+      "seq": 90,
+      "rel": "forked",
+      "src": "proc:ubuntu5:17832:89",
+      "dst": "proc:ubuntu5:17832:90",
+      "text": "bash[17832] spawned whoami[17832]",
+      "stage": null,
+      "alerts": []
+    },
+    {
+      "ts": 1652292633.154,
+      "seq": 90,
+      "rel": "executed",
+      "src": "file:ubuntu5:/usr/bin/whoami",
+      "dst": "proc:ubuntu5:17832:90",
+      "text": "/usr/bin/whoami was executed as whoami[17832]",
+      "stage": null,
+      "alerts": []
+    }
+  ],
+  "iocs": {
+    "ipv4": [
+      "192.168.2.6"
+    ],
+    "files": [],
+    "sha256": []
+  },
+  "integrity": {
+    "hash_chain_head": "d1b6e3cde1f07bcf93a670231d4002586cfbab5a7aa3b935a75b910176898656",
+    "events": 108
+  }
+}
