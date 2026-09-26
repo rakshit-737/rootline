@@ -105,9 +105,10 @@ def figures(atlas: dict | None, cov: dict | None) -> None:
             ax.set_title(f"event-level {metric}")
             ax.set_ylim(0, 1.05)
             ax.grid(axis="y", alpha=0.3)
-        axes[0].legend(fontsize=8, loc="upper left")
+        handles, labels = axes[0].get_legend_handles_labels()
+        fig.legend(handles, labels, fontsize=8, loc="lower center", ncol=len(methods), frameon=False)
         fig.suptitle("ATLAS S1-S4: reconstruction from the analyst IOC vs ATLAS event labels", fontsize=10)
-        fig.tight_layout()
+        fig.tight_layout(rect=(0, 0.07, 1, 1))
         fig.savefig(fig_dir / "atlas_prf.png", dpi=110)
         plt.close(fig)
     if cov:
