@@ -63,13 +63,15 @@ def summary(sid: str, name: str, a: Analysis) -> dict[str, Any]:
             "root_causes": [a.graph.nodes[n].label for n in r.root_causes] if r else []}
 
 
-def create_app(preload: list[str] | None = None) -> FastAPI:
+def create_app(preload: list[str | list[str]] | None = None) -> FastAPI:
+    """``preload``: captures to analyse at start-up; a list entry is fused (several sensors, one host)."""
     app = FastAPI(title="ROOTLINE", version=__version__,
                   description="Provenance-graph attack reconstruction (lab use only)")
     store = Store()
     app.state.store = store
-    for path in preload or []:
-        store.add(os.path.basename(path), analyze(load_many([path])))
+    for item in preload or []:
+        paths = item if isinstance(item, list) else [item]
+        store.add(" + ".join(os.path.basename(p) for p in paths), analyze(load_many(paths)))
 
     @app.get("/", response_class=HTMLResponse)
     def index() -> str:

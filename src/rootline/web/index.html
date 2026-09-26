@@ -37,7 +37,7 @@ input[type=file] { display: none; }
 .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 #stage { position: relative; }
 #graph { width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
-#graph text { font-size: 11px; fill: var(--ink); }
+#graph text { font-size: 13px; fill: var(--ink); }
 .edge { fill: none; stroke: var(--line); stroke-width: 1.2; }
 .edge.on { stroke: var(--muted); }
 .edge.now { stroke: var(--hl); stroke-width: 2.5; }
@@ -116,7 +116,8 @@ async function refresh(select) {
 async function load(id) {
   stop();
   cur = await api(`/api/stories/${id}`);
-  step = 0;
+  const m = /step=(\d+)/.exec(location.hash);  // shareable replay position: #step=12
+  step = m ? +m[1] : 0;
   refresh();
   const s = cur.summary;
   $("head").textContent = `${s.name}: ${s.events.toLocaleString()} events, ${s.vertices.toLocaleString()} vertices, reduced ${cur.reduction.edges_before.toLocaleString()} -> ${cur.reduction.edges_after.toLocaleString()} edges`;
@@ -150,7 +151,7 @@ function draw() {
   }
   const byCol = {};
   nodes.forEach((n) => (byCol[n.col] = byCol[n.col] || []).push(n));
-  const W = 220, H = 30, pos = {};
+  const W = 215, H = 32, pos = {};
   let maxRows = 1;
   COLS.forEach((c, ci) => {
     (byCol[c] || []).sort((a, b) => (firstSeen[a.id] ?? 1e9) - (firstSeen[b.id] ?? 1e9)).forEach((n, ri) => {
@@ -184,6 +185,7 @@ function draw() {
     g.append(shape, label, title); svg.appendChild(g);
   });
   $("slider").max = st.timeline.length;
+  step = Math.min(step, st.timeline.length);
   $("slider").value = step;
   render();
 }
