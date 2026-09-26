@@ -14,7 +14,7 @@ On the four public **ATLAS** attack scenarios, starting from the attacker IP tha
 | | IOC grep (SIEM search) | Naive reachability | **ROOTLINE** |
 |---|---|---|---|
 | Event recall (mean S1–S4) | 0.040 | 0.999 | **0.999** |
-| Event precision (mean) | 0.998 | 0.160 | **0.408** |
+| Event precision (mean) | 0.998 | 0.161 | **0.408** |
 | Event F1 (mean) | 0.077 | 0.269 | **0.559** |
 | Malicious-entity recall | 0.89 | 1.00 | **1.00** |
 
@@ -101,7 +101,7 @@ The reverse shell traces back through `java[1340]` to the attacker's LDAP (`:138
 
 ## Results on real data
 
-All numbers come from `python scripts/bench.py` (about 2 minutes on a laptop) and are committed in [`results/`](results/). The protocol is fixed in [ADR 0004](docs/adr/0004-evaluation-protocol.md).
+All numbers come from `python scripts/bench.py` (a few minutes on a laptop; ATLAS alone takes about 1 minute) and are committed in [`results/`](results/). The protocol is fixed in [ADR 0004](docs/adr/0004-evaluation-protocol.md).
 
 ### 1. Attack reconstruction: ATLAS S1–S4
 
@@ -124,7 +124,7 @@ Every method starts from ATLAS' `user_artifact.txt`, the attacker IP handed to t
 | | | | naive BFS | 8,323 | 0.236 | 1.000 | 0.381 |
 | | | | **ROOTLINE** | **5,893** | **0.590** | **0.999** | **0.742** |
 
-At the same ~100 % recall, time-respecting traversal with session-root stops is **2.0–4.5× more precise** than plain reachability. It also produces 30–60 % smaller stories and never misses a malicious entity. Reconstruction takes 0.3–0.7 s per scenario.
+At the same ~100 % recall, time-respecting traversal with session-root stops is **2.0–4.5× more precise** than plain reachability. It also produces 29–60 % smaller stories and never misses a malicious entity. Reconstruction takes 0.3–0.7 s per scenario.
 
 ### 2. Graph reduction (the spec's research question)
 
@@ -137,7 +137,7 @@ At the same ~100 % recall, time-respecting traversal with session-root stops is 
 | S3 | 69,994 | 16,586 | 4.22× | **100 %** |
 | S4 | 72,237 | 19,000 | 3.80× | **100 %** |
 
-Reduction is lossless for causality by construction ([ADR 0003](docs/adr/0003-causality-preserving-reduction.md)). As a result, the reconstruction scores with and without reduction are identical (see `rootline-noreduce` in RESULTS.md). The gain is graph size and memory. It does not change accuracy. Vertex counts do not change on ATLAS because the benign-leaf prune only fires on Linux loader paths.
+Reduction is lossless for causality by construction ([ADR 0003](docs/adr/0003-causality-preserving-reduction.md)). As a result, the reconstruction scores with and without reduction are identical (see `rootline-noreduce` in RESULTS.md). The gain is graph size and memory. It does not change accuracy. Vertex counts do not change on ATLAS because the benign-leaf prune only matches Linux library, locale and `/etc` read paths.
 
 ### 3. Unsupervised vertex tagging (IsolationForest)
 
