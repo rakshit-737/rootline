@@ -149,7 +149,7 @@ Process vertices are ranked per scenario with no labels, and the ranking is comp
 | Scenario | Processes | Malicious | IsolationForest first hit (mean, 95 % CI, 10 seeds) | IsolationForest recall@10 | Degree ranking first hit | Random (expected) |
 |---|---|---|---|---|---|---|
 | S1 | 324 | 2 | **1.9** [1.7, 2.1] | 0.95 [0.84, 1.00] | 5 | 108 |
-| S2 | 704 | 1 | **1.1** [0.9, 1.3] | 1.00 | 3 | 353 |
+| S2 | 704 | 1 | **1.1** [1.0, 1.3] | 1.00 | 3 | 353 |
 | S3 | 334 | 6 | **2.0** (all seeds) | 0.67 | 8 | 48 |
 | S4 | 318 | 3 | 2.0 (all seeds) | 0.83 [0.71, 0.96] | **1** | 80 |
 
@@ -200,7 +200,7 @@ python -m pytest -q -m realdata          # tests that need the downloads
 python scripts/bench.py                  # regenerates results/*.json, RESULTS.md and figures
 ```
 
-The benchmarks are deterministic: IsolationForest runs with seeds 0-9 (mean and 95 % t-interval are reported) and the traversals involve no randomness. CI runs lint, the test suite on Ubuntu and Windows with Python 3.10/3.12/3.13, a standard-library-only job, a smoke test on the committed real Log4Shell excerpt, a Docker image check, and a docker-compose job that imports the story into Neo4j. Docs are built with `mkdocs build --strict` and deployed to GitHub Pages; tags `v*` publish the image to GHCR and a GitHub Release. It needs none of the large downloads.
+The benchmarks are deterministic: IsolationForest runs with seeds 0-9 (mean and 95 % t-interval, clipped to each metric's valid range, are reported) and the traversals involve no randomness. CI runs lint, the test suite on Ubuntu and Windows with Python 3.10/3.12/3.13, a standard-library-only job, a smoke test on the committed real Log4Shell excerpt, a Docker image check, and a docker-compose job that imports the story into Neo4j. Docs are built with `mkdocs build --strict` and deployed to GitHub Pages; tags `v*` publish the image to GHCR and a GitHub Release. It needs none of the large downloads.
 
 ## Demo scenarios (from the spec)
 

@@ -6,6 +6,12 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+- `mean_ci` clips the 95 % t-interval to the metric's valid range (recall in
+  [0, 1], hits in [0, min(k, malicious)], first-hit rank >= 1), so results no
+  longer report impossible bounds such as recall@10 CI [0.837, 1.063].
+  `scripts/bench.py --render-only` re-renders RESULTS.md from cached JSON.
+
 ## [1.0.0] - 2026-09-26
 
 Docs site, static demo, release pipeline, and statistically honest anomaly numbers.

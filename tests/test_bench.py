@@ -93,3 +93,20 @@ def test_mean_ci():
     assert mean_ci([2.0]) == (2.0, 2.0, 2.0)
     m, lo, hi = mean_ci([1.0, 2.0, 3.0])
     assert m == 2.0 and lo < 2.0 < hi and abs((hi - m) - 4.303 / 3 ** 0.5) < 1e-9
+
+
+def test_mean_ci_respects_bounds():
+    from rootline.bench import clip_anomaly_rows, mean_ci
+    # Near-ceiling recall: the raw t-interval would exceed 1.
+    vals = [1.0] * 9 + [0.5]
+    m, lo, hi = mean_ci(vals, 0.0, 1.0)
+    assert m == 0.95 and 0.0 <= lo < m and hi == 1.0
+    assert mean_ci(vals)[2] > 1.0  # unbounded call keeps the old behaviour
+    # Ranks cannot go below 1.
+    _, lo, _ = mean_ci([1, 1, 1, 1, 1, 1, 1, 1, 1, 2], 1.0, None)
+    assert lo == 1.0
+    rows = clip_anomaly_rows([{"malicious": 2, "processes": 324, "first_hit_rank_ci95": [0.874, 1.3],
+                               "hits@10_ci95": [1.674, 2.126], "recall@10_ci95": [0.837, 1.063]}])
+    assert rows[0]["first_hit_rank_ci95"] == [1.0, 1.3]
+    assert rows[0]["hits@10_ci95"] == [1.674, 2.0]
+    assert rows[0]["recall@10_ci95"] == [0.837, 1.0]

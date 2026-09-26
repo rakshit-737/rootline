@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from rootline import __version__  # noqa: E402
-from rootline.bench import run_atlas, run_coverage, summarize_coverage  # noqa: E402
+from rootline.bench import clip_anomaly_rows, run_atlas, run_coverage, summarize_coverage  # noqa: E402
 from rootline.export import dumps, to_mermaid, to_story  # noqa: E402
 from rootline.loaders import load_many  # noqa: E402
 from rootline.pipeline import analyze  # noqa: E402
@@ -146,7 +146,8 @@ def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
                                                    "seconds"]))
         if atlas.get("anomaly"):
             parts.append("\n## ATLAS: anomaly tagging of process vertices (unsupervised)\n")
-            parts.append("IsolationForest rows are the mean over 10 seeds with a 95 % t-interval; "
+            parts.append("IsolationForest rows are the mean over 10 seeds with a 95 % t-interval clipped to the "
+                         "metric's valid range (recall in [0, 1], rank >= 1); "
                          "degree ranking is deterministic.\n")
             parts.append(md_table(atlas["anomaly"], ["scenario", "method", "processes", "malicious", "seeds",
                                                      "first_hit_rank", "first_hit_rank_ci95", "hits@10",
@@ -171,9 +172,11 @@ def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--only", choices=["atlas", "coverage", "log4shell"])
+    p.add_argument("--render-only", action="store_true",
+                   help="re-render RESULTS.md and figures from results/*.json without re-running")
     ns = p.parse_args(argv)
     data = data_dir()
-    if not data.exists():
+    if not data.exists() and not ns.render_only:
         print(f"[bench] no data at {data}; run scripts/download_data.py first", file=sys.stderr)
         return 1
     OUT.mkdir(exist_ok=True)
@@ -182,6 +185,15 @@ def main(argv: list[str] | None = None) -> int:
         f = OUT / f"{name}.json"
         return json.loads(f.read_text()) if f.exists() else None
 
+    if ns.render_only:
+        atlas, cov, l4s = cached("atlas"), cached("coverage"), cached("log4shell")
+        if atlas and atlas.get("anomaly"):
+            clip_anomaly_rows(atlas["anomaly"])
+            (OUT / "atlas.json").write_text(json.dumps(atlas, indent=1))
+        figures(atlas, cov)
+        write_md(atlas, cov, l4s)
+        print(f"[bench] re-rendered {OUT / 'RESULTS.md'} from cached results")
+        return 0
     atlas = bench_atlas(data) if ns.only in (None, "atlas") else cached("atlas")
     print("[bench] atlas done")
     cov = bench_coverage(data) if ns.only in (None, "coverage") else cached("coverage")

@@ -228,8 +228,15 @@ _T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 
          10: 2.228, 15: 2.131, 20: 2.086, 30: 2.042}
 
 
-def mean_ci(vals: list[float]) -> tuple[float, float, float]:
-    """Mean and two-sided 95 % Student-t confidence interval (stdlib only)."""
+def mean_ci(vals: list[float], lower: float | None = None,
+            upper: float | None = None) -> tuple[float, float, float]:
+    """Mean and two-sided 95 % Student-t confidence interval (stdlib only).
+
+    ``lower``/``upper`` are the metric's natural bounds (e.g. 0 and 1 for a
+    recall, 1 for a rank). The symmetric t-interval can spill past them when
+    the sample sits near a bound; the interval is then clipped to the valid
+    range, so it never reports impossible values such as recall 1.06.
+    """
     n = len(vals)
     m = sum(vals) / n
     if n < 2:
@@ -238,7 +245,34 @@ def mean_ci(vals: list[float]) -> tuple[float, float, float]:
     df = n - 1
     t = _T975.get(df) or _T975[max(d for d in _T975 if d <= df)]
     h = t * sd / n ** 0.5
-    return m, m - h, m + h
+    return m, clip_ci(m - h, lower, upper), clip_ci(m + h, lower, upper)
+
+
+def clip_ci(v: float, lower: float | None = None, upper: float | None = None) -> float:
+    """Clamp one interval bound into ``[lower, upper]`` (either side optional)."""
+    if lower is not None:
+        v = max(v, lower)
+    if upper is not None:
+        v = min(v, upper)
+    return v
+
+
+def metric_bounds(key: str, k: int, malicious: int, procs: int) -> tuple[float, float]:
+    """Valid range of an anomaly metric: rank in [1, procs+1], hits in [0, min(k, bad)], recall in [0, 1]."""
+    if key == "first_hit_rank":
+        return 1.0, float(procs + 1)
+    if key.startswith("hits@"):
+        return 0.0, float(min(k, malicious))
+    return 0.0, 1.0
+
+
+def clip_anomaly_rows(rows: list[dict[str, Any]], k: int = 10) -> list[dict[str, Any]]:
+    """Clip stored ``*_ci95`` intervals to each metric's valid range (for re-rendering old results)."""
+    for r in rows:
+        for key in [c for c in r if c.endswith("_ci95")]:
+            lo, hi = metric_bounds(key[:-5], k, r["malicious"], r["processes"])
+            r[key] = [round(clip_ci(b, lo, hi), 3) for b in r[key]]
+    return rows
 
 
 def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | None = None,
@@ -261,13 +295,14 @@ def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | No
                 "first_hit_rank": first, f"hits@{k}": hits,
                 f"recall@{k}": round(hits / max(1, len(bad)), 3)}
 
-    # IsolationForest is stochastic: report mean and 95 % t-interval over `seeds` forests.
+    # IsolationForest is stochastic: report mean and 95 % t-interval over `seeds` forests,
+    # clipped to each metric's valid range.
     per_seed = [row("iforest", IForestTagger(seed=s).score(g)) for s in range(seeds)]
     agg = dict(per_seed[0])
     agg["seeds"] = seeds
     for key in ("first_hit_rank", f"hits@{k}", f"recall@{k}"):
         vals = [r[key] if r[key] is not None else procs + 1 for r in per_seed]
-        m, lo, hi = mean_ci(vals)
+        m, lo, hi = mean_ci(vals, *metric_bounds(key, k, len(bad), procs))
         agg[key] = round(m, 3)
         agg[f"{key}_ci95"] = [round(lo, 3), round(hi, 3)]
     rows.append(agg)
