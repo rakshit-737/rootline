@@ -62,7 +62,7 @@ def forward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) -> 
         for e in g.out_edges.get(nid, []):
             if e.end_ts < bound:
                 continue
-            if e.rel is Relation.RECEIVED:  # don't infect the remote peer's other clients
+            if e.rel is Relation.RECEIVED and nid != start:  # don't infect the remote peer's other clients
                 continue
             edges.append(e)
             nb = max(bound, e.ts)
@@ -98,9 +98,15 @@ def score_entry(g: ProvenanceGraph, nid: str) -> float:
     return -1.0
 
 
-def root_causes(g: ProvenanceGraph, back: set[str], back_edges: list[Edge], k: int = 3) -> list[str]:
-    """Rank candidate entry points: files/sockets in the backward slice."""
-    cands = [n for n in back if g.nodes[n].type is not NodeType.PROCESS]
+def root_causes(g: ProvenanceGraph, back: set[str], back_edges: list[Edge], k: int = 3,
+                t: float = float("inf")) -> list[str]:
+    """Rank candidate entry points: files/sockets in the backward slice.
+
+    A candidate must have fed information into the slice strictly *before* the
+    pivot time ``t``: a C2 socket the pivot process itself opened is an effect
+    of the intrusion, not its cause."""
+    fed = {e.src for e in back_edges if e.ts < t}
+    cands = [n for n in back if g.nodes[n].type is not NodeType.PROCESS and n in fed]
     scored = sorted(((score_entry(g, n), g.nodes[n].first_ts, n) for n in cands), reverse=True)
     return [n for s, _, n in scored if s > 0][:k]  # ties: most recent first
 
@@ -116,7 +122,7 @@ def _describe(g: ProvenanceGraph, e: Edge) -> str:
 
 def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = None) -> Reconstruction:
     back, bedges = backward(g, alert.node_id, alert.ts)
-    rc = root_causes(g, back, bedges)
+    rc = root_causes(g, back, bedges, t=alert.ts)
     # keep only the causal spine: backward nodes that can reach the alert from a root cause
     if rc:
         spine: set[str] = set()
