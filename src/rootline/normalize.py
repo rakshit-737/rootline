@@ -107,12 +107,15 @@ def normalize_record(rec: dict[str, Any], seq: int, default_host: str = "lab-hos
         path=_path(rec.get("path") or rec.get("filename")),
         child_pid=_i(rec.get("child_pid"), "child_pid"),
         dst_ip=ip, dst_port=port, argv=argv,
-        sha256=_s(rec.get("sha256"), "sha256"), label=_s(rec.get("label"), "label"),
+        sha256=_s(rec.get("sha256"), "sha256"), domain=_s(rec.get("domain"), "domain"),
+        label=_s(rec.get("label"), "label"),
     )
     if kind is EventKind.FORK and ev.child_pid is None:
         raise NormalizationError("fork without child_pid")
     if kind in (EventKind.OPEN, EventKind.READ, EventKind.WRITE, EventKind.UNLINK, EventKind.EXEC) and not ev.path:
         raise NormalizationError(f"{kind.value} without path")
+    if kind is EventKind.DNS and (not ev.domain or ev.dst_ip is None):
+        raise NormalizationError("dns without domain/ip")
     if kind in (EventKind.CONNECT, EventKind.ACCEPT) and (ev.dst_ip is None or ev.dst_port is None):
         raise NormalizationError(f"{kind.value} without endpoint")
     return ev

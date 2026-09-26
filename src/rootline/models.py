@@ -20,6 +20,7 @@ class EventKind(str, Enum):
     ACCEPT = "accept"
     UNLINK = "unlink"
     EXIT = "exit"
+    DNS = "dns"        # name resolution: domain -> dst_ip (no process needed)
 
 
 class NodeType(str, Enum):
@@ -56,6 +57,7 @@ class Event:
     dst_port: int | None = None
     argv: tuple[str, ...] = ()
     sha256: str | None = None
+    domain: str | None = None
     label: str | None = None  # ground truth (synthetic/datasets only)
 
     def to_dict(self) -> dict[str, Any]:

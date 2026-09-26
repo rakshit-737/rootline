@@ -33,6 +33,8 @@ class ProvenanceGraph:
         self.events: list[Event] = []
         self.head: str = GENESIS
         self._proc: dict[tuple[str, int], str] = {}  # (host, pid) -> current proc vertex
+        self.dns: dict[str, set[str]] = defaultdict(set)  # ip -> domains that resolved to it
+        self._socks_by_ip: dict[str, list[str]] = defaultdict(list)
         self._last_ts = float("-inf")
 
     # ------------------------------------------------------------------ nodes
@@ -70,7 +72,11 @@ class ProvenanceGraph:
 
     def sock_node(self, ip: str, port: int, ts: float) -> str:
         nid = f"sock:{ip}:{port}"
+        if nid not in self.nodes:
+            self._socks_by_ip[ip].append(nid)
         self._node(nid, NodeType.SOCKET, f"{ip}:{port}", ts, ip=ip, port=port)
+        if ip in self.dns:
+            self.nodes[nid].attrs["domains"] = sorted(self.dns[ip])
         return nid
 
     def _edge(self, src: str, dst: str, rel: Relation, ev: Event) -> Edge:
@@ -119,6 +125,11 @@ class ProvenanceGraph:
             p, s = self.proc_of(ev), self.sock_node(ev.dst_ip, ev.dst_port, ev.ts)
             self._edge(p, s, Relation.CONNECTED, ev)
             self._edge(s, p, Relation.RECEIVED, ev)
+        elif k is EventKind.DNS:
+            if ev.domain and ev.dst_ip:
+                self.dns[ev.dst_ip].add(ev.domain)
+                for nid in self._socks_by_ip.get(ev.dst_ip, []):
+                    self.nodes[nid].attrs["domains"] = sorted(self.dns[ev.dst_ip])
         elif k is EventKind.EXIT:
             self.proc_of(ev)
             self._proc.pop((ev.host, ev.pid), None)
