@@ -78,7 +78,7 @@ def fetch(item: dict, root: Path) -> str:
                 break
             except OSError as e:  # URLError, timeouts, resets: flaky links are common
                 if attempt == 5:
-                    raise SystemExit(f"download failed for {item['url']}: {e}")
+                    raise SystemExit(f"download failed for {item['url']}: {e}") from e
                 time.sleep(2 * attempt)
         got = sha256(tmp)
         if want and got != want:
@@ -91,7 +91,7 @@ def fetch(item: dict, root: Path) -> str:
             extract(dest)
         except zipfile.BadZipFile:
             dest.unlink()
-            raise SystemExit(f"corrupt archive {dest} removed; re-run to download again")
+            raise SystemExit(f"corrupt archive {dest} removed; re-run to download again") from None
     return status
 
 

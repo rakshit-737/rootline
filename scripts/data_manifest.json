@@ -26,7 +26,8 @@
    "dest": "otrf/syslog_sysmon_log4shell_cve2021_44228_jndi_reference.zip",
    "sha256": "c667b9e7e3a7969e3ef612e65a7dd5f122c856aa5e8b89db935b82b18d2f8b69",
    "license": "MIT",
-   "note": "OTRF Security-Datasets"
+   "note": "OTRF Security-Datasets",
+   "split": "dev"
   },
   {
    "source": "otrf",
@@ -34,7 +35,8 @@
    "dest": "otrf/syslog_auoms_auditd_log4shell_cve2021_44228_jndi_reference.zip",
    "sha256": "20ca2d3371daca5bff0e6e1ede0c74c6f4df5c8696f959e5bbafb6f058a1b724",
    "license": "MIT",
-   "note": "OTRF Security-Datasets"
+   "note": "OTRF Security-Datasets",
+   "split": "dev"
   },
   {
    "source": "otrf",
@@ -42,7 +44,8 @@
    "dest": "otrf/sh_arp_cache.zip",
    "sha256": "6527c420ed81314c1580542decb6a996e312673434e9fed2389035b06a3430b1",
    "license": "MIT",
-   "note": "OTRF Security-Datasets"
+   "note": "OTRF Security-Datasets",
+   "split": "dev"
   },
   {
    "source": "otrf",
@@ -50,7 +53,8 @@
    "dest": "otrf/sh_binary_padding_dd.zip",
    "sha256": "dbba0766a0ea4e0e90f1eef8bbe3e2c819d1349a9f9081b6d54fa86ecb1d39bc",
    "license": "MIT",
-   "note": "OTRF Security-Datasets"
+   "note": "OTRF Security-Datasets",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -59,7 +63,8 @@
    "sha256": "14fb9693192a44b31c708ae6222e34ef8815ae809b2fb83cebfed8289546514f",
    "size": 1473,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -68,7 +73,8 @@
    "sha256": "fbfff0259a3c7cb00ca277e21ec7fcf3bcab8ca5789747a8168115521eb86c28",
    "size": 1475,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -77,7 +83,8 @@
    "sha256": "5e95992f72e785344c18a10ca80a7465ce16eec4e4307566169c3619f98e6c1e",
    "size": 1584,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -86,7 +93,8 @@
    "sha256": "ad92be6bb2eaedc68b093184eee05d421c3bcc9b289f4b7f3042988d360fad76",
    "size": 1629,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -95,7 +103,8 @@
    "sha256": "d258c995d79098be6fafefc6a5fcc9220b7bae11bf8256427591f60c1f817af7",
    "size": 1684,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -104,7 +113,8 @@
    "sha256": "17e68325c4a924d85169fe4a1754c9d74f51a0b4f5f51fb754c02b37d620c961",
    "size": 1755,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -113,7 +123,8 @@
    "sha256": "368123d10bcd09ee1f864df5020523c554c72f572e25c1d215633b0cfd9720ec",
    "size": 1903,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -122,7 +133,8 @@
    "sha256": "a0167e6232a9bd293d36a58a996581e917d4c6efe81cee2e68f7b2fd8eef9bb1",
    "size": 2938,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -131,7 +143,8 @@
    "sha256": "7dba1c2cb5deb5d194e7d0db15115fba8d147a498fbd1ff0a8827c4b1db3c4e1",
    "size": 3022,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -140,7 +153,8 @@
    "sha256": "abc543b761b52c1003fd61c5fbd9017914953ce0f7701dfd4a491641dd269dc9",
    "size": 3024,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -149,7 +163,8 @@
    "sha256": "ee6cf8015705fc1877f27181613b2550d46be47e4853b77fb41c2f79ac48d380",
    "size": 3998,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -158,7 +173,8 @@
    "sha256": "1c6f8f9fd08952d4ae33d2094a7be0ae12557482fa94522e4d91a9a839dbab9a",
    "size": 4485,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -167,7 +183,8 @@
    "sha256": "f2d6148157cf5f2569672581a1fa555825669fe839c08a3e2f929a3fb177dd58",
    "size": 5946,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -176,7 +193,8 @@
    "sha256": "29e1e299dc1a5a229ff5c027de8b4e8b45b91f6d2a73792dd67e4e01d44da799",
    "size": 5998,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -185,7 +203,8 @@
    "sha256": "d8bee11058f7b2e1a1fc291df401af58f9274b91a4ace70fcd707c9bd2ff43e8",
    "size": 6026,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -194,7 +213,8 @@
    "sha256": "092f23c31aaa9c2f26d38c083255ade96bd953e0b5110443e9c1d39ae487bf63",
    "size": 6275,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -203,7 +223,8 @@
    "sha256": "fbd862ea1e87b450920ec32633c99437d3b674d8ce32ec817a0817c36ca1c454",
    "size": 6318,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -212,7 +233,8 @@
    "sha256": "1f626e1ede4738b582be707557475af6909f236bbc79b27d2001965676919b7a",
    "size": 6599,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -221,7 +243,8 @@
    "sha256": "5cc7a4f1359761adf21f99f212c8a1149e198cb749058470f6e99022947024b4",
    "size": 7410,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -230,7 +253,8 @@
    "sha256": "ee7539fcec50396fa18bc803d10284f8d339d9c1a8413e6b4f67c8f4ff68ab7b",
    "size": 8907,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -239,7 +263,8 @@
    "sha256": "d8b7ccba84d3d1c7ec679d4b4d71a206e96f1f46214509cc58444374b0f6eb51",
    "size": 8919,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -248,7 +273,8 @@
    "sha256": "f32e36cbc7a6c6e4b1a3eff743278ab7b487a1c2838342cee668a80ef678e83c",
    "size": 8975,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -257,7 +283,8 @@
    "sha256": "8b8c81a556bf1df09f5516ea733b833bb4e392443827d02b3cb8edd240e773a5",
    "size": 9007,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -266,7 +293,8 @@
    "sha256": "b386156cb7d13a99e081cbb1058f892530a71f9b8e134ec31d6a7f95a5ea51cc",
    "size": 11920,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -275,7 +303,8 @@
    "sha256": "e33ce65607f3f5381405639584394edcc46abf9e6bf48abc0abd196702ad0fc8",
    "size": 12002,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -284,7 +313,8 @@
    "sha256": "76e048a0fa814602e87dca01d81d2eb29cf54cdd7802b4b49d1ddac192b4d6c0",
    "size": 12009,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -293,7 +323,8 @@
    "sha256": "a2ea8aebcb33bd736f41b00fe5757d5def38ff38f6e41a247cbad1083e9658c5",
    "size": 13335,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -302,7 +333,8 @@
    "sha256": "254ab254afffb771350efb09b7c5f9fd229343ffaa425c89b1174095688acc35",
    "size": 14882,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -311,7 +343,8 @@
    "sha256": "0864c729df3a740bb86c474d18d53c3ee48a2e17f5e15ade19d172175d1d1462",
    "size": 14927,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -320,7 +353,8 @@
    "sha256": "258564f3095d844874fa1ff720f7a5c08f7eac21c1fd5bb0c39296b16ae4c7c6",
    "size": 16342,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -329,7 +363,8 @@
    "sha256": "0957347f2d0dec5dd3c6c78ebe6d4eb9c97a8f36ca65dac08f954bbf69c4737f",
    "size": 16671,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -338,7 +373,8 @@
    "sha256": "5aa13d3befdc98f2e962183667ff765a993148b203b7355d47b3e8788c1cf01a",
    "size": 19245,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -347,7 +383,8 @@
    "sha256": "2a82e3fb0c04c8a1b0ce6ec19f399f0ac96977ab273bec97e6496da3c7880d79",
    "size": 20552,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -356,7 +393,8 @@
    "sha256": "0b3d4895b73f06f77339e62b8f29248ccec14a3dcc0a0606bcb94c15832e2b52",
    "size": 26505,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -365,7 +403,8 @@
    "sha256": "f09a2fa4c685d10515e882f58f2efbaf0650248f5d4fd173f879c343ec69ab08",
    "size": 29729,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -374,7 +413,8 @@
    "sha256": "493e153d961ee6d63d2e1b71740e913d08cbe7bbcab9059d33222d1b66373715",
    "size": 32709,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -383,7 +423,8 @@
    "sha256": "0ccb0e70a2ba8fcc3e3cb225e9cfe2e3e25edac0f75070641179c84432256160",
    "size": 54386,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -392,7 +433,8 @@
    "sha256": "cea5b60ced5751742b16341e41197106c1f92fa4c955a9a36379c957e5fce665",
    "size": 54813,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -401,7 +443,8 @@
    "sha256": "699e5ee2fb348b790a68095191f2420cef9f93ab8457576f2869923db62fe3e6",
    "size": 134205,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -410,7 +453,8 @@
    "sha256": "0d4a7a7cd53cbac2cc2b552921d9f2aad9bea9fcc3a1381b81c4d5dff3be3264",
    "size": 159446,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -419,7 +463,8 @@
    "sha256": "3db8d0c36b2a4be1aa9563132c24139c48babb27ade3fe3879cc6d8ac6bc9a33",
    "size": 394625,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -428,7 +473,8 @@
    "sha256": "5975cd721d5a6e8452c18e195c226f7dc43e9bd37e865102382f743debdc87cf",
    "size": 534557,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -437,7 +483,8 @@
    "sha256": "c3d05a9d1e9af62773268d3655a073f6268a4ecd32b814313d403d834f725f2e",
    "size": 578106,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -446,7 +493,8 @@
    "sha256": "fd68e3aa47dce4f07bb2701cadaa41461b42893f18a9085a1bde0ef89cce7a28",
    "size": 706546,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -455,7 +503,8 @@
    "sha256": "fcdb695b0184227a23383aa1ff9b515f9641a9c4dad868bb6553cc2c5e8437c5",
    "size": 713119,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
   },
   {
    "source": "splunk",
@@ -464,7 +513,278 @@
    "sha256": "045e49f0528173351671de2e12817670d5be95485c6fc1c4a8aad80c620215f7",
    "size": 2850747,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux)"
+   "note": "Splunk attack_data (Sysmon for Linux)",
+   "split": "dev"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1003.008/copy_file_stdoutpipe/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1003.008/copy_file_stdoutpipe/sysmon_linux.log",
+   "sha256": "c18efef784e7754f6fd498900656f7e1969e97d32e23c4bb6488e8df63ba39a6",
+   "size": 11130080,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1016/atomic_red_team/linux_net_discovery/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1016/atomic_red_team/linux_net_discovery/sysmon_linux.log",
+   "sha256": "62d24162917cdd531b6a6479d953091ace7e377ff5d5fa78c35e0895728b9e91",
+   "size": 18169846,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1053.002/at_execution/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1053.002/at_execution/sysmon_linux.log",
+   "sha256": "31264a654c6073d29d463a7fec45c18f48b26a5f42f137075420e5382db89b84",
+   "size": 54026642,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1053.003/cronjobs_entry/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1053.003/cronjobs_entry/sysmon_linux.log",
+   "sha256": "2dbdc98578403d1636bcdab4d4214377779c17ae0ab94fab2508e30815634a7b",
+   "size": 59662955,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1053.003/cronjobs_entry/sysmon_linux_cron_append.log",
+   "dest": "splunk/attack_techniques/T1053.003/cronjobs_entry/sysmon_linux_cron_append.log",
+   "sha256": "a85c1f37adf0cb8cdbadcc5c34e92e4cdb724938b4a4d83dd19e3528374e82ed",
+   "size": 7622749,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1053.003/crontab_edit_parameter/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1053.003/crontab_edit_parameter/sysmon_linux.log",
+   "sha256": "7adcca8fbccf071c41b030af0b7c4542b9bc70d7eaabf539780a950f69a2cfe4",
+   "size": 57897542,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1053.006/service_systemd/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1053.006/service_systemd/sysmon_linux.log",
+   "sha256": "0a83169ecfc9104d8718db5fd8ee9d2b9cb2453ab47428f75c7613354c4feed8",
+   "size": 59660341,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1098.004/ssh_authorized_keys/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1098.004/ssh_authorized_keys/sysmon_linux.log",
+   "sha256": "54f44dde127ccb048ef43b9e4978e5d17710b30da3b7df45b8a3adaac841bb77",
+   "size": 14612253,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1190/outbound_java/linux-sysmon.log",
+   "dest": "splunk/attack_techniques/T1190/outbound_java/linux-sysmon.log",
+   "sha256": "92b164b049a2feedeace6d1726e2e7f2a7b199fd2c3558ef53468e2bdc9e9118",
+   "size": 11979224,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1485/linux_dd_file_overwrite/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1485/linux_dd_file_overwrite/sysmon_linux.log",
+   "sha256": "fae1004c0fbba3c4852d202052f87803a9e19f032e0982339f789baf4fd9d322",
+   "size": 6945937,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1489/linux_service_stop_disable/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1489/linux_service_stop_disable/sysmon_linux.log",
+   "sha256": "a09ca8540de4c00cdc24b077e00935a5ca537eb2e0cf869fa307c3428d6759aa",
+   "size": 3733763,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1546.004/linux_init_profile/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1546.004/linux_init_profile/sysmon_linux.log",
+   "sha256": "f76f57656b91fc280f284466f9e1af286c5afe11f565cb6e1a5d134a848180e0",
+   "size": 42441476,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1547.006/loading_linux_kernel_module/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1547.006/loading_linux_kernel_module/sysmon_linux.log",
+   "sha256": "c9f85796fb875ab6448d0fe53f713076bf66cf3647753962fc01b0672f2fbba1",
+   "size": 15685780,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.001/chmod_uid/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.001/chmod_uid/sysmon_linux.log",
+   "sha256": "df6651ae53e6efc1da5f303fe10cd27b8ba744ffc6d85a4bd53c11aa1601b66c",
+   "size": 23686663,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.001/linux_setcap/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.001/linux_setcap/sysmon_linux.log",
+   "sha256": "bfbde5e079ebbe1f3ee9e04c84c14b1cc9fb1a3637d7d3740589cc147c5d3035",
+   "size": 16056784,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.003/doas/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.003/doas/sysmon_linux.log",
+   "sha256": "f868bd7956a7484ea2ee66e9b3045cdfd1cfd5f9c8a30412e10c586ff1e60d91",
+   "size": 7610886,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.003/doas_exec/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.003/doas_exec/sysmon_linux.log",
+   "sha256": "adc40b5daba429f5d99dc2353407680848c6cef1f8279d02f90469e6f3ef9dc9",
+   "size": 14927346,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.003/linux_adduser/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.003/linux_adduser/sysmon_linux.log",
+   "sha256": "4f346e6c52caa614b86d4a8a778c6165e02b2948a5f14b155757f93e6228947e",
+   "size": 11455124,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.003/nopasswd_sudoers/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.003/nopasswd_sudoers/sysmon_linux.log",
+   "sha256": "df85e94439159433865bcac94effde54299a12a965acf1a715fbb6a3d8ef5c94",
+   "size": 33782710,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.003/sudo_su/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.003/sudo_su/sysmon_linux.log",
+   "sha256": "b4ba4d224069b42e71d9c2c3385d256b9bf790ac6a9596fcdda109076c6aa6b0",
+   "size": 12282656,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.003/sudoers_temp/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.003/sudoers_temp/sysmon_linux.log",
+   "sha256": "3ce7e20055615c87a32fc88bb557d390cc1e2f9f640a2cae04872ecdcbea8b82",
+   "size": 6766084,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1548.003/visudo/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1548.003/visudo/sysmon_linux.log",
+   "sha256": "4a9c3257616dd8d15f4d43c1041b10c254e238dd317f809502418138cdfe0cc9",
+   "size": 29846587,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1574.006/lib_hijack/sysmon_linux.log",
+   "dest": "splunk/attack_techniques/T1574.006/lib_hijack/sysmon_linux.log",
+   "sha256": "66db917fc89a0e7d112f42cafa1574c7dc0cd15dac7fd870cd85f3bf85b9f86c",
+   "size": 27490382,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/acidrain/sysmon_linux.log",
+   "dest": "splunk/malware/acidrain/sysmon_linux.log",
+   "sha256": "b0caf3d8189fa904442328a53c33159779167931662f64dad5a42281724beb51",
+   "size": 14767284,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/awfulshred/test1/sysmon_linux.log",
+   "dest": "splunk/malware/awfulshred/test1/sysmon_linux.log",
+   "sha256": "397b280dfd3393d982b06930d929a6ae66e4a618fb3324a4d9a20beae740f97a",
+   "size": 31487567,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/awfulshred/test2/sysmon_linux.log",
+   "dest": "splunk/malware/awfulshred/test2/sysmon_linux.log",
+   "sha256": "e8b9ca191dff31daf9b2836847af78c99df272e5e050b549b2b5f32091532da0",
+   "size": 42308674,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
+  },
+  {
+   "source": "splunk",
+   "url": "https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/cyclopsblink/sysmon_linux.log",
+   "dest": "splunk/malware/cyclopsblink/sysmon_linux.log",
+   "sha256": "5cb8e756cbf65b1feb803f42cec143dec2dd31eb9006cab617bc292241056645",
+   "size": 80180920,
+   "license": "Apache-2.0",
+   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
+   "split": "holdout"
   }
  ]
 }
