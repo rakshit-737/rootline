@@ -4,6 +4,20 @@ All notable changes are listed here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [SemVer](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Committed benchmark results (`results/`): ATLAS S1-S4, Splunk dev/holdout
+  coverage, OTRF Log4Shell fusion, plus figures.
+- `rootline serve --fuse` loads several sensor captures as one story.
+- `Dockerfile` and `docker-compose.yml`, with a Neo4j service for Cypher
+  imports.
+
+### Fixed
+- `reduction_stats` rebuilt the attack-sequence set for every edge (O(E*N)).
+  ATLAS S3 took about 10 minutes and now takes under a second. Each ATLAS graph
+  is also built once and shared across benchmarks.
+
 ## [0.2.0] - 2026-09-26
 
 Real public data, real benchmarks, and the spec features the MVP left as TODO.
