@@ -1,8 +1,11 @@
 """ROOTLINE command line.
 
   rootline synth   --out events.jsonl [--benign 300] [--no-attack] [--seed 7]
-  rootline analyze events.jsonl [--baseline base.jsonl] [--pivot NODE|--ioc STR]
-                   [--story out.json] [--stix out.json] [--mermaid out.mmd] [--no-reduce]
+  rootline analyze CAPTURE [CAPTURE ...] [--format auto|jsonl|sysmon|auditd]
+                   [--baseline base.jsonl] [--pivot NODE|--ioc STR] [--iforest]
+                   [--story out.json] [--stix out.json] [--mermaid out.mmd] [--cypher out.cypher]
+                   [--no-reduce]
+  rootline serve   [CAPTURE ...] [--host 127.0.0.1] [--port 8000]
   rootline verify  events.jsonl --head HASH
   rootline demo    [--outdir out]
 """
@@ -16,8 +19,9 @@ from typing import Any
 
 from . import __version__
 from .evaluate import evaluate
-from .export import dumps, to_mermaid, to_stix, to_story
+from .export import dumps, to_cypher, to_mermaid, to_stix, to_story
 from .graph import ProvenanceGraph, verify_chain
+from .loaders import FORMATS, load_many
 from .normalize import Normalizer, read_jsonl
 from .pipeline import Analysis, analyze
 from .synth import generate, write_jsonl
@@ -70,15 +74,30 @@ def cmd_synth(ns: argparse.Namespace) -> int:
 
 
 def cmd_analyze(ns: argparse.Namespace) -> int:
-    recs = list(read_jsonl(ns.events))
+    recs = load_many(ns.events, ns.format)
     base = list(read_jsonl(ns.baseline)) if ns.baseline else None
     pivot = ns.pivot or (_resolve_pivot(recs, ns.ioc) if ns.ioc else None)
     a = analyze(recs, base, reduce=not ns.no_reduce, alert_node=pivot)
     _print_analysis(a)
+    if ns.iforest:
+        from .anomaly import IForestTagger
+        print("[*] isolation-forest outliers (process vertices):")
+        for nid, sc in IForestTagger().score(a.raw)[:10]:
+            print(f"    {sc:.3f}  {a.raw.nodes[nid].label}  {a.raw.nodes[nid].attrs.get('exe', '')}")
     if a.reconstruction:
         _write(ns.story, dumps(to_story(a.graph, a.reconstruction)))
         _write(ns.stix, dumps(to_stix(a.graph, a.reconstruction)))
         _write(ns.mermaid, to_mermaid(a.graph, a.reconstruction))
+        _write(ns.cypher, to_cypher(a.graph, a.reconstruction))
+    return 0
+
+
+def cmd_serve(ns: argparse.Namespace) -> int:  # pragma: no cover - starts a server
+    try:
+        from .api import serve
+    except ImportError:
+        raise SystemExit("serve needs the api extra: pip install 'rootline[api]'") from None
+    serve(ns.captures, ns.host, ns.port)
     return 0
 
 
@@ -129,7 +148,10 @@ def main(argv: list[str] | None = None) -> int:
     s.set_defaults(fn=cmd_synth)
 
     a = sp.add_parser("analyze", help="build graph, tag, reconstruct")
-    a.add_argument("events")
+    a.add_argument("events", nargs="+", help="one or more captures (several sensors are fused)")
+    a.add_argument("--format", choices=FORMATS, default="auto")
+    a.add_argument("--iforest", action="store_true", help="also rank process vertices with IsolationForest")
+    a.add_argument("--cypher", help="write a Neo4j import script for the story")
     a.add_argument("--baseline")
     grp = a.add_mutually_exclusive_group()
     grp.add_argument("--pivot", help="vertex id to reconstruct from")
@@ -144,6 +166,12 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("events")
     v.add_argument("--head")
     v.set_defaults(fn=cmd_verify)
+
+    sv = sp.add_parser("serve", help="FastAPI + attack-replay UI (needs rootline[api])")
+    sv.add_argument("captures", nargs="*")
+    sv.add_argument("--host", default="127.0.0.1")
+    sv.add_argument("--port", type=int, default=8000)
+    sv.set_defaults(fn=cmd_serve)
 
     d = sp.add_parser("demo", help="synthetic end-to-end demo")
     d.add_argument("--outdir", default="out")
