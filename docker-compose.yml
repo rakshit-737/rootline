@@ -1,0 +1,12 @@
+# docker compose up  ->  UI on http://127.0.0.1:8000, Neo4j browser on http://127.0.0.1:7474
+# Load a story into Neo4j:  rootline analyze <capture> --cypher story.cypher
+#                           then paste story.cypher into the Neo4j browser (or cypher-shell).
+services:
+  rootline:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+  neo4j:
+    image: neo4j:5-community
+    environment:
+      NEO4J_AUTH: neo4j/rootline-lab   # lab-only default; change it
+    ports: ["127.0.0.1:7474:7474", "127.0.0.1:7687:7687"]
