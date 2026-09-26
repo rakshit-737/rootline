@@ -1,0 +1,177 @@
+"""Backward root-cause + forward blast-radius reconstruction.
+
+Traversal is *time-respecting*: walking backward from a vertex observed at
+time t only follows in-edges that happened at or before t (information cannot
+flow from the future), and forward traversal only follows out-edges at or
+after the time influence arrived. This is the standard trick (King & Chen,
+"Backtracking Intrusions", SOSP'03) that keeps the dependency explosion in
+check. Pure graph traversal - no ML - so every step is explainable.
+"""
+from __future__ import annotations
+
+import heapq
+import ipaddress
+import re
+from collections import defaultdict
+
+from .detect import comm
+from .graph import ProvenanceGraph
+from .models import Alert, Edge, NodeType, Reconstruction, Relation
+
+# processes at which backward expansion stops (session roots, not causes)
+STOP_COMMS = {"systemd", "init", "sshd", "gnome-session", "gdm", "lightdm", "cron", "kthreadd", "login"}
+ENTRY_EXT = re.compile(r"\.(docm?|xlsm?|pptm?|pdf|rtf|odt|zip|rar|7z|iso|lnk|js|hta|jar|sh|py|elf|bin|deb)$", re.I)
+USER_DIRS = re.compile(r"^/(home/[^/]+|root)/(Downloads|Desktop|Documents|tmp)/|^/tmp/")
+SYSTEM_PATHS = re.compile(r"^/(usr|bin|sbin|lib|etc|opt|proc|sys)/")
+
+STAGE_ORDER = ["initial-access", "delivery", "execution", "persistence", "credential-access",
+               "defense-evasion", "command-and-control", "exfiltration", "impact"]
+
+
+def backward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) -> tuple[set[str], list[Edge]]:
+    best: dict[str, float] = {start: t}
+    heap = [(-t, start)]
+    edges: list[Edge] = []
+    while heap and len(best) < max_nodes:
+        nt, nid = heapq.heappop(heap)
+        bound = -nt
+        if bound < best.get(nid, float("-inf")):
+            continue
+        n = g.nodes[nid]
+        if nid != start and n.type is NodeType.PROCESS and comm(g, nid) in STOP_COMMS:
+            continue
+        for e in g.in_edges.get(nid, []):
+            if e.ts > bound:
+                continue
+            edges.append(e)
+            nb = min(bound, e.end_ts)
+            if nb > best.get(e.src, float("-inf")):
+                best[e.src] = nb
+                heapq.heappush(heap, (-nb, e.src))
+    return set(best), edges
+
+
+def forward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) -> tuple[set[str], list[Edge]]:
+    best: dict[str, float] = {start: t}
+    heap = [(t, start)]
+    edges: list[Edge] = []
+    while heap and len(best) < max_nodes:
+        bound, nid = heapq.heappop(heap)
+        if bound > best.get(nid, float("inf")):
+            continue
+        for e in g.out_edges.get(nid, []):
+            if e.end_ts < bound:
+                continue
+            if e.rel is Relation.RECEIVED:  # don't infect the remote peer's other clients
+                continue
+            edges.append(e)
+            nb = max(bound, e.ts)
+            if nb < best.get(e.dst, float("inf")):
+                best[e.dst] = nb
+                heapq.heappush(heap, (nb, e.dst))
+    return set(best), edges
+
+
+def score_entry(g: ProvenanceGraph, nid: str) -> float:
+    n = g.nodes[nid]
+    if n.type is NodeType.SOCKET:
+        ip = n.attrs.get("ip", "")
+        try:
+            return 0.0 if ipaddress.ip_address(ip).is_loopback else 2.0
+        except ValueError:
+            return 1.0
+    if n.type is NodeType.FILE:
+        path = n.attrs.get("path", "")
+        s = 0.0
+        if ENTRY_EXT.search(path):
+            s += 3
+        if USER_DIRS.search(path):
+            s += 2
+        if SYSTEM_PATHS.search(path):
+            s -= 5
+        # written by a process that received network data -> downloaded artifact
+        for e in g.in_edges.get(nid, []):
+            if e.rel is Relation.WROTE and any(i.rel is Relation.RECEIVED for i in g.in_edges.get(e.src, [])):
+                s += 1
+                break
+        return s
+    return -1.0
+
+
+def root_causes(g: ProvenanceGraph, back: set[str], back_edges: list[Edge], k: int = 3) -> list[str]:
+    """Rank candidate entry points: files/sockets in the backward slice."""
+    cands = [n for n in back if g.nodes[n].type is not NodeType.PROCESS]
+    scored = sorted(((score_entry(g, n), g.nodes[n].first_ts, n) for n in cands), reverse=True)
+    return [n for s, _, n in scored if s > 0][:k]  # ties: most recent first
+
+
+def _describe(g: ProvenanceGraph, e: Edge) -> str:
+    s, d = g.nodes[e.src].label, g.nodes[e.dst].label
+    verb = {Relation.FORKED: "spawned", Relation.EXECUTED: "was executed as", Relation.READ: "was read by",
+            Relation.WROTE: "wrote", Relation.CONNECTED: "connected to", Relation.RECEIVED: "sent data to",
+            Relation.DELETED: "deleted"}[e.rel]
+    x = f" (x{e.count})" if e.count > 1 else ""
+    return f"{s} {verb} {d}{x}"
+
+
+def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = None) -> Reconstruction:
+    back, bedges = backward(g, alert.node_id, alert.ts)
+    rc = root_causes(g, back, bedges)
+    # keep only the causal spine: backward nodes that can reach the alert from a root cause
+    if rc:
+        spine: set[str] = set()
+        for r in rc:
+            f, _ = forward(g, r, g.nodes[r].first_ts)
+            spine |= f & back
+        back = spine | {alert.node_id}
+    fwd, fedges = forward(g, alert.node_id, alert.ts)
+    accessed: set[str] = set()
+    for p in fwd:
+        if g.nodes[p].type is NodeType.PROCESS:
+            for e in g.in_edges.get(p, []):
+                if e.rel is Relation.READ and e.ts >= alert.ts:
+                    accessed.add(e.src)
+    for p in back | fwd:  # binary images that story processes were executed from
+        for e in g.in_edges.get(p, []):
+            if e.rel is Relation.EXECUTED:
+                accessed.add(e.src)
+    accessed -= back | fwd
+    nodes = back | fwd | accessed
+    edges = sorted({id(e): e for e in g.edges if e.src in nodes and e.dst in nodes
+                    and (e.src in back and e.dst in back or e.ts >= alert.ts or e.dst == alert.node_id
+                         or e.rel is Relation.EXECUTED)}.values(),
+                   key=lambda e: (e.ts, e.seq))
+
+    alerts = alerts or [alert]
+    by_seq: dict[int, list[Alert]] = defaultdict(list)
+    for a in alerts:
+        for s in a.evidence:
+            by_seq[s].append(a)
+    kill_chain: dict[str, list[str]] = defaultdict(list)
+    for r in rc:
+        kill_chain["initial-access"].append(g.nodes[r].label)
+    timeline = []
+    for e in edges:
+        stage = next((a.kill_chain for a in by_seq.get(e.seq, []) if a.kill_chain), None)
+        if stage:
+            kill_chain[stage].append(_describe(g, e))
+        timeline.append({"ts": e.ts, "seq": e.seq, "rel": e.rel.value, "src": e.src, "dst": e.dst,
+                         "text": _describe(g, e), "stage": stage,
+                         "alerts": [a.rule_id for a in by_seq.get(e.seq, [])]})
+
+    iocs: dict[str, list[str]] = {"ipv4": [], "files": [], "sha256": []}
+    for nid in sorted(nodes):
+        n = g.nodes[nid]
+        if n.type is NodeType.SOCKET and not n.attrs.get("ip", "").startswith("127."):
+            if nid in fwd or nid in rc or any(e.dst == nid for e in edges if e.src in fwd):
+                iocs["ipv4"].append(n.attrs["ip"])
+        elif n.type is NodeType.FILE:
+            wrote_by_attack = any(e.rel in (Relation.WROTE, Relation.DELETED) and e.src in fwd
+                                  for e in g.in_edges.get(nid, []))
+            if nid in rc or wrote_by_attack or (nid in back and ENTRY_EXT.search(n.label)):
+                iocs["files"].append(n.label)
+            if n.attrs.get("sha256"):
+                iocs["sha256"].append(n.attrs["sha256"])
+    iocs = {k: sorted(set(v)) for k, v in iocs.items()}
+    ordered_kc = {s: kill_chain[s] for s in STAGE_ORDER if s in kill_chain}
+    return Reconstruction(alert, rc, back, fwd, edges, timeline, iocs, ordered_kc, accessed)
