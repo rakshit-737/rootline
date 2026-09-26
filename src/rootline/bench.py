@@ -114,8 +114,9 @@ class AtlasResult:
     seconds: float
 
 
-def run_atlas_scenario(sc: AtlasScenario, ioc: str | None = None) -> list[AtlasResult]:
-    raw, _ = build_graph(sc.records)
+def run_atlas_scenario(sc: AtlasScenario, ioc: str | None = None,
+                       raw: ProvenanceGraph | None = None) -> list[AtlasResult]:
+    raw = raw if raw is not None else build_graph(sc.records)[0]
     gt = {ev.seq for ev in raw.events if ev.label == "attack" and ev.kind.value != "dns"}
     ioc = ioc or (sc.artifacts[0] if sc.artifacts else "")
     seeds = ioc_seeds(raw, ioc)
@@ -144,8 +145,8 @@ def run_atlas_scenario(sc: AtlasScenario, ioc: str | None = None) -> list[AtlasR
     return out
 
 
-def reduction_stats(sc: AtlasScenario) -> dict[str, Any]:
-    raw, _ = build_graph(sc.records)
+def reduction_stats(sc: AtlasScenario, raw: ProvenanceGraph | None = None) -> dict[str, Any]:
+    raw = raw if raw is not None else build_graph(sc.records)[0]
     gt_keys = {(e.src, e.dst, e.rel) for e in raw.edges
                if e.seq in {ev.seq for ev in raw.events if ev.label == "attack"}}
     t0 = time.perf_counter()
@@ -162,10 +163,11 @@ def run_atlas(root: str) -> dict[str, Any]:
     rows, red, anom = [], [], []
     for d, s in discover(root):
         sc = load_scenario(d, s)
-        rows += [r.__dict__ for r in run_atlas_scenario(sc)]
-        red.append(reduction_stats(sc))
+        raw, _ = build_graph(sc.records)  # built once; every benchmark only reads it
+        rows += [r.__dict__ for r in run_atlas_scenario(sc, raw=raw)]
+        red.append(reduction_stats(sc, raw))
         try:
-            anom += run_anomaly_scenario(sc)
+            anom += run_anomaly_scenario(sc, g=raw)
         except ImportError:
             pass
     return {"atlas": rows, "reduction": red, "anomaly": anom}
@@ -222,11 +224,11 @@ def summarize_coverage(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 # ------------------------------------------------------------ vertex tagging
-def run_anomaly_scenario(sc: AtlasScenario, k: int = 10) -> list[dict[str, Any]]:
+def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | None = None) -> list[dict[str, Any]]:
     """Rank process vertices; GT = processes whose image is an ATLAS malicious entity."""
     from .anomaly import IForestTagger, degree_ranking
 
-    g, _ = build_graph(sc.records)
+    g = g if g is not None else build_graph(sc.records)[0]
     names = [lab for lab in sc.host_labels if "." in lab and not lab[0].isdigit()]
     bad = {n for n, v in g.nodes.items() if v.type is NodeType.PROCESS
            and any(entity_matches(v.label, v.attrs, lab) for lab in names)}
