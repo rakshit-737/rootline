@@ -25,7 +25,7 @@ demo:
 	$(PY) -m rootline.cli demo --outdir out
 
 serve:
-	$(PY) -m rootline.cli serve tests/fixtures/log4shell_sysmon.json
+	$(PY) -m rootline.cli serve --fuse tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_auoms.json
 
 clean:
 	rm -rf out .pytest_cache build *.egg-info src/*.egg-info

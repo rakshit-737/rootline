@@ -148,6 +148,6 @@ def create_app(preload: list[str | list[str]] | None = None) -> FastAPI:
     return app
 
 
-def serve(paths: list[str], host: str = "127.0.0.1", port: int = 8000) -> None:  # pragma: no cover
+def serve(paths: list[str | list[str]], host: str = "127.0.0.1", port: int = 8000) -> None:  # pragma: no cover
     import uvicorn
     uvicorn.run(create_app(paths), host=host, port=port)

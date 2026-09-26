@@ -5,7 +5,7 @@
                    [--baseline base.jsonl] [--pivot NODE|--ioc STR] [--iforest]
                    [--story out.json] [--stix out.json] [--mermaid out.mmd] [--cypher out.cypher]
                    [--no-reduce]
-  rootline serve   [CAPTURE ...] [--host 127.0.0.1] [--port 8000]
+  rootline serve   [CAPTURE ...] [--fuse] [--host 127.0.0.1] [--port 8000]
   rootline verify  events.jsonl --head HASH
   rootline demo    [--outdir out]
 """
@@ -97,7 +97,7 @@ def cmd_serve(ns: argparse.Namespace) -> int:  # pragma: no cover - starts a ser
         from .api import serve
     except ImportError:
         raise SystemExit("serve needs the api extra: pip install 'rootline[api]'") from None
-    serve(ns.captures, ns.host, ns.port)
+    serve([ns.captures] if ns.fuse and ns.captures else ns.captures, ns.host, ns.port)
     return 0
 
 
@@ -171,6 +171,7 @@ def main(argv: list[str] | None = None) -> int:
     sv.add_argument("captures", nargs="*")
     sv.add_argument("--host", default="127.0.0.1")
     sv.add_argument("--port", type=int, default=8000)
+    sv.add_argument("--fuse", action="store_true", help="fuse all captures into one story (several sensors, one host)")
     sv.set_defaults(fn=cmd_serve)
 
     d = sp.add_parser("demo", help="synthetic end-to-end demo")
