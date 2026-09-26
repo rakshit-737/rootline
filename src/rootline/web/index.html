@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROOTLINE attack replay</title>
+<style>
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --ink: #1c2330; --muted: #5d6778; --line: #d9dee6;
+  --accent: #1f618d; --root: #b03a2e; --back: #7d8ca3; --fwd: #1f618d; --acc: #7a8f3c;
+  --hl: #e67e22; --chip: #eef1f5;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #11151c; --panel: #181e27; --ink: #e4e8ee; --muted: #98a2b3; --line: #2b3441;
+          --accent: #5dade2; --root: #ec7063; --back: #8b98ad; --fwd: #5dade2; --acc: #a9c25d;
+          --hl: #f5b041; --chip: #222a36; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); }
+header { display: flex; align-items: baseline; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
+header h1 { font-size: 16px; margin: 0; letter-spacing: .04em; }
+header span { color: var(--muted); font-size: 13px; }
+main { display: grid; grid-template-columns: 260px 1fr 340px; gap: 0; height: calc(100vh - 49px); }
+aside, section { overflow: auto; padding: 14px 16px; }
+aside { border-right: 1px solid var(--line); background: var(--panel); }
+#side2 { border-left: 1px solid var(--line); border-right: 0; }
+h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 16px 0 8px; }
+h2:first-child { margin-top: 0; }
+button, select, label.file { font: inherit; border: 1px solid var(--line); background: var(--chip); color: var(--ink);
+  border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+button:hover, label.file:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+input[type=file] { display: none; }
+.story { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 8px; cursor: pointer; }
+.story.active { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.story small { color: var(--muted); display: block; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+#stage { position: relative; }
+#graph { width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+#graph text { font-size: 11px; fill: var(--ink); }
+.edge { fill: none; stroke: var(--line); stroke-width: 1.2; }
+.edge.on { stroke: var(--muted); }
+.edge.now { stroke: var(--hl); stroke-width: 2.5; }
+.node circle, .node rect, .node polygon { stroke-width: 2; }
+.node.dim { opacity: .25; }
+.controls { display: flex; gap: 8px; align-items: center; margin: 10px 0; }
+.controls input[type=range] { flex: 1; }
+#now { min-height: 42px; padding: 8px 10px; border-radius: 8px; background: var(--chip); font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; }
+.kc { margin: 0 0 8px; }
+.kc b { display: block; font-size: 12px; color: var(--accent); }
+.kc div { font-size: 12.5px; color: var(--ink); }
+.chip { display: inline-block; background: var(--chip); border-radius: 999px; padding: 2px 8px; margin: 2px; font-size: 12px; font-family: ui-monospace, Consolas, monospace; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+td { border-top: 1px solid var(--line); padding: 3px 4px; vertical-align: top; }
+td.sev-critical { color: var(--root); font-weight: 600; }
+.legend span { margin-right: 10px; font-size: 12px; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+.empty { color: var(--muted); padding: 40px; text-align: center; }
+.stats { color: var(--muted); font-size: 12.5px; }
+.links a { color: var(--accent); margin-right: 10px; font-size: 13px; }
+@media (max-width: 1000px) { main { grid-template-columns: 1fr; height: auto; } aside, #side2 { border: 0; } }
+</style>
+</head>
+<body>
+<header><h1>ROOTLINE</h1><span>provenance attack replay &middot; lab use only</span></header>
+<main>
+  <aside>
+    <h2>Captures</h2>
+    <div class="row">
+      <button class="primary" id="demo">Run synthetic demo</button>
+      <label class="file">Upload capture<input type="file" id="file"></label>
+    </div>
+    <p class="stats">Sysmon (XML / Syslog JSON), auditd / AUOMS, ROOTLINE JSONL or bpftrace output. Parsed locally by this server.</p>
+    <div id="stories"></div>
+  </aside>
+  <section id="stage">
+    <div id="head" class="stats"></div>
+    <div class="legend"><span><i style="background:var(--root)"></i>root cause</span><span><i style="background:var(--back)"></i>backward</span><span><i style="background:var(--hl)"></i>pivot</span><span><i style="background:var(--fwd)"></i>blast radius</span><span><i style="background:var(--acc)"></i>accessed</span></div>
+    <svg id="graph" role="img" aria-label="attack provenance graph"></svg>
+    <div class="controls">
+      <button id="play" aria-label="play">Play</button>
+      <button id="step" aria-label="next step">Step</button>
+      <input type="range" id="slider" min="0" max="0" value="0" aria-label="timeline position">
+      <span id="pos" class="stats"></span>
+    </div>
+    <div id="now">Select or create a capture to replay its attack story.</div>
+    <div class="links" id="links"></div>
+  </section>
+  <aside id="side2">
+    <h2>Kill chain</h2><div id="kc" class="stats">-</div>
+    <h2>IOCs</h2><div id="iocs" class="stats">-</div>
+    <h2>Alerts</h2><div id="alerts" class="stats">-</div>
+  </aside>
+</main>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const NS = "http://www.w3.org/2000/svg";
+let cur = null, step = 0, timer = null;
+const COLS = ["root", "backward", "pivot", "forward", "accessed"];
+const COLOR = { root: "var(--root)", backward: "var(--back)", pivot: "var(--hl)", forward: "var(--fwd)", accessed: "var(--acc)" };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
+  return r.json();
+}
+async function refresh(select) {
+  const list = await api("/api/stories");
+  $("stories").innerHTML = list.map((s) => `<div class="story${cur && cur.summary.id === s.id ? " active" : ""}" data-id="${s.id}">
+    <b>${esc(s.name)}</b><small>${s.events.toLocaleString()} events &middot; ${s.alerts} alerts &middot; story ${s.story_vertices}/${s.vertices}</small></div>`).join("") || '<p class="stats">No captures yet.</p>';
+  document.querySelectorAll(".story").forEach((el) => el.onclick = () => load(el.dataset.id));
+  if (select) load(select);
+}
+async function load(id) {
+  stop();
+  cur = await api(`/api/stories/${id}`);
+  step = 0;
+  refresh();
+  const s = cur.summary;
+  $("head").textContent = `${s.name}: ${s.events.toLocaleString()} events, ${s.vertices.toLocaleString()} vertices, reduced ${cur.reduction.edges_before.toLocaleString()} -> ${cur.reduction.edges_after.toLocaleString()} edges`;
+  side();
+  draw();
+}
+function side() {
+  const st = cur.story;
+  $("alerts").innerHTML = cur.alerts.length ? "<table>" + cur.alerts.slice(0, 60).map((a) =>
+    `<tr><td>${a.rule_id}</td><td class="sev-${a.severity}">${a.severity}</td><td>${esc(a.description)}</td></tr>`).join("") + "</table>" : "No alerts.";
+  if (!st) { $("kc").textContent = "No alert to pivot on: the capture looks clean."; $("iocs").textContent = "-"; $("links").innerHTML = ""; return; }
+  $("kc").innerHTML = Object.entries(st.kill_chain).map(([k, v]) => `<div class="kc"><b>${k}</b>${v.slice(0, 4).map((x) => `<div>${esc(x)}</div>`).join("")}${v.length > 4 ? `<div class="stats">+${v.length - 4} more</div>` : ""}</div>`).join("");
+  const ioc = Object.entries(st.iocs).flatMap(([k, v]) => v.map((x) => `<span class="chip" title="${k}">${esc(x)}</span>`));
+  $("iocs").innerHTML = ioc.join("") || "-";
+  const id = cur.summary.id;
+  $("links").innerHTML = `<a href="/api/stories/${id}">story.json</a><a href="/api/stories/${id}/stix">STIX 2.1</a><a href="/api/stories/${id}/mermaid">Mermaid</a><a href="/api/stories/${id}/cypher">Neo4j Cypher</a>`;
+}
+function draw() {
+  const svg = $("graph");
+  svg.innerHTML = "";
+  const st = cur.story;
+  if (!st) { svg.setAttribute("viewBox", "0 0 600 120"); svg.innerHTML = `<text x="20" y="60">No story to draw.</text>`; $("slider").max = 0; return; }
+  const pivot = st.alert.node_id;
+  const firstSeen = {};
+  st.timeline.forEach((t, i) => { if (!(t.src in firstSeen)) firstSeen[t.src] = i; if (!(t.dst in firstSeen)) firstSeen[t.dst] = i; });
+  let nodes = st.nodes.map((n) => ({ ...n, col: n.id === pivot ? "pivot" : n.role }));
+  const LIMIT = 160;
+  if (nodes.length > LIMIT) {
+    nodes.sort((a, b) => (firstSeen[a.id] ?? 1e9) - (firstSeen[b.id] ?? 1e9));
+    nodes = nodes.filter((n, i) => i < LIMIT || n.col === "root" || n.col === "pivot");
+  }
+  const byCol = {};
+  nodes.forEach((n) => (byCol[n.col] = byCol[n.col] || []).push(n));
+  const W = 220, H = 30, pos = {};
+  let maxRows = 1;
+  COLS.forEach((c, ci) => {
+    (byCol[c] || []).sort((a, b) => (firstSeen[a.id] ?? 1e9) - (firstSeen[b.id] ?? 1e9)).forEach((n, ri) => {
+      pos[n.id] = { x: 30 + ci * W, y: 40 + ri * H, n };
+      maxRows = Math.max(maxRows, ri + 1);
+    });
+  });
+  svg.setAttribute("viewBox", `0 0 ${COLS.length * W + 40} ${maxRows * H + 60}`);
+  COLS.forEach((c, ci) => { const t = document.createElementNS(NS, "text"); t.setAttribute("x", 30 + ci * W); t.setAttribute("y", 18); t.textContent = c.toUpperCase(); t.style.fill = "var(--muted)"; svg.appendChild(t); });
+  const eg = document.createElementNS(NS, "g"); svg.appendChild(eg);
+  st.timeline.forEach((t, i) => {
+    const a = pos[t.src], b = pos[t.dst];
+    if (!a || !b) return;
+    const p = document.createElementNS(NS, "path");
+    const mx = (a.x + b.x) / 2 + (a.x === b.x ? 60 : 0);
+    p.setAttribute("d", `M${a.x + 6},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x - 6},${b.y}`);
+    p.setAttribute("class", "edge"); p.dataset.i = i;
+    const title = document.createElementNS(NS, "title"); title.textContent = t.text; p.appendChild(title);
+    eg.appendChild(p);
+  });
+  Object.values(pos).forEach(({ x, y, n }) => {
+    const g = document.createElementNS(NS, "g"); g.setAttribute("class", "node"); g.dataset.id = n.id;
+    let shape;
+    if (n.type === "process") { shape = document.createElementNS(NS, "circle"); shape.setAttribute("cx", x); shape.setAttribute("cy", y); shape.setAttribute("r", 6); }
+    else if (n.type === "file") { shape = document.createElementNS(NS, "rect"); shape.setAttribute("x", x - 5); shape.setAttribute("y", y - 5); shape.setAttribute("width", 10); shape.setAttribute("height", 10); }
+    else { shape = document.createElementNS(NS, "polygon"); shape.setAttribute("points", `${x},${y - 7} ${x + 7},${y} ${x},${y + 7} ${x - 7},${y}`); }
+    shape.style.fill = COLOR[n.col]; shape.style.stroke = COLOR[n.col];
+    const label = document.createElementNS(NS, "text"); label.setAttribute("x", x + 11); label.setAttribute("y", y + 4);
+    const txt = n.label.length > 30 ? "..." + n.label.slice(-28) : n.label; label.textContent = txt;
+    const title = document.createElementNS(NS, "title"); title.textContent = `${n.label} (${n.type}, ${n.col})`;
+    g.append(shape, label, title); svg.appendChild(g);
+  });
+  $("slider").max = st.timeline.length;
+  $("slider").value = step;
+  render();
+}
+function render() {
+  const st = cur && cur.story;
+  if (!st) return;
+  const seen = new Set();
+  document.querySelectorAll("#graph .edge").forEach((p) => {
+    const i = +p.dataset.i;
+    p.classList.toggle("on", i < step); p.classList.toggle("now", i === step - 1);
+    if (i < step) { seen.add(st.timeline[i].src); seen.add(st.timeline[i].dst); }
+  });
+  document.querySelectorAll("#graph .node").forEach((g) => g.classList.toggle("dim", step > 0 && !seen.has(g.dataset.id)));
+  const t = st.timeline[step - 1];
+  $("pos").textContent = `${step} / ${st.timeline.length}`;
+  $("now").innerHTML = t ? `<b>${t.stage ? esc(t.stage) + ": " : ""}</b>${esc(t.text)}<br><span class="stats">t=${t.ts}${t.alerts.length ? " &middot; alerts " + t.alerts.join(", ") : ""}</span>` : "Press Play to replay the attack story edge by edge.";
+}
+function stop() { if (timer) { clearInterval(timer); timer = null; $("play").textContent = "Play"; } }
+$("play").onclick = () => {
+  if (!cur || !cur.story) return;
+  if (timer) return stop();
+  if (step >= cur.story.timeline.length) step = 0;
+  $("play").textContent = "Pause";
+  timer = setInterval(() => { if (step >= cur.story.timeline.length) return stop(); step++; $("slider").value = step; render(); }, 450);
+};
+$("step").onclick = () => { if (!cur || !cur.story) return; stop(); step = Math.min(step + 1, cur.story.timeline.length); $("slider").value = step; render(); };
+$("slider").oninput = (e) => { stop(); step = +e.target.value; render(); };
+$("demo").onclick = async () => { const s = await api("/api/demo", { method: "POST" }); refresh(s.id); };
+$("file").onchange = async (e) => {
+  const f = e.target.files[0]; if (!f) return;
+  try { const s = await api(`/api/analyze?name=${encodeURIComponent(f.name)}`, { method: "POST", body: await f.text() }); refresh(s.id); }
+  catch (err) { $("now").textContent = "Upload failed: " + err.message; }
+  e.target.value = "";
+};
+refresh().then(() => { const first = document.querySelector(".story"); if (first) load(first.dataset.id); });
+</script>
+</body>
+</html>
