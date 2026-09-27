@@ -58,6 +58,8 @@ def r_kernel_module(g: ProvenanceGraph, e: Edge) -> Alert | None:
         return None
     c, argv = comm(g, e.dst), _argv(g, e.dst)
     words = argv.split()
+    if c == "kmod" and words:  # multi-call binary: insmod/modprobe are symlinks to kmod
+        c = words[0].rsplit("/", 1)[-1]
     if c == "insmod" or (c == "modprobe" and "-r" not in words and "--remove" not in words
                          and _interactive(g, e.dst)) or (c == "kmod" and "load" in words):
         return _alert("RL-020", e.dst, e, Severity.HIGH, f"kernel module loaded: {argv[:80]}", "T1547.006",
