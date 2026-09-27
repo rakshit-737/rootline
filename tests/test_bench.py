@@ -61,11 +61,26 @@ def test_anomaly_ranking_on_mini(mini):
 def test_coverage_helpers():
     assert technique_of("splunk/attack_techniques/T1548.003/doas/sysmon_linux.log") == "T1548.003"
     assert technique_of("splunk/malware/acidrain/sysmon_linux.log") == "malware/acidrain"
-    rows = [{"split": "dev", "events": 3, "v01_alerts": 0, "v02_alerts": 2, "technique": "T1548",
-             "v02_techniques": ["T1548.003"]},
-            {"split": "dev", "events": 0, "v01_alerts": 0, "v02_alerts": 0, "technique": "T1", "v02_techniques": []}]
-    assert summarize_coverage(rows) == {"dev": {"datasets": 2, "with_events": 1, "v01_detected": 0,
-                                                "v02_detected": 1, "v02_technique_match": 1}}
+    def row(split, tech, events, techs):
+        r = {"split": split, "events": events, "technique": tech}
+        for v in ("v01", "v02", "v03"):
+            r.update({f"{v}_alerts": len(techs), f"{v}_techniques": techs,
+                      f"{v}_on_technique": sum(t.split(".")[0] == tech.split(".")[0] for t in techs)})
+        return r
+    rows = [row("dev", "T1548", 3, ["T1548.003", "T1105"]), row("dev", "T1", 0, []),
+            row("sealed", "T1547.006", 5, ["T1547.006"]), row("sealed", "T1548", 5, [])]
+    s = summarize_coverage(rows)
+    assert s["dev"]["with_events"] == 1 and s["dev"]["v03_detected"] == 1 and s["dev"]["v03_technique_match"] == 1
+    assert s["dev"]["v03_alert_precision"] == 0.5
+    assert s["sealed"]["v03_detected"] == 1 and s["sealed"]["v03_detected_ci95"][0] > 0
+    assert s["sealed-unseen-technique"]["datasets"] == 1  # T1547 never occurs in dev
+
+
+def test_wilson():
+    from rootline.bench import wilson
+    lo, hi = wilson(5, 10)
+    assert 0.23 < lo < 0.24 and 0.76 < hi < 0.77
+    assert wilson(0, 0) == (0.0, 0.0)
 
 
 @pytest.mark.realdata
