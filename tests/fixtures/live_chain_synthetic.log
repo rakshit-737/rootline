@@ -1,0 +1,27 @@
+ts=1000000000000 kind=fork pid=500 ppid=1 uid=1001 comm=bash child_pid=600
+ts=1000100000000 kind=execve pid=600 ppid=500 uid=1001 comm=bash path=/usr/bin/bash
+ts=1000200000000 kind=fork pid=600 ppid=500 uid=1001 comm=bash child_pid=601
+ts=1000300000000 kind=execve pid=601 ppid=600 uid=1001 comm=curl path=/usr/bin/curl
+ts=1000400000000 kind=openat pid=601 ppid=600 uid=1001 comm=curl path=/etc/ssl/certs/ca.pem flags=O_RDONLY fd=3
+ts=1000500000000 kind=connect pid=601 ppid=600 uid=1001 comm=curl dst_ip=127.0.0.1 dst_port=8081
+ts=1000600000000 kind=openat pid=601 ppid=600 uid=1001 comm=curl path=/tmp/rootline-lab-stage.sh flags=O_WRONLY fd=5
+ts=1000700000000 kind=write pid=601 ppid=600 uid=1001 comm=curl path=/tmp/rootline-lab-stage.sh fd=5
+ts=1000800000000 kind=exit pid=601 ppid=600 uid=1001 comm=curl
+ts=1000900000000 kind=fork pid=600 ppid=500 uid=1001 comm=bash child_pid=602
+ts=1001000000000 kind=execve pid=602 ppid=600 uid=1001 comm=chmod path=/usr/bin/chmod
+ts=1001100000000 kind=exit pid=602 ppid=600 uid=1001 comm=chmod
+ts=1001200000000 kind=fork pid=600 ppid=500 uid=1001 comm=bash child_pid=603
+ts=1001300000000 kind=execve pid=603 ppid=600 uid=1001 comm=rootline-lab-st path=/tmp/rootline-lab-stage.sh
+ts=1001350000000 kind=openat pid=603 ppid=600 uid=1001 comm=rootline-lab-st path=/tmp/rootline-lab-stage.sh flags=O_RDONLY fd=3
+ts=1001400000000 kind=fork pid=603 ppid=600 uid=1001 comm=rootline-lab-st child_pid=604
+ts=1001500000000 kind=execve pid=604 ppid=603 uid=1001 comm=cat path=/usr/bin/cat
+ts=1001600000000 kind=openat pid=604 ppid=603 uid=1001 comm=cat path=/home/runner/.aws/credentials flags=O_RDONLY fd=3
+ts=1001700000000 kind=exit pid=604 ppid=603 uid=1001 comm=cat
+ts=1001800000000 kind=openat pid=603 ppid=600 uid=1001 comm=rootline-lab-st path=/home/runner/.config/systemd/user/rootline-lab.service flags=O_WRONLY fd=3
+ts=1001900000000 kind=write pid=603 ppid=600 uid=1001 comm=rootline-lab-st path=/home/runner/.config/systemd/user/rootline-lab.service fd=3
+ts=1002000000000 kind=connect pid=603 ppid=600 uid=1001 comm=rootline-lab-st dst_ip=127.0.0.1 dst_port=4444
+ts=1002100000000 kind=fork pid=603 ppid=600 uid=1001 comm=rootline-lab-st child_pid=605
+ts=1002200000000 kind=execve pid=605 ppid=603 uid=1001 comm=curl path=/usr/bin/curl
+ts=1002300000000 kind=connect pid=605 ppid=603 uid=1001 comm=curl dst_ip=::1 dst_port=4445
+ts=1002400000000 kind=exit pid=605 ppid=603 uid=1001 comm=curl
+ts=1002500000000 kind=exit pid=603 ppid=600 uid=1001 comm=rootline-lab-st

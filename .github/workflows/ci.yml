@@ -85,3 +85,34 @@ jobs:
           echo "nodes: $n"; test "$n" -gt 0
       - if: failure()
         run: docker compose logs
+
+  live-ebpf:
+    # Runs the bpftrace probe LIVE (sudo) on the runner's real kernel while a benign,
+    # attack-shaped chain runs on localhost only, then asserts ROOTLINE recovers the chain.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e .
+      - name: install bpftrace (package registry only)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q bpftrace
+          bpftrace --version
+          uname -r
+          ls -la /sys/kernel/btf/vmlinux
+      - name: run probe + scripted chain (localhost only)
+        run: OUT=live-out bash scripts/live/run_chain.sh
+      - name: reconstruct and assert
+        run: python scripts/live/assert_chain.py live-out/capture.log --out live-out/result.json
+      - name: capture excerpt (lines touching the chain)
+        if: always()
+        run: grep -E "rootline-lab|127\.0\.0\.1|::1|aws/credentials|kind=fork|kind=exit" live-out/capture.log | head -4000 > live-out/capture_excerpt.log || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-ebpf
+          path: live-out/
