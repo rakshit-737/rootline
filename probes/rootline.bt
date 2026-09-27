@@ -6,7 +6,7 @@
  *
  * Emits key=value lines that rootline.normalize.parse_bpftrace_line reads:
  *
- *   sudo BPFTRACE_STRLEN=200 bpftrace probes/rootline.bt > capture.log
+ *   sudo bpftrace probes/rootline.bt > capture.log
  *   rootline analyze capture.log
  *
  * Observe-only: attaches to tracepoints/kprobes, never modifies syscalls.
@@ -23,7 +23,8 @@
  *     (fd -> path resolution); close() forgets the fd;
  *   - IPv6 connect (AF_INET6 = 10) as well as IPv4 (AF_INET = 2).
  * Known gaps: dup/dup2/fcntl-duplicated fds and fds inherited across fork are
- * not resolved; argv is not captured; paths are truncated at BPFTRACE_STRLEN.
+ * not resolved; argv is not captured; paths are truncated at the default 64-byte
+ * string limit (raising it overflows the 512-byte BPF stack in the exit probes).
  */
 
 tracepoint:sched:sched_process_fork

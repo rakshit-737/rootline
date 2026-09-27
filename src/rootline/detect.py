@@ -17,6 +17,7 @@ from typing import Callable, Iterable
 from .graph import ProvenanceGraph
 from .models import Alert, Edge, NodeType, Relation, Severity
 from .rules_linux import LINUX_RULES, discovery_bursts
+from .rules_v03 import RULES_V03_EXTRA
 
 SHELLS = {"sh", "bash", "dash", "zsh", "ksh", "busybox"}
 DOC_HANDLERS = {"soffice", "soffice.bin", "libreoffice", "evince", "okular", "thunderbird",
@@ -128,7 +129,8 @@ RULES_V01: list[Rule] = [
     r_doc_spawns_shell, r_exec_from_writable, r_suspicious_connect, r_cred_access,
     r_persistence, r_log_tamper, r_download,
 ]
-RULES: list[Rule] = RULES_V01 + LINUX_RULES  # v0.2: + command-line rules for real telemetry
+RULES_V02: list[Rule] = RULES_V01 + LINUX_RULES  # v0.2: + command-line rules for real telemetry
+RULES: list[Rule] = RULES_V02 + RULES_V03_EXTRA  # v0.3 (v1.1): frozen before the sealed split was scored
 
 
 # ------------------------------------------------------------------- anomaly
@@ -183,7 +185,7 @@ def detect(g: ProvenanceGraph, model: RareTransitionModel | None = None,
     """Run edge rules (default: all), the RL-018 aggregate, and optionally the anomaly model."""
     rules = RULES if rules is None else rules
     alerts = [a for e in g.edges for r in rules if (a := r(g, e)) is not None]
-    if rules is RULES:
+    if rules is RULES or rules is RULES_V02:
         alerts += discovery_bursts(g)
     if model is not None:
         alerts += model.tag(g)

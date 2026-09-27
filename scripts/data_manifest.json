@@ -523,8 +523,8 @@
    "sha256": "c18efef784e7754f6fd498900656f7e1969e97d32e23c4bb6488e8df63ba39a6",
    "size": 11130080,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -533,8 +533,8 @@
    "sha256": "62d24162917cdd531b6a6479d953091ace7e377ff5d5fa78c35e0895728b9e91",
    "size": 18169846,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -543,8 +543,8 @@
    "sha256": "31264a654c6073d29d463a7fec45c18f48b26a5f42f137075420e5382db89b84",
    "size": 54026642,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -553,8 +553,8 @@
    "sha256": "2dbdc98578403d1636bcdab4d4214377779c17ae0ab94fab2508e30815634a7b",
    "size": 59662955,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -563,8 +563,8 @@
    "sha256": "a85c1f37adf0cb8cdbadcc5c34e92e4cdb724938b4a4d83dd19e3528374e82ed",
    "size": 7622749,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -573,8 +573,8 @@
    "sha256": "7adcca8fbccf071c41b030af0b7c4542b9bc70d7eaabf539780a950f69a2cfe4",
    "size": 57897542,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -583,8 +583,8 @@
    "sha256": "0a83169ecfc9104d8718db5fd8ee9d2b9cb2453ab47428f75c7613354c4feed8",
    "size": 59660341,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -593,8 +593,8 @@
    "sha256": "54f44dde127ccb048ef43b9e4978e5d17710b30da3b7df45b8a3adaac841bb77",
    "size": 14612253,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -603,8 +603,8 @@
    "sha256": "92b164b049a2feedeace6d1726e2e7f2a7b199fd2c3558ef53468e2bdc9e9118",
    "size": 11979224,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -613,8 +613,8 @@
    "sha256": "fae1004c0fbba3c4852d202052f87803a9e19f032e0982339f789baf4fd9d322",
    "size": 6945937,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -623,8 +623,8 @@
    "sha256": "a09ca8540de4c00cdc24b077e00935a5ca537eb2e0cf869fa307c3428d6759aa",
    "size": 3733763,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -633,8 +633,8 @@
    "sha256": "f76f57656b91fc280f284466f9e1af286c5afe11f565cb6e1a5d134a848180e0",
    "size": 42441476,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -643,8 +643,8 @@
    "sha256": "c9f85796fb875ab6448d0fe53f713076bf66cf3647753962fc01b0672f2fbba1",
    "size": 15685780,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -653,8 +653,8 @@
    "sha256": "df6651ae53e6efc1da5f303fe10cd27b8ba744ffc6d85a4bd53c11aa1601b66c",
    "size": 23686663,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -663,8 +663,8 @@
    "sha256": "bfbde5e079ebbe1f3ee9e04c84c14b1cc9fb1a3637d7d3740589cc147c5d3035",
    "size": 16056784,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -673,8 +673,8 @@
    "sha256": "f868bd7956a7484ea2ee66e9b3045cdfd1cfd5f9c8a30412e10c586ff1e60d91",
    "size": 7610886,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -683,8 +683,8 @@
    "sha256": "adc40b5daba429f5d99dc2353407680848c6cef1f8279d02f90469e6f3ef9dc9",
    "size": 14927346,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -693,8 +693,8 @@
    "sha256": "4f346e6c52caa614b86d4a8a778c6165e02b2948a5f14b155757f93e6228947e",
    "size": 11455124,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -703,8 +703,8 @@
    "sha256": "df85e94439159433865bcac94effde54299a12a965acf1a715fbb6a3d8ef5c94",
    "size": 33782710,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -713,8 +713,8 @@
    "sha256": "b4ba4d224069b42e71d9c2c3385d256b9bf790ac6a9596fcdda109076c6aa6b0",
    "size": 12282656,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -723,8 +723,8 @@
    "sha256": "3ce7e20055615c87a32fc88bb557d390cc1e2f9f640a2cae04872ecdcbea8b82",
    "size": 6766084,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -733,8 +733,8 @@
    "sha256": "4a9c3257616dd8d15f4d43c1041b10c254e238dd317f809502418138cdfe0cc9",
    "size": 29846587,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -743,8 +743,8 @@
    "sha256": "66db917fc89a0e7d112f42cafa1574c7dc0cd15dac7fd870cd85f3bf85b9f86c",
    "size": 27490382,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -753,8 +753,8 @@
    "sha256": "b0caf3d8189fa904442328a53c33159779167931662f64dad5a42281724beb51",
    "size": 14767284,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -763,8 +763,8 @@
    "sha256": "397b280dfd3393d982b06930d929a6ae66e4a618fb3324a4d9a20beae740f97a",
    "size": 31487567,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -773,8 +773,8 @@
    "sha256": "e8b9ca191dff31daf9b2836847af78c99df272e5e050b549b2b5f32091532da0",
    "size": 42308674,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   },
   {
    "source": "splunk",
@@ -783,8 +783,8 @@
    "sha256": "5cb8e756cbf65b1feb803f42cec143dec2dd31eb9006cab617bc292241056645",
    "size": 80180920,
    "license": "Apache-2.0",
-   "note": "Splunk attack_data (Sysmon for Linux) - held out: not inspected while writing rules",
-   "split": "holdout"
+   "note": "Splunk attack_data (Sysmon for Linux) - v1.0 holdout, burned in v1.1 (used to write v0.3 rules)",
+   "split": "dev2"
   }
  ]
 }

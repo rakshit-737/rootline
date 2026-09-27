@@ -30,7 +30,7 @@ c, _ = s.accept(); print(c.recv(100)); c.close()
 LST=$!
 sleep 1
 
-sudo BPFTRACE_STRLEN=200 bpftrace "$REPO/probes/rootline.bt" >"$OUT/capture.log" 2>"$OUT/bpftrace.err" &
+sudo bpftrace "$REPO/probes/rootline.bt" >"$OUT/capture.log" 2>"$OUT/bpftrace.err" &
 BPF=$!
 for _ in $(seq 1 60); do grep -q "Attaching" "$OUT/bpftrace.err" 2>/dev/null && break; sleep 1; done
 sleep 2

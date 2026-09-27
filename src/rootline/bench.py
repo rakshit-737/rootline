@@ -29,7 +29,7 @@ from collections import deque
 from dataclasses import dataclass
 from typing import Any
 
-from .detect import RULES_V01, detect
+from .detect import RULES_V01, RULES_V02, detect
 from .graph import ProvenanceGraph
 from .loaders import load_records
 from .loaders.atlas import AtlasScenario, discover, entity_matches, load_scenario
@@ -182,44 +182,86 @@ def technique_of(path: str) -> str:
     return "malware/" + parts[parts.index("malware") + 1] if "malware" in parts else "?"
 
 
-def run_coverage(manifest: str, data_root: str) -> list[dict[str, Any]]:
+SPLITS = ("dev", "dev2", "sealed")
+
+
+def _tech_match(techs: list[str], want: str) -> bool:
+    return any(t.split(".")[0] == want.split(".")[0] for t in techs)
+
+
+def coverage_row(path: str, dest: str, split: str) -> dict[str, Any]:
+    recs = load_records(path)
+    g, _ = build_graph(recs)
+    row: dict[str, Any] = {"dataset": dest.split("/", 1)[1], "technique": technique_of(dest), "split": split,
+                           "events": len(g.events)}
+    for tag, rules in (("v01", RULES_V01), ("v02", RULES_V02), ("v03", None)):
+        al = detect(g, rules=rules)
+        techs = [a.attack_technique for a in al if a.attack_technique]
+        row[f"{tag}_alerts"] = len(al)
+        row[f"{tag}_on_technique"] = sum(1 for t in techs if _tech_match([t], row["technique"]))
+        row[f"{tag}_rules"] = sorted({a.rule_id for a in al})
+        row[f"{tag}_techniques"] = sorted(set(techs))
+    return row
+
+
+def run_coverage(manifest: str, data_root: str, splits: tuple[str, ...] = SPLITS) -> list[dict[str, Any]]:
     with open(manifest, encoding="utf-8") as fh:
         items = json.load(fh)["files"]
     rows = []
     for it in items:
-        if it["source"] not in ("splunk", "otrf") or not it.get("split"):
+        if it["source"] not in ("splunk", "otrf") or it.get("split") not in splits:
             continue
         path = os.path.join(data_root, it["dest"])
         if it["dest"].endswith(".zip"):
             continue  # OTRF zips: their extracted logs are listed via the OTRF compound demo instead
         if not os.path.exists(path):
             continue
-        recs = load_records(path)
-        g, _ = build_graph(recs)
-        v01 = detect(g, rules=RULES_V01)
-        v02 = detect(g)
-        rows.append({"dataset": it["dest"].split("/", 1)[1], "technique": technique_of(it["dest"]),
-                     "split": it["split"], "events": len(g.events),
-                     "v01_alerts": len(v01), "v02_alerts": len(v02),
-                     "v02_rules": sorted({a.rule_id for a in v02}),
-                     "v02_techniques": sorted({a.attack_technique for a in v02 if a.attack_technique})})
+        rows.append(coverage_row(path, it["dest"], it["split"]))
     return rows
 
 
-def summarize_coverage(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    out = {}
-    for split in ("dev", "holdout"):
-        rs = [r for r in rows if r["split"] == split]
+def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Wilson score interval for a binomial proportion (stdlib only)."""
+    if n == 0:
+        return 0.0, 0.0
+    p = k / n
+    d = 1 + z * z / n
+    c = (p + z * z / (2 * n)) / d
+    h = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / d
+    return max(0.0, c - h), min(1.0, c + h)
+
+
+def summarize_coverage(rows: list[dict[str, Any]], dev_techniques: set[str] | None = None) -> dict[str, Any]:
+    """Per split and rule version: captures detected (any alert), captures whose technique was
+    matched, the share of alerts that name the capture's technique (a precision proxy: the
+    captures carry lots of benign background), each with a 95 % Wilson interval.
+    ``unseen`` restricts the sealed split to techniques that never occur in dev/dev2."""
+    dev_techniques = dev_techniques if dev_techniques is not None else {
+        r["technique"].split(".")[0] for r in rows if r["split"] in ("dev", "dev2")}
+    out: dict[str, Any] = {}
+    groups = [(s, [r for r in rows if r["split"] == s]) for s in SPLITS]
+    groups.append(("sealed-unseen-technique", [r for r in rows if r["split"] == "sealed"
+                                               and r["technique"].split(".")[0] not in dev_techniques]))
+    for split, rs in groups:
+        loaded = [r for r in rs if r["events"] > 0]
         if not rs:
             continue
-        loaded = [r for r in rs if r["events"] > 0]
-        out[split] = {
-            "datasets": len(rs), "with_events": len(loaded),
-            "v01_detected": sum(1 for r in loaded if r["v01_alerts"]),
-            "v02_detected": sum(1 for r in loaded if r["v02_alerts"]),
-            "v02_technique_match": sum(1 for r in loaded if any(
-                t.split(".")[0] == r["technique"].split(".")[0] for t in r["v02_techniques"])),
-        }
+        d: dict[str, Any] = {"datasets": len(rs), "with_events": len(loaded)}
+        n = len(loaded)
+        for tag in ("v01", "v02", "v03"):
+            if f"{tag}_alerts" not in (loaded[0] if loaded else {}):
+                continue
+            det = sum(1 for r in loaded if r[f"{tag}_alerts"])
+            tm = sum(1 for r in loaded if _tech_match(r[f"{tag}_techniques"], r["technique"]))
+            al = sum(r[f"{tag}_alerts"] for r in loaded)
+            on = sum(r[f"{tag}_on_technique"] for r in loaded)
+            d[f"{tag}_detected"] = det
+            d[f"{tag}_detected_ci95"] = [round(x, 3) for x in wilson(det, n)]
+            d[f"{tag}_technique_match"] = tm
+            d[f"{tag}_technique_match_ci95"] = [round(x, 3) for x in wilson(tm, n)]
+            d[f"{tag}_alerts"] = al
+            d[f"{tag}_alert_precision"] = round(on / al, 3) if al else None
+        out[split] = d
     return out
 
 
