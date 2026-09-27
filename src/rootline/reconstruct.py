@@ -26,7 +26,8 @@ STOP_COMMS = {"systemd", "init", "sshd", "gnome-session", "gdm", "lightdm", "cro
 ENTRY_EXT = re.compile(r"\.(docm?|xlsm?|pptm?|pdf|rtf|odt|zip|rar|7z|iso|lnk|js|hta|jar|sh|py|elf|bin|deb)$", re.I)
 USER_DIRS = re.compile(r"^/(home/[^/]+|root)/(Downloads|Desktop|Documents|tmp)/|^/tmp/|"
                        r"^c:/users/[^/]+/(downloads|desktop|documents|appdata/local/temp)/", re.I)
-SYSTEM_PATHS = re.compile(r"^/(usr|bin|sbin|lib|etc|opt|proc|sys)/|^c:/(windows|program files|programdata)/", re.I)
+SYSTEM_PATHS = re.compile(r"^/(usr|bin|sbin|lib|etc|opt|proc|sys)/|^/dev/(null|zero|u?random|full|tty\w*|ptmx|pts/)|"
+                          r"^c:/(windows|program files|programdata)/", re.I)
 APP_STATE = re.compile(r"/(\.mozilla|\.config|\.cache)/|/appdata/(roaming|locallow)/|/appdata/local/(?!temp/)", re.I)
 
 STAGE_ORDER = ["initial-access", "delivery", "execution", "persistence", "privilege-escalation",
@@ -121,7 +122,8 @@ def root_causes(g: ProvenanceGraph, back: set[str], back_edges: list[Edge], k: i
     A candidate must have fed information into the slice strictly *before* the
     pivot time ``t``: a C2 socket the pivot process itself opened is an effect
     of the intrusion, not its cause."""
-    fed = {e.src for e in back_edges if e.ts < t}
+    # an image executed exactly at the pivot time is still its cause (pivot = exec alert)
+    fed = {e.src for e in back_edges if e.ts < t or (e.rel is Relation.EXECUTED and e.ts <= t)}
     cands = [n for n in back if g.nodes[n].type is not NodeType.PROCESS and n in fed]
     scored = sorted(((score_entry(g, n), g.nodes[n].first_ts, n) for n in cands), reverse=True)
     return [n for s, _, n in scored if s > 0][:k]  # ties: most recent first

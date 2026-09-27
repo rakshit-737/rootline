@@ -8,9 +8,10 @@ Checks (each recorded in the JSON artefact; exit 1 if any fails):
   self_pid   - no line was emitted by or about bpftrace itself
   fd_to_path - write() lines carry the path of the fd (curl's download, the unit file)
   ipv6       - the IPv6 connect to [::1]:4445 was captured with its address
-  chain      - pivoting on the stage process, the story contains the download socket,
-               the downloader, the dropped script, the credential read, the persistence
-               write and the listener connection
+  chain      - pivoting on the stage process, the dropped script is the root cause, the
+               story holds the credential read, the persistence write and the listener
+               connection, and a backward query from the script reaches the downloader
+               and the download socket
   alerts     - exec-from-/tmp, credential read and persistence rules fire on the live data
 """
 from __future__ import annotations
@@ -35,7 +36,7 @@ UNIT = "/.config/systemd/user/rootline-lab.service"
 
 
 def check_chain(lines: list[str]) -> dict:
-    recs = [parse_bpftrace_line(ln) for ln in lines if ln.startswith("ts=")]
+    recs = [parse_bpftrace_line(ln) for ln in lines if ln.startswith(("ts=", "tsns="))]
     kinds = Counter(r.get("kind") for r in recs)
     res: dict = {"lines": len(recs), "kinds": dict(kinds), "checks": {}}
     c = res["checks"]
@@ -62,10 +63,17 @@ def check_chain(lines: list[str]) -> dict:
     g = a.graph
     labels = {g.nodes[n].label for n in r.nodes}
     back = {g.nodes[n].label for n in r.backward}
+    # loopback sockets never rank as root causes (score 0), so the story stops at the dropped
+    # script; the analyst's next question - where did that file come from? - is one more
+    # backward query from it
+    from rootline.reconstruct import backward, contact_window
+    fid = next(n for n in g.nodes if g.nodes[n].label == STAGE)
+    origin = {g.nodes[n].label for n in backward(g, fid, contact_window(g, fid)[1])[0]}
     want = {
-        "download_socket_in_backward": "127.0.0.1:8081" in back,
-        "downloader_in_backward": any(lab.startswith("curl[") for lab in back),
         "dropped_script_in_backward": STAGE in back,
+        "dropped_script_is_root_cause": STAGE in {g.nodes[n].label for n in r.root_causes},
+        "downloader_is_origin_of_script": any(lab.startswith("curl[") for lab in origin),
+        "download_socket_is_origin_of_script": "127.0.0.1:8081" in origin,
         "credential_read": any(lab.endswith(CREDS) for lab in labels),
         "persistence_write": any(lab.endswith(UNIT) for lab in labels),
         "listener_connect": "127.0.0.1:4444" in labels,

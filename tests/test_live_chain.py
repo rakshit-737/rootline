@@ -15,7 +15,8 @@ def test_chain_recovered(name):
     lines = (ROOT / "tests" / "fixtures" / name).read_text().splitlines()
     res = ac.check_chain(lines)
     assert all(res["checks"].values()), res["checks"]
-    assert res["story"]["download_socket_in_backward"]
+    assert res["story"]["download_socket_is_origin_of_script"]
+    assert res["story"]["root_causes"] == ["/tmp/rootline-lab-stage.sh"]
 
 
 def test_self_pid_check_catches_probe_lines():

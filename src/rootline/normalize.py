@@ -131,7 +131,9 @@ def parse_bpftrace_line(line: str) -> dict[str, Any]:
         if "=" in tok:
             k, v = tok.split("=", 1)
             rec[k] = v
-    if "ts" in rec:
+    if "tsns" in rec:  # probe v1.1: explicit nanoseconds (monotonic clock, ~1e11 on a fresh boot)
+        rec["ts"] = int(rec.pop("tsns")) / 1e9
+    elif "ts" in rec:
         rec["ts"] = float(rec["ts"]) / (1e9 if float(rec["ts"]) > 1e12 else 1)
     return rec
 

@@ -22,15 +22,17 @@
  *     is remembered so the first write() to it is reported with its PATH
  *     (fd -> path resolution); close() forgets the fd;
  *   - IPv6 connect (AF_INET6 = 10) as well as IPv4 (AF_INET = 2).
- * Known gaps: dup/dup2/fcntl-duplicated fds and fds inherited across fork are
- * not resolved; argv is not captured; paths are truncated at the default 64-byte
+ *   - timestamps are emitted as tsns= (nanoseconds, unambiguous);
+ *   - dup2/dup3 carry the path to the new fd (shell `> file` redirections).
+ * Known gaps: dup()/fcntl(F_DUPFD)-duplicated fds and fds inherited across fork
+ * are not resolved; argv is not captured; paths are truncated at the default 64-byte
  * string limit (raising it overflows the 512-byte BPF stack in the exit probes).
  */
 
 tracepoint:sched:sched_process_fork
 /comm != "bpftrace"/
 {
-  printf("ts=%llu kind=fork pid=%d ppid=%d uid=%d comm=%s child_pid=%d\n",
+  printf("tsns=%llu kind=fork pid=%d ppid=%d uid=%d comm=%s child_pid=%d\n",
          nsecs, args->parent_pid, curtask->real_parent->tgid, uid, comm, args->child_pid);
 }
 
@@ -45,7 +47,7 @@ tracepoint:syscalls:sys_exit_execve
 /@inexec[tid]/
 {
   if (args->ret == 0) {
-    printf("ts=%llu kind=execve pid=%d ppid=%d uid=%d comm=%s path=%s\n",
+    printf("tsns=%llu kind=execve pid=%d ppid=%d uid=%d comm=%s path=%s\n",
            nsecs, pid, curtask->real_parent->tgid, uid, comm, @exe[tid]);
   }
   delete(@exe[tid]);
@@ -65,7 +67,7 @@ tracepoint:syscalls:sys_exit_openat
 /@inopen[tid]/
 {
   if (args->ret >= 0) {
-    printf("ts=%llu kind=openat pid=%d ppid=%d uid=%d comm=%s path=%s flags=%s fd=%d\n",
+    printf("tsns=%llu kind=openat pid=%d ppid=%d uid=%d comm=%s path=%s flags=%s fd=%d\n",
            nsecs, pid, curtask->real_parent->tgid, uid, comm, @opath[tid],
            @ow[tid] ? "O_WRONLY" : "O_RDONLY", args->ret);
     if (@ow[tid]) {
@@ -83,9 +85,26 @@ tracepoint:syscalls:sys_enter_write
 /@wpending[pid, args->fd] == 1/
 {
   /* fd -> path: report the first write() per (pid, fd) with the path it was opened as */
-  printf("ts=%llu kind=write pid=%d ppid=%d uid=%d comm=%s path=%s fd=%d\n",
+  printf("tsns=%llu kind=write pid=%d ppid=%d uid=%d comm=%s path=%s fd=%d\n",
          nsecs, pid, curtask->real_parent->tgid, uid, comm, @wfd[pid, args->fd], args->fd);
   delete(@wpending[pid, args->fd]);
+}
+
+/* shells redirect with open + dup2(fd, 1) + close(fd): carry the path to the new fd */
+tracepoint:syscalls:sys_enter_dup2
+/@wopen[pid, args->oldfd]/
+{
+  @wfd[pid, args->newfd] = @wfd[pid, args->oldfd];
+  @wopen[pid, args->newfd] = 1;
+  @wpending[pid, args->newfd] = 1;
+}
+
+tracepoint:syscalls:sys_enter_dup3
+/@wopen[pid, args->oldfd]/
+{
+  @wfd[pid, args->newfd] = @wfd[pid, args->oldfd];
+  @wopen[pid, args->newfd] = 1;
+  @wpending[pid, args->newfd] = 1;
 }
 
 tracepoint:syscalls:sys_enter_close
@@ -99,7 +118,7 @@ tracepoint:syscalls:sys_enter_close
 tracepoint:syscalls:sys_enter_unlinkat
 /comm != "bpftrace"/
 {
-  printf("ts=%llu kind=unlinkat pid=%d ppid=%d uid=%d comm=%s path=%s\n",
+  printf("tsns=%llu kind=unlinkat pid=%d ppid=%d uid=%d comm=%s path=%s\n",
          nsecs, pid, curtask->real_parent->tgid, uid, comm, str(args->pathname));
 }
 
@@ -109,11 +128,11 @@ kprobe:tcp_connect
   $sk = (struct sock *)arg0;
   $fam = $sk->__sk_common.skc_family;
   if ($fam == 2) {
-    printf("ts=%llu kind=connect pid=%d ppid=%d uid=%d comm=%s dst_ip=%s dst_port=%d\n",
+    printf("tsns=%llu kind=connect pid=%d ppid=%d uid=%d comm=%s dst_ip=%s dst_port=%d\n",
            nsecs, pid, curtask->real_parent->tgid, uid, comm,
            ntop($sk->__sk_common.skc_daddr), bswap($sk->__sk_common.skc_dport));
   } else if ($fam == 10) {
-    printf("ts=%llu kind=connect pid=%d ppid=%d uid=%d comm=%s dst_ip=%s dst_port=%d\n",
+    printf("tsns=%llu kind=connect pid=%d ppid=%d uid=%d comm=%s dst_ip=%s dst_port=%d\n",
            nsecs, pid, curtask->real_parent->tgid, uid, comm,
            ntop($sk->__sk_common.skc_v6_daddr.in6_u.u6_addr8), bswap($sk->__sk_common.skc_dport));
   }
@@ -122,7 +141,7 @@ kprobe:tcp_connect
 tracepoint:sched:sched_process_exit
 /comm != "bpftrace" && pid == tid/
 {
-  printf("ts=%llu kind=exit pid=%d ppid=%d uid=%d comm=%s\n",
+  printf("tsns=%llu kind=exit pid=%d ppid=%d uid=%d comm=%s\n",
          nsecs, pid, curtask->real_parent->tgid, uid, comm);
 }
 
