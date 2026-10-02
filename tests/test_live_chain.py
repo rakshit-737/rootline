@@ -30,3 +30,16 @@ def test_ipv6_connect_normalizes():
     ev = normalize_record(parse_bpftrace_line(
         "ts=5 kind=connect pid=3 ppid=1 uid=0 comm=curl dst_ip=::1 dst_port=4445"), 0)
     assert ev.dst_ip == "::1" and ev.dst_port == 4445
+
+
+def test_v12_capture_from_ci():
+    """Real probe v1.2 capture (CI run 36996901332, run 1): one query reaches the download socket."""
+    lines = (ROOT / "tests" / "fixtures" / "live_chain_ci_v12.jsonl").read_text(encoding="utf-8").splitlines()
+    res = ac.check_chain(lines, probe_pid=2862, lab_ip="198.51.100.7", decoy="/tmp/tmp.QzJZVbE5GZ/bpftrace")
+    assert res["format"] == "v1.2-json"
+    assert all(res["checks"].values()), res["checks"]
+    assert "198.51.100.7:8081" in res["story"]["root_causes"]
+    assert {"RL-002", "RL-004", "RL-005", "RL-006"} <= set(res["alerts"])
+    # the self filter is by PID: a record forged with the probe's PID fails the check
+    forged = lines + ['{"type": "printf", "data": "tsns=1 kind=exit pid=2862 ppid=1 uid=0 comm=x\\n"}']
+    assert ac.check_chain(forged, probe_pid=2862, decoy="/tmp/tmp.QzJZVbE5GZ/bpftrace")["checks"]["self_pid"] is False

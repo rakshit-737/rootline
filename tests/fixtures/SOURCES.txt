@@ -24,3 +24,5 @@ atlas_mini/
 live_chain_synthetic.log  Hand-written bpftrace-format lines mirroring the scripted live chain (no real host data).
 live_chain_ci.log         Excerpt of a real capture from the live-ebpf CI job, run 36319289054
                           (ubuntu-24.04, kernel 6.17.0-1022-azure, bpftrace 0.20.2); benign localhost chain, dummy files only.
+live_chain_ci_v12.jsonl   Full capture from the live-ebpf CI job, run 36996901332 (matrix run 1), probe v1.2
+                          (bpftrace -f json), ubuntu-24.04 runner; benign chain inside the runner, dummy files only.
