@@ -26,6 +26,8 @@ All notable changes are listed here. The format follows
 - **ATLAS reproduction** (`repro/atlas_repro.py`, manual `atlas-repro` workflow):
   PyTorch reimplementation of the ATLAS LSTM under the paper's setup, S1-S4 x 5 seeds,
   with ATLAS's shipped artefacts scored the same way (`results/atlas_repro.json`).
+- IsolationForest baselines: a user-directory heuristic and a run without the
+  `exec_user_dir` feature (`IForestTagger(drop=...)`, `userdir_ranking`).
 - ATLAS M1 (multi-host) logs in the benchmarks; all ATLAS zips pinned to commit
   `e46096d` with SHA-256 and size.
 - Docs: How it works, Evaluation, Reproduce and protocol pages; generated CLI
@@ -77,6 +79,11 @@ All notable changes are listed here. The format follows
   95 % [0.03, 0.15]); 96 of 160 sealed captures are not parsed by the frozen loaders.
 - The ATLAS LSTM reproduction does not reach the paper's numbers (entity F1 0.24-0.75
   vs 0.89-1.00).
+- On held-out ATLAS hosts the full reconstructor's F1 gain over naive reachability is
+  not significant (recall 0.72), and from the analyst IOC the story collapses on 5 of 6
+  second-hop hosts.
+- IsolationForest process ranking is beaten by a one-line user-directory heuristic
+  (new baseline), and falls to recall@10 0.49 without its `exec_user_dir` feature.
 
 ## [1.0.0] - 2026-09-26
 

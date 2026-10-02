@@ -157,7 +157,11 @@ The rules do not generalise beyond the captures they were written from, and the 
 
 The `live-ebpf` job runs `probes/rootline.bt` with sudo on the ubuntu-24.04 runner kernel (6.17, bpftrace 0.20.2) while a benign, attack-shaped chain runs entirely inside the runner: a dummy interface carries a TEST-NET "remote" server, `HOME` is a throwaway directory, the credentials are AWS's documented example key. One query from the dropped script's process finds the download socket `198.51.100.7:8081` and the script as root causes and the credential read, unit and cron-style writes, history deletion and both listener connections in a 28-vertex story; RL-002/004/005/006 fire; zero lost events; a decoy that renamed itself `bpftrace` is still captured. Five matrix runs per push; over the 9 pushes to main since probe v1.2, 41 of 42 completed jobs passed (Wilson 95 % [0.88, 1.00]); the one failure was an over-strict fork-parent check, since corrected, and the chain was recovered in all 42 ([`results/live_ebpf.json`](results/live_ebpf.json), story in [`results/live_ebpf_story.mmd`](results/live_ebpf_story.mmd)). Caveats: bpftrace, not a libbpf CO-RE probe; a scripted benign chain; relative paths are not resolved.
 
-### 6. Sensor fusion: OTRF Log4Shell (CVE-2021-44228)
+### 6. Unsupervised process ranking: IsolationForest loses to a one-line heuristic
+
+Ranking each log's process vertices with no labels against ATLAS's malicious process images ([`results/TABLES.md`](results/TABLES.md)): on the held-out M hosts, IsolationForest puts the first malicious process at mean rank 1.87 (recall@10 0.78), but the heuristic "images in a user-writable directory first, then by degree" does better (rank 1.00, recall@10 0.93), and IsolationForest without its `exec_user_dir` feature, which was written alongside the ATLAS benchmark, falls to recall@10 0.49. The model adds nothing over that one feature here.
+
+### 7. Sensor fusion: OTRF Log4Shell (CVE-2021-44228)
 
 | Input | Events | Alerts | Story vertices | Root causes | Reaches `java` | Reaches LDAP `:1389` |
 |---|---|---|---|---|---|---|
@@ -184,7 +188,7 @@ The default download is 78 files, 736.5 MB. Logs only: no binaries, and ATLAS mo
 pip install -e ".[dev,bench]"
 export ROOTLINE_DATA=~/rootline-data
 python scripts/download_data.py && python scripts/download_data.py --source atlas --all
-python scripts/bench.py --only atlas     # results/atlas.json, RESULTS.md, figures (~25 min)
+python scripts/bench.py --only atlas     # results/atlas.json, RESULTS.md, figures (~6 min)
 python scripts/ablation.py               # results/ablation.json (~13 min)
 python scripts/render_tables.py          # results/TABLES.md
 ```

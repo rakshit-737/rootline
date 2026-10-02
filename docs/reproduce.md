@@ -20,7 +20,7 @@ python scripts/download_data.py --source atlas --all   # + ATLAS M1 (62 MB, mult
 
 | Result file | Command | Runtime | Where it ran |
 |---|---|---|---|
-| `results/atlas.json`, `RESULTS.md`, `figures/atlas_prf.png` | `python scripts/bench.py --only atlas` | ~25 min (16 logs, incl. IsolationForest x10 seeds) | laptop |
+| `results/atlas.json`, `RESULTS.md`, `figures/atlas_prf.png` | `python scripts/bench.py --only atlas` | ~6 min (329 s; 16 logs, incl. IsolationForest x10 seeds x2 variants) | laptop |
 | `results/log4shell.json`, `log4shell_story.*` | `python scripts/bench.py --only log4shell` | < 1 s | laptop |
 | `results/ablation.json`, `figures/ablation.png` | `python scripts/ablation.py` | 13 min (782 s) | laptop |
 | `results/coverage.json`, `figures/tagger_coverage.png` | manual workflow **sealed-coverage** (runs `scripts/verify_freeze.py`, downloads the pinned captures, `scripts/bench.py --only coverage`) | ~6 min | CI run 36994398382 |

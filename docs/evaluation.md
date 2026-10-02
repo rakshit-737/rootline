@@ -15,6 +15,9 @@ Every number on this page is rendered from committed JSON by `scripts/render_tab
   shipped raw model output does not either.
 - **Rules.** v0.3 detects 23/27 in-sample `dev2` captures but **4/64** parsed sealed
   captures. The rules do not generalise; 96 of 160 sealed captures are not even parsed.
+- **Unsupervised ranking.** IsolationForest is beaten by a one-line "user-dir image first"
+  heuristic on the held-out hosts (recall@10 0.93 vs 0.78) and falls to 0.49 without that
+  single feature.
 - **Live kernel.** The probe recovers the scripted chain on a real kernel in CI in one
   query, with the download socket as a root cause, in 42 of 42 completed jobs.
 
