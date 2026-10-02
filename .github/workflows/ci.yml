@@ -65,6 +65,11 @@ jobs:
         run: |
           for i in $(seq 1 30); do curl -fs http://127.0.0.1:8000/api/health && break; sleep 2; done
           curl -fs http://127.0.0.1:8000/api/stories | python3 -c "import json,sys; s=json.load(sys.stdin); assert s and s[0]['story_vertices'] > 0, s; print(s)"
+          # POST guard: refused without the X-Rootline header, accepted with it
+          test "$(curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8000/api/demo)" = 403
+          curl -fs -X POST -H 'X-Rootline: 1' 'http://127.0.0.1:8000/api/demo?benign=50' > /dev/null
+          for i in $(seq 1 30); do [ "$(docker inspect -f '{{.State.Health.Status}}' rl)" = healthy ] && break; sleep 2; done
+          docker inspect -f '{{.State.Health.Status}}' rl
       - if: failure()
         run: docker logs rl
 
