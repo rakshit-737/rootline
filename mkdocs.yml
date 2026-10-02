@@ -50,7 +50,7 @@ nav:
   - Architecture: architecture.md
   - Datasets: datasets.md
   - Benchmarks: benchmarks.md
-  - Live demo: demo.md
+  - Live demo: live-demo.md
   - Reference:
       - CLI: reference/cli.md
       - Python API: reference/api.md

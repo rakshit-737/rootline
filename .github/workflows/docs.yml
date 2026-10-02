@@ -8,8 +8,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -19,8 +17,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e ".[api]" "mkdocs>=1.6,<2" "mkdocs-material>=9.5,<10" "mkdocstrings[python]>=0.26"
@@ -29,7 +27,9 @@ jobs:
       - name: benchmark figures
         run: mkdir -p docs/img/results && cp results/figures/*.png docs/img/results/
       - run: mkdocs build --strict
-      - uses: actions/upload-pages-artifact@v3
+      - name: guard - /demo/ must be the replay UI, not a docs page
+        run: grep -q 'data-static="1"' site/demo/index.html
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -37,9 +37,12 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

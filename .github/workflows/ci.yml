@@ -2,21 +2,26 @@ name: ci
 
 on:
   push:
+    branches: ["**"]
   pull_request:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python -m pip install "ruff>=0.5"
-      - run: ruff check src tests scripts
+      - run: ruff check src tests scripts repro
 
   test:
     runs-on: ${{ matrix.os }}
@@ -24,15 +29,15 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python: ["3.10", "3.12", "3.13"]
+        python: ["3.10", "3.11", "3.12", "3.13", "3.14"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e ".[dev]"
       # real-data tests skip themselves: the public datasets are not in the repo
-      - run: python -m pytest -q
+      - run: python -m pytest -q -rs
       - name: demo smoke test
         run: python -m rootline.cli demo --outdir out --benign 200
       - name: real-capture smoke test (committed OTRF Log4Shell excerpt)
@@ -42,20 +47,20 @@ jobs:
     # the engine itself must keep working with the standard library only
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e . pytest
-      - run: python -m pytest -q
+      - run: python -m pytest -q -rs
 
   docker:
     # builds the image and checks the preloaded Log4Shell story is served
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: docker build -t rootline:ci .
-      - run: docker run -d --name rl -p 8000:8000 rootline:ci
+      - run: docker run -d --name rl -p 127.0.0.1:8000:8000 rootline:ci
       - name: health and preloaded story
         run: |
           for i in $(seq 1 30); do curl -fs http://127.0.0.1:8000/api/health && break; sleep 2; done
@@ -67,8 +72,8 @@ jobs:
     # docker-compose stack: UI up, and the Cypher export actually imports into Neo4j
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e .
@@ -92,8 +97,8 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e .
@@ -111,7 +116,7 @@ jobs:
       - name: capture excerpt (lines touching the chain)
         if: always()
         run: grep -E "rootline-lab|127\.0\.0\.1|::1|aws/credentials|kind=fork|kind=exit" live-out/capture.log | head -4000 > live-out/capture_excerpt.log || true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: live-ebpf
