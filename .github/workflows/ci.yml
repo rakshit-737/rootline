@@ -118,7 +118,7 @@ jobs:
         run: OUT=live-out bash scripts/live/run_chain.sh
       - name: reconstruct and assert
         run: |
-          python scripts/live/assert_chain.py live-out/capture.jsonl --out live-out/result.json             --probe-pid "$(cat live-out/probe.pid)" --chain live-out/chain.json
+          python scripts/live/assert_chain.py live-out/capture.jsonl --out live-out/result.json             --probe-pid "$(cat live-out/probe.pid)" --chain live-out/chain.json --threads live-out/ps_threads.txt
       - name: capture excerpt (lines touching the chain)
         if: always()
         run: grep -E "rootline-lab|rl-home|198\.51\.100\.7|::1|kind=fork|kind=exit|bpftrace" live-out/capture.jsonl | head -4000 > live-out/capture_excerpt.jsonl || true

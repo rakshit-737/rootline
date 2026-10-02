@@ -89,6 +89,7 @@ PY
 echo "{\"lab_ip\": \"$LAB_IP\", \"decoy\": \"$DECOY_DIR/bpftrace\", \"home\": \"$HOME\"}" > "$OUT/chain.json"
 sleep 2
 
+ps -eLo pid=,lwp= > "$OUT/ps_threads.txt"   # lets the checker tell thread IDs from process IDs
 sudo pkill -INT -x bpftrace || true
 wait "$BPF" || true
 wait "$LST" 2>/dev/null || true

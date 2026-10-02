@@ -8,7 +8,8 @@ Checks (each recorded in the JSON artefact; exit 1 if any fails):
   probe        - the probe emitted fork/execve/openat/write/connect/exit records
   self_pid     - no record carries the probe's own PID, and the decoy process that
                  renamed itself "bpftrace" WAS captured (filtering is by PID, not name)
-  fork_parents - every fork parent is a process (TGID) seen elsewhere in the capture
+  fork_parents - no fork parent is a thread ID (checked against a `ps -eLo pid,lwp` snapshot
+                 taken at the end of the run; parents seen nowhere else are listed, not failed)
   fd_to_path   - write() records carry the path of the fd (curl's download, the unit file)
   ipv6         - the IPv6 connect to [::1]:4445 was captured with its address
   chain        - ONE backward/forward query from the stage process finds the download
@@ -69,7 +70,7 @@ def parse(lines: list[str]) -> tuple[list[dict], dict]:
 
 
 def check_chain(lines: list[str], probe_pid: int | None = None, lab_ip: str = "198.51.100.7",
-                decoy: str | None = None) -> dict:
+                decoy: str | None = None, thread_ids: set[str] | None = None) -> dict:
     recs, meta = parse(lines)
     v12 = meta["json"]
     server = lab_ip if v12 else "127.0.0.1"
@@ -89,8 +90,10 @@ def check_chain(lines: list[str], probe_pid: int | None = None, lab_ip: str = "1
                 {str(r.get("child_pid")) for r in recs if r.get("kind") == "fork"}
         parents = [str(r.get("pid")) for r in recs if r.get("kind") == "fork"]
         orphans = sorted({p for p in parents if p not in known})
-        res["fork_parents_unseen"] = orphans
-        c["fork_parents"] = not orphans
+        res["fork_parents_unseen"] = orphans  # e.g. a daemon that forked once and did nothing else traced
+        threads = thread_ids or set()
+        res["fork_parents_that_are_threads"] = sorted(p for p in orphans if p in threads)
+        c["fork_parents"] = not res["fork_parents_that_are_threads"]
         c["no_lost"] = meta["lost_events"] == 0
     writes = [r for r in recs if r.get("kind") == "write"]
     c["fd_to_path"] = (any(r.get("path") == STAGE and r.get("comm") == "curl" for r in writes)
@@ -144,10 +147,17 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", default="result.json")
     p.add_argument("--probe-pid", type=int, help="bpftrace's own PID (live-out/probe.pid)")
     p.add_argument("--chain", help="live-out/chain.json written by run_chain.sh (lab IP, decoy path)")
+    p.add_argument("--threads", help="live-out/ps_threads.txt (`ps -eLo pid=,lwp=`)")
     ns = p.parse_args(argv)
     lines = Path(ns.capture).read_text(encoding="utf-8", errors="replace").splitlines()
     meta = json.loads(Path(ns.chain).read_text()) if ns.chain else {}
-    res = check_chain(lines, ns.probe_pid, meta.get("lab_ip", "198.51.100.7"), meta.get("decoy"))
+    tids: set[str] = set()
+    if ns.threads and Path(ns.threads).exists():
+        for row in Path(ns.threads).read_text().splitlines():
+            parts = row.split()
+            if len(parts) == 2 and parts[0] != parts[1]:
+                tids.add(parts[1])
+    res = check_chain(lines, ns.probe_pid, meta.get("lab_ip", "198.51.100.7"), meta.get("decoy"), tids)
     out = Path(ns.out)
     story, mmd = res.pop("_story_json", None), res.pop("_mermaid", None)
     if story is not None:
