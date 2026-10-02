@@ -9,3 +9,27 @@ dist/
 site/
 docs/demo/
 docs/img/results/
+# local outputs and anything that must never be committed
+live-out/
+/story.*
+/stix.json
+*.cypher
+*.tmp.*
+data/
+datasets/
+models/
+*.pkl
+*.joblib
+*.pt
+*.h5
+.env*
+*.pem
+*.key
+id_rsa*
+venv/
+.ruff_cache/
+.mypy_cache/
+.coverage*
+htmlcov/
+.DS_Store
+Thumbs.db
