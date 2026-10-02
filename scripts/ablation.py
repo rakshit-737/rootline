@@ -5,7 +5,7 @@
     python scripts/ablation.py --render-only   # redraw the figure from results/ablation.json
 
 Needs ``python scripts/download_data.py --source atlas --all`` (S1.zip and M1.zip).
-About 6 minutes and < 1.5 GB RAM on a laptop (one scenario graph in memory at a time).
+About 13 minutes on a laptop; one scenario graph is held in memory at a time.
 """
 from __future__ import annotations
 
