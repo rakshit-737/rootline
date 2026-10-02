@@ -1,0 +1,14 @@
+name: Feature request
+description: Suggest a loader, rule, metric or UI improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem it solves
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal (and the public dataset that would test it, if any)

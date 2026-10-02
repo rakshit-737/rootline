@@ -1,0 +1,27 @@
+name: Bug report
+description: Something in ROOTLINE behaves wrongly
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Exact commands. Please attach a minimal capture only if it contains no real secrets or personal data.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: rootline --version, Python version, OS
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Security issues: please do not open a public issue; see SECURITY.md."

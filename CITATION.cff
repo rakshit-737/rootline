@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use ROOTLINE, please cite it as below."
+title: "ROOTLINE: provenance-graph attack reconstruction"
+type: software
+authors:
+  - name: Rakshit
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/rakshit-737/rootline"
+url: "https://rakshit-737.github.io/rootline/"
+keywords: [provenance graph, attack investigation, eBPF, ATLAS, intrusion detection]

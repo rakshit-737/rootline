@@ -1,0 +1,3 @@
+# The dummy key in this historical commit is a fake lab value (CI-only, never a real credential);
+# history is not rewritten, so the finding is acknowledged here. Current scripts use AWS's documented example key.
+fdec61f2d3f3b53fa4e9d86a676715b92e801798:scripts/live/run_chain.sh:aws-access-token:16
