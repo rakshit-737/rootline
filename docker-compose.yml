@@ -8,5 +8,5 @@ services:
   neo4j:
     image: neo4j:5-community
     environment:
-      NEO4J_AUTH: neo4j/rootline-lab   # lab-only default; change it
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-rootline-lab}   # set NEO4J_PASSWORD; the default is lab-only
     ports: ["127.0.0.1:7474:7474", "127.0.0.1:7687:7687"]

@@ -77,17 +77,21 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -e .
+      - name: random Neo4j password for this run
+        run: echo "NEO4J_PASSWORD=$(openssl rand -hex 16)" >> "$GITHUB_ENV"
       - run: docker compose config -q && docker compose up -d --build
       - run: python -m rootline.cli analyze tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_auoms.json --cypher story.cypher
       - name: wait for UI and Neo4j
         run: |
           for i in $(seq 1 60); do curl -fs http://127.0.0.1:8000/api/health && break; sleep 2; done
-          for i in $(seq 1 60); do docker compose exec -T neo4j cypher-shell -u neo4j -p rootline-lab "RETURN 1" && break; sleep 3; done
+          for i in $(seq 1 60); do docker compose exec -T neo4j cypher-shell -u neo4j -p "$NEO4J_PASSWORD" "RETURN 1" && break; sleep 3; done
       - name: import story and check it
         run: |
-          docker compose exec -T neo4j cypher-shell -u neo4j -p rootline-lab < story.cypher
-          n=$(docker compose exec -T neo4j cypher-shell -u neo4j -p rootline-lab --format plain "MATCH (n:Rootline) RETURN count(n)" | tail -1)
+          docker compose exec -T neo4j cypher-shell -u neo4j -p "$NEO4J_PASSWORD" < story.cypher
+          n=$(docker compose exec -T neo4j cypher-shell -u neo4j -p "$NEO4J_PASSWORD" --format plain "MATCH (n:Rootline) RETURN count(n)" | tail -1)
           echo "nodes: $n"; test "$n" -gt 0
+          rc=$(docker compose exec -T neo4j cypher-shell -u neo4j -p "$NEO4J_PASSWORD" --format plain "MATCH (s:RootlineStory) RETURN size(s.root_causes)" | tail -1)
+          echo "root causes: $rc"; test "$rc" -gt 0
       - if: failure()
         run: docker compose logs
 
