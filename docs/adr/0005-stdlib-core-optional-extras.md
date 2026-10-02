@@ -25,4 +25,5 @@
 
 - Tests that need an extra call `pytest.importorskip` and skip cleanly.
 - The in-memory graph limits capture size to what fits in RAM (the largest
-  benchmark capture, ATLAS S4, is 71k events). Streaming persistence is roadmap work.
+  benchmark logs are about 214k events, ATLAS M5 host 1, and the Splunk
+  cyclopsblink capture). Streaming persistence is roadmap work.

@@ -23,10 +23,12 @@ to be correct first and small second.
 
 ## Consequences
 
-- ATLAS S1-S4: a 3.8-4.3x edge reduction preserves 100% of the distinct
-  attack-labelled `(src, dst, rel)` edges. Reconstruction on the reduced graph
-  returns the same story as on the raw graph (`rootline-noreduce` row) and runs
-  faster.
+- ATLAS S1-S4: a 3.8-4.4x edge reduction. Preserving 100 % of the distinct
+  attack-labelled `(src, dst, rel)` keys follows from the design (the first edge
+  of every key is kept), so it is a property, not a measurement. The empirical
+  check is that reconstruction on the reduced graph returns the same story as on
+  the raw graph (`rootline-noreduce` row). It is not reliably faster, because the
+  timed block includes the reduction itself.
 - The allowlist is Linux-centric. Windows DLL loads are merged but not pruned,
   which is conservative.
 - NodeMerge-style template merging of whole subgraphs is not implemented.

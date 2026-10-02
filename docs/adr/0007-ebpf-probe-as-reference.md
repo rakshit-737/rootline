@@ -1,6 +1,6 @@
 # ADR 0007: The eBPF probe stays a documented reference; evaluation uses recorded telemetry
 
-- Status: accepted (v0.2)
+- Status: **superseded** by [ADR 0008](0008-live-ebpf-in-ci.md) (v1.1). The probe now runs live in CI.
 
 ## Context
 

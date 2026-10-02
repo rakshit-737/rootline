@@ -33,8 +33,10 @@ closure from the attacker IP holds 4,735 vertices and 75% of all events.
 
 ## Consequences
 
-- On ATLAS the story is 2-4x more precise than naive reachability at the same
-  recall (see `results/RESULTS.md`).
+- On ATLAS S1-S4 (in-sample) the full reconstructor is about 3.5x more precise than
+  naive reachability at similar recall. On held-out M1-M6 hosts it is 2.4x more
+  precise but loses recall (0.72); time-respecting traversal alone adds +0.05
+  precision there. See [ADR 0010](0010-ablation-and-heldout-atlas.md) and `results/ablation.json`.
 - Coarse process-level provenance cannot split a long-lived browser's unrelated
   work from the exploit. This is the remaining precision loss. Execution
   partitioning (BEEP/MPI-style units) is on the roadmap.

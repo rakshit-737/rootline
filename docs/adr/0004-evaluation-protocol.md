@@ -1,6 +1,6 @@
 # ADR 0004: Evaluation protocol (ATLAS from the analyst IOC; coverage with a held-out split)
 
-- Status: accepted (v0.2)
+- Status: accepted (v0.2). The **tagging-coverage** part is superseded by [ADR 0009](0009-sealed-rule-protocol.md): the `holdout` split was burned in v1.1 and renamed `dev2`. The ATLAS part is extended by [ADR 0010](0010-ablation-and-heldout-atlas.md).
 
 ## Context
 
@@ -40,7 +40,7 @@ technique. Datasets are split into:
 - `dev`: the captures read while the v0.2 command-line rules were written
   (in-sample, optimistic).
 - `holdout`: 27 captures listed from the repository afterwards and never opened
-  before the first scoring run. **This is the number to quote.**
+  before the first scoring run. *(Superseded: once its misses were published and used to write v0.3, it stopped being a holdout. See ADR 0009.)*
 
 **Anomaly tagging.** IsolationForest over process vertices is unsupervised and fit
 per scenario. It is ranked against ATLAS' malicious process images and compared
@@ -50,8 +50,10 @@ with degree ranking and the random expectation.
 
 - ATLAS labels are line-level ("involves a malicious entity"). That includes
   benign services that merely *read* `payload.exe`, so perfect precision is
-  impossible for any causality-based method. The numbers are useful for
-  *comparing* methods on the same labels. Compare them with ATLAS' own published
-  results (entity-level, supervised LSTM) only with care.
+  hard for any causality-based method (the high-recall traversals here stay below
+  0.6 precision; seed-plus-one-hop IOC grep reaches ~1.0 precision at ~4 % recall). The numbers are useful for
+  *comparing* methods on the same labels. ATLAS publishes event-level results too
+  (Table 4) and a graph-traversal baseline (Table 5); the comparison, with the
+  differences in event universe and starting entity, is on the Evaluation page.
 - The held-out split shows how much the rule set overfits. The gap is
   reported, not hidden.
