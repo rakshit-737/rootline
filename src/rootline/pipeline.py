@@ -14,6 +14,7 @@ from .reduce import ReductionReport, reduce_graph
 
 @dataclass
 class Analysis:
+    """Result of :func:`analyze`: raw and reduced graphs, alerts, the reconstruction and rejected records."""
     raw: ProvenanceGraph
     graph: ProvenanceGraph
     reduction: ReductionReport
@@ -23,6 +24,7 @@ class Analysis:
 
 
 def build_graph(records: Iterable[dict[str, Any]]) -> tuple[ProvenanceGraph, list[tuple[int, str]]]:
+    """Normalise raw records and build the provenance graph; returns ``(graph, rejected records)``."""
     n = Normalizer()
     events: list[Event] = sorted(n.normalize(records), key=lambda e: (e.ts, e.seq))
     return ProvenanceGraph().ingest(events), n.errors
@@ -30,6 +32,7 @@ def build_graph(records: Iterable[dict[str, Any]]) -> tuple[ProvenanceGraph, lis
 
 def analyze(records: Iterable[dict[str, Any]], baseline: Iterable[dict[str, Any]] | None = None,
             reduce: bool = True, alert_node: str | None = None) -> Analysis:
+    """Full pipeline: normalise, build the graph, tag, reduce and reconstruct around the top alert (or ``alert_node``). ``baseline`` is a benign capture for the rarity rules."""
     raw, errors = build_graph(records)
     model = None
     if baseline is not None:

@@ -31,6 +31,7 @@ BENIGN_READ_PATTERNS = [
 
 @dataclass
 class ReductionReport:
+    """Edge and vertex counts before and after reduction."""
     edges_before: int
     edges_after: int
     nodes_before: int
@@ -38,13 +39,16 @@ class ReductionReport:
 
     @property
     def edge_ratio(self) -> float:
+        """Edges before divided by edges after."""
         return self.edges_before / max(1, self.edges_after)
 
     def to_dict(self) -> dict:
+        """JSON-ready dict."""
         return {**self.__dict__, "edge_ratio": round(self.edge_ratio, 2)}
 
 
 def is_benign_readonly(g: ProvenanceGraph, nid: str) -> bool:
+    """True for read-only library, locale and config files that carry no attack information."""
     n = g.nodes[nid]
     if n.type is not NodeType.FILE:
         return False
@@ -55,6 +59,7 @@ def is_benign_readonly(g: ProvenanceGraph, nid: str) -> bool:
 
 
 def reduce_graph(g: ProvenanceGraph, keep: set[str] | None = None) -> tuple[ProvenanceGraph, ReductionReport]:
+    """Causality-preserving reduction (CPR-style edge merging, benign read-only leaf pruning). Vertices in ``keep`` are never pruned. Returns ``(reduced graph, report)``."""
     keep = keep or set()
     before_e, before_n = len(g.edges), len(g.nodes)
     drop = {nid for nid in g.nodes if nid not in keep and is_benign_readonly(g, nid)}

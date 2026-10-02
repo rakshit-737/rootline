@@ -11,6 +11,7 @@ from typing import Any
 
 
 class EventKind(str, Enum):
+    """Normalised syscall-level event kinds."""
     FORK = "fork"
     EXEC = "exec"
     OPEN = "open"      # open for read unless flags say write
@@ -24,12 +25,14 @@ class EventKind(str, Enum):
 
 
 class NodeType(str, Enum):
+    """Vertex types of the provenance graph."""
     PROCESS = "process"
     FILE = "file"
     SOCKET = "socket"
 
 
 class Relation(str, Enum):
+    """Edge types, named in the direction information flows."""
     FORKED = "forked"        # parent proc -> child proc
     EXECUTED = "executed"    # binary file -> proc (image load)
     READ = "read"            # file -> proc
@@ -61,6 +64,7 @@ class Event:
     label: str | None = None  # ground truth (synthetic/datasets only)
 
     def to_dict(self) -> dict[str, Any]:
+        """JSON-ready dict."""
         d = asdict(self)
         d["kind"] = self.kind.value
         d["argv"] = list(self.argv)
@@ -69,6 +73,7 @@ class Event:
 
 @dataclass
 class Node:
+    """A graph vertex: id, type, display label, attributes and first-seen time."""
     id: str
     type: NodeType
     label: str
@@ -78,6 +83,7 @@ class Node:
 
 @dataclass
 class Edge:
+    """A (possibly merged) edge: ``count`` events from ``ts`` to ``end_ts``; ``seq`` is the first event."""
     src: str
     dst: str
     rel: Relation
@@ -88,10 +94,12 @@ class Edge:
 
     @property
     def end_ts(self) -> float:
+        """Time of the last event merged into this edge."""
         return self.last_ts if self.last_ts is not None else self.ts
 
 
 class Severity(str, Enum):
+    """Alert severity."""
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
@@ -100,6 +108,7 @@ class Severity(str, Enum):
 
 @dataclass
 class Alert:
+    """A tagger hit on a vertex, with ATT&CK technique, kill-chain stage and evidence event ids."""
     rule_id: str
     node_id: str
     ts: float
@@ -111,6 +120,7 @@ class Alert:
     evidence: list[int] = field(default_factory=list)  # event seqs
 
     def to_dict(self) -> dict[str, Any]:
+        """JSON-ready dict."""
         d = asdict(self)
         d["severity"] = self.severity.value
         return d
@@ -118,6 +128,7 @@ class Alert:
 
 @dataclass
 class Reconstruction:
+    """An attack story: root causes, backward and forward slices, edges, timeline, IOCs, kill chain."""
     alert: Alert
     root_causes: list[str]
     backward: set[str]
@@ -130,4 +141,5 @@ class Reconstruction:
 
     @property
     def nodes(self) -> set[str]:
+        """Every vertex in the story (backward, forward and accessed)."""
         return self.backward | self.forward | self.accessed

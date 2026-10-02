@@ -20,11 +20,13 @@ GENESIS = "0" * 64
 
 
 def chain_hash(prev: str, ev: Event) -> str:
+    """Next hash-chain head: SHA-256 over the previous head and the event's canonical JSON."""
     payload = json.dumps(ev.to_dict(), sort_keys=True, separators=(",", ":"))
     return hashlib.sha256((prev + payload).encode()).hexdigest()
 
 
 class ProvenanceGraph:
+    """Append-only provenance graph: one vertex per process image, file or socket, edges in the direction of information flow, every event extending a SHA-256 hash chain."""
     def __init__(self) -> None:
         self.nodes: dict[str, Node] = {}
         self.edges: list[Edge] = []
@@ -57,6 +59,7 @@ class ProvenanceGraph:
         return nid
 
     def proc_of(self, ev: Event) -> str:
+        """Current process-image vertex of ``pid`` on ``host`` (created on first sight)."""
         nid = self._proc.get((ev.host, ev.pid))
         if nid is None:  # first sighting of a pre-existing process
             nid = self._new_proc(ev, ev.pid, ev.comm, ev.exe, ev.uid, ev.ppid)
@@ -66,11 +69,13 @@ class ProvenanceGraph:
         return nid
 
     def file_node(self, host: str, path: str, ts: float) -> str:
+        """Vertex for a file path (one per host and path)."""
         nid = f"file:{host}:{path}"
         self._node(nid, NodeType.FILE, path, ts, path=path, host=host)
         return nid
 
     def sock_node(self, ip: str, port: int, ts: float) -> str:
+        """Vertex for a remote endpoint ``ip:port``."""
         nid = f"sock:{ip}:{port}"
         if nid not in self.nodes:
             self._socks_by_ip[ip].append(nid)
@@ -89,6 +94,7 @@ class ProvenanceGraph:
 
     # ----------------------------------------------------------------- ingest
     def add_event(self, ev: Event) -> None:
+        """Add one normalised event: update vertices and edges and extend the hash chain."""
         if ev.ts < self._last_ts:
             raise ValueError("events must be ingested in timestamp order (append-only)")
         self._last_ts = ev.ts
@@ -136,16 +142,19 @@ class ProvenanceGraph:
             self._proc.pop((ev.host, ev.pid), None)
 
     def ingest(self, events: Iterable[Event]) -> "ProvenanceGraph":
+        """Add events in order and return the graph (chainable)."""
         for ev in events:
             self.add_event(ev)
         return self
 
     # ------------------------------------------------------------------ misc
     def find(self, needle: str, ntype: NodeType | None = None) -> list[str]:
+        """Vertex ids whose label or id contains ``needle`` (optionally of one type)."""
         return [n.id for n in self.nodes.values()
                 if (ntype is None or n.type is ntype) and (needle in n.label or needle in n.id)]
 
     def stats(self) -> dict[str, int]:
+        """Counts of events, vertices, edges and vertices per type."""
         by: dict[str, int] = defaultdict(int)
         for n in self.nodes.values():
             by[n.type.value] += 1
@@ -153,6 +162,7 @@ class ProvenanceGraph:
 
 
 def verify_chain(events: Iterable[Event], expected_head: str) -> bool:
+    """True when replaying ``events`` reproduces ``head`` (any edit, drop or reorder breaks it)."""
     h = GENESIS
     for ev in events:
         h = chain_hash(h, ev)
