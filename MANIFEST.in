@@ -1,4 +1,8 @@
 graft tests
+graft scripts
+graft probes
 prune tests/__pycache__
+prune scripts/__pycache__
+prune scripts/live/__pycache__
 global-exclude *.py[cod]
 include LICENSE CHANGELOG.md README.md
