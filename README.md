@@ -19,7 +19,7 @@
 | ATLAS paper's own graph-traversal baseline vs ROOTLINE naive | P 0.18 vs 0.15-0.26: consistent |
 | ATLAS LSTM, our reproduction under the paper's setup (entity F1) | 0.24-0.75 vs paper 0.89-1.00: **not reproduced** |
 | Rule tagger v0.3: in-sample dev2 vs sealed | 23/27 vs **4/64** captures detected |
-| Live bpftrace probe on a GitHub-hosted kernel | 5/5 runs recover the chain in **one query** |
+| Live bpftrace probe on a GitHub-hosted kernel | 41/42 CI jobs pass (9 pushes x 5 runs); the chain is recovered in **one query** in all 42 |
 
 ![Attack-replay UI on the OTRF Log4Shell capture](docs/img/replay-ui.png)
 
@@ -155,7 +155,7 @@ The rules do not generalise beyond the captures they were written from, and the 
 
 ### 5. Live kernel evidence (CI)
 
-The `live-ebpf` job runs `probes/rootline.bt` with sudo on the ubuntu-24.04 runner kernel (6.17, bpftrace 0.20.2) while a benign, attack-shaped chain runs entirely inside the runner: a dummy interface carries a TEST-NET "remote" server, `HOME` is a throwaway directory, the credentials are AWS's documented example key. One query from the dropped script's process finds the download socket `198.51.100.7:8081` and the script as root causes and the credential read, unit and cron-style writes, history deletion and both listener connections in a 28-vertex story; RL-002/004/005/006 fire; zero lost events; a decoy that renamed itself `bpftrace` is still captured. Five matrix runs per push: 5/5 on run 36996901332 ([`results/live_ebpf.json`](results/live_ebpf.json), story in [`results/live_ebpf_story.mmd`](results/live_ebpf_story.mmd)). Caveats: bpftrace, not a libbpf CO-RE probe; a scripted benign chain; relative paths are not resolved.
+The `live-ebpf` job runs `probes/rootline.bt` with sudo on the ubuntu-24.04 runner kernel (6.17, bpftrace 0.20.2) while a benign, attack-shaped chain runs entirely inside the runner: a dummy interface carries a TEST-NET "remote" server, `HOME` is a throwaway directory, the credentials are AWS's documented example key. One query from the dropped script's process finds the download socket `198.51.100.7:8081` and the script as root causes and the credential read, unit and cron-style writes, history deletion and both listener connections in a 28-vertex story; RL-002/004/005/006 fire; zero lost events; a decoy that renamed itself `bpftrace` is still captured. Five matrix runs per push; over the 9 pushes to main since probe v1.2, 41 of 42 completed jobs passed (Wilson 95 % [0.88, 1.00]); the one failure was an over-strict fork-parent check, since corrected, and the chain was recovered in all 42 ([`results/live_ebpf.json`](results/live_ebpf.json), story in [`results/live_ebpf_story.mmd`](results/live_ebpf_story.mmd)). Caveats: bpftrace, not a libbpf CO-RE probe; a scripted benign chain; relative paths are not resolved.
 
 ### 6. Sensor fusion: OTRF Log4Shell (CVE-2021-44228)
 

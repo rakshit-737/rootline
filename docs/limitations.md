@@ -20,9 +20,9 @@
 - **Live probe scope.** The probe runs live in CI (bpftrace on a GitHub-hosted kernel, not a
   libbpf CO-RE probe) on a scripted, benign chain. Relative paths are not resolved against
   the cwd, `dup()`/`fcntl` and fork-inherited fds are not mapped, argv is not captured and
-  paths are cut at 64 bytes. The live check passed 5/5 runs on its first v1.2 run and 4/5 on
-  the next, where a too-strict fork-parent check (since corrected) failed; the chain itself
-  was recovered in all ten.
+  paths are cut at 64 bytes. Over 9 pushes (42 completed jobs) the live check passed 41
+  times; the failure was a too-strict fork-parent check (since corrected), and the chain
+  itself was recovered every time.
 - **Reduction is lossless and does not change accuracy.** Vertex counts do not change on
   ATLAS; lossy reduction is future work.
 - The ATLAS scenarios are Windows. The Linux evidence comes from OTRF, Splunk and the live CI

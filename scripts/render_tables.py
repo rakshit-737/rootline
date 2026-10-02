@@ -147,9 +147,15 @@ def coverage() -> str:
 
 def live() -> str:
     lv = load("live_ebpf.json")
-    lo, hi = lv["pass_rate_ci95"]
+    rep = lv.get("repeatability")
+    if rep:
+        lo, hi = rep["pass_rate_ci95"]
+        passed = f"{rep['passed_jobs']}/{rep['completed_jobs']} jobs over {len(rep['per_run'])} CI runs [{lo:.2f}, {hi:.2f}]"
+    else:
+        lo, hi = lv["pass_rate_ci95"]
+        passed = f"{lv['passed']}/{lv['repeats']} [{lo:.2f}, {hi:.2f}]"
     r1 = lv["run1_detail"]
-    return table([[str(lv["run_id"]), f"{lv['passed']}/{lv['repeats']} [{lo:.2f}, {hi:.2f}]",
+    return table([[str(lv["run_id"]), passed,
                    ", ".join(r1["story"]["root_causes"]), str(r1["story"]["vertices"]), ", ".join(r1["alerts"]),
                    str(sum(p["lost_events"] for p in lv["per_run"]))]],
                  ["CI run", "runs passed", "root causes (one query)", "story vertices", "alerts", "lost events"])

@@ -16,7 +16,7 @@ Every number on this page is rendered from committed JSON by `scripts/render_tab
 - **Rules.** v0.3 detects 23/27 in-sample `dev2` captures but **4/64** parsed sealed
   captures. The rules do not generalise; 96 of 160 sealed captures are not even parsed.
 - **Live kernel.** The probe recovers the scripted chain on a real kernel in CI in one
-  query, with the download socket as a root cause.
+  query, with the download socket as a root cause, in 42 of 42 completed jobs.
 
 ## Methodology
 

@@ -40,7 +40,7 @@ or `pip install -e .` in a clone and
 | ATLAS paper's own traversal baseline vs ROOTLINE naive | P 0.18 vs 0.15-0.26 | paper Table 5, `results/ablation.json` |
 | ATLAS LSTM, our reproduction (entity F1) | 0.24-0.75 vs paper 0.89-1.00: **not reproduced** | `results/atlas_repro.json` |
 | Rules v0.3: in-sample dev2 vs sealed | 23/27 vs **4/64** detected | `results/coverage.json` |
-| Live bpftrace probe in CI | 5/5 runs recover the chain in one query | `results/live_ebpf.json` |
+| Live bpftrace probe in CI | 41/42 jobs pass over 9 pushes; chain recovered in one query in all 42 | `results/live_ebpf.json` |
 | Graph reduction (16 ATLAS logs) | 3.8-5.8x fewer edges, lossless by design | `results/atlas.json` |
 
 ## Pages

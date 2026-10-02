@@ -34,8 +34,9 @@ GitHub Actions unless `ROOTLINE_LAB=1` is set.
 
 ## Consequences
 
-- The probe is now tested on a real kernel on every push. The first five v1.2 runs
-  (run 36996901332) all passed; results are in `results/live_ebpf.json`.
+- The probe is now tested on a real kernel on every push. Over the first 9 pushes with
+  probe v1.2, 41 of 42 completed jobs passed (the failure was an over-strict fork-parent
+  check, since corrected); results are in `results/live_ebpf.json`.
 - This is bpftrace on a GitHub-hosted Azure kernel, not a libbpf CO-RE probe, and the
   chain is scripted and benign. It shows the sensor-to-story path works; it says nothing
   about evasion-resistant collection.

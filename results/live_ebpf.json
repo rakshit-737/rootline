@@ -233,5 +233,66 @@
   "benign scripted chain, dummy files, traffic only inside the runner",
   "relative paths (mkdir -p's 'systemd', 'lab') are not resolved to absolute paths",
   "acceptance criteria were revised once in v1.1 after failing runs; the v1.2 criteria were written before these 5 runs"
- ]
+ ],
+ "repeatability": {
+  "scope": "every push to main from the first probe v1.2 run to 85f37f3 (9 CI runs x 5 matrix jobs)",
+  "per_run": {
+   "36996901332": {
+    "passed": 5,
+    "failed": 0,
+    "cancelled": 0
+   },
+   "36997657767": {
+    "passed": 5,
+    "failed": 0,
+    "cancelled": 0
+   },
+   "36998054457": {
+    "passed": 4,
+    "failed": 1,
+    "cancelled": 0
+   },
+   "36998842224": {
+    "passed": 2,
+    "failed": 0,
+    "cancelled": 3
+   },
+   "36999451595": {
+    "passed": 5,
+    "failed": 0,
+    "cancelled": 0
+   },
+   "37000354752": {
+    "passed": 5,
+    "failed": 0,
+    "cancelled": 0
+   },
+   "37000681610": {
+    "passed": 5,
+    "failed": 0,
+    "cancelled": 0
+   },
+   "37000802258": {
+    "passed": 5,
+    "failed": 0,
+    "cancelled": 0
+   },
+   "37000996653": {
+    "passed": 5,
+    "failed": 0,
+    "cancelled": 0
+   }
+  },
+  "completed_jobs": 42,
+  "passed_jobs": 41,
+  "pass_rate_ci95": [
+   0.877,
+   0.996
+  ],
+  "failures": [
+   "36998054457 matrix 4: fork-parent check flagged a pre-existing daemon (pid 1072) that forked once; the chain itself was recovered. The check was corrected in the next commit to test for thread IDs."
+  ],
+  "cancelled_note": "3 jobs of 36998842224 were cancelled by the concurrency group when a newer commit was pushed",
+  "dependabot_pr_runs": "11 further runs on Dependabot PR branches (same probe and scripts): 55/55 jobs passed"
+ }
 }

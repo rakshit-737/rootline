@@ -40,7 +40,7 @@ After the commands above, `results/TABLES.md` should show (see [Evaluation](eval
 - Ablation, S1-S4: `full` precision 0.54, recall 0.98, F1 0.66; `naive` F1 0.25.
 - Ablation, M hosts (held out): `full` precision 0.63, recall 0.72, F1 0.46; `naive` F1 0.33.
 - Coverage, sealed: v0.3 detected 4/64 parsed captures.
-- Live eBPF: 5/5 runs passed.
+- Live eBPF: every matrix job of a CI run passes (41/42 so far; see `results/live_ebpf.json`).
 
 The traversals are deterministic. IsolationForest uses seeds 0-9 and the LSTM reproduction
 seeds 0-4; their results vary within the reported intervals across hardware.
