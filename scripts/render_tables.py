@@ -125,6 +125,22 @@ def published() -> str:
     return table(rows, ["system", "level", "trained on labels", "precision", "recall", "F1"])
 
 
+def anomaly() -> str:
+    a = load("atlas.json")
+    groups: dict[tuple[str, str], list[dict]] = {}
+    for r in a.get("anomaly", []):
+        if r["method"].startswith("random"):
+            continue
+        g = "M (held out)" if r["scenario"].startswith("M") else "S1-S4 (in-sample)"
+        groups.setdefault((g, r["method"]), []).append(r)
+    rows = []
+    for (g, m), rs in groups.items():
+        fh = [r["first_hit_rank"] for r in rs if r["first_hit_rank"] is not None]
+        rows.append([g, m, str(len(rs)), f"{sum(fh) / len(fh):.2f}" if fh else "-",
+                     f"{sum(r['recall@10'] for r in rs) / len(rs):.3f}"])
+    return table(rows, ["logs", "ranking", "n", "first malicious process at rank (mean)", "recall@10 (mean)"])
+
+
 def coverage() -> str:
     c = load("coverage.json")["summary"]
     rows = []
@@ -168,6 +184,7 @@ def main() -> int:
              "### ATLAS from the analyst IOC (one pivot per log)", "", atlas_ioc(), "",
              "### Comparison with published ATLAS results", "", published(), "",
              "### Event universe: what ROOTLINE can score vs what ATLAS labels", "", event_universe(), "",
+             "### Unsupervised process ranking (ATLAS)", "", anomaly(), "",
              "### Rule coverage, Splunk attack_data (v0.3 rules)", "", coverage(), "",
              "### Live eBPF in CI", "", live(), ""]
     (R / "TABLES.md").write_text("\n".join(parts), encoding="utf-8")
