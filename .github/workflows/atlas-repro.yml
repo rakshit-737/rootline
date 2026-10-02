@@ -1,0 +1,80 @@
+name: atlas-repro
+
+# Reproduces ATLAS (Alsaheel et al., USENIX Security 2021) entity-level results with the
+# PyTorch reimplementation in repro/atlas_repro.py, under the paper's setup (batch 1,
+# 8 epochs, maxlen 400). Manual only: CPU training, one scenario x seed per job.
+on:
+  workflow_dispatch:
+    inputs:
+      seeds:
+        description: JSON list of seeds
+        required: false
+        default: "[0, 1, 2, 3, 4]"
+      epochs:
+        description: training epochs (paper 8)
+        required: false
+        default: "8"
+
+permissions:
+  contents: read
+
+jobs:
+  train:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario: [S1, S2, S3, S4]
+        seed: ${{ fromJSON(inputs.seeds) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: install (CPU torch)
+        run: |
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch>=2.2"
+          python -m pip install -e ".[repro]"
+      - name: data (pinned, sha256-checked)
+        env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: |
+          python scripts/download_data.py --source atlas
+          python scripts/download_data.py --source atlas --split repro
+          # ATLAS's own shipped training set (skipped by the downloader's default extraction)
+          z="$ROOTLINE_DATA/atlas/${{ matrix.scenario }}.zip"
+          unzip -o -q "$z" "${{ matrix.scenario }}/resampling/*" -d "$ROOTLINE_DATA/atlas" || true
+      - name: train + evaluate
+        env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: |
+          mkdir -p out
+          python repro/atlas_repro.py --scenarios ${{ matrix.scenario }} --seed-list ${{ matrix.seed }} \
+            --epochs ${{ inputs.epochs }} --batch 1 --shipped-resampling \
+            --out out/atlas_repro_${{ matrix.scenario }}_${{ matrix.seed }}.json
+      - uses: actions/upload-artifact@v7
+        with:
+          name: repro-${{ matrix.scenario }}-${{ matrix.seed }}
+          path: out/
+
+  merge:
+    needs: train
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: repro-*
+          merge-multiple: true
+          path: parts
+      - run: python repro/atlas_repro.py --merge parts/*.json --out atlas_repro.json
+      - uses: actions/upload-artifact@v7
+        with:
+          name: atlas-repro
+          path: atlas_repro.json
