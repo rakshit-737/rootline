@@ -43,13 +43,23 @@ plugins:
             show_source: false
             members_order: source
             docstring_style: google
+            show_root_toc_entry: false
+            show_if_no_docstring: true
+            filters: ["!^_"]
+
+hooks:
+  - docs/hooks.py
 
 nav:
   - Home: index.md
   - Getting started: getting-started.md
+  - How it works: how-it-works.md
+  - Evaluation: evaluation.md
+  - Reproduce: reproduce.md
+  - Rule-evaluation protocol: protocol.md
   - Architecture: architecture.md
   - Datasets: datasets.md
-  - Benchmarks: benchmarks.md
+  - Raw benchmark tables: benchmarks.md
   - Live demo: live-demo.md
   - Reference:
       - CLI: reference/cli.md
@@ -64,6 +74,9 @@ nav:
       - 0004 Evaluation protocol: adr/0004-evaluation-protocol.md
       - 0005 Stdlib core, optional extras: adr/0005-stdlib-core-optional-extras.md
       - 0006 Multi-sensor fusion: adr/0006-multi-sensor-fusion.md
-      - 0007 eBPF probe as reference: adr/0007-ebpf-probe-as-reference.md
+      - 0007 eBPF probe as reference (superseded): adr/0007-ebpf-probe-as-reference.md
+      - 0008 Live bpftrace probe in CI: adr/0008-live-ebpf-in-ci.md
+      - 0009 dev / dev2 / sealed rule protocol: adr/0009-sealed-rule-protocol.md
+      - 0010 Ablation and held-out ATLAS hosts: adr/0010-ablation-and-heldout-atlas.md
   - Changelog: changelog.md
   - Limitations & roadmap: limitations.md

@@ -9,13 +9,14 @@ should be explainable as graph edges. Please keep changes in that spirit.
 python -m venv .venv && . .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -e ".[dev,bench]"
 python -m pytest -q                                # unit + fixture tests; realdata tests skip without data
-python -m ruff check src tests scripts
+python -m ruff check src tests scripts repro
+mkdocs build --strict                              # docs (pip install -r requirements-docs.txt); docs/hooks.py builds the demo
 ```
 
 Optional, for the real-data benchmarks:
 
 ```bash
-python scripts/download_data.py        # ~0.4 GB into ../../datasets/rootline (or $ROOTLINE_DATA)
+python scripts/download_data.py        # ~0.74 GB into $ROOTLINE_DATA (default ~/.cache/rootline)
 python -m pytest -q -m realdata        # tests that need the downloads
 python scripts/bench.py                # regenerates results/ - commit the diff with your change
 ```
@@ -36,7 +37,9 @@ python scripts/bench.py                # regenerates results/ - commit the diff 
 - **Rules need a reason and a counter-example.** Each new rule maps to an ATT&CK
   technique and has a test that shows it firing, plus one that shows a benign
   look-alike staying quiet. If you read benchmark captures while writing a rule,
-  add those captures to the `dev` split. Never tune against `holdout`.
+  add those captures to the `dev` split. The `sealed` split was scored once with the
+  frozen v0.3 rules (docs/protocol.md); any rule change is a new version, and its
+  sealed numbers must then be labelled in-sample.
 - **Report results honestly.** If a change moves a benchmark number, update
   `results/` and the README table in the same PR, including numbers that got worse.
 

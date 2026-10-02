@@ -21,12 +21,9 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - run: python -m pip install -e ".[api]" "mkdocs>=1.6,<2" "mkdocs-material>=9.5,<10" "mkdocstrings[python]>=0.26"
-      - name: static replay-UI demo from committed fixtures
-        run: python scripts/build_demo.py docs/demo
-      - name: benchmark figures
-        run: mkdir -p docs/img/results && cp results/figures/*.png docs/img/results/
-      - run: mkdocs build --strict
+      - run: python -m pip install -e ".[api]" -r requirements-docs.txt
+      - name: build (docs/hooks.py generates the static demo, figures and CLI page)
+        run: mkdocs build --strict
       - name: guard - /demo/ must be the replay UI, not a docs page
         run: grep -q 'data-static="1"' site/demo/index.html
       - uses: actions/upload-pages-artifact@v5
