@@ -1,0 +1,45 @@
+flowchart LR
+  n0[/"/dev/null"/]
+  n1[/"/etc/gnutls/config"/]
+  n2[/"/etc/passwd"/]
+  n3[/"/home/runner/.aws/credentials"/]
+  n4[/"/home/runner/.config/systemd/user/rootline-lab.service"/]
+  n5[/"/tmp/rootline-lab-stage.sh"/]
+  n6[/"/usr/bin/cat"/]
+  n7[/"/usr/bin/curl"/]
+  n8[/"/usr/bin/mkdir"/]
+  n9[/"systemd"/]
+  n10(["rootline-lab-st[2805]"])
+  n11(["rootline-lab-st[2809]"])
+  n12(["cat[2809]"])
+  n13(["rootline-lab-st[2810]"])
+  n14(["mkdir[2810]"])
+  n15(["rootline-lab-st[2811]"])
+  n16(["curl[2811]"])
+  n17{{"127.0.0.1:4444"}}
+  n18{{"::1:4445"}}
+  n5 -->|executed| n10
+  n5 -->|read| n10
+  n10 -->|forked| n11
+  n11 -->|wrote| n0
+  n11 -->|forked| n12
+  n6 -->|executed| n12
+  n3 -->|read| n12
+  n12 -->|wrote| n0
+  n10 -->|forked| n13
+  n13 -->|forked| n14
+  n8 -->|executed| n14
+  n9 -->|read| n14
+  n10 -->|wrote| n4
+  n10 -->|connected| n17
+  n17 -->|received| n10
+  n10 -->|forked| n15
+  n15 -->|forked| n16
+  n7 -->|executed| n16
+  n1 -->|read| n16
+  n2 -->|read| n16
+  n16 -->|connected| n18
+  n18 -->|received| n16
+  n16 -->|wrote| n0
+  style n5 stroke:#d33,stroke-width:3px
+  style n10 fill:#fdd

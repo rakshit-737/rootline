@@ -1,0 +1,71 @@
+{
+ "lines": 6379,
+ "kinds": {
+  "openat": 5890,
+  "connect": 51,
+  "write": 45,
+  "exit": 121,
+  "fork": 148,
+  "execve": 120,
+  "unlinkat": 4
+ },
+ "checks": {
+  "probe": true,
+  "self_pid": true,
+  "fd_to_path": true,
+  "ipv6": true,
+  "chain": true,
+  "alerts": true
+ },
+ "story": {
+  "dropped_script_in_backward": true,
+  "dropped_script_is_root_cause": true,
+  "downloader_is_origin_of_script": true,
+  "download_socket_is_origin_of_script": true,
+  "credential_read": true,
+  "persistence_write": true,
+  "listener_connect": true,
+  "ipv6_connect": true,
+  "vertices": 19,
+  "root_causes": [
+   "/tmp/rootline-lab-stage.sh"
+  ],
+  "labels": [
+   "/dev/null",
+   "/etc/gnutls/config",
+   "/etc/passwd",
+   "/home/runner/.aws/credentials",
+   "/home/runner/.config/systemd/user/rootline-lab.service",
+   "/tmp/rootline-lab-stage.sh",
+   "/usr/bin/cat",
+   "/usr/bin/curl",
+   "/usr/bin/mkdir",
+   "127.0.0.1:4444",
+   "::1:4445",
+   "cat[2809]",
+   "curl[2811]",
+   "mkdir[2810]",
+   "rootline-lab-st[2805]",
+   "rootline-lab-st[2809]",
+   "rootline-lab-st[2810]",
+   "rootline-lab-st[2811]",
+   "systemd"
+  ]
+ },
+ "alerts": [
+  "RL-002",
+  "RL-004",
+  "RL-005",
+  "RL-007"
+ ],
+ "graph": {
+  "events": 6256,
+  "nodes": 1392,
+  "edges": 6317,
+  "file": 1097,
+  "process": 288,
+  "socket": 7
+ },
+ "passed": true,
+ "source": "GitHub Actions run 36319289054 (ubuntu-24.04, kernel 6.17.0-1022-azure, bpftrace 0.20.2)"
+}
