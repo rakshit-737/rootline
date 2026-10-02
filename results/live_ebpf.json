@@ -1,298 +1,299 @@
 {
- "workflow": "ci / live-ebpf",
- "run_id": 36996901332,
- "commit": "0e86829c3c4923f41dd30c6c2573659dca29368b",
- "runner": "ubuntu-24.04 (GitHub-hosted)",
- "probe": "probes/rootline.bt v1.2 (bpftrace -f json)",
- "bpftrace": "0.20.2",
- "kernel": "6.17.0-1022-azure (azure, GitHub-hosted)",
- "repeats": 5,
- "passed": 5,
- "pass_rate_ci95": [
-  0.566,
-  1.0
- ],
- "per_run": [
-  {
-   "run": 1,
-   "passed": true,
-   "records": 1317,
-   "lost_events": 0,
-   "story_vertices": 28,
-   "alerts": [
-    "RL-002",
-    "RL-003",
-    "RL-004",
-    "RL-005",
-    "RL-006",
-    "RL-007"
-   ],
-   "checks": {
-    "probe": true,
-    "self_pid": true,
-    "fork_parents": true,
-    "no_lost": true,
-    "fd_to_path": true,
-    "ipv6": true,
-    "chain": true,
-    "alerts": true
-   }
+  "workflow": "ci / live-ebpf",
+  "run_id": 36996901332,
+  "commit": "0e86829c3c4923f41dd30c6c2573659dca29368b",
+  "runner": "ubuntu-24.04 (GitHub-hosted)",
+  "probe": "probes/rootline.bt v1.2 (bpftrace -f json)",
+  "bpftrace": "0.20.2",
+  "kernel": "6.17.0-1022-azure (azure, GitHub-hosted)",
+  "repeats": 5,
+  "passed": 5,
+  "run_36996901332_pass_rate_ci95": [
+    0.566,
+    1.0
+  ],
+  "scope_note": "Top-level run_id/passed/per_run fields describe run 36996901332 only (5 jobs). 'repeatability' covers all 9 pushes (42 jobs); per-job chain-recovery detail is committed only for run 36996901332, the other runs give pass/fail counts.",
+  "per_run": [
+    {
+      "run": 1,
+      "passed": true,
+      "records": 1317,
+      "lost_events": 0,
+      "story_vertices": 28,
+      "alerts": [
+        "RL-002",
+        "RL-003",
+        "RL-004",
+        "RL-005",
+        "RL-006",
+        "RL-007"
+      ],
+      "checks": {
+        "probe": true,
+        "self_pid": true,
+        "fork_parents": true,
+        "no_lost": true,
+        "fd_to_path": true,
+        "ipv6": true,
+        "chain": true,
+        "alerts": true
+      }
+    },
+    {
+      "run": 2,
+      "passed": true,
+      "records": 1273,
+      "lost_events": 0,
+      "story_vertices": null,
+      "alerts": [
+        "RL-002",
+        "RL-003",
+        "RL-004",
+        "RL-005",
+        "RL-006",
+        "RL-007"
+      ],
+      "checks": {
+        "probe": true,
+        "self_pid": true,
+        "fork_parents": true,
+        "no_lost": true,
+        "fd_to_path": true,
+        "ipv6": true,
+        "chain": true,
+        "alerts": true
+      }
+    },
+    {
+      "run": 3,
+      "passed": true,
+      "records": 1443,
+      "lost_events": 0,
+      "story_vertices": null,
+      "alerts": [
+        "RL-002",
+        "RL-003",
+        "RL-004",
+        "RL-005",
+        "RL-006",
+        "RL-007"
+      ],
+      "checks": {
+        "probe": true,
+        "self_pid": true,
+        "fork_parents": true,
+        "no_lost": true,
+        "fd_to_path": true,
+        "ipv6": true,
+        "chain": true,
+        "alerts": true
+      }
+    },
+    {
+      "run": 4,
+      "passed": true,
+      "records": 1313,
+      "lost_events": 0,
+      "story_vertices": null,
+      "alerts": [
+        "RL-002",
+        "RL-003",
+        "RL-004",
+        "RL-005",
+        "RL-006",
+        "RL-007"
+      ],
+      "checks": {
+        "probe": true,
+        "self_pid": true,
+        "fork_parents": true,
+        "no_lost": true,
+        "fd_to_path": true,
+        "ipv6": true,
+        "chain": true,
+        "alerts": true
+      }
+    },
+    {
+      "run": 5,
+      "passed": true,
+      "records": 1635,
+      "lost_events": 0,
+      "story_vertices": null,
+      "alerts": [
+        "RL-002",
+        "RL-003",
+        "RL-004",
+        "RL-005",
+        "RL-006",
+        "RL-007"
+      ],
+      "checks": {
+        "probe": true,
+        "self_pid": true,
+        "fork_parents": true,
+        "no_lost": true,
+        "fd_to_path": true,
+        "ipv6": true,
+        "chain": true,
+        "alerts": true
+      }
+    }
+  ],
+  "run1_detail": {
+    "format": "v1.2-json",
+    "lines": 1317,
+    "kinds": {
+      "openat": 1249,
+      "exit": 18,
+      "fork": 16,
+      "execve": 17,
+      "write": 9,
+      "connect": 7,
+      "unlinkat": 1
+    },
+    "lost_events": 0,
+    "invalid_lines": 0,
+    "checks": {
+      "probe": true,
+      "self_pid": true,
+      "fork_parents": true,
+      "no_lost": true,
+      "fd_to_path": true,
+      "ipv6": true,
+      "chain": true,
+      "alerts": true
+    },
+    "decoy_captured": true,
+    "fork_parents_unseen": [],
+    "story": {
+      "dropped_script_in_story": true,
+      "credential_read": true,
+      "persistence_write": true,
+      "listener_connect": true,
+      "download_socket_is_root_cause": true,
+      "downloader_in_story": true,
+      "cron_style_write": true,
+      "ipv6_connect": true,
+      "vertices": 28,
+      "root_causes": [
+        "/tmp/rootline-lab-stage.sh",
+        "198.51.100.7:8081"
+      ],
+      "labels": [
+        ".config",
+        "/dev/null",
+        "/etc/gnutls/config",
+        "/etc/passwd",
+        "/tmp/rl-home/.aws/credentials",
+        "/tmp/rl-home/.bash_history",
+        "/tmp/rl-home/.config/systemd/user/rootline-lab.service",
+        "/tmp/rl-home/lab/cron.d/rootline-lab",
+        "/tmp/rootline-lab-stage.sh",
+        "/usr/bin/cat",
+        "/usr/bin/curl",
+        "/usr/bin/mkdir",
+        "/usr/bin/rm",
+        "198.51.100.7:4444",
+        "198.51.100.7:8081",
+        "[::1]:4445",
+        "cat[2905]",
+        "curl[2902]",
+        "curl[2908]",
+        "lab",
+        "mkdir[2906]",
+        "rm[2907]",
+        "rootline-lab-st[2901]",
+        "rootline-lab-st[2905]",
+        "rootline-lab-st[2906]",
+        "rootline-lab-st[2907]",
+        "rootline-lab-st[2908]",
+        "systemd"
+      ]
+    },
+    "alerts": [
+      "RL-002",
+      "RL-003",
+      "RL-004",
+      "RL-005",
+      "RL-006",
+      "RL-007"
+    ],
+    "graph": {
+      "events": 1301,
+      "nodes": 859,
+      "edges": 1310,
+      "file": 811,
+      "process": 43,
+      "socket": 5
+    },
+    "passed": true
   },
-  {
-   "run": 2,
-   "passed": true,
-   "records": 1273,
-   "lost_events": 0,
-   "story_vertices": null,
-   "alerts": [
-    "RL-002",
-    "RL-003",
-    "RL-004",
-    "RL-005",
-    "RL-006",
-    "RL-007"
-   ],
-   "checks": {
-    "probe": true,
-    "self_pid": true,
-    "fork_parents": true,
-    "no_lost": true,
-    "fd_to_path": true,
-    "ipv6": true,
-    "chain": true,
-    "alerts": true
-   }
-  },
-  {
-   "run": 3,
-   "passed": true,
-   "records": 1443,
-   "lost_events": 0,
-   "story_vertices": null,
-   "alerts": [
-    "RL-002",
-    "RL-003",
-    "RL-004",
-    "RL-005",
-    "RL-006",
-    "RL-007"
-   ],
-   "checks": {
-    "probe": true,
-    "self_pid": true,
-    "fork_parents": true,
-    "no_lost": true,
-    "fd_to_path": true,
-    "ipv6": true,
-    "chain": true,
-    "alerts": true
-   }
-  },
-  {
-   "run": 4,
-   "passed": true,
-   "records": 1313,
-   "lost_events": 0,
-   "story_vertices": null,
-   "alerts": [
-    "RL-002",
-    "RL-003",
-    "RL-004",
-    "RL-005",
-    "RL-006",
-    "RL-007"
-   ],
-   "checks": {
-    "probe": true,
-    "self_pid": true,
-    "fork_parents": true,
-    "no_lost": true,
-    "fd_to_path": true,
-    "ipv6": true,
-    "chain": true,
-    "alerts": true
-   }
-  },
-  {
-   "run": 5,
-   "passed": true,
-   "records": 1635,
-   "lost_events": 0,
-   "story_vertices": null,
-   "alerts": [
-    "RL-002",
-    "RL-003",
-    "RL-004",
-    "RL-005",
-    "RL-006",
-    "RL-007"
-   ],
-   "checks": {
-    "probe": true,
-    "self_pid": true,
-    "fork_parents": true,
-    "no_lost": true,
-    "fd_to_path": true,
-    "ipv6": true,
-    "chain": true,
-    "alerts": true
-   }
+  "caveats": [
+    "bpftrace on a GitHub-hosted kernel, not a libbpf CO-RE probe",
+    "benign scripted chain, dummy files, traffic only inside the runner",
+    "relative paths (mkdir -p's 'systemd', 'lab') are not resolved to absolute paths",
+    "acceptance criteria were revised once in v1.1 after failing runs; the v1.2 criteria were written before these 5 runs"
+  ],
+  "repeatability": {
+    "scope": "every push to main from the first probe v1.2 run to 85f37f3 (9 CI runs x 5 matrix jobs)",
+    "per_run": {
+      "36996901332": {
+        "passed": 5,
+        "failed": 0,
+        "cancelled": 0
+      },
+      "36997657767": {
+        "passed": 5,
+        "failed": 0,
+        "cancelled": 0
+      },
+      "36998054457": {
+        "passed": 4,
+        "failed": 1,
+        "cancelled": 0
+      },
+      "36998842224": {
+        "passed": 2,
+        "failed": 0,
+        "cancelled": 3
+      },
+      "36999451595": {
+        "passed": 5,
+        "failed": 0,
+        "cancelled": 0
+      },
+      "37000354752": {
+        "passed": 5,
+        "failed": 0,
+        "cancelled": 0
+      },
+      "37000681610": {
+        "passed": 5,
+        "failed": 0,
+        "cancelled": 0
+      },
+      "37000802258": {
+        "passed": 5,
+        "failed": 0,
+        "cancelled": 0
+      },
+      "37000996653": {
+        "passed": 5,
+        "failed": 0,
+        "cancelled": 0
+      }
+    },
+    "completed_jobs": 42,
+    "passed_jobs": 41,
+    "pass_rate_ci95": [
+      0.877,
+      0.996
+    ],
+    "failures": [
+      "36998054457 matrix 4: fork-parent check flagged a pre-existing daemon (pid 1072) that forked once; the chain itself was recovered. The check was corrected in the next commit to test for thread IDs."
+    ],
+    "cancelled_note": "3 jobs of 36998842224 were cancelled by the concurrency group when a newer commit was pushed",
+    "dependabot_pr_runs": "11 further runs on Dependabot PR branches (same probe and scripts): 55/55 jobs passed"
   }
- ],
- "run1_detail": {
-  "format": "v1.2-json",
-  "lines": 1317,
-  "kinds": {
-   "openat": 1249,
-   "exit": 18,
-   "fork": 16,
-   "execve": 17,
-   "write": 9,
-   "connect": 7,
-   "unlinkat": 1
-  },
-  "lost_events": 0,
-  "invalid_lines": 0,
-  "checks": {
-   "probe": true,
-   "self_pid": true,
-   "fork_parents": true,
-   "no_lost": true,
-   "fd_to_path": true,
-   "ipv6": true,
-   "chain": true,
-   "alerts": true
-  },
-  "decoy_captured": true,
-  "fork_parents_unseen": [],
-  "story": {
-   "dropped_script_in_story": true,
-   "credential_read": true,
-   "persistence_write": true,
-   "listener_connect": true,
-   "download_socket_is_root_cause": true,
-   "downloader_in_story": true,
-   "cron_style_write": true,
-   "ipv6_connect": true,
-   "vertices": 28,
-   "root_causes": [
-    "/tmp/rootline-lab-stage.sh",
-    "198.51.100.7:8081"
-   ],
-   "labels": [
-    ".config",
-    "/dev/null",
-    "/etc/gnutls/config",
-    "/etc/passwd",
-    "/tmp/rl-home/.aws/credentials",
-    "/tmp/rl-home/.bash_history",
-    "/tmp/rl-home/.config/systemd/user/rootline-lab.service",
-    "/tmp/rl-home/lab/cron.d/rootline-lab",
-    "/tmp/rootline-lab-stage.sh",
-    "/usr/bin/cat",
-    "/usr/bin/curl",
-    "/usr/bin/mkdir",
-    "/usr/bin/rm",
-    "198.51.100.7:4444",
-    "198.51.100.7:8081",
-    "[::1]:4445",
-    "cat[2905]",
-    "curl[2902]",
-    "curl[2908]",
-    "lab",
-    "mkdir[2906]",
-    "rm[2907]",
-    "rootline-lab-st[2901]",
-    "rootline-lab-st[2905]",
-    "rootline-lab-st[2906]",
-    "rootline-lab-st[2907]",
-    "rootline-lab-st[2908]",
-    "systemd"
-   ]
-  },
-  "alerts": [
-   "RL-002",
-   "RL-003",
-   "RL-004",
-   "RL-005",
-   "RL-006",
-   "RL-007"
-  ],
-  "graph": {
-   "events": 1301,
-   "nodes": 859,
-   "edges": 1310,
-   "file": 811,
-   "process": 43,
-   "socket": 5
-  },
-  "passed": true
- },
- "caveats": [
-  "bpftrace on a GitHub-hosted kernel, not a libbpf CO-RE probe",
-  "benign scripted chain, dummy files, traffic only inside the runner",
-  "relative paths (mkdir -p's 'systemd', 'lab') are not resolved to absolute paths",
-  "acceptance criteria were revised once in v1.1 after failing runs; the v1.2 criteria were written before these 5 runs"
- ],
- "repeatability": {
-  "scope": "every push to main from the first probe v1.2 run to 85f37f3 (9 CI runs x 5 matrix jobs)",
-  "per_run": {
-   "36996901332": {
-    "passed": 5,
-    "failed": 0,
-    "cancelled": 0
-   },
-   "36997657767": {
-    "passed": 5,
-    "failed": 0,
-    "cancelled": 0
-   },
-   "36998054457": {
-    "passed": 4,
-    "failed": 1,
-    "cancelled": 0
-   },
-   "36998842224": {
-    "passed": 2,
-    "failed": 0,
-    "cancelled": 3
-   },
-   "36999451595": {
-    "passed": 5,
-    "failed": 0,
-    "cancelled": 0
-   },
-   "37000354752": {
-    "passed": 5,
-    "failed": 0,
-    "cancelled": 0
-   },
-   "37000681610": {
-    "passed": 5,
-    "failed": 0,
-    "cancelled": 0
-   },
-   "37000802258": {
-    "passed": 5,
-    "failed": 0,
-    "cancelled": 0
-   },
-   "37000996653": {
-    "passed": 5,
-    "failed": 0,
-    "cancelled": 0
-   }
-  },
-  "completed_jobs": 42,
-  "passed_jobs": 41,
-  "pass_rate_ci95": [
-   0.877,
-   0.996
-  ],
-  "failures": [
-   "36998054457 matrix 4: fork-parent check flagged a pre-existing daemon (pid 1072) that forked once; the chain itself was recovered. The check was corrected in the next commit to test for thread IDs."
-  ],
-  "cancelled_note": "3 jobs of 36998842224 were cancelled by the concurrency group when a newer commit was pushed",
-  "dependabot_pr_runs": "11 further runs on Dependabot PR branches (same probe and scripts): 55/55 jobs passed"
- }
 }

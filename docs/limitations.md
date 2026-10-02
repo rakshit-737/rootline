@@ -22,11 +22,18 @@
   the cwd, `dup()`/`fcntl` and fork-inherited fds are not mapped, argv is not captured and
   paths are cut at 64 bytes. Over 9 pushes (42 completed jobs) the live check passed 41
   times; the failure was a too-strict fork-parent check (since corrected), and the chain
-  itself was recovered every time.
+  itself was recovered every time according to the CI job logs. Per-job chain/root-cause
+  detail is committed only for the 5 jobs of run 36996901332; the other 8 runs are summarised
+  as pass/fail counts in `results/live_ebpf.json`.
 - **Reduction is lossless and does not change accuracy.** Vertex counts do not change on
   ATLAS; lossy reduction is future work.
 - The ATLAS scenarios are Windows. The Linux evidence comes from OTRF, Splunk and the live CI
   chain.
+- **Ablation provenance.** `results/ablation.json` was generated locally (Windows, Python 3.14)
+  from the 1.0.0 code and records no commit hash; it has not yet been regenerated in a
+  workflow_dispatch job.
+- **Docstring coverage is partial.** About 85 of 183 public functions and classes in
+  `src/rootline` have no docstring yet, and no docstring check runs in CI.
 - The SentinelCore field map is an assumption until it is aligned with the real schema.
 - Neo4j support is an export (Cypher), imported in CI; ROOTLINE does not query Neo4j.
 

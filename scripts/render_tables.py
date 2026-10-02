@@ -168,7 +168,7 @@ def live() -> str:
         lo, hi = rep["pass_rate_ci95"]
         passed = f"{rep['passed_jobs']}/{rep['completed_jobs']} jobs over {len(rep['per_run'])} CI runs [{lo:.2f}, {hi:.2f}]"
     else:
-        lo, hi = lv["pass_rate_ci95"]
+        lo, hi = lv.get("run_36996901332_pass_rate_ci95", lv.get("pass_rate_ci95"))
         passed = f"{lv['passed']}/{lv['repeats']} [{lo:.2f}, {hi:.2f}]"
     r1 = lv["run1_detail"]
     return table([[str(lv["run_id"]), passed,

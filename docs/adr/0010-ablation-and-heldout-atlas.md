@@ -31,7 +31,7 @@ result depends on where the analyst starts.
 - On the held-out hosts the picture is mixed and is reported as such: the full method's
   precision gain holds (0.63 vs 0.26) but recall falls to 0.72 and the F1 gain
   (+0.14, 95 % CI [-0.11, 0.35]) is not significant. Session-root stops alone are the
-  component that transfers cleanly (precision +0.10 on 33 of 34 pivots, recall unchanged).
+  component that transfers cleanly (precision +0.10 on 33 of 34 pivots, recall essentially unchanged (-0.005 [-0.012, -0.000], lower on 25 pivots)).
   Spine trimming without the `accessed` expansion collapses recall (about 0.06-0.23), so
   the two only work together.
 - Root-cause hit@3 (any top-3 entry point is a ground-truth entity) is about 0.45-0.48 for

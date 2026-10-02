@@ -9,7 +9,7 @@ hash-chained provenance graph and reconstructs the attack story from one alert o
     An open, training-free, time-respecting provenance reconstructor whose components are
     ablated on ATLAS with **held-out** hosts and whose sensor-to-story path is exercised on a
     **live kernel in CI**: on 12 held-out ATLAS host logs, session-root stops alone raise event
-    precision from 0.26 to 0.36 at unchanged recall (33 of 34 pivots), and the full method
+    precision from 0.26 to 0.36 with recall essentially unchanged (33 of 34 pivots; recall -0.005, lower on 25), and the full method
     reaches 0.63 precision at 0.72 recall. On the four scenarios it was designed on it reaches
     F1 0.66 versus 0.25 for plain reachability. It does not match ATLAS's supervised
     model, and its rule tagger does not generalise (4 of 64 sealed captures detected).

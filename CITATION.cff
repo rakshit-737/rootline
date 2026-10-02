@@ -4,7 +4,7 @@ title: "ROOTLINE: provenance-graph attack reconstruction"
 type: software
 authors:
   - name: Rakshit
-version: 1.0.0
+version: 1.1.0
 license: MIT
 repository-code: "https://github.com/rakshit-737/rootline"
 url: "https://rakshit-737.github.io/rootline/"

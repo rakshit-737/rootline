@@ -8,7 +8,7 @@ Every number on this page is rendered from committed JSON by `scripts/render_tab
   method beats naive reachability clearly (event F1 0.66 vs 0.25). On the 12 **held-out**
   M1-M6 host logs, it is 2.4x more precise (0.63 vs 0.26) but recall drops to 0.72, and the
   F1 gain is not significant. **Session-root stops** are the component that transfers:
-  +0.10 precision on 33 of 34 held-out pivots at unchanged recall.
+  +0.10 precision on 33 of 34 held-out pivots with recall essentially unchanged (-0.005 [-0.012, -0.000], lower on 25 pivots).
 - **Comparison with the paper.** ROOTLINE's naive reachability lands where ATLAS's own
   published graph-traversal baseline does (P 0.15-0.26 vs 0.18). Our PyTorch reproduction
   of the ATLAS LSTM does **not** reach the published entity-level numbers; ATLAS's own

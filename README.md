@@ -9,13 +9,13 @@
 
 **A small, explainable provenance-graph engine that reconstructs host attacks from syscall-level telemetry: give it an alert or an IOC and it traces back to the root cause and forward to the blast radius.**
 
-**Contribution.** An open, training-free, time-respecting provenance reconstructor whose components are ablated on ATLAS with *held-out* hosts and whose sensor-to-story path runs on a *live kernel in CI*: on 12 held-out ATLAS host logs, session-root stops alone raise event precision from 0.26 to 0.36 at unchanged recall (33 of 34 pivots), and the full method reaches 0.63 precision at 0.72 recall; on the four scenarios it was designed on, it reaches F1 0.66 versus 0.25 for plain reachability. It does not match ATLAS's supervised model, and its rule tagger does not generalise. Both are measured and reported below.
+**Contribution.** An open, training-free, time-respecting provenance reconstructor whose components are ablated on ATLAS with *held-out* hosts and whose sensor-to-story path runs on a *live kernel in CI*: on 12 held-out ATLAS host logs, session-root stops alone raise event precision from 0.26 to 0.36 with recall essentially unchanged (33 of 34 pivots; recall -0.005, lower on 25), and the full method reaches 0.63 precision at 0.72 recall; on the four scenarios it was designed on, it reaches F1 0.66 versus 0.25 for plain reachability. It does not match ATLAS's supervised model, and its rule tagger does not generalise. Both are measured and reported below.
 
 | Result (all numbers traceable to [`results/`](results/)) | Number |
 |---|---|
 | ATLAS S1-S4 (design data): full method vs naive reachability, event F1 | **0.66** [0.51, 0.78] vs 0.25 [0.15, 0.36] |
 | ATLAS M1-M6 hosts (**held out**): precision / recall / F1, full vs naive | 0.63 / 0.72 / 0.46 vs 0.26 / 0.98 / 0.33 (F1 gain +0.14 [-0.11, 0.35], not significant) |
-| Session-root stops alone, held out | precision **+0.10** [0.07, 0.14] on 33 of 34 pivots, recall unchanged |
+| Session-root stops alone, held out | precision **+0.10** [0.07, 0.14] on 33 of 34 pivots, recall essentially unchanged (-0.005 [-0.012, -0.000], lower on 25 pivots) |
 | ATLAS paper's own graph-traversal baseline vs ROOTLINE naive | P 0.18 vs 0.15-0.26: consistent |
 | ATLAS LSTM, our reproduction under the paper's setup (entity F1) | 0.24-0.75 vs paper 0.89-1.00: **not reproduced** |
 | Rule tagger v0.3: in-sample dev2 vs sealed | 23/27 vs **4/64** captures detected |
@@ -42,6 +42,7 @@ rootline analyze tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_a
 
 ```text
 [+] graph: {'events': 108, 'nodes': 105, 'edges': 111, 'process': 83, 'socket': 5, 'file': 17}  (rejected records: 0)
+[+] reduction: {'edges_before': 111, 'edges_after': 108, 'nodes_before': 105, 'nodes_after': 96, 'edge_ratio': 1.03}
 [+] alerts: 2
     RL-009  medium   T1140      base64 decoding: base64 -d
     RL-003  critical T1071      bash opened outbound connection to 192.168.2.6:443 (reverse shell / C2)
@@ -106,7 +107,7 @@ Every variant runs the same reconstructor with components switched off, from **e
 | time + stops + spine (no accessed) | 0.46 | 0.22 | 0.26 | 0.50 | 0.06 | 0.08 |
 | **full ROOTLINE** | **0.54** | **0.98** | **0.66** | **0.63** | 0.72 | 0.46 |
 
-What it says: session-root stops are the component that transfers to unseen hosts (+0.10 precision on 33 of 34 held-out pivots, sign test p < 1e-6, recall unchanged). The causal spine only works together with the "accessed" expansion; on held-out hosts that pair buys precision at a real recall cost, and the best held-out F1 comes from time + stops alone. Root-cause hit@3 is about 0.45-0.48 for every variant, so entry-point ranking is the weakest part.
+What it says: session-root stops are the component that transfers to unseen hosts (+0.10 precision on 33 of 34 held-out pivots, sign test p < 1e-6, recall essentially unchanged (-0.005 [-0.012, -0.000], lower on 25 pivots)). The causal spine only works together with the "accessed" expansion; on held-out hosts that pair buys precision at a real recall cost, and the best held-out F1 comes from time + stops alone. Root-cause hit@3 is about 0.45-0.48 for every variant, so entry-point ranking is the weakest part.
 
 ### 2. Comparison with the ATLAS paper (USENIX Security 2021)
 
@@ -211,6 +212,7 @@ The sealed coverage, the live eBPF runs and the LSTM reproduction run in GitHub 
 - The rule tagger does not generalise (4/64 sealed); most sealed auditd captures are not parsed.
 - The live probe check is bpftrace on a scripted benign chain; relative paths, `dup()`/`fcntl` and fork-inherited fds are not resolved.
 - The ATLAS LSTM reproduction does not reach the published numbers.
+- Known gaps: per-job live-eBPF detail is committed for 5 of 42 jobs only; the ablation was run locally without a recorded commit; docstring coverage is partial.
 - Full list: [Limitations](docs/limitations.md).
 
 ## Safety

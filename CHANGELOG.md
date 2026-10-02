@@ -6,6 +6,8 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-02
+
 ### Added
 - **Live eBPF in CI** (`live-ebpf` job, five runs per push): the bpftrace probe runs with
   sudo on the ubuntu-24.04 runner kernel while a benign chain runs entirely inside the

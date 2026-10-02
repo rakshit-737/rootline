@@ -19,6 +19,7 @@ Expected output (about 0.4 s):
 
 ```text
 [+] graph: {'events': 108, 'nodes': 105, 'edges': 111, 'process': 83, 'socket': 5, 'file': 17}  (rejected records: 0)
+[+] reduction: {'edges_before': 111, 'edges_after': 108, 'nodes_before': 105, 'nodes_after': 96, 'edge_ratio': 1.03}
 [+] alerts: 2
     RL-009  medium   T1140      base64 decoding: base64 -d
     RL-003  critical T1071      bash opened outbound connection to 192.168.2.6:443 (reverse shell / C2)
