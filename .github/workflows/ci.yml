@@ -93,9 +93,14 @@ jobs:
 
   live-ebpf:
     # Runs the bpftrace probe LIVE (sudo) on the runner's real kernel while a benign,
-    # attack-shaped chain runs on localhost only, then asserts ROOTLINE recovers the chain.
+    # attack-shaped chain runs inside the runner only (dummy interface + loopback), then
+    # asserts ROOTLINE recovers the chain. Five independent runs measure repeatability.
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        run: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -109,15 +114,16 @@ jobs:
           bpftrace --version
           uname -r
           ls -la /sys/kernel/btf/vmlinux
-      - name: run probe + scripted chain (localhost only)
+      - name: run probe + scripted chain (inside the runner only)
         run: OUT=live-out bash scripts/live/run_chain.sh
       - name: reconstruct and assert
-        run: python scripts/live/assert_chain.py live-out/capture.log --out live-out/result.json
+        run: |
+          python scripts/live/assert_chain.py live-out/capture.jsonl --out live-out/result.json             --probe-pid "$(cat live-out/probe.pid)" --chain live-out/chain.json
       - name: capture excerpt (lines touching the chain)
         if: always()
-        run: grep -E "rootline-lab|127\.0\.0\.1|::1|aws/credentials|kind=fork|kind=exit" live-out/capture.log | head -4000 > live-out/capture_excerpt.log || true
+        run: grep -E "rootline-lab|rl-home|198\.51\.100\.7|::1|kind=fork|kind=exit|bpftrace" live-out/capture.jsonl | head -4000 > live-out/capture_excerpt.jsonl || true
       - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: live-ebpf
+          name: live-ebpf-${{ matrix.run }}
           path: live-out/
