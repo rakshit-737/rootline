@@ -6,11 +6,77 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+### Added
+- **Live eBPF in CI** (`live-ebpf` job, five runs per push): the bpftrace probe runs with
+  sudo on the ubuntu-24.04 runner kernel while a benign chain runs entirely inside the
+  runner (TEST-NET server on a dummy interface, throwaway `HOME`, dummy files); one
+  query must recover the download socket as a root cause plus every chain step.
+  Results in `results/live_ebpf.json`; ADR 0008 supersedes ADR 0007.
+- **v0.3 rules** RL-019..024 (sudo/doas/setuid abuse, kernel modules, library
+  hijacking and related techniques), written from the `dev` and `dev2` captures.
+- **dev / dev2 / sealed rule protocol** (`docs/protocol.md`, ADR 0009): 160 sealed
+  Splunk captures pinned at `attack_data@b4573ed3` by LFS SHA-256, a freeze check
+  (`scripts/verify_freeze.py`) and the manual `sealed-coverage` workflow that scored
+  them once (run 36994398382). Wilson 95 % intervals and an alert-precision proxy.
+- **Ablation study** (`rootline.ablation`, `scripts/ablation.py`, ADR 0010):
+  time-respecting traversal, session-root stops, causal spine and "accessed"
+  expansion switched off one at a time, every ground-truth entity as a pivot,
+  ATLAS S1-S4 (design data) vs the 12 M1-M6 host logs (held out), scenario-cluster
+  bootstrap CIs and sign tests.
+- **ATLAS reproduction** (`repro/atlas_repro.py`, manual `atlas-repro` workflow):
+  PyTorch reimplementation of the ATLAS LSTM under the paper's setup, S1-S4 x 5 seeds,
+  with ATLAS's shipped artefacts scored the same way (`results/atlas_repro.json`).
+- ATLAS M1 (multi-host) logs in the benchmarks; all ATLAS zips pinned to commit
+  `e46096d` with SHA-256 and size.
+- Docs: How it works, Evaluation, Reproduce and protocol pages; generated CLI
+  reference; `docs/hooks.py` so a plain `mkdocs build --strict` works.
+- Repo: issue/PR templates, CODEOWNERS, Dependabot, CITATION.cff; CI on Python
+  3.10-3.14; private vulnerability reporting and secret scanning enabled.
+
+### Changed
+- **Probe v1.2**: self filtering by PID instead of process name; process creation
+  from `wake_up_new_task` for new thread groups only (threads no longer appear as
+  processes); `-f json` output with a fixed record layout; fd maps keyed by process
+  start time; dup2/dup3 path tracking; `tsns=` timestamps.
+- The default rule set is v0.3 (RL-001..024). The v1.0 `holdout` is renamed `dev2`
+  and is in-sample for v0.3.
+- IOCs: `ip` holds all external addresses, `ipv4`/`ipv6` split them by family;
+  loopback, unspecified and link-local addresses and `/dev`, `/proc`, `/sys`, `/run`
+  paths are never IOCs; IPv6 sockets are labelled `[addr]:port`.
+- API: loopback-only Host allowlist, `X-Rootline: 1` required on POST, streamed
+  upload cap, parsing in a worker thread, bounded story store, docs endpoints off
+  by default; `serve` warns when bound off loopback.
+- CLI: `verify` reads any format and fails on zero parsed events; one-line errors for
+  missing files; `--iforest` checks for its extra first; help text on every option.
+- Downloads: Splunk URLs pinned to a commit, size check, fail closed without a
+  SHA-256; default data directory `~/.cache/rootline`.
+- Packaging: SPDX licence string (setuptools >= 77), tests shipped in the sdist,
+  `repro` extra, uvicorn in `dev`. Actions bumped to their Node-24 majors; release
+  actions pinned by SHA.
+
 ### Fixed
+- Cypher export: a root-cause path containing a newline could escape a `//` comment
+  and inject a statement. Telemetry text is now only ever a quoted literal.
+- Mermaid labels escape quotes and control characters.
+- Sysmon `<Event>` extraction was quadratic on unterminated tags (ReDoS); it is now
+  linear with a 1 MB line cap.
+- Malformed numbers, deep JSON and non-finite timestamps no longer crash ingestion.
+- The `/demo/` URL served a docs page instead of the replay UI (page renamed to
+  `live-demo.md`, plus a CI guard).
+- Release notes extraction from this file (awk escape bug); the v1.0.0 release body
+  was corrected.
 - `mean_ci` clips the 95 % t-interval to the metric's valid range (recall in
   [0, 1], hits in [0, min(k, malicious)], first-hit rank >= 1), so results no
   longer report impossible bounds such as recall@10 CI [0.837, 1.063].
   `scripts/bench.py --render-only` re-renders RESULTS.md from cached JSON.
+- The live chain no longer writes into the real `~/.aws` and `~/.config` of whoever
+  runs it; it refuses to run outside CI unless `ROOTLINE_LAB=1`.
+
+### Results that got worse (published as is)
+- Rule coverage on the sealed split: v0.3 detects 4 of 64 parsed captures (Wilson
+  95 % [0.03, 0.15]); 96 of 160 sealed captures are not parsed by the frozen loaders.
+- The ATLAS LSTM reproduction does not reach the paper's numbers (entity F1 0.24-0.75
+  vs 0.89-1.00).
 
 ## [1.0.0] - 2026-09-26
 
