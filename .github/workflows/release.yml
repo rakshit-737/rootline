@@ -4,6 +4,10 @@ on:
   push:
     tags: ["v*"]
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   packages: write
@@ -49,4 +53,4 @@ jobs:
       - name: GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/* --title "rootline $GITHUB_REF_NAME" --notes-file notes.md
+        run: gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 && gh release upload "$GITHUB_REF_NAME" dist/* --clobber || gh release create "$GITHUB_REF_NAME" dist/* --title "rootline $GITHUB_REF_NAME" --notes-file notes.md
