@@ -139,3 +139,18 @@ def test_ablation_on_mini_atlas(mini):
     lo, hi = full["precision"]["ci95"]
     assert lo <= full["precision"]["mean"] <= hi
     assert sign_test([1, 1, 1, -1])["p"] == 0.625
+
+
+def test_userdir_baseline_and_feature_drop():
+    pytest.importorskip("sklearn")
+    from rootline.anomaly import FEATURES, IForestTagger, userdir_ranking
+    from rootline.pipeline import build_graph
+    from rootline.synth import generate
+    recs, _ = generate(80, attack=True, seed=7)
+    g, _ = build_graph(recs)
+    ranked = userdir_ranking(g)
+    first = g.nodes[ranked[0][0]].attrs.get("exe", "")
+    assert first.startswith(("/tmp/", "/home/", "/root/", "/dev/shm/", "/var/tmp/"))
+    full = IForestTagger(seed=0).score(g)
+    dropped = IForestTagger(seed=0, drop=("exec_user_dir",)).score(g)
+    assert len(full) == len(dropped) > 0 and "exec_user_dir" in FEATURES

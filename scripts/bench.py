@@ -165,8 +165,11 @@ def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
         if atlas.get("anomaly"):
             parts.append("\n## ATLAS: anomaly tagging of process vertices (unsupervised)\n")
             parts.append("IsolationForest rows are the mean over 10 seeds with a 95 % t-interval clipped to the "
-                         "metric's valid range (recall in [0, 1], rank >= 1); "
-                         "degree ranking is deterministic.\n")
+                         "metric's valid range (recall in [0, 1], rank >= 1). The interval covers seed variance "
+                         "on one fixed graph only, not data or scenario variance. `iforest-no-userdir` drops the "
+                         "`exec_user_dir` feature, which was written alongside the ATLAS benchmark; the user-dir "
+                         "heuristic (images under a user-writable directory first, then by degree) and degree "
+                         "ranking are deterministic baselines.\n")
             parts.append(md_table(atlas["anomaly"], ["scenario", "method", "processes", "malicious", "seeds",
                                                      "first_hit_rank", "first_hit_rank_ci95", "hits@10",
                                                      "recall@10", "recall@10_ci95"]))

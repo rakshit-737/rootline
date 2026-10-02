@@ -43,9 +43,12 @@ def features(g: ProvenanceGraph, nid: str) -> list[float]:
 
 @dataclass
 class IForestTagger:
+    """IsolationForest over per-process features (``[ml]`` extra). ``drop`` removes features by name."""
+
     contamination: float = 0.02
     seed: int = 0
     min_score: float = 0.0
+    drop: tuple[str, ...] = ()
 
     def score(self, g: ProvenanceGraph) -> list[tuple[str, float]]:
         try:
@@ -55,7 +58,8 @@ class IForestTagger:
         procs = [n for n, v in g.nodes.items() if v.type is NodeType.PROCESS]
         if len(procs) < 8:
             return []
-        X = [features(g, n) for n in procs]
+        keep = [i for i, f in enumerate(FEATURES) if f not in self.drop]
+        X = [[row[i] for i in keep] for row in (features(g, n) for n in procs)]
         m = IsolationForest(n_estimators=200, contamination=self.contamination, random_state=self.seed).fit(X)
         s = -m.score_samples(X)  # higher = more anomalous
         return sorted(zip(procs, (float(x) for x in s), strict=True), key=lambda t: -t[1])
@@ -70,6 +74,16 @@ class IForestTagger:
                              f"isolation-forest outlier {g.nodes[nid].label} (score {sc:.2f})", None, None,
                              round(sc, 3), []))
         return out
+
+
+def userdir_ranking(g: ProvenanceGraph) -> list[tuple[str, float]]:
+    """Baseline: processes whose image lives in a user-writable directory first, then by degree."""
+    procs = [n for n, v in g.nodes.items() if v.type is NodeType.PROCESS]
+
+    def key(n: str) -> float:
+        exe = str(g.nodes[n].attrs.get("exe") or "")
+        return 1e9 * bool(_USER.search(exe)) + len(g.out_edges.get(n, [])) + len(g.in_edges.get(n, []))
+    return sorted(((n, float(key(n))) for n in procs), key=lambda t: -t[1])
 
 
 def degree_ranking(g: ProvenanceGraph) -> list[tuple[str, float]]:

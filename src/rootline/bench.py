@@ -326,7 +326,7 @@ def clip_anomaly_rows(rows: list[dict[str, Any]], k: int = 10) -> list[dict[str,
 def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | None = None,
                          seeds: int = 10) -> list[dict[str, Any]]:
     """Rank process vertices; GT = processes whose image is an ATLAS malicious entity."""
-    from .anomaly import IForestTagger, degree_ranking
+    from .anomaly import IForestTagger, degree_ranking, userdir_ranking
 
     g = g if g is not None else build_graph(sc.records)[0]
     names = [lab for lab in sc.host_labels if "." in lab and not lab[0].isdigit()]
@@ -345,15 +345,18 @@ def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | No
 
     # IsolationForest is stochastic: report mean and 95 % t-interval over `seeds` forests,
     # clipped to each metric's valid range.
-    per_seed = [row("iforest", IForestTagger(seed=s).score(g)) for s in range(seeds)]
-    agg = dict(per_seed[0])
-    agg["seeds"] = seeds
-    for key in ("first_hit_rank", f"hits@{k}", f"recall@{k}"):
-        vals = [r[key] if r[key] is not None else procs + 1 for r in per_seed]
-        m, lo, hi = mean_ci(vals, *metric_bounds(key, k, len(bad), procs))
-        agg[key] = round(m, 3)
-        agg[f"{key}_ci95"] = [round(lo, 3), round(hi, 3)]
-    rows.append(agg)
+    # The interval covers seed variance on this one graph only, not data or scenario variance.
+    for method, drop in (("iforest", ()), ("iforest-no-userdir", ("exec_user_dir",))):
+        per_seed = [row(method, IForestTagger(seed=s, drop=drop).score(g)) for s in range(seeds)]
+        agg = dict(per_seed[0])
+        agg["seeds"] = seeds
+        for key in ("first_hit_rank", f"hits@{k}", f"recall@{k}"):
+            vals = [r[key] if r[key] is not None else procs + 1 for r in per_seed]
+            m, lo, hi = mean_ci(vals, *metric_bounds(key, k, len(bad), procs))
+            agg[key] = round(m, 3)
+            agg[f"{key}_ci95"] = [round(lo, 3), round(hi, 3)]
+        rows.append(agg)
+    rows.append(row("user-dir image first (heuristic)", userdir_ranking(g)))
     rows.append(row("degree", degree_ranking(g)))
     rows.append({"scenario": sc.name, "method": "random (expected)", "processes": procs, "malicious": len(bad),
                  "first_hit_rank": round((procs + 1) / (len(bad) + 1), 1) if bad else None,
