@@ -49,7 +49,16 @@ STAGE_ORDER = ["initial-access", "delivery", "execution", "persistence", "privil
                "command-and-control", "exfiltration", "impact"]
 
 
-def backward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) -> tuple[set[str], list[Edge]]:
+def backward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000,
+             stop: frozenset[str] | set[str] | None = None, timed: bool = True) -> tuple[set[str], list[Edge]]:
+    """Time-respecting ancestors of ``start`` as of time ``t``.
+
+    Session/service roots in ``stop`` (default :data:`STOP_COMMS`) are not expanded.
+    ``timed=False`` ignores time (plain reachability); it exists for the ablation study.
+    """
+    stop = STOP_COMMS if stop is None else stop
+    if not timed:
+        t = float("inf")
     best: dict[str, float] = {start: t}
     heap = [(-t, start)]
     edges: list[Edge] = []
@@ -59,13 +68,13 @@ def backward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) ->
         if bound < best.get(nid, float("-inf")):
             continue
         n = g.nodes[nid]
-        if nid != start and n.type is NodeType.PROCESS and comm(g, nid) in STOP_COMMS:
+        if nid != start and n.type is NodeType.PROCESS and comm(g, nid) in stop:
             continue
         for e in g.in_edges.get(nid, []):
             if e.ts > bound:
                 continue
             edges.append(e)
-            nb = min(bound, e.end_ts)
+            nb = min(bound, e.end_ts) if timed else bound
             if nb > best.get(e.src, float("-inf")):
                 best[e.src] = nb
                 heapq.heappush(heap, (-nb, e.src))
@@ -73,12 +82,14 @@ def backward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000) ->
 
 
 def forward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000,
-            stop: frozenset[str] | set[str] | None = None) -> tuple[set[str], list[Edge]]:
+            stop: frozenset[str] | set[str] | None = None, timed: bool = True) -> tuple[set[str], list[Edge]]:
     """Time-respecting descendants of ``start``. Session/service roots in ``stop``
     (default :data:`STOP_COMMS`) are included but not expanded: a system service
     that merely *touched* a malicious file (indexer, AV, crash reporter) must not
     pull its entire lifetime into the blast radius."""
     stop = STOP_COMMS if stop is None else stop
+    if not timed:
+        t = float("-inf")
     best: dict[str, float] = {start: t}
     heap = [(t, start)]
     edges: list[Edge] = []
@@ -94,7 +105,7 @@ def forward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000,
             if e.rel is Relation.RECEIVED and nid != start:  # don't infect the remote peer's other clients
                 continue
             edges.append(e)
-            nb = max(bound, e.ts)
+            nb = max(bound, e.ts) if timed else bound
             if nb < best.get(e.dst, float("inf")):
                 best[e.dst] = nb
                 heapq.heappush(heap, (nb, e.dst))
@@ -102,6 +113,7 @@ def forward(g: ProvenanceGraph, start: str, t: float, max_nodes: int = 5000,
 
 
 def score_entry(g: ProvenanceGraph, nid: str) -> float:
+    """Heuristic entry-point score of a file or socket vertex (higher = more likely an attack entry)."""
     n = g.nodes[nid]
     if n.type is NodeType.SOCKET:
         ip = n.attrs.get("ip", "")
@@ -162,47 +174,54 @@ def contact_window(g: ProvenanceGraph, nid: str) -> tuple[float, float]:
 
 
 def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = None,
-                seeds: list[tuple[str, float, float]] | None = None) -> Reconstruction:
+                seeds: list[tuple[str, float, float]] | None = None, *, timed: bool = True,
+                stops: bool = True, spine: bool = True, accessed: bool = True) -> Reconstruction:
     """Reconstruct around ``alert`` (backward from, and forward after, alert.ts).
 
     ``seeds`` = extra ``(vertex, t_backward, t_forward)`` pivots traced together
     with the alert - used for IOC pivots, where an attacker IP maps to several
     socket vertices and influence starts at first contact, not last.
+
+    The keyword switches turn off one component each, for the ablation study
+    (``rootline.ablation``): ``timed`` (time-respecting traversal), ``stops``
+    (session-root stops), ``spine`` (causal-spine trimming of the backward slice)
+    and ``accessed`` (data read by intrusion-created processes and executed images).
     """
+    stop_set = STOP_COMMS if stops else frozenset()
     seeds = seeds or [(alert.node_id, alert.ts, alert.ts)]
     back: set[str] = set()
     bedges: list[Edge] = []
     fwd: set[str] = set()
     for nid, tb, _ in seeds:
-        b, be = backward(g, nid, tb)
+        b, be = backward(g, nid, tb, stop=stop_set, timed=timed)
         back |= b
         bedges += be
     t0 = min(tf for _, _, tf in seeds)
     rc = root_causes(g, back, bedges, t=max(tb for _, tb, _ in seeds) if len(seeds) > 1 else alert.ts)
     # keep only the causal spine: backward nodes that can reach a pivot from a root cause
-    if rc:
-        spine: set[str] = set()
+    if rc and spine:
+        spine_set: set[str] = set()
         for r in rc:
-            f, _ = forward(g, r, g.nodes[r].first_ts)
-            spine |= f & back
-        back = spine | {nid for nid, _, _ in seeds}
+            f, _ = forward(g, r, g.nodes[r].first_ts, stop=stop_set, timed=timed)
+            spine_set |= f & back
+        back = spine_set | {nid for nid, _, _ in seeds}
     for nid, _, tf in seeds:
-        f, _ = forward(g, nid, tf)
+        f, _ = forward(g, nid, tf, stop=stop_set, timed=timed)
         fwd |= f
-    accessed: set[str] = set()
-    for p in fwd:
+    acc: set[str] = set()
+    for p in fwd if accessed else ():
         # "accessed" (e.g. credentials read) only for processes the intrusion created;
         # a long-lived process that was merely tainted (a browser) reads its whole cache
         if g.nodes[p].type is NodeType.PROCESS and g.nodes[p].first_ts >= t0:
             for e in g.in_edges.get(p, []):
                 if e.rel is Relation.READ and e.ts >= t0:
-                    accessed.add(e.src)
-    for p in back | fwd:  # binary images that story processes were executed from
+                    acc.add(e.src)
+    for p in back | fwd if accessed else ():  # binary images that story processes were executed from
         for e in g.in_edges.get(p, []):
             if e.rel is Relation.EXECUTED:
-                accessed.add(e.src)
-    accessed -= back | fwd
-    nodes = back | fwd | accessed
+                acc.add(e.src)
+    acc -= back | fwd
+    nodes = back | fwd | acc
     edges = sorted({id(e): e for e in g.edges if e.src in nodes and e.dst in nodes
                     and (e.src in back and e.dst in back or e.ts >= t0 or e.dst == alert.node_id
                          or e.rel is Relation.EXECUTED)}.values(),
@@ -245,4 +264,4 @@ def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = N
                 iocs["sha256"].append(n.attrs["sha256"])
     iocs = {k: sorted(set(v)) for k, v in iocs.items()}
     ordered_kc = {s: kill_chain[s] for s in STAGE_ORDER if s in kill_chain}
-    return Reconstruction(alert, rc, back, fwd, edges, timeline, iocs, ordered_kc, accessed)
+    return Reconstruction(alert, rc, back, fwd, edges, timeline, iocs, ordered_kc, acc)

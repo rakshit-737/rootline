@@ -14,11 +14,13 @@ ATLAS (attack investigation)
     * ``rootline``  - reduced graph, time-respecting traversal, session-root
       stops, causal-spine trimming (this project)
 
-Tagger coverage (Sysmon for Linux)
-    Splunk attack_data / OTRF captures, one ATT&CK technique each. Coverage =
-    share of captures where >= 1 alert fires. Reported separately for the
-    ``dev`` split (inspected while writing rules - in-sample) and the
-    ``holdout`` split (never inspected).
+    Scenarios: S1-S4 (single host; the v0.2 traversal heuristics were designed
+    on them, so they are in-sample) and the per-host logs of M1-M6 (held out).
+
+Tagger coverage (Splunk attack_data Linux captures)
+    Coverage = share of parsed captures where >= 1 alert fires, and where an
+    alert names the capture's ATT&CK technique. Splits ``dev`` / ``dev2`` /
+    ``sealed`` follow docs/protocol.md.
 """
 from __future__ import annotations
 
@@ -160,17 +162,21 @@ def reduction_stats(sc: AtlasScenario, raw: ProvenanceGraph | None = None) -> di
 
 
 def run_atlas(root: str) -> dict[str, Any]:
-    rows, red, anom = [], [], []
+    rows, red, anom, skipped = [], [], [], []
     for d, s in discover(root):
         sc = load_scenario(d, s)
         raw, _ = build_graph(sc.records)  # built once; every benchmark only reads it
-        rows += [r.__dict__ for r in run_atlas_scenario(sc, raw=raw)]
+        try:
+            rows += [r.__dict__ for r in run_atlas_scenario(sc, raw=raw)]
+        except ValueError as e:  # e.g. an M-scenario host the attacker IOC never touched
+            skipped.append({"scenario": sc.name, "reason": str(e)})
+            continue
         red.append(reduction_stats(sc, raw))
         try:
             anom += run_anomaly_scenario(sc, g=raw)
         except ImportError:
             pass
-    return {"atlas": rows, "reduction": red, "anomaly": anom}
+    return {"atlas": rows, "reduction": red, "anomaly": anom, "skipped": skipped}
 
 
 # ------------------------------------------------------------- tagger cover

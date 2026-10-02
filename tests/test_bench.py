@@ -125,3 +125,17 @@ def test_mean_ci_respects_bounds():
     assert rows[0]["first_hit_rank_ci95"] == [1.0, 1.3]
     assert rows[0]["hits@10_ci95"] == [1.674, 2.0]
     assert rows[0]["recall@10_ci95"] == [0.837, 1.0]
+
+
+def test_ablation_on_mini_atlas(mini):
+    from rootline.ablation import VARIANTS, run_scenario, sign_test, summarize
+    from rootline.pipeline import build_graph
+    g, _ = build_graph(mini.records)
+    rows = run_scenario(mini, g, "S")
+    assert {r["variant"] for r in rows} == set(VARIANTS)
+    s = summarize(rows)["S"]
+    full, naive = s["full"], s["naive"]
+    assert full["precision"]["mean"] >= naive["precision"]["mean"]
+    lo, hi = full["precision"]["ci95"]
+    assert lo <= full["precision"]["mean"] <= hi
+    assert sign_test([1, 1, 1, -1])["p"] == 0.625

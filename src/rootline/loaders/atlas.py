@@ -154,7 +154,8 @@ def discover(root: str) -> list[tuple[str, str]]:
     for dirpath, _dirs, files in os.walk(root):
         for fn in files:
             m = re.match(r"(?:testing|training)_preprocessed_logs_(.+)$", fn)
-            if m and os.path.basename(dirpath) == "output":
+            # *_multi logs merge two hosts (no single host IP); the per-host h1/h2 logs are used instead
+            if m and os.path.basename(dirpath) == "output" and not m.group(1).endswith("_multi"):
                 found.setdefault(m.group(1), os.path.dirname(dirpath))
     return sorted((d, s) for s, d in found.items())
 
