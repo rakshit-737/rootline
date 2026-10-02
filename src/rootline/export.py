@@ -1,11 +1,17 @@
 """Exporters: JSON attack story (REVENANT handoff), STIX 2.1 bundle, Mermaid.
 
 STIX objects are built by hand (spec-shaped dicts) to avoid a heavy
-dependency; validate with ``python-stix2`` in CI later (TODO).
+dependency; the test suite validates them with ``python-stix2``.
+
+All labels come from untrusted telemetry. Every exporter escapes them for its
+target language: Cypher string literals (no data in comments), Mermaid entity
+codes, JSON via the json module.
 """
 from __future__ import annotations
 
 import json
+import math
+import re
 import uuid
 from datetime import datetime, timezone
 from typing import Any
@@ -24,8 +30,17 @@ def _iso(ts: float) -> str:
     return datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ")[:-4] + "Z"
 
 
+_CTRL = re.compile(r"[\x00-\x1f\x7f]")
+
+
+def _mermaid_label(s: str) -> str:
+    """Mermaid-safe label: quotes and control characters become entity codes."""
+    s = s.replace("&", "#amp;").replace('"', "#quot;").replace("<", "#lt;").replace(">", "#gt;")
+    return _CTRL.sub(lambda m: f"#{ord(m.group())};", s)
+
+
 def to_story(g: ProvenanceGraph, r: Reconstruction) -> dict[str, Any]:
-    """REVENANT-compatible JSON: nodes, edges, timeline, iocs, integrity head."""
+    """Return the ``rootline.story/v1`` JSON: nodes, edges, timeline, IOCs and the integrity head."""
     return {
         "schema": "rootline.story/v1",
         "alert": r.alert.to_dict(),
@@ -45,13 +60,14 @@ def to_story(g: ProvenanceGraph, r: Reconstruction) -> dict[str, Any]:
 
 
 def to_stix(g: ProvenanceGraph, r: Reconstruction) -> dict[str, Any]:
+    """Return a STIX 2.1 bundle (identity, IP/file observables, indicators, attack-pattern)."""
     now = _iso(r.alert.ts)
     objs: list[dict[str, Any]] = []
     identity = {"type": "identity", "spec_version": "2.1", "id": _sid("identity", "rootline"),
                 "created": now, "modified": now, "name": "ROOTLINE", "identity_class": "system"}
     objs.append(identity)
     refs = []
-    for ip in r.iocs.get("ipv4", []):
+    for ip in r.iocs.get("ip", r.iocs.get("ipv4", [])):
         kind = "ipv6-addr" if ":" in ip else "ipv4-addr"
         o = {"type": kind, "spec_version": "2.1", "id": _sid(kind, ip), "value": ip}
         objs.append(o)
@@ -86,12 +102,13 @@ def to_stix(g: ProvenanceGraph, r: Reconstruction) -> dict[str, Any]:
 
 
 def to_mermaid(g: ProvenanceGraph, r: Reconstruction) -> str:
+    """Return the story as a Mermaid ``flowchart`` (root causes outlined red, alert vertex filled)."""
     ids = {n: f"n{i}" for i, n in enumerate(sorted(r.nodes))}
     shape = {NodeType.PROCESS: ("([", "])"), NodeType.FILE: ("[/", "/]"), NodeType.SOCKET: ("{{", "}}")}
     lines = ["flowchart LR"]
     for n, i in ids.items():
         a, b = shape[g.nodes[n].type]
-        label = g.nodes[n].label.replace('"', "'")
+        label = _mermaid_label(g.nodes[n].label)
         lines.append(f'  {i}{a}"{label}"{b}')
     seen = set()
     for e in r.edges:
@@ -107,6 +124,7 @@ def to_mermaid(g: ProvenanceGraph, r: Reconstruction) -> str:
 
 
 def dumps(obj: Any) -> str:
+    """Pretty JSON with a ``str`` fallback for non-JSON types."""
     return json.dumps(obj, indent=2, sort_keys=False, default=str)
 
 
@@ -114,11 +132,14 @@ def _cy(v: Any) -> str:
     """Cypher literal (strings escaped; lists/dicts flattened to JSON strings)."""
     if isinstance(v, bool):
         return "true" if v else "false"
-    if isinstance(v, (int, float)):
+    if isinstance(v, int):
         return repr(v)
+    if isinstance(v, float):
+        return repr(v) if math.isfinite(v) else "null"
     if not isinstance(v, str):
         v = json.dumps(v, sort_keys=True, default=str)
-    return "'" + v.replace("\\", "\\\\").replace("'", "\\'") + "'"
+    v = v.replace("\\", "\\\\").replace("'", "\\'")
+    return "'" + _CTRL.sub(lambda m: f"\\u{ord(m.group()):04x}", v) + "'"
 
 
 def to_cypher(g: ProvenanceGraph, r: Reconstruction | None = None) -> str:
@@ -147,6 +168,7 @@ def to_cypher(g: ProvenanceGraph, r: Reconstruction | None = None) -> str:
         lines.append(f"MATCH (a:Rootline {{id: {_cy(e.src)}}}), (b:Rootline {{id: {_cy(e.dst)}}}) "
                      f"MERGE (a)-[x:{e.rel.value.upper()} {{seq: {e.seq}}}]->(b) "
                      f"SET x.ts = {_cy(e.ts)}, x.last_ts = {_cy(e.end_ts)}, x.count = {e.count};")
-    if r:
-        lines.append(f"// root causes: {', '.join(g.nodes[n].label for n in r.root_causes)}")
+    if r:  # data never goes into comments: root causes are a quoted property
+        lines.append(f"MERGE (s:RootlineStory {{head: {_cy(g.head)}}}) "
+                     f"SET s.root_causes = [{', '.join(_cy(g.nodes[n].label) for n in r.root_causes)}];")
     return "\n".join(lines) + "\n"
