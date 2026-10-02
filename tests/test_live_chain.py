@@ -10,7 +10,7 @@ ac = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ac)
 
 
-@pytest.mark.parametrize("name", ["live_chain_synthetic.log"])
+@pytest.mark.parametrize("name", ["live_chain_synthetic.log", "live_chain_ci.log"])
 def test_chain_recovered(name):
     lines = (ROOT / "tests" / "fixtures" / name).read_text().splitlines()
     res = ac.check_chain(lines)

@@ -1,0 +1,473 @@
+tsns=104064023713 kind=fork pid=2078 ppid=2012 uid=1001 comm=.NET TP Worker child_pid=2799
+tsns=104064194533 kind=openat pid=2064 ppid=2012 uid=1001 comm=.NET TP Worker path=/proc/self/task/2799/comm flags=O_WRONLY fd=146
+tsns=104064204820 kind=write pid=2064 ppid=2012 uid=1001 comm=.NET TP Worker path=/proc/self/task/2799/comm fd=146
+tsns=104104923251 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=124
+tsns=104104994390 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=124
+tsns=104105077354 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=124
+tsns=104105105193 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=124
+tsns=104105129003 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=124
+tsns=104105170682 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=124
+tsns=104105192177 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=124
+tsns=104105212171 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=124
+tsns=104105247069 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=124
+tsns=104144440309 kind=exit pid=2798 ppid=2620 uid=1001 comm=sleep
+tsns=104144826031 kind=fork pid=2620 ppid=2619 uid=1001 comm=bash child_pid=2800
+tsns=104145283628 kind=execve pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/bin/sleep
+tsns=104145411450 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=104145427902 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=104145613939 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path= flags=O_RDONLY fd=3
+tsns=104145637563 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=104145669691 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=104145686739 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=104145703452 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=104145716550 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=104145724484 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=104145739974 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=104145748745 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=104145765100 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=104145771686 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=104145786576 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=104145795505 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=104145812369 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=104145821530 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=104145830340 kind=openat pid=2800 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=105106422200 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=125
+tsns=105106497137 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=125
+tsns=105106546047 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=125
+tsns=105106586616 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=125
+tsns=105106609329 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=125
+tsns=105106640443 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=125
+tsns=105106663369 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=125
+tsns=105106685585 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=125
+tsns=105106722439 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=125
+tsns=105370385515 kind=openat pid=1716 ppid=937 uid=0 comm=python3 path=/sys/block flags=O_RDONLY fd=3
+tsns=105370469279 kind=openat pid=1716 ppid=937 uid=0 comm=python3 path=/sys/block/sda/device/timeout flags=O_RDONLY fd=3
+tsns=105720624614 kind=openat pid=1716 ppid=937 uid=0 comm=python3 path=/var/run/waagent.pid flags=O_RDONLY fd=3
+tsns=105720959096 kind=connect pid=1716 ppid=937 uid=0 comm=python3 dst_ip=168.63.129.16 dst_port=80
+tsns=105723249272 kind=connect pid=1716 ppid=937 uid=0 comm=python3 dst_ip=168.63.129.16 dst_port=32526
+tsns=105727161503 kind=connect pid=1716 ppid=937 uid=0 comm=python3 dst_ip=168.63.129.16 dst_port=32526
+tsns=105730179182 kind=connect pid=1716 ppid=937 uid=0 comm=python3 dst_ip=168.63.129.16 dst_port=32526
+tsns=105731772463 kind=openat pid=1716 ppid=937 uid=0 comm=python3 path=/var/lib/waagent/history/2026-09-27T12-31-36__1-125405919383793.. flags=O_WRONLY fd=3
+tsns=105731821897 kind=write pid=1716 ppid=937 uid=0 comm=python3 path=/var/lib/waagent/history/2026-09-27T12-31-36__1-125405919383793.. fd=3
+tsns=105780727610 kind=fork pid=2211 ppid=2064 uid=1001 comm=.NET TP Worker child_pid=2801
+tsns=105781166953 kind=fork pid=2211 ppid=2064 uid=1001 comm=.NET TP Worker child_pid=2802
+tsns=105781266887 kind=openat pid=2084 ppid=2064 uid=1001 comm=.NET TP Worker path=/proc/self/task/2802/comm flags=O_WRONLY fd=198
+tsns=105781276321 kind=write pid=2084 ppid=2064 uid=1001 comm=.NET TP Worker path=/proc/self/task/2802/comm fd=198
+tsns=105781738528 kind=fork pid=2097 ppid=2064 uid=1001 comm=.NET TP Worker child_pid=2803
+tsns=106106945463 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=126
+tsns=106107094605 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=126
+tsns=106107166648 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=126
+tsns=106107205360 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=126
+tsns=106107246306 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=126
+tsns=106107275744 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=126
+tsns=106107298600 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=126
+tsns=106107331032 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=126
+tsns=106107365906 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=126
+tsns=106145989443 kind=exit pid=2800 ppid=2620 uid=1001 comm=sleep
+tsns=106146423738 kind=fork pid=2620 ppid=2619 uid=1001 comm=bash child_pid=2804
+tsns=106146819982 kind=execve pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/bin/cat
+tsns=106146947808 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106146964033 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106147187040 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path= flags=O_RDONLY fd=3
+tsns=106147211796 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106147243896 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106147262104 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106147281532 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106147290114 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106147303169 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106147311111 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106147323942 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106147335151 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106147339430 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106147347905 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106147359917 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106147376369 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106147387750 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106147400402 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106147417879 kind=openat pid=2804 ppid=2620 uid=1001 comm=cat path=live-out/bpftrace.err flags=O_RDONLY fd=3
+tsns=106147443983 kind=exit pid=2804 ppid=2620 uid=1001 comm=cat
+tsns=106147623710 kind=fork pid=2620 ppid=2619 uid=1001 comm=bash child_pid=2805
+tsns=106147923375 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/dev/null flags=O_RDONLY fd=3
+tsns=106148173467 kind=execve pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/bin/bash
+tsns=106148283001 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106148297744 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/lib/x86_64-linux-gnu/libtinfo.so.6 flags=O_RDONLY fd=3
+tsns=106148325981 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106148599994 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path= flags=O_RDONLY fd=3
+tsns=106148620584 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106148648184 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106148656838 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106148675813 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106148689189 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106148696746 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106148712142 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106148720433 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106148730680 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106148736761 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106148749375 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106148757494 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106148770794 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106148783681 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106148790873 kind=openat pid=2805 ppid=2620 uid=1001 comm=bash path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106149241853 kind=fork pid=2805 ppid=2620 uid=1001 comm=bash child_pid=2806
+tsns=106150245778 kind=execve pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/bin/curl
+tsns=106150405907 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106150424508 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libcurl.so.4 flags=O_RDONLY fd=3
+tsns=106150464632 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libz.so.1 flags=O_RDONLY fd=3
+tsns=106150499821 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106150546839 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libnghttp2.so.14 flags=O_RDONLY fd=3
+tsns=106150580063 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libidn2.so.0 flags=O_RDONLY fd=3
+tsns=106150615247 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/librtmp.so.1 flags=O_RDONLY fd=3
+tsns=106150683962 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libssh.so.4 flags=O_RDONLY fd=3
+tsns=106150720684 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libpsl.so.5 flags=O_RDONLY fd=3
+tsns=106150751463 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libssl.so.3 flags=O_RDONLY fd=3
+tsns=106150789948 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libcrypto.so.3 flags=O_RDONLY fd=3
+tsns=106150839786 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libgssapi_krb5.so.2 flags=O_RDONLY fd=3
+tsns=106150879376 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libldap.so.2 flags=O_RDONLY fd=3
+tsns=106150923183 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/liblber.so.2 flags=O_RDONLY fd=3
+tsns=106150959501 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libzstd.so.1 flags=O_RDONLY fd=3
+tsns=106150995487 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libbrotlidec.so.1 flags=O_RDONLY fd=3
+tsns=106151061352 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libunistring.so.5 flags=O_RDONLY fd=3
+tsns=106151100470 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libgnutls.so.30 flags=O_RDONLY fd=3
+tsns=106151154318 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libhogweed.so.6 flags=O_RDONLY fd=3
+tsns=106151186772 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libnettle.so.8 flags=O_RDONLY fd=3
+tsns=106151220287 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libgmp.so.10 flags=O_RDONLY fd=3
+tsns=106151261995 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libkrb5.so.3 flags=O_RDONLY fd=3
+tsns=106151303542 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libk5crypto.so.3 flags=O_RDONLY fd=3
+tsns=106151342768 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libcom_err.so.2 flags=O_RDONLY fd=3
+tsns=106151376951 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libkrb5support.so.0 flags=O_RDONLY fd=3
+tsns=106151411796 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libsasl2.so.2 flags=O_RDONLY fd=3
+tsns=106151445652 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libbrotlicommon.so.1 flags=O_RDONLY fd=3
+tsns=106151483472 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libp11-kit.so.0 flags=O_RDONLY fd=3
+tsns=106151528368 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libtasn1.so.6 flags=O_RDONLY fd=3
+tsns=106151568737 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libkeyutils.so.1 flags=O_RDONLY fd=3
+tsns=106151605446 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libresolv.so.2 flags=O_RDONLY fd=3
+tsns=106151645042 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libffi.so.8 flags=O_RDONLY fd=3
+tsns=106153775936 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/etc/gnutls/config flags=O_RDONLY fd=3
+tsns=106154275295 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/ssl/openssl.cnf flags=O_RDONLY fd=3
+tsns=106155950791 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/locale-archive flags=O_RDONLY fd=3
+tsns=106155972591 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106155998199 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106156034589 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106156050629 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106156058978 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106156067516 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106156082390 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106156090883 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106156107606 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106156111486 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106156121960 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106156139215 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106156153415 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106156166071 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106156179242 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106156286888 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/etc/nsswitch.conf flags=O_RDONLY fd=3
+tsns=106156311215 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/etc/passwd flags=O_RDONLY fd=3
+tsns=106156782163 kind=connect pid=2806 ppid=2805 uid=1001 comm=curl dst_ip=127.0.0.1 dst_port=8081
+tsns=106157153030 kind=fork pid=2627 ppid=2620 uid=1001 comm=python3 child_pid=2807
+tsns=106157668759 kind=openat pid=2627 ppid=2620 uid=1001 comm=python3 path=/etc/mime.types flags=O_RDONLY fd=5
+tsns=106160092680 kind=openat pid=2627 ppid=2620 uid=1001 comm=python3 path=live-out/www/stage.sh flags=O_RDONLY fd=5
+tsns=106160397963 kind=openat pid=2806 ppid=2805 uid=1001 comm=curl path=/tmp/rootline-lab-stage.sh flags=O_WRONLY fd=6
+tsns=106160482590 kind=write pid=2806 ppid=2805 uid=1001 comm=curl path=/tmp/rootline-lab-stage.sh fd=6
+tsns=106160732681 kind=exit pid=2806 ppid=2805 uid=1001 comm=curl
+tsns=106161324505 kind=fork pid=2805 ppid=2620 uid=1001 comm=bash child_pid=2808
+tsns=106161616533 kind=execve pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/bin/chmod
+tsns=106161729070 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106161745343 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106161905717 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path= flags=O_RDONLY fd=3
+tsns=106161926079 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106161954224 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106161970251 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106161982449 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106161995292 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106162030650 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106162043879 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106162051411 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106162061211 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106162065096 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106162075814 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106162089119 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106162101732 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106162114974 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106162122696 kind=openat pid=2808 ppid=2805 uid=1001 comm=chmod path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106162170832 kind=exit pid=2808 ppid=2805 uid=1001 comm=chmod
+tsns=106162545945 kind=execve pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/tmp/rootline-lab-stage.sh
+tsns=106162663501 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106162677661 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/lib/x86_64-linux-gnu/libtinfo.so.6 flags=O_RDONLY fd=3
+tsns=106162706684 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106162980047 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path= flags=O_RDONLY fd=3
+tsns=106162997852 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106163040392 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106163053572 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106163067196 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106163080430 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106163087852 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106163098225 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106163110990 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106163121238 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106163129828 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106163137742 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106163145928 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106163161457 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106163170336 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106163182836 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106163419305 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/tmp/rootline-lab-stage.sh flags=O_RDONLY fd=3
+tsns=106163596961 kind=fork pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st child_pid=2809
+tsns=106163726481 kind=openat pid=2809 ppid=2805 uid=1001 comm=rootline-lab-st path=/dev/null flags=O_WRONLY fd=3
+tsns=106163915022 kind=execve pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/bin/cat
+tsns=106164044603 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106164059931 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106164223790 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path= flags=O_RDONLY fd=3
+tsns=106164242983 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106164267717 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106164284406 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106164295715 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106164308390 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106164315903 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106164328865 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106164336443 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106164351929 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106164355290 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106164362787 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106164370537 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106164381288 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106164394589 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106164402128 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106164422898 kind=openat pid=2809 ppid=2805 uid=1001 comm=cat path=/home/runner/.aws/credentials flags=O_RDONLY fd=3
+tsns=106164437058 kind=write pid=2809 ppid=2805 uid=1001 comm=cat path=/dev/null fd=1
+tsns=106164459316 kind=exit pid=2809 ppid=2805 uid=1001 comm=cat
+tsns=106164656620 kind=fork pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st child_pid=2810
+tsns=106164895706 kind=execve pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/bin/mkdir
+tsns=106164997751 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106165041497 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/lib/x86_64-linux-gnu/libselinux.so.1 flags=O_RDONLY fd=3
+tsns=106165084678 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106165124979 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/lib/x86_64-linux-gnu/libpcre2-8.so.0 flags=O_RDONLY fd=3
+tsns=106165321715 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/proc/filesystems flags=O_RDONLY fd=3
+tsns=106165366605 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path= flags=O_RDONLY fd=3
+tsns=106165381412 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106165402105 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106165414764 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106165425516 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106165440584 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106165447963 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106165460614 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106165469715 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106165485115 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106165488951 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106165496368 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106165510186 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106165517661 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106165530365 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106165540081 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106165611058 kind=openat pid=2810 ppid=2805 uid=1001 comm=mkdir path=systemd flags=O_RDONLY fd=3
+tsns=106165652247 kind=exit pid=2810 ppid=2805 uid=1001 comm=mkdir
+tsns=106165816741 kind=openat pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/home/runner/.config/systemd/user/rootline-lab.service flags=O_WRONLY fd=3
+tsns=106165837107 kind=write pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st path=/home/runner/.config/systemd/user/rootline-lab.service fd=1
+tsns=106165892056 kind=connect pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st dst_ip=127.0.0.1 dst_port=4444
+tsns=106166112106 kind=fork pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st child_pid=2811
+tsns=106166369614 kind=execve pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/bin/curl
+tsns=106166475774 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106166490418 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libcurl.so.4 flags=O_RDONLY fd=3
+tsns=106166521861 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libz.so.1 flags=O_RDONLY fd=3
+tsns=106166555078 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106166596362 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libnghttp2.so.14 flags=O_RDONLY fd=3
+tsns=106166627425 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libidn2.so.0 flags=O_RDONLY fd=3
+tsns=106166656867 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/librtmp.so.1 flags=O_RDONLY fd=3
+tsns=106166698427 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libssh.so.4 flags=O_RDONLY fd=3
+tsns=106166730835 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libpsl.so.5 flags=O_RDONLY fd=3
+tsns=106166760654 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libssl.so.3 flags=O_RDONLY fd=3
+tsns=106166799389 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libcrypto.so.3 flags=O_RDONLY fd=3
+tsns=106166840974 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libgssapi_krb5.so.2 flags=O_RDONLY fd=3
+tsns=106166872200 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libldap.so.2 flags=O_RDONLY fd=3
+tsns=106166908766 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/liblber.so.2 flags=O_RDONLY fd=3
+tsns=106166941627 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libzstd.so.1 flags=O_RDONLY fd=3
+tsns=106166976262 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libbrotlidec.so.1 flags=O_RDONLY fd=3
+tsns=106167049582 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libunistring.so.5 flags=O_RDONLY fd=3
+tsns=106167099473 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libgnutls.so.30 flags=O_RDONLY fd=3
+tsns=106167141927 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libhogweed.so.6 flags=O_RDONLY fd=3
+tsns=106167173625 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libnettle.so.8 flags=O_RDONLY fd=3
+tsns=106167204136 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libgmp.so.10 flags=O_RDONLY fd=3
+tsns=106167248205 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libkrb5.so.3 flags=O_RDONLY fd=3
+tsns=106167280675 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libk5crypto.so.3 flags=O_RDONLY fd=3
+tsns=106167316706 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libcom_err.so.2 flags=O_RDONLY fd=3
+tsns=106167350133 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libkrb5support.so.0 flags=O_RDONLY fd=3
+tsns=106167391808 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libsasl2.so.2 flags=O_RDONLY fd=3
+tsns=106167425380 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libbrotlicommon.so.1 flags=O_RDONLY fd=3
+tsns=106167458083 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libp11-kit.so.0 flags=O_RDONLY fd=3
+tsns=106167500023 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libtasn1.so.6 flags=O_RDONLY fd=3
+tsns=106167539474 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libkeyutils.so.1 flags=O_RDONLY fd=3
+tsns=106167572828 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libresolv.so.2 flags=O_RDONLY fd=3
+tsns=106167611080 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/lib/x86_64-linux-gnu/libffi.so.8 flags=O_RDONLY fd=3
+tsns=106169533909 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/etc/gnutls/config flags=O_RDONLY fd=3
+tsns=106169654366 kind=exit pid=2629 ppid=2620 uid=1001 comm=python3
+tsns=106169977849 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/ssl/openssl.cnf flags=O_RDONLY fd=3
+tsns=106170237257 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/locale-archive flags=O_RDONLY fd=3
+tsns=106170258434 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106170280612 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106170295830 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106170310884 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106170326052 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106170337014 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106170350288 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106170358696 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106170377040 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106170380515 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106170388781 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106170397020 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106170411169 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106170419070 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106170432475 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106170494645 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/etc/nsswitch.conf flags=O_RDONLY fd=3
+tsns=106170517080 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/etc/passwd flags=O_RDONLY fd=3
+tsns=106170656181 kind=connect pid=2811 ppid=2805 uid=1001 comm=curl dst_ip=::1 dst_port=4445
+tsns=106171051376 kind=fork pid=2628 ppid=2620 uid=1001 comm=python3 child_pid=2812
+tsns=106171651300 kind=openat pid=2628 ppid=2620 uid=1001 comm=python3 path=live-out/www/ flags=O_RDONLY fd=5
+tsns=106171871425 kind=openat pid=2811 ppid=2805 uid=1001 comm=curl path=/dev/null flags=O_WRONLY fd=6
+tsns=106171925940 kind=write pid=2811 ppid=2805 uid=1001 comm=curl path=/dev/null fd=6
+tsns=106172259706 kind=exit pid=2811 ppid=2805 uid=1001 comm=curl
+tsns=106172625570 kind=exit pid=2805 ppid=2620 uid=1001 comm=rootline-lab-st
+tsns=106173035012 kind=openat pid=2620 ppid=2619 uid=1001 comm=bash path=live-out/chain.json flags=O_WRONLY fd=3
+tsns=106173055854 kind=write pid=2620 ppid=2619 uid=1001 comm=bash path=live-out/chain.json fd=1
+tsns=106173167526 kind=fork pid=2620 ppid=2619 uid=1001 comm=bash child_pid=2813
+tsns=106173498338 kind=execve pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/bin/sleep
+tsns=106173610994 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/etc/ld.so.cache flags=O_RDONLY fd=3
+tsns=106173627013 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/lib/x86_64-linux-gnu/libc.so.6 flags=O_RDONLY fd=3
+tsns=106173778099 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path= flags=O_RDONLY fd=3
+tsns=106173798652 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/share/locale/locale.alias flags=O_RDONLY fd=3
+tsns=106173829266 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_IDENTIFICATION flags=O_RDONLY fd=3
+tsns=106173843900 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache flags=O_RDONLY fd=3
+tsns=106173855173 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MEASUREMENT flags=O_RDONLY fd=3
+tsns=106173867894 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_TELEPHONE flags=O_RDONLY fd=3
+tsns=106173874875 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_ADDRESS flags=O_RDONLY fd=3
+tsns=106173882179 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_NAME flags=O_RDONLY fd=3
+tsns=106173889497 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_PAPER flags=O_RDONLY fd=3
+tsns=106173901957 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106173910290 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES flags=O_RDONLY fd=3
+tsns=106173917813 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_MONETARY flags=O_RDONLY fd=3
+tsns=106173925191 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_COLLATE flags=O_RDONLY fd=3
+tsns=106173936978 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_TIME flags=O_RDONLY fd=3
+tsns=106173949642 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_NUMERIC flags=O_RDONLY fd=3
+tsns=106173956967 kind=openat pid=2813 ppid=2620 uid=1001 comm=sleep path=/usr/lib/locale/C.utf8/LC_CTYPE flags=O_RDONLY fd=3
+tsns=106574939855 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc flags=O_RDONLY fd=126
+tsns=106575364074 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2064/stat flags=O_RDONLY fd=127
+tsns=106575413531 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=127
+tsns=106575455078 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=127
+tsns=106575479024 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2064/comm flags=O_RDONLY fd=127
+tsns=106575495888 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2064/status flags=O_RDONLY fd=127
+tsns=106575524000 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2064/cmdline flags=O_RDONLY fd=127
+tsns=106575574732 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2064/stat flags=O_RDONLY fd=127
+tsns=106575591884 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=127
+tsns=106575611001 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=127
+tsns=106575625374 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2064/stat flags=O_RDONLY fd=127
+tsns=106575642390 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=127
+tsns=106575659413 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=127
+tsns=106583073126 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2084/stat flags=O_RDONLY fd=128
+tsns=106583164968 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=128
+tsns=106583208134 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=128
+tsns=106583236530 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2084/comm flags=O_RDONLY fd=128
+tsns=106583253415 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2084/stat flags=O_RDONLY fd=128
+tsns=106583272154 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=128
+tsns=106583316375 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=128
+tsns=106583337778 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2084/stat flags=O_RDONLY fd=128
+tsns=106583371935 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=128
+tsns=106583405797 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=128
+tsns=106583449394 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2564/stat flags=O_RDONLY fd=129
+tsns=106583471974 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=129
+tsns=106583504469 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=129
+tsns=106583520334 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2564/comm flags=O_RDONLY fd=129
+tsns=106583537001 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2564/stat flags=O_RDONLY fd=129
+tsns=106583554443 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=129
+tsns=106583580870 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=129
+tsns=106583600397 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2564/stat flags=O_RDONLY fd=129
+tsns=106583619879 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=129
+tsns=106583660081 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=129
+tsns=106583691772 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2619/stat flags=O_RDONLY fd=130
+tsns=106583714531 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=130
+tsns=106583743579 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=130
+tsns=106583764225 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2619/comm flags=O_RDONLY fd=130
+tsns=106583780018 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2619/stat flags=O_RDONLY fd=130
+tsns=106583795860 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=130
+tsns=106583834281 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=130
+tsns=106583854166 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2619/stat flags=O_RDONLY fd=130
+tsns=106583873123 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=130
+tsns=106583908982 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=130
+tsns=106583941779 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2620/stat flags=O_RDONLY fd=131
+tsns=106583973719 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=131
+tsns=106584034109 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=131
+tsns=106584054097 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2620/comm flags=O_RDONLY fd=131
+tsns=106584067497 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2620/stat flags=O_RDONLY fd=131
+tsns=106584088192 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=131
+tsns=106584120166 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=131
+tsns=106584140432 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2620/stat flags=O_RDONLY fd=131
+tsns=106584169732 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=131
+tsns=106584208688 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=131
+tsns=106584248589 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2627/stat flags=O_RDONLY fd=132
+tsns=106584269928 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=132
+tsns=106584310410 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=132
+tsns=106584329977 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2627/comm flags=O_RDONLY fd=132
+tsns=106584349027 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2627/stat flags=O_RDONLY fd=132
+tsns=106584377761 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=132
+tsns=106584407107 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=132
+tsns=106584428372 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2627/stat flags=O_RDONLY fd=132
+tsns=106584445998 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=132
+tsns=106584497714 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=132
+tsns=106584533145 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2628/stat flags=O_RDONLY fd=133
+tsns=106584553713 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=133
+tsns=106584586573 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=133
+tsns=106584606298 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2628/comm flags=O_RDONLY fd=133
+tsns=106584623473 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2628/stat flags=O_RDONLY fd=133
+tsns=106584650895 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=133
+tsns=106584679047 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=133
+tsns=106584698451 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2628/stat flags=O_RDONLY fd=133
+tsns=106584719387 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=133
+tsns=106584773222 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=133
+tsns=106584814667 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2631/stat flags=O_RDONLY fd=134
+tsns=106584838583 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=134
+tsns=106584867679 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=134
+tsns=106584887375 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2631/comm flags=O_RDONLY fd=134
+tsns=106584915395 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2631/status flags=O_RDONLY fd=134
+tsns=106584940279 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2631/cmdline flags=O_RDONLY fd=134
+tsns=106584982818 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2631/stat flags=O_RDONLY fd=134
+tsns=106585001394 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=134
+tsns=106585035297 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=134
+tsns=106585055173 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2631/stat flags=O_RDONLY fd=134
+tsns=106585074141 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=134
+tsns=106585107799 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=134
+tsns=106585143383 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2632/stat flags=O_RDONLY fd=135
+tsns=106585164774 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=135
+tsns=106585207101 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=135
+tsns=106585227353 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2632/comm flags=O_RDONLY fd=135
+tsns=106585243864 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2632/stat flags=O_RDONLY fd=135
+tsns=106585260166 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=135
+tsns=106585290787 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=135
+tsns=106585310954 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2632/stat flags=O_RDONLY fd=135
+tsns=106585338019 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=135
+tsns=106585374714 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=135
+tsns=106585413575 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2636/stat flags=O_RDONLY fd=136
+tsns=106585433842 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=136
+tsns=106585460831 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=136
+tsns=106585480309 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2636/comm flags=O_RDONLY fd=136
+tsns=106585495627 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2636/stat flags=O_RDONLY fd=136
+tsns=106585510153 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=136
+tsns=106585551452 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=136
+tsns=106585570685 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2636/stat flags=O_RDONLY fd=136
+tsns=106585589266 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=136
+tsns=106585630841 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=136
+tsns=106585667717 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2813/stat flags=O_RDONLY fd=137
+tsns=106585700418 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=137
+tsns=106585727385 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=137
+tsns=106585749125 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2813/comm flags=O_RDONLY fd=137
+tsns=106585777476 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2813/stat flags=O_RDONLY fd=137
+tsns=106585804418 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=137
+tsns=106585833273 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=137
+tsns=106585852670 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2813/stat flags=O_RDONLY fd=137
+tsns=106585881354 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=137
+tsns=106585920168 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=137
+tsns=107107598182 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=138
+tsns=107107670640 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=138
+tsns=107107704389 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=138
+tsns=107107720098 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=138
+tsns=107107733253 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=138
+tsns=107107749389 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=138
+tsns=107107760972 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/2031/stat flags=O_RDONLY fd=138
+tsns=107107771341 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/stat flags=O_RDONLY fd=138
+tsns=107107784254 kind=openat pid=2031 ppid=2029 uid=0 comm=provjobd4199022 path=/proc/uptime flags=O_RDONLY fd=138

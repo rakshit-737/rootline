@@ -21,3 +21,6 @@ atlas_mini/
     testing_logs/S1-CVE-2015-5122_windows. https://github.com/purseclab/ATLAS
     (Apache-2.0). Alsaheel et al., "ATLAS: A Sequence-based Learning Approach
     for Attack Investigation", USENIX Security 2021.
+live_chain_synthetic.log  Hand-written bpftrace-format lines mirroring the scripted live chain (no real host data).
+live_chain_ci.log         Excerpt of a real capture from the live-ebpf CI job, run 36319289054
+                          (ubuntu-24.04, kernel 6.17.0-1022-azure, bpftrace 0.20.2); benign localhost chain, dummy files only.
