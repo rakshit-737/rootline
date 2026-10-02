@@ -1,17 +1,18 @@
 # Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph SRC["Sources"]
-    S1["Sysmon for Linux<br/>loaders/sysmon.py"]
-    S2["auditd / AUOMS<br/>loaders/auditd.py"]
-    S3["ATLAS audit logs<br/>loaders/atlas.py"]
-    S4["bpftrace probe<br/>probes/rootline.bt"]
-    S5["SentinelCore stream"]
+    direction LR
+    S1["Sysmon"]
+    S2["auditd / AUOMS"]
+    S3["ATLAS logs"]
+    S4["bpftrace probe"]
+    S5["SentinelCore"]
   end
   SRC --> NORM["Normalizer + multi-sensor fusion<br/>validate, canonicalise, dedup execs"]
   NORM --> PG[("Provenance graph<br/>append-only, SHA-256 hash chain")]
-  PG --> DET["Tagger<br/>RL-001..018 ATT&CK rules<br/>rare-transition + IsolationForest"]
+  PG --> DET["Tagger<br/>RL-001..024 ATT&CK rules<br/>rare-transition + IsolationForest"]
   PG --> RED["Reduction<br/>CPR-style edge merge, benign-leaf prune"]
   DET --> REC
   RED --> REC["Reconstructor<br/>time-respecting backward/forward,<br/>session-root stops, causal spine"]
@@ -25,7 +26,7 @@ flowchart LR
 | Loaders | `loaders/` | Sysmon (XML, Syslog-JSON, syslog-prefixed), raw auditd with records grouped by serial, AUOMS, ATLAS line-labelled logs. Formats are sniffed automatically, and `merge_sources()` fuses sensors |
 | Graph | `graph.py` | One vertex per process *image*: fork and exec each create a new vertex, so PID reuse is safe. Edges follow information flow. Every event extends a hash chain ([ADR 0001](adr/0001-process-image-vertices.md)) |
 | Reduction | `reduce.py` | Merges repeated edges unless new input arrived in between (the CPR rule), and prunes read-only loader noise. Alerted vertices are pinned ([ADR 0003](adr/0003-causality-preserving-reduction.md)) |
-| Tagger | `detect.py`, `rules_linux.py`, `anomaly.py` | 18 ATT&CK-mapped rules, a rare-transition model, and an IsolationForest process ranker (`[ml]` extra) |
+| Tagger | `detect.py`, `rules_linux.py`, `anomaly.py` | 24 ATT&CK-mapped rules (RL-001..024; v0.3 is the default), a rare-transition model, and an IsolationForest process ranker (`[ml]` extra) |
 | Reconstructor | `reconstruct.py` | Time-respecting traversal ([King & Chen 2003](adr/0002-time-respecting-traversal.md)). It stops at session roots, ranks entry points, extracts the causal spine, maps kill-chain stages and collects IOCs |
 | Export | `export.py` | `rootline.story/v1` JSON with the integrity head for the REVENANT handoff, a STIX 2.1 bundle validated with `stix2` in tests, Mermaid, and Neo4j Cypher |
 | API / UI | `api.py`, `web/index.html` | Upload a capture, list stories, step through the replay (with shareable `#step` links) and download STIX. The UI has no dependencies |

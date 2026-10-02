@@ -2,21 +2,44 @@
 
 ## Limitations
 
-- **Precision on ATLAS is modest (0.16–0.59).** ATLAS labels every line that involves a malicious entity, including benign services that merely read `payload.exe`. Traversal also pulls in benign activity inside the attacker's process tree. No causality-only method can reach perfect precision on these labels.
-- **Reduction does not change accuracy.** It is designed to be lossless. More aggressive, lossy reduction (NodeMerge/templates) is future work.
-- **The rules overfit.** Holdout coverage is 44 % with any alert and 19 % with the correct technique.
-- **The eBPF probe is a documented reference.** It is not run in CI or on a live host from this Windows development machine ([ADR 0007](adr/0007-ebpf-probe-as-reference.md)). Tamper resistance is shown with the hash chain, not measured in-kernel.
-- The ATLAS scenarios are Windows. The Linux evidence comes from OTRF and Splunk, which are real but small single-technique captures.
-- The SentinelCore field map is still an assumption until it is aligned with the real schema.
-- Neo4j support is an export (Cypher script), not a live store. CI brings up the docker-compose stack and imports the Log4Shell story into Neo4j, but ROOTLINE does not query Neo4j itself.
+- **The reconstructor was designed on ATLAS S1-S4.** On held-out M1-M6 hosts its precision gain
+  holds but recall drops to 0.72 and the F1 gain over naive reachability is not significant
+  ([Evaluation](evaluation.md)). Only the session-root stops transfer cleanly.
+- **Precision on ATLAS stays modest (0.54-0.63 for the full method).** ATLAS labels every line
+  that involves a malicious entity, including benign services that merely read `payload.exe`,
+  and traversal pulls in benign activity inside the attacker's process tree. None of the
+  high-recall variants exceeds 0.63 precision; seed-plus-one-hop IOC grep reaches about 1.0
+  precision at about 4 % recall.
+- **Entry-point ranking is weak.** Root-cause hit@3 is about 0.45-0.48 in every variant.
+- **Event universe.** ROOTLINE can represent 63-73 % of the lines ATLAS labels as attack (no
+  browser rows, no pid-less rows, no audit lines without a file or network operation).
+- **The rules do not generalise.** v0.3 detects 4 of 64 parsed sealed captures, and 96 of
+  160 sealed captures are not parsed by the loaders at all (mostly auditd variants).
+- **The ATLAS LSTM reproduction does not reach the paper's numbers**, and neither does
+  ATLAS's own shipped raw model output.
+- **Live probe scope.** The probe runs live in CI (bpftrace on a GitHub-hosted kernel, not a
+  libbpf CO-RE probe) on a scripted, benign chain. Relative paths are not resolved against
+  the cwd, `dup()`/`fcntl` and fork-inherited fds are not mapped, argv is not captured and
+  paths are cut at 64 bytes. The live check passed 5/5 runs on its first v1.2 run and 4/5 on
+  the next, where a too-strict fork-parent check (since corrected) failed; the chain itself
+  was recovered in all ten.
+- **Reduction is lossless and does not change accuracy.** Vertex counts do not change on
+  ATLAS; lossy reduction is future work.
+- The ATLAS scenarios are Windows. The Linux evidence comes from OTRF, Splunk and the live CI
+  chain.
+- The SentinelCore field map is an assumption until it is aligned with the real schema.
+- Neo4j support is an export (Cypher), imported in CI; ROOTLINE does not query Neo4j.
 
 ## Roadmap
 
 - [x] Real-data loaders (Sysmon, auditd, AUOMS, ATLAS) and multi-sensor fusion
-- [x] ATLAS / Splunk / OTRF benchmarks against baselines, with a held-out split
+- [x] ATLAS / Splunk / OTRF benchmarks against baselines
 - [x] IsolationForest tagger, FastAPI + replay UI, STIX validation, Neo4j Cypher export
-- [ ] DARPA TC CDM loader (streaming, one host subset) with community label sets
-- [ ] ATLAS multi-host M1–M6 (the download is in the manifest as `--all`)
-- [ ] libbpf CO-RE ring-buffer probe with fd→path for `write()`, run in a privileged Linux CI job
-- [ ] Lossy template reduction, and a GNN node-anomaly stretch goal
-
+- [x] Live bpftrace probe in a privileged CI job (v1.2: PID self-filter, JSON records)
+- [x] ATLAS M1-M6 host logs as held-out data; component ablation with CIs
+- [x] Sealed rule evaluation; ATLAS LSTM reproduction attempt
+- [ ] Loaders for the auditd variants that the sealed split exposed (as a new version, scored in-sample)
+- [ ] Probe: absolute paths via `security_file_open`/`path()`, dup/fcntl/fork fd tracking, lost-event accounting in long runs
+- [ ] Better entry-point ranking (root-cause hit@3 is ~0.45)
+- [ ] DARPA TC CDM loader (streaming, one host subset); ATLASv2 (154 GB, needs a CI-side subset)
+- [ ] Lossy template reduction, streaming `analyze --follow`, a GNN node-anomaly stretch goal
