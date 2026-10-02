@@ -107,7 +107,7 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--all", action="store_true", help="include optional (large) files")
     p.add_argument("--source", choices=["atlas", "otrf", "splunk"])
-    p.add_argument("--split", choices=["dev", "dev2", "sealed"], help="only this evaluation split")
+    p.add_argument("--split", choices=["dev", "dev2", "sealed", "repro"], help="only this split (repro = ATLAS S2-S4 for repro/)")
     p.add_argument("--allow-unverified", action="store_true", help="fetch entries without a pinned sha256")
     p.add_argument("--list", action="store_true")
     p.add_argument("--dest", type=Path, default=None)

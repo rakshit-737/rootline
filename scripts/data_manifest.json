@@ -3,7 +3,7 @@
  "files": [
   {
    "source": "atlas",
-   "url": "https://github.com/purseclab/ATLAS/raw/HEAD/paper_experiments/S1.zip",
+   "url": "https://github.com/purseclab/ATLAS/raw/e46096d1947e4f059e73a0ac2b9a9707812fd4bc/paper_experiments/S1.zip",
    "dest": "atlas/S1.zip",
    "sha256": "edd16ee4eca5e4c7634a286d5d9b4b4df4c6865cf014019262f8aeb46e2fad67",
    "size": 13735107,
@@ -12,12 +12,45 @@
   },
   {
    "source": "atlas",
-   "url": "https://github.com/purseclab/ATLAS/raw/HEAD/paper_experiments/M1.zip",
+   "url": "https://github.com/purseclab/ATLAS/raw/e46096d1947e4f059e73a0ac2b9a9707812fd4bc/paper_experiments/S4.zip",
+   "dest": "atlas/S4.zip",
+   "sha256": "4e8dec5efb8fb671fd967219c90ff14b3220aa6871cbf4905feb42ad5f7154d6",
+   "size": 13543208,
+   "license": "Apache-2.0",
+   "optional": true,
+   "split": "repro",
+   "note": "ATLAS S4 experiment folder (training/testing logs + seq-graph outputs) for the LSTM reproduction"
+  },
+  {
+   "source": "atlas",
+   "url": "https://github.com/purseclab/ATLAS/raw/e46096d1947e4f059e73a0ac2b9a9707812fd4bc/paper_experiments/S3.zip",
+   "dest": "atlas/S3.zip",
+   "sha256": "8fda8a2e0715f5e8c394f3df01b230a9f3717f27d6ff676b28a026a8b5e84b6e",
+   "size": 12927291,
+   "license": "Apache-2.0",
+   "optional": true,
+   "split": "repro",
+   "note": "ATLAS S3 experiment folder (training/testing logs + seq-graph outputs) for the LSTM reproduction"
+  },
+  {
+   "source": "atlas",
+   "url": "https://github.com/purseclab/ATLAS/raw/e46096d1947e4f059e73a0ac2b9a9707812fd4bc/paper_experiments/S2.zip",
+   "dest": "atlas/S2.zip",
+   "sha256": "de798baefeaa46160d27ec20aa8d695fa8be1b2e1fcbb5f0d3388d2d0befc4e1",
+   "size": 15110814,
+   "license": "Apache-2.0",
+   "optional": true,
+   "split": "repro",
+   "note": "ATLAS S2 experiment folder (training/testing logs + seq-graph outputs) for the LSTM reproduction"
+  },
+  {
+   "source": "atlas",
+   "url": "https://github.com/purseclab/ATLAS/raw/e46096d1947e4f059e73a0ac2b9a9707812fd4bc/paper_experiments/M1.zip",
    "dest": "atlas/M1.zip",
-   "sha256": null,
+   "sha256": "dc23ac3fecca7e505f68ad7132ae5c9e75cd7d28328be3479ea885a4c04acd79",
    "size": 61929024,
    "license": "Apache-2.0",
-   "note": "ATLAS multi-host scenarios M1-M6 (preprocessed, event-labelled)",
+   "note": "ATLAS multi-host scenarios M1-M6 (h1/h2 testing logs; training logs for the others), pinned",
    "optional": true
   },
   {
