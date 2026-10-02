@@ -6,6 +6,9 @@ updates:
       interval: weekly
   - package-ecosystem: pip
     directory: /
+    # lower bounds in pyproject.toml are deliberately loose (Python 3.10 support);
+    # only propose a change when a new release falls outside the allowed range
+    versioning-strategy: increase-if-necessary
     schedule:
       interval: weekly
   - package-ecosystem: docker
