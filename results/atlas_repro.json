@@ -1,0 +1,1185 @@
+{
+ "setup": {
+  "maxlen": 400,
+  "embedding": 128,
+  "conv_filters": 64,
+  "kernel": 5,
+  "pool": 8,
+  "lstm": 256,
+  "dropout": 0.2,
+  "epochs": 8,
+  "batch_size": 1,
+  "optimizer": "adam(lr=1e-3)",
+  "threshold": 0.5,
+  "undersampling_fuzz_ratio": 80,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "test_iterations": 1
+ },
+ "paper_table4_entity": {
+  "S1": {
+   "tp": 22,
+   "tn": 7445,
+   "fp": 0,
+   "fn": 0,
+   "precision": 100.0,
+   "recall": 100.0,
+   "f1": 100.0
+  },
+  "S2": {
+   "tp": 12,
+   "tn": 34008,
+   "fp": 2,
+   "fn": 0,
+   "precision": 85.71,
+   "recall": 100.0,
+   "f1": 92.31
+  },
+  "S3": {
+   "tp": 24,
+   "tn": 8972,
+   "fp": 0,
+   "fn": 2,
+   "precision": 100.0,
+   "recall": 92.31,
+   "f1": 96.0
+  },
+  "S4": {
+   "tp": 21,
+   "tn": 13011,
+   "fp": 5,
+   "fn": 0,
+   "precision": 80.77,
+   "recall": 100.0,
+   "f1": 89.36
+  },
+  "M1": {
+   "tp": 28,
+   "tn": 17562,
+   "fp": 3,
+   "fn": 0,
+   "precision": 90.32,
+   "recall": 100.0,
+   "f1": 94.92
+  },
+  "M2": {
+   "tp": 36,
+   "tn": 24445,
+   "fp": 5,
+   "fn": 0,
+   "precision": 87.8,
+   "recall": 100.0,
+   "f1": 93.51
+  },
+  "M3": {
+   "tp": 35,
+   "tn": 24423,
+   "fp": 1,
+   "fn": 1,
+   "precision": 97.22,
+   "recall": 97.22,
+   "f1": 97.22
+  },
+  "M4": {
+   "tp": 24,
+   "tn": 15378,
+   "fp": 0,
+   "fn": 4,
+   "precision": 100.0,
+   "recall": 85.71,
+   "f1": 92.31
+  },
+  "M5": {
+   "tp": 30,
+   "tn": 35665,
+   "fp": 6,
+   "fn": 0,
+   "precision": 83.33,
+   "recall": 100.0,
+   "f1": 90.91
+  },
+  "M6": {
+   "tp": 41,
+   "tn": 19573,
+   "fp": 7,
+   "fn": 1,
+   "precision": 85.42,
+   "recall": 97.62,
+   "f1": 91.11
+  }
+ },
+ "scenarios": [
+  {
+   "scenario": "S1",
+   "test": "S1-CVE-2015-5122_windows",
+   "symptom_entity": "0xalsaheel.com",
+   "labels": [
+    "0xalsaheel.com",
+    "192.168.223.3",
+    "payload.exe"
+   ],
+   "candidate_entities": 652,
+   "scored_entities": 619,
+   "trainset": {
+    "nonsampled": [
+     13740,
+     42
+    ],
+    "undersampled": [
+     913,
+     42
+    ],
+    "resampled": [
+     1742,
+     871
+    ]
+   },
+   "shipped_resampling": [
+    6688,
+    3344
+   ],
+   "paper": {
+    "tp": 22,
+    "tn": 7445,
+    "fp": 0,
+    "fn": 0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "f1": 100.0
+   },
+   "shipped_artefact": {
+    "file": "eval_seq_graph_testing_preprocessed_logs_S1-CVE-2015-5122_windows.dot.txt.json",
+    "cleaned_predicted_entities": [
+     "0xalsaheel.com",
+     "192.168.223.3",
+     "payload.exe"
+    ],
+    "cleaned_equals_ground_truth": true,
+    "with_cleaned_list": {
+     "tp": 11,
+     "tn": 641,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "entities": 652,
+     "malicious_entities": 11
+    },
+    "raw_model_output": {
+     "tp": 6,
+     "tn": 641,
+     "fp": 0,
+     "fn": 5,
+     "precision": 1.0,
+     "recall": 0.5454545454545454,
+     "f1": 0.7058823529411764,
+     "entities": 652,
+     "malicious_entities": 11
+    },
+    "raw_predicted_count": 2
+   },
+   "runs": [
+    {
+     "tp": 6,
+     "tn": 641,
+     "fp": 0,
+     "fn": 5,
+     "precision": 1.0,
+     "recall": 0.5454545454545454,
+     "f1": 0.7058823529411764,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "regenerated",
+     "seed": 0,
+     "predicted": 3,
+     "seconds": 57.8
+    },
+    {
+     "tp": 10,
+     "tn": 641,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.9090909090909091,
+     "f1": 0.9523809523809523,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "shipped_resampling",
+     "seed": 0,
+     "predicted": 3,
+     "seconds": 243.9
+    },
+    {
+     "tp": 6,
+     "tn": 641,
+     "fp": 0,
+     "fn": 5,
+     "precision": 1.0,
+     "recall": 0.5454545454545454,
+     "f1": 0.7058823529411764,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "regenerated",
+     "seed": 1,
+     "predicted": 3,
+     "seconds": 77.4
+    },
+    {
+     "tp": 11,
+     "tn": 633,
+     "fp": 8,
+     "fn": 0,
+     "precision": 0.5789473684210527,
+     "recall": 1.0,
+     "f1": 0.7333333333333334,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "shipped_resampling",
+     "seed": 1,
+     "predicted": 12,
+     "seconds": 291.4
+    },
+    {
+     "tp": 8,
+     "tn": 640,
+     "fp": 1,
+     "fn": 3,
+     "precision": 0.8888888888888888,
+     "recall": 0.7272727272727273,
+     "f1": 0.7999999999999999,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "regenerated",
+     "seed": 2,
+     "predicted": 4,
+     "seconds": 54.2
+    },
+    {
+     "tp": 11,
+     "tn": 631,
+     "fp": 10,
+     "fn": 0,
+     "precision": 0.5238095238095238,
+     "recall": 1.0,
+     "f1": 0.6875000000000001,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "shipped_resampling",
+     "seed": 2,
+     "predicted": 14,
+     "seconds": 199.4
+    },
+    {
+     "tp": 6,
+     "tn": 633,
+     "fp": 8,
+     "fn": 5,
+     "precision": 0.42857142857142855,
+     "recall": 0.5454545454545454,
+     "f1": 0.4799999999999999,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "regenerated",
+     "seed": 3,
+     "predicted": 4,
+     "seconds": 81.3
+    },
+    {
+     "tp": 10,
+     "tn": 641,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.9090909090909091,
+     "f1": 0.9523809523809523,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "shipped_resampling",
+     "seed": 3,
+     "predicted": 3,
+     "seconds": 286.1
+    },
+    {
+     "tp": 4,
+     "tn": 641,
+     "fp": 0,
+     "fn": 7,
+     "precision": 1.0,
+     "recall": 0.36363636363636365,
+     "f1": 0.5333333333333333,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "regenerated",
+     "seed": 4,
+     "predicted": 2,
+     "seconds": 76.2
+    },
+    {
+     "tp": 6,
+     "tn": 630,
+     "fp": 11,
+     "fn": 5,
+     "precision": 0.35294117647058826,
+     "recall": 0.5454545454545454,
+     "f1": 0.42857142857142855,
+     "entities": 652,
+     "malicious_entities": 11,
+     "variant": "shipped_resampling",
+     "seed": 4,
+     "predicted": 12,
+     "seconds": 283.4
+    }
+   ],
+   "summary": {
+    "regenerated": {
+     "precision": {
+      "mean": 0.8634920634920634,
+      "lo": 0.5558039204173539,
+      "hi": 1.0
+     },
+     "recall": {
+      "mean": 0.5454545454545454,
+      "lo": 0.38584576755222866,
+      "hi": 0.7050633233568622
+     },
+     "f1": {
+      "mean": 0.6450196078431372,
+      "lo": 0.47946574935180764,
+      "hi": 0.8105734663344667
+     },
+     "n_seeds": 5
+    },
+    "shipped_resampling": {
+     "precision": {
+      "mean": 0.6911396137402329,
+      "lo": 0.32614358032478113,
+      "hi": 1.0
+     },
+     "recall": {
+      "mean": 0.8727272727272727,
+      "lo": 0.6386948641500356,
+      "hi": 1.0
+     },
+     "f1": {
+      "mean": 0.7508333333333334,
+      "lo": 0.48068061958669867,
+      "hi": 1.0
+     },
+     "n_seeds": 5
+    }
+   }
+  },
+  {
+   "scenario": "S2",
+   "test": "S2-CVE-2015-3105_windows",
+   "symptom_entity": "0xalsaheel.com",
+   "labels": [
+    "0xalsaheel.com",
+    "192.168.223.3",
+    "payload.exe"
+   ],
+   "candidate_entities": 2162,
+   "scored_entities": 2120,
+   "trainset": {
+    "nonsampled": [
+     13409,
+     43
+    ],
+    "undersampled": [
+     910,
+     43
+    ],
+    "resampled": [
+     1734,
+     867
+    ]
+   },
+   "shipped_resampling": [
+    6490,
+    3245
+   ],
+   "paper": {
+    "tp": 12,
+    "tn": 34008,
+    "fp": 2,
+    "fn": 0,
+    "precision": 85.71,
+    "recall": 100.0,
+    "f1": 92.31
+   },
+   "shipped_artefact": {
+    "file": "eval_seq_graph_testing_preprocessed_logs_S2-CVE-2015-3105_windows.dot.txt.json",
+    "cleaned_predicted_entities": [
+     "0xalsaheel.com",
+     "payload.exe",
+     "205.185.216.10",
+     "192.168.223.3"
+    ],
+    "cleaned_equals_ground_truth": false,
+    "with_cleaned_list": {
+     "tp": 7,
+     "tn": 2153,
+     "fp": 2,
+     "fn": 0,
+     "precision": 0.7777777777777778,
+     "recall": 1.0,
+     "f1": 0.8750000000000001,
+     "entities": 2162,
+     "malicious_entities": 7
+    },
+    "raw_model_output": {
+     "tp": 7,
+     "tn": 2149,
+     "fp": 6,
+     "fn": 0,
+     "precision": 0.5384615384615384,
+     "recall": 1.0,
+     "f1": 0.7000000000000001,
+     "entities": 2162,
+     "malicious_entities": 7
+    },
+    "raw_predicted_count": 9
+   },
+   "runs": [
+    {
+     "tp": 3,
+     "tn": 2154,
+     "fp": 1,
+     "fn": 4,
+     "precision": 0.75,
+     "recall": 0.42857142857142855,
+     "f1": 0.5454545454545454,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "regenerated",
+     "seed": 0,
+     "predicted": 4,
+     "seconds": 77.1
+    },
+    {
+     "tp": 3,
+     "tn": 2147,
+     "fp": 8,
+     "fn": 4,
+     "precision": 0.2727272727272727,
+     "recall": 0.42857142857142855,
+     "f1": 0.33333333333333326,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "shipped_resampling",
+     "seed": 0,
+     "predicted": 8,
+     "seconds": 280.5
+    },
+    {
+     "tp": 7,
+     "tn": 2106,
+     "fp": 49,
+     "fn": 0,
+     "precision": 0.125,
+     "recall": 1.0,
+     "f1": 0.2222222222222222,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "regenerated",
+     "seed": 1,
+     "predicted": 53,
+     "seconds": 56.3
+    },
+    {
+     "tp": 5,
+     "tn": 2146,
+     "fp": 9,
+     "fn": 2,
+     "precision": 0.35714285714285715,
+     "recall": 0.7142857142857143,
+     "f1": 0.4761904761904762,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "shipped_resampling",
+     "seed": 1,
+     "predicted": 12,
+     "seconds": 213.9
+    },
+    {
+     "tp": 7,
+     "tn": 2150,
+     "fp": 5,
+     "fn": 0,
+     "precision": 0.5833333333333334,
+     "recall": 1.0,
+     "f1": 0.7368421052631579,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "regenerated",
+     "seed": 2,
+     "predicted": 9,
+     "seconds": 75.9
+    },
+    {
+     "tp": 3,
+     "tn": 2153,
+     "fp": 2,
+     "fn": 4,
+     "precision": 0.6,
+     "recall": 0.42857142857142855,
+     "f1": 0.5,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "shipped_resampling",
+     "seed": 2,
+     "predicted": 4,
+     "seconds": 272.3
+    },
+    {
+     "tp": 3,
+     "tn": 2155,
+     "fp": 0,
+     "fn": 4,
+     "precision": 1.0,
+     "recall": 0.42857142857142855,
+     "f1": 0.6,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "regenerated",
+     "seed": 3,
+     "predicted": 3,
+     "seconds": 67.4
+    },
+    {
+     "tp": 5,
+     "tn": 2154,
+     "fp": 1,
+     "fn": 2,
+     "precision": 0.8333333333333334,
+     "recall": 0.7142857142857143,
+     "f1": 0.7692307692307692,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "shipped_resampling",
+     "seed": 3,
+     "predicted": 3,
+     "seconds": 261.5
+    },
+    {
+     "tp": 3,
+     "tn": 2150,
+     "fp": 5,
+     "fn": 4,
+     "precision": 0.375,
+     "recall": 0.42857142857142855,
+     "f1": 0.39999999999999997,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "regenerated",
+     "seed": 4,
+     "predicted": 8,
+     "seconds": 36.8
+    },
+    {
+     "tp": 7,
+     "tn": 2154,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.875,
+     "recall": 1.0,
+     "f1": 0.9333333333333333,
+     "entities": 2162,
+     "malicious_entities": 7,
+     "variant": "shipped_resampling",
+     "seed": 4,
+     "predicted": 4,
+     "seconds": 132.9
+    }
+   ],
+   "summary": {
+    "regenerated": {
+     "precision": {
+      "mean": 0.5666666666666667,
+      "lo": 0.14866327220942332,
+      "hi": 0.98467006112391
+     },
+     "recall": {
+      "mean": 0.6571428571428571,
+      "lo": 0.2685837985162227,
+      "hi": 1.0
+     },
+     "f1": {
+      "mean": 0.5009037745879851,
+      "lo": 0.2562716129659366,
+      "hi": 0.7455359362100336
+     },
+     "n_seeds": 5
+    },
+    "shipped_resampling": {
+     "precision": {
+      "mean": 0.5876406926406926,
+      "lo": 0.250272331123003,
+      "hi": 0.9250090541583822
+     },
+     "recall": {
+      "mean": 0.6571428571428571,
+      "lo": 0.36037597412330113,
+      "hi": 0.9539097401624131
+     },
+     "f1": {
+      "mean": 0.6024175824175824,
+      "lo": 0.3007640497447681,
+      "hi": 0.9040711150903966
+     },
+     "n_seeds": 5
+    }
+   }
+  },
+  {
+   "scenario": "S3",
+   "test": "S3-CVE-2017-11882_windows",
+   "symptom_entity": "0xalsaheel.com",
+   "labels": [
+    "0xalsaheel.com",
+    "192.168.223.3",
+    "payload.exe",
+    "msf.rtf",
+    "msf.exe",
+    "aalsahee/index.html"
+   ],
+   "candidate_entities": 752,
+   "scored_entities": 728,
+   "trainset": {
+    "nonsampled": [
+     8098,
+     21
+    ],
+    "undersampled": [
+     763,
+     21
+    ],
+    "resampled": [
+     1484,
+     742
+    ]
+   },
+   "shipped_resampling": [
+    6292,
+    3146
+   ],
+   "paper": {
+    "tp": 24,
+    "tn": 8972,
+    "fp": 0,
+    "fn": 2,
+    "precision": 100.0,
+    "recall": 92.31,
+    "f1": 96.0
+   },
+   "shipped_artefact": {
+    "file": "eval_seq_graph_testing_preprocessed_logs_S3-CVE-2017-11882_windows.dot.txt.json",
+    "cleaned_predicted_entities": [
+     "0xalsaheel.com",
+     "192.168.223.3",
+     "payload.exe",
+     "msf.rtf"
+    ],
+    "cleaned_equals_ground_truth": false,
+    "with_cleaned_list": {
+     "tp": 17,
+     "tn": 733,
+     "fp": 0,
+     "fn": 2,
+     "precision": 1.0,
+     "recall": 0.8947368421052632,
+     "f1": 0.9444444444444444,
+     "entities": 752,
+     "malicious_entities": 19
+    },
+    "raw_model_output": {
+     "tp": 7,
+     "tn": 723,
+     "fp": 10,
+     "fn": 12,
+     "precision": 0.4117647058823529,
+     "recall": 0.3684210526315789,
+     "f1": 0.3888888888888889,
+     "entities": 752,
+     "malicious_entities": 19
+    },
+    "raw_predicted_count": 6
+   },
+   "runs": [
+    {
+     "tp": 19,
+     "tn": 48,
+     "fp": 685,
+     "fn": 0,
+     "precision": 0.026988636363636364,
+     "recall": 1.0,
+     "f1": 0.052558782849239274,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "regenerated",
+     "seed": 0,
+     "predicted": 696,
+     "seconds": 46.1
+    },
+    {
+     "tp": 9,
+     "tn": 718,
+     "fp": 15,
+     "fn": 10,
+     "precision": 0.375,
+     "recall": 0.47368421052631576,
+     "f1": 0.4186046511627907,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "shipped_resampling",
+     "seed": 0,
+     "predicted": 22,
+     "seconds": 185.6
+    },
+    {
+     "tp": 2,
+     "tn": 731,
+     "fp": 2,
+     "fn": 17,
+     "precision": 0.5,
+     "recall": 0.10526315789473684,
+     "f1": 0.17391304347826086,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "regenerated",
+     "seed": 1,
+     "predicted": 4,
+     "seconds": 67.1
+    },
+    {
+     "tp": 8,
+     "tn": 721,
+     "fp": 12,
+     "fn": 11,
+     "precision": 0.4,
+     "recall": 0.42105263157894735,
+     "f1": 0.41025641025641024,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "shipped_resampling",
+     "seed": 1,
+     "predicted": 20,
+     "seconds": 271.3
+    },
+    {
+     "tp": 8,
+     "tn": 707,
+     "fp": 26,
+     "fn": 11,
+     "precision": 0.23529411764705882,
+     "recall": 0.42105263157894735,
+     "f1": 0.3018867924528302,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "regenerated",
+     "seed": 2,
+     "predicted": 33,
+     "seconds": 71.3
+    },
+    {
+     "tp": 14,
+     "tn": 725,
+     "fp": 8,
+     "fn": 5,
+     "precision": 0.6363636363636364,
+     "recall": 0.7368421052631579,
+     "f1": 0.6829268292682926,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "shipped_resampling",
+     "seed": 2,
+     "predicted": 16,
+     "seconds": 295.6
+    },
+    {
+     "tp": 11,
+     "tn": 722,
+     "fp": 11,
+     "fn": 8,
+     "precision": 0.5,
+     "recall": 0.5789473684210527,
+     "f1": 0.5365853658536586,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "regenerated",
+     "seed": 3,
+     "predicted": 18,
+     "seconds": 68.4
+    },
+    {
+     "tp": 13,
+     "tn": 733,
+     "fp": 0,
+     "fn": 6,
+     "precision": 1.0,
+     "recall": 0.6842105263157895,
+     "f1": 0.8125000000000001,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "shipped_resampling",
+     "seed": 3,
+     "predicted": 5,
+     "seconds": 274.7
+    },
+    {
+     "tp": 9,
+     "tn": 721,
+     "fp": 12,
+     "fn": 10,
+     "precision": 0.42857142857142855,
+     "recall": 0.47368421052631576,
+     "f1": 0.45,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "regenerated",
+     "seed": 4,
+     "predicted": 15,
+     "seconds": 67.5
+    },
+    {
+     "tp": 7,
+     "tn": 724,
+     "fp": 9,
+     "fn": 12,
+     "precision": 0.4375,
+     "recall": 0.3684210526315789,
+     "f1": 0.39999999999999997,
+     "entities": 752,
+     "malicious_entities": 19,
+     "variant": "shipped_resampling",
+     "seed": 4,
+     "predicted": 14,
+     "seconds": 277.2
+    }
+   ],
+   "summary": {
+    "regenerated": {
+     "precision": {
+      "mean": 0.33817083651642477,
+      "lo": 0.08377076563832675,
+      "hi": 0.5925709073945228
+     },
+     "recall": {
+      "mean": 0.5157894736842106,
+      "lo": 0.11459814858460171,
+      "hi": 0.9169807987838194
+     },
+     "f1": {
+      "mean": 0.3029887969267978,
+      "lo": 0.05816778127476541,
+      "hi": 0.5478098125788302
+     },
+     "n_seeds": 5
+    },
+    "shipped_resampling": {
+     "precision": {
+      "mean": 0.5697727272727272,
+      "lo": 0.24497768794245406,
+      "hi": 0.8945677666030003
+     },
+     "recall": {
+      "mean": 0.5368421052631579,
+      "lo": 0.33334102180282577,
+      "hi": 0.74034318872349
+     },
+     "f1": {
+      "mean": 0.5448575781374988,
+      "lo": 0.3078900993898237,
+      "hi": 0.7818250568851739
+     },
+     "n_seeds": 5
+    }
+   }
+  },
+  {
+   "scenario": "S4",
+   "test": "S4-CVE-2017-0199_windows_py",
+   "symptom_entity": "192.168.223.3",
+   "labels": [
+    "192.168.223.3",
+    "0xalsaheel.com",
+    "msf.doc",
+    "pypayload.exe",
+    "aalsahee/index.html"
+   ],
+   "candidate_entities": 897,
+   "scored_entities": 866,
+   "trainset": {
+    "nonsampled": [
+     11725,
+     32
+    ],
+    "undersampled": [
+     816,
+     32
+    ],
+    "resampled": [
+     1568,
+     784
+    ]
+   },
+   "shipped_resampling": [
+    6310,
+    3155
+   ],
+   "paper": {
+    "tp": 21,
+    "tn": 13011,
+    "fp": 5,
+    "fn": 0,
+    "precision": 80.77,
+    "recall": 100.0,
+    "f1": 89.36
+   },
+   "shipped_artefact": {
+    "file": "eval_seq_graph_testing_preprocessed_logs_S4-CVE-2017-0199_windows_py.dot.txt.json",
+    "cleaned_predicted_entities": [
+     "192.168.223.3",
+     "0xalsaheel.com",
+     "pypayload.exe",
+     "msf.doc",
+     "aalsahee/index.html",
+     "128.210.210.80",
+     "c:/users/aalsahee/appdata/roaming/microsoft/windows/recent/customdestinations/d5p9sm9hisdwiwssoctb.temp",
+     "c:/users/aalsahee/appdata/locallow/microsoft/cryptneturlcache/content/94308059b57b3142e455b38a6eb92015",
+     "c:/users/aalsahee/appdata/locallow/microsoft/cryptneturlcache/metadata/94308059b57b3142e455b38a6eb92015",
+     "c:/users/aalsahee/appdata/roaming/microsoft/office/recent/index.dat",
+     "c:/users/aalsahee/appdata/local/microsoft/windows/temporaryinternetfiles/content.word/~wrf{acf97fcb-2b09-4e80-b817-bda9dcbbf0ba}.tmp",
+     "c:/users/aalsahee/appdata/roaming/microsoft/templates/normal.dotm"
+    ],
+    "cleaned_equals_ground_truth": false,
+    "with_cleaned_list": {
+     "tp": 16,
+     "tn": 876,
+     "fp": 5,
+     "fn": 0,
+     "precision": 0.7619047619047619,
+     "recall": 1.0,
+     "f1": 0.8648648648648648,
+     "entities": 897,
+     "malicious_entities": 16
+    },
+    "raw_model_output": {
+     "tp": 14,
+     "tn": 825,
+     "fp": 56,
+     "fn": 2,
+     "precision": 0.2,
+     "recall": 0.875,
+     "f1": 0.32558139534883723,
+     "entities": 897,
+     "malicious_entities": 16
+    },
+    "raw_predicted_count": 68
+   },
+   "runs": [
+    {
+     "tp": 14,
+     "tn": 746,
+     "fp": 135,
+     "fn": 2,
+     "precision": 0.09395973154362416,
+     "recall": 0.875,
+     "f1": 0.1696969696969697,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "regenerated",
+     "seed": 0,
+     "predicted": 135,
+     "seconds": 71.5
+    },
+    {
+     "tp": 4,
+     "tn": 869,
+     "fp": 12,
+     "fn": 12,
+     "precision": 0.25,
+     "recall": 0.25,
+     "f1": 0.25,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "shipped_resampling",
+     "seed": 0,
+     "predicted": 11,
+     "seconds": 276.1
+    },
+    {
+     "tp": 4,
+     "tn": 880,
+     "fp": 1,
+     "fn": 12,
+     "precision": 0.8,
+     "recall": 0.25,
+     "f1": 0.38095238095238093,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "regenerated",
+     "seed": 1,
+     "predicted": 2,
+     "seconds": 68.3
+    },
+    {
+     "tp": 14,
+     "tn": 806,
+     "fp": 75,
+     "fn": 2,
+     "precision": 0.15730337078651685,
+     "recall": 0.875,
+     "f1": 0.26666666666666666,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "shipped_resampling",
+     "seed": 1,
+     "predicted": 83,
+     "seconds": 265.1
+    },
+    {
+     "tp": 7,
+     "tn": 880,
+     "fp": 1,
+     "fn": 9,
+     "precision": 0.875,
+     "recall": 0.4375,
+     "f1": 0.5833333333333334,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "regenerated",
+     "seed": 2,
+     "predicted": 4,
+     "seconds": 49.5
+    },
+    {
+     "tp": 4,
+     "tn": 881,
+     "fp": 0,
+     "fn": 12,
+     "precision": 1.0,
+     "recall": 0.25,
+     "f1": 0.4,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "shipped_resampling",
+     "seed": 2,
+     "predicted": 1,
+     "seconds": 188.8
+    },
+    {
+     "tp": 7,
+     "tn": 868,
+     "fp": 13,
+     "fn": 9,
+     "precision": 0.35,
+     "recall": 0.4375,
+     "f1": 0.38888888888888884,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "regenerated",
+     "seed": 3,
+     "predicted": 13,
+     "seconds": 71.0
+    },
+    {
+     "tp": 15,
+     "tn": 697,
+     "fp": 184,
+     "fn": 1,
+     "precision": 0.07537688442211055,
+     "recall": 0.9375,
+     "f1": 0.13953488372093023,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "shipped_resampling",
+     "seed": 3,
+     "predicted": 187,
+     "seconds": 286.5
+    },
+    {
+     "tp": 11,
+     "tn": 863,
+     "fp": 18,
+     "fn": 5,
+     "precision": 0.3793103448275862,
+     "recall": 0.6875,
+     "f1": 0.4888888888888889,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "regenerated",
+     "seed": 4,
+     "predicted": 23,
+     "seconds": 31.2
+    },
+    {
+     "tp": 5,
+     "tn": 841,
+     "fp": 40,
+     "fn": 11,
+     "precision": 0.1111111111111111,
+     "recall": 0.3125,
+     "f1": 0.1639344262295082,
+     "entities": 897,
+     "malicious_entities": 16,
+     "variant": "shipped_resampling",
+     "seed": 4,
+     "predicted": 42,
+     "seconds": 118.1
+    }
+   ],
+   "summary": {
+    "regenerated": {
+     "precision": {
+      "mean": 0.4996540152742421,
+      "lo": 0.09140308089973831,
+      "hi": 0.9079049496487459
+     },
+     "recall": {
+      "mean": 0.5375,
+      "lo": 0.2339989538733021,
+      "hi": 0.8410010461266979
+     },
+     "f1": {
+      "mean": 0.40235209235209235,
+      "lo": 0.21101898496506263,
+      "hi": 0.593685199739122
+     },
+     "n_seeds": 5
+    },
+    "shipped_resampling": {
+     "precision": {
+      "mean": 0.3187582732639477,
+      "lo": 0.0,
+      "hi": 0.7984674270900622
+     },
+     "recall": {
+      "mean": 0.525,
+      "lo": 0.09090313868907096,
+      "hi": 0.9590968613109291
+     },
+     "f1": {
+      "mean": 0.24402719532342104,
+      "lo": 0.11649842197871238,
+      "hi": 0.3715559686681297
+     },
+     "n_seeds": 5
+    }
+   }
+  }
+ ],
+ "provenance": {
+  "workflow": "atlas-repro",
+  "run_id": 36997669262,
+  "commit": "68be28c",
+  "runner": "ubuntu-24.04, CPU torch",
+  "scored": "2026-10-02"
+ }
+}
