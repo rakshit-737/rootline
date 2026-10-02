@@ -3,8 +3,8 @@
 Rules are explainable, each mapped to a MITRE ATT&CK technique and a
 kill-chain stage. The anomaly scorer is a deliberately simple, dependency-free
 rare-transition model (parent image -> child image, image -> remote port)
-learned from a benign baseline; it stands in for IsolationForest, which is a
-documented TODO (see README).
+learned from a benign baseline. The optional IsolationForest ranker lives in
+``rootline.anomaly`` (extra ``ml``).
 """
 from __future__ import annotations
 
@@ -130,7 +130,7 @@ RULES_V01: list[Rule] = [
     r_persistence, r_log_tamper, r_download,
 ]
 RULES_V02: list[Rule] = RULES_V01 + LINUX_RULES  # v0.2: + command-line rules for real telemetry
-RULES: list[Rule] = RULES_V02 + RULES_V03_EXTRA  # v0.3 (v1.1): frozen before the sealed split was scored
+RULES: list[Rule] = RULES_V02 + RULES_V03_EXTRA  # v0.3 (v1.1): frozen at 153eade, scored once on sealed (run 36994398382)
 
 
 # ------------------------------------------------------------------- anomaly

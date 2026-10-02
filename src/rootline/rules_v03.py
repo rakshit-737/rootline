@@ -1,10 +1,12 @@
-"""Command-line rules v0.3 (RL-019..RL-025).
+"""Command-line rules v0.3 (RL-019..RL-024).
 
 Written in v1.1 against the ``dev`` and ``dev2`` Splunk captures (``dev2`` is
 the v1.0 holdout, which was *burned* the moment its misses were published).
 Each rule encodes an ATT&CK technique's generic Linux semantics rather than a
-string seen in one capture. They were frozen before the ``sealed`` split was
-downloaded (see docs/protocol.md), and ``sealed`` was scored exactly once.
+string seen in one capture. They were frozen at commit 153eade (2026-09-27) and
+scored once on the ``sealed`` split in GitHub Actions run 36994398382 on
+2026-10-02 (see docs/protocol.md and results/coverage.json). The sealed result
+was poor (4 of 64 parsed captures detected); any later rule change is v0.4.
 """
 from __future__ import annotations
 

@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: commit to score (must pass the freeze check)
+        description: commit to score (must pass the freeze check; the v0.3 scoring ran on 60e3561)
         required: false
-        default: main
+        default: 60e35616b128dba8641709a560ead67ad4adef6a
 
 permissions:
   contents: read
