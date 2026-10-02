@@ -35,7 +35,17 @@ from datetime import datetime, timezone
 from typing import Any, Iterable, Iterator
 
 _NS = re.compile(r"\sxmlns=['\"][^'\"]+['\"]")
-_EVENT = re.compile(r"<Event[\s>].*?</Event>", re.S)
+_EVENT_START = re.compile(r"<Event[\s>]")
+MAX_LINE = 1 << 20  # a single Sysmon event is a few KB; longer lines are skipped
+
+
+def _find_event(s: str) -> str | None:
+    """First ``<Event ...>...</Event>`` in ``s``, in linear time (no backtracking regex)."""
+    m = _EVENT_START.search(s)
+    if not m:
+        return None
+    end = s.find("</Event>", m.end())
+    return s[m.start():end + 8] if end >= 0 else None
 LOCAL_IPS = {"0.0.0.0", "::", "0:0:0:0:0:0:0:0", "127.0.0.1", "::1"}
 
 
@@ -90,23 +100,23 @@ def parse_event_xml(xml: str) -> dict[str, Any] | None:
 
 def _xml_from_line(line: str) -> str | None:
     line = line.strip()
-    if not line:
+    if not line or len(line) > MAX_LINE:
         return None
     if line.startswith("<"):
         return line
     if not line.startswith("{"):  # syslog-prefixed: "May 13 13:42:08 host sysmon: <Event>..."
-        m = _EVENT.search(line)
-        return m.group(0) if m else None
+        return _find_event(line)
     if line.startswith("{"):
         try:
             obj = json.loads(line)
-        except json.JSONDecodeError:
+        except (ValueError, RecursionError):
+            return None
+        if not isinstance(obj, dict):
             return None
         for key in ("SyslogMessage", "Message", "xml", "_raw", "message"):
             v = obj.get(key)
             if isinstance(v, str) and "<Event" in v:
-                m = _EVENT.search(v)
-                return m.group(0) if m else None
+                return _find_event(v)
     return None
 
 

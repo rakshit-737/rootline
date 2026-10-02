@@ -102,7 +102,8 @@ def map_syscall(sc: dict[str, str], paths: list[dict[str, str]], execve: dict[st
             return []
         argv = []
         if execve:
-            argc = int(execve.get("argc", "0") or 0)
+            argc_s = execve.get("argc", "0") or "0"
+            argc = int(argc_s) if argc_s.isdigit() else 0
             argv = [_unhex(execve.get(f"a{i}", "")) for i in range(min(argc, 64))]
         return [{**base, "kind": "exec", "path": target, "comm": target.rsplit("/", 1)[-1], "argv": argv}]
     if name in ("clone", "fork", "vfork", "clone3"):
@@ -134,7 +135,10 @@ def read_raw_audit(lines: Iterable[str], host: str = "audit-host") -> Iterator[d
         m = _HDR.search(line)
         if not m:
             continue
-        typ, ts, serial, rest = m.group(1) or "", float(m.group(2)), m.group(3), m.group(4)
+        try:
+            typ, ts, serial, rest = m.group(1) or "", float(m.group(2)), m.group(3), m.group(4)
+        except ValueError:
+            continue
         g = groups.get(serial)
         if g is None:
             g = groups[serial] = {"ts": ts, "sc": None, "paths": [], "execve": None, "sockaddr": None, "cwd": None}
@@ -157,7 +161,7 @@ def read_raw_audit(lines: Iterable[str], host: str = "audit-host") -> Iterator[d
         sc = dict(g["sc"])
         if g["cwd"]:
             sc["cwd"] = _unhex(g["cwd"])
-        paths = sorted(g["paths"], key=lambda p: int(p.get("item", "0") or 0))
+        paths = sorted(g["paths"], key=lambda p: int(p["item"]) if str(p.get("item", "")).isdigit() else 0)
         yield from map_syscall(sc, paths, g["execve"], g["sockaddr"], g["ts"], host)
 
 
@@ -174,7 +178,9 @@ def read_auoms(lines: Iterable[str]) -> Iterator[dict[str, Any]]:
         if line.startswith("{"):
             try:
                 obj = json.loads(line)
-            except json.JSONDecodeError:
+            except (ValueError, RecursionError):
+                continue
+            if not isinstance(obj, dict):
                 continue
             line = obj.get("SyslogMessage") or obj.get("EventData") or ""
             host = obj.get("Computer") or obj.get("HostName") or "auoms-host"
@@ -193,7 +199,11 @@ def read_auoms(lines: Iterable[str]) -> Iterator[dict[str, Any]]:
             # proctitle is the (possibly truncated) command line of the NEW image
             argv = pt.split()[:64]
             execve = {"argc": str(len(argv)), **{f"a{i}": a for i, a in enumerate(argv)}}
-        yield from map_syscall(f, paths, execve, f.get("saddr"), float(m.group(2)), host)
+        try:
+            ts = float(m.group(2))
+        except ValueError:
+            continue
+        yield from map_syscall(f, paths, execve, f.get("saddr"), ts, host)
 
 
 def load_audit(path: str, host: str = "audit-host") -> list[dict[str, Any]]:
