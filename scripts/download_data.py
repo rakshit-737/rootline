@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Fetch the public datasets ROOTLINE is evaluated on, with SHA-256 checks.
 
-Everything lands OUTSIDE the git repo (default ``../../datasets/rootline``
-relative to the repo root, or ``$ROOTLINE_DATA``). Nothing here is executable
+Everything lands OUTSIDE the git repo: ``$ROOTLINE_DATA`` if set, else
+``../../datasets/rootline`` next to the repo when that folder exists (the
+author's layout), else ``~/.cache/rootline``. Nothing here is executable
 content: ATLAS ships pre-processed audit-log CSVs, OTRF and Splunk ship
 Sysmon-for-Linux / auditd event logs.
 
     python scripts/download_data.py                 # required sets
-    python scripts/download_data.py --all           # + optional (ATLAS M1-M6, ~62 MB)
+    python scripts/download_data.py --all           # + optional (ATLAS M1-M6, sealed split)
+    python scripts/download_data.py --split sealed  # one split only (dev, dev2, sealed)
     python scripts/download_data.py --source otrf   # one source only
     python scripts/download_data.py --list
 
@@ -33,7 +35,8 @@ def data_dir() -> Path:
     env = os.environ.get("ROOTLINE_DATA")
     if env:
         return Path(env)
-    return (HERE.parent.parent.parent / "datasets" / "rootline").resolve()
+    legacy = (HERE.parent.parent.parent / "datasets" / "rootline").resolve()
+    return legacy if legacy.is_dir() else Path.home() / ".cache" / "rootline"
 
 
 def sha256(path: Path) -> str:
@@ -62,9 +65,11 @@ def extract(dest: Path) -> None:
     marker.write_text("ok\n")
 
 
-def fetch(item: dict, root: Path) -> str:
+def fetch(item: dict, root: Path, allow_unverified: bool = False) -> str:
     dest = root / item["dest"]
     want = item.get("sha256")
+    if not want and not allow_unverified:
+        raise SystemExit(f"no sha256 pinned for {item['dest']}; pass --allow-unverified to fetch it anyway")
     status = "cached"
     if not (dest.exists() and (want is None or sha256(dest) == want)):
         dest.parent.mkdir(parents=True, exist_ok=True)
@@ -80,6 +85,9 @@ def fetch(item: dict, root: Path) -> str:
                 if attempt == 5:
                     raise SystemExit(f"download failed for {item['url']}: {e}") from e
                 time.sleep(2 * attempt)
+        if item.get("size") and tmp.stat().st_size != item["size"]:
+            tmp.unlink()
+            raise SystemExit(f"size mismatch for {item['dest']} (truncated download?); re-run")
         got = sha256(tmp)
         if want and got != want:
             tmp.unlink()
@@ -99,11 +107,14 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--all", action="store_true", help="include optional (large) files")
     p.add_argument("--source", choices=["atlas", "otrf", "splunk"])
+    p.add_argument("--split", choices=["dev", "dev2", "sealed"], help="only this evaluation split")
+    p.add_argument("--allow-unverified", action="store_true", help="fetch entries without a pinned sha256")
     p.add_argument("--list", action="store_true")
     p.add_argument("--dest", type=Path, default=None)
     ns = p.parse_args(argv)
     items = json.loads(MANIFEST.read_text())["files"]
-    items = [i for i in items if (ns.all or not i.get("optional")) and (not ns.source or i["source"] == ns.source)]
+    items = [i for i in items if (ns.all or ns.split or not i.get("optional"))
+             and (not ns.source or i["source"] == ns.source) and (not ns.split or i.get("split") == ns.split)]
     root = ns.dest or data_dir()
     if ns.list:
         for i in items:
@@ -112,7 +123,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     print(f"[data] {len(items)} files -> {root}")
     for n, i in enumerate(items, 1):
-        status = fetch(i, root)
+        status = fetch(i, root, ns.allow_unverified)
         print(f"  [{n}/{len(items)}] {status:8} {i['dest']}", flush=True)
     return 0
 
