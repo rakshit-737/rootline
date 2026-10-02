@@ -6,7 +6,7 @@
                    [--story out.json] [--stix out.json] [--mermaid out.mmd] [--cypher out.cypher]
                    [--no-reduce]
   rootline serve   [CAPTURE ...] [--fuse] [--host 127.0.0.1] [--port 8000]
-  rootline verify  events.jsonl --head HASH
+  rootline verify  CAPTURE [--head HASH] [--format auto|jsonl|sysmon|auditd]
   rootline demo    [--outdir out]
 """
 from __future__ import annotations
@@ -74,6 +74,11 @@ def cmd_synth(ns: argparse.Namespace) -> int:
 
 
 def cmd_analyze(ns: argparse.Namespace) -> int:
+    if ns.iforest:
+        try:
+            import sklearn  # noqa: F401
+        except ImportError:
+            raise SystemExit("--iforest needs the ml extra: pip install 'rootline[ml]'") from None
     recs = load_many(ns.events, ns.format)
     base = list(read_jsonl(ns.baseline)) if ns.baseline else None
     pivot = ns.pivot or (_resolve_pivot(recs, ns.ioc) if ns.ioc else None)
@@ -103,7 +108,11 @@ def cmd_serve(ns: argparse.Namespace) -> int:  # pragma: no cover - starts a ser
 
 def cmd_verify(ns: argparse.Namespace) -> int:
     n = Normalizer()
-    evs = sorted(n.normalize(read_jsonl(ns.events)), key=lambda e: (e.ts, e.seq))
+    evs = sorted(n.normalize(load_many([ns.events], ns.format)), key=lambda e: (e.ts, e.seq))
+    if not evs:
+        print(f"error: no events parsed from {ns.events} ({len(n.errors)} records rejected); "
+              "nothing to verify", file=sys.stderr)
+        return 1
     g = ProvenanceGraph().ingest(evs)
     if ns.head is None:
         print(g.head)
@@ -140,47 +149,53 @@ def main(argv: list[str] | None = None) -> int:
     sp = p.add_subparsers(dest="cmd", required=True)
 
     s = sp.add_parser("synth", help="generate synthetic kernel events")
-    s.add_argument("--out", required=True)
-    s.add_argument("--truth")
-    s.add_argument("--benign", type=int, default=300)
-    s.add_argument("--seed", type=int, default=7)
-    s.add_argument("--no-attack", action="store_true")
+    s.add_argument("--out", required=True, help="output JSONL file")
+    s.add_argument("--truth", help="also write the ground-truth JSON here")
+    s.add_argument("--benign", type=int, default=300, help="number of benign sessions (default 300)")
+    s.add_argument("--seed", type=int, default=7, help="random seed (default 7)")
+    s.add_argument("--no-attack", action="store_true", help="benign activity only")
     s.set_defaults(fn=cmd_synth)
 
     a = sp.add_parser("analyze", help="build graph, tag, reconstruct")
     a.add_argument("events", nargs="+", help="one or more captures (several sensors are fused)")
-    a.add_argument("--format", choices=FORMATS, default="auto")
+    a.add_argument("--format", choices=FORMATS, default="auto", help="input format (default: sniffed)")
     a.add_argument("--iforest", action="store_true", help="also rank process vertices with IsolationForest")
     a.add_argument("--cypher", help="write a Neo4j import script for the story")
-    a.add_argument("--baseline")
+    a.add_argument("--baseline", help="benign JSONL capture used as the 'normal' baseline for rarity rules")
     grp = a.add_mutually_exclusive_group()
     grp.add_argument("--pivot", help="vertex id to reconstruct from")
     grp.add_argument("--ioc", help="substring (path/ip) of a vertex to pivot on")
-    a.add_argument("--story")
-    a.add_argument("--stix")
-    a.add_argument("--mermaid")
-    a.add_argument("--no-reduce", action="store_true")
+    a.add_argument("--story", help="write the rootline.story/v1 JSON here")
+    a.add_argument("--stix", help="write a STIX 2.1 bundle here")
+    a.add_argument("--mermaid", help="write the story as a Mermaid flowchart here")
+    a.add_argument("--no-reduce", action="store_true", help="skip the causality-preserving reduction")
     a.set_defaults(fn=cmd_analyze)
 
     v = sp.add_parser("verify", help="print or check the provenance hash-chain head")
-    v.add_argument("events")
-    v.add_argument("--head")
+    v.add_argument("events", help="capture to hash (any supported format)")
+    v.add_argument("--head", help="expected chain head; omit to print the head")
+    v.add_argument("--format", choices=FORMATS, default="auto", help="input format (default: sniffed)")
     v.set_defaults(fn=cmd_verify)
 
     sv = sp.add_parser("serve", help="FastAPI + attack-replay UI (needs rootline[api])")
-    sv.add_argument("captures", nargs="*")
-    sv.add_argument("--host", default="127.0.0.1")
-    sv.add_argument("--port", type=int, default=8000)
+    sv.add_argument("captures", nargs="*", help="captures to analyse at start-up")
+    sv.add_argument("--host", default="127.0.0.1",
+                    help="bind address (default 127.0.0.1; the API has no authentication)")
+    sv.add_argument("--port", type=int, default=8000, help="port (default 8000)")
     sv.add_argument("--fuse", action="store_true", help="fuse all captures into one story (several sensors, one host)")
     sv.set_defaults(fn=cmd_serve)
 
     d = sp.add_parser("demo", help="synthetic end-to-end demo")
-    d.add_argument("--outdir", default="out")
-    d.add_argument("--benign", type=int, default=400)
+    d.add_argument("--outdir", default="out", help="output directory (default out/)")
+    d.add_argument("--benign", type=int, default=400, help="number of benign sessions (default 400)")
     d.set_defaults(fn=cmd_demo)
 
     ns = p.parse_args(argv)
-    return ns.fn(ns)
+    try:
+        return ns.fn(ns)
+    except OSError as e:  # missing / unreadable input or output path: one line, no traceback
+        print(f"error: {e.strerror or e}: {e.filename or ''}".rstrip(": "), file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
