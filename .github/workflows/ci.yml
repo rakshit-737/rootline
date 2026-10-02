@@ -95,6 +95,17 @@ jobs:
       - if: failure()
         run: docker compose logs
 
+  audit:
+    # known-vulnerability check of the runtime extras (pip-audit against PyPI advisories)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip && python -m pip install -e ".[api,ml,stix]" pip-audit
+      - run: pip-audit --skip-editable
+
   live-ebpf:
     # Runs the bpftrace probe LIVE (sudo) on the runner's real kernel while a benign,
     # attack-shaped chain runs inside the runner only (dummy interface + loopback), then
