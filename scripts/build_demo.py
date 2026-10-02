@@ -26,7 +26,7 @@ FIX = ROOT / "tests" / "fixtures"
 
 def build(out: Path) -> list[str]:
     app = create_app([[str(FIX / "log4shell_sysmon.json"), str(FIX / "log4shell_auoms.json")]])
-    c = TestClient(app)
+    c = TestClient(app, base_url="http://127.0.0.1", headers={"X-Rootline": "1"})
     c.post("/api/demo", params={"benign": 300}).raise_for_status()
     stories = c.get("/api/stories").json()
     api = out / "api" / "stories"

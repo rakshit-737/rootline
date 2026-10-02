@@ -42,7 +42,8 @@ def test_api_roundtrip():
     from fastapi.testclient import TestClient
 
     from rootline.api import create_app
-    c = TestClient(create_app([str(FX / "sysmon_t1548_find.log")]))
+    c = TestClient(create_app([str(FX / "sysmon_t1548_find.log")]), base_url="http://127.0.0.1",
+                   headers={"X-Rootline": "1"})
     assert c.get("/api/health").json()["status"] == "ok"
     assert "ROOTLINE" in c.get("/").text
     [pre] = c.get("/api/stories").json()

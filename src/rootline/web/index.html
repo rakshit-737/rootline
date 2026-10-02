@@ -70,7 +70,7 @@ td.sev-critical { color: var(--root); font-weight: 600; }
       <button class="primary" id="demo">Run synthetic demo</button>
       <label class="file">Upload capture<input type="file" id="file"></label>
     </div>
-    <p class="stats">Sysmon (XML / Syslog JSON), auditd / AUOMS, ROOTLINE JSONL or bpftrace output. Parsed locally by this server.</p>
+    <p class="stats" id="blurb">Sysmon (XML / Syslog JSON), auditd / AUOMS, ROOTLINE JSONL or bpftrace output. Parsed locally by this server.</p>
     <div id="stories"></div>
   </aside>
   <section id="stage">
@@ -104,8 +104,13 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 // Static mode (GitHub Pages demo): pre-rendered JSON next to the page, no uploads.
 const STATIC = document.documentElement.dataset.static === "1";
 const url = (path, ext = ".json") => STATIC ? path.replace(/^\//, "") + ext : path;
-if (STATIC) { $("demo").hidden = true; document.querySelector("label.file").hidden = true; }
+if (STATIC) {
+  $("demo").hidden = true; document.querySelector("label.file").hidden = true;
+  $("blurb").textContent = "Static build: two pre-computed stories (OTRF Log4Shell, synthetic). Run `rootline serve` locally to upload your own capture.";
+}
 async function api(path, opts) {
+  // non-simple header on writes: a cross-site page cannot send it without a CORS preflight, which is never granted
+  if (opts && opts.method === "POST") opts.headers = Object.assign({ "X-Rootline": "1" }, opts.headers || {});
   const r = await fetch(url(path), opts);
   if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
   return r.json();
@@ -131,7 +136,7 @@ async function load(id) {
 function side() {
   const st = cur.story;
   $("alerts").innerHTML = cur.alerts.length ? "<table>" + cur.alerts.slice(0, 60).map((a) =>
-    `<tr><td>${a.rule_id}</td><td class="sev-${a.severity}">${a.severity}</td><td>${esc(a.description)}</td></tr>`).join("") + "</table>" : "No alerts.";
+    `<tr><td style="white-space:nowrap">${esc(a.rule_id)}</td><td class="sev-${a.severity}">${a.severity}</td><td>${esc(a.description)}</td></tr>`).join("") + "</table>" : "No alerts.";
   if (!st) { $("kc").textContent = "No alert to pivot on: the capture looks clean."; $("iocs").textContent = "-"; $("links").innerHTML = ""; return; }
   $("kc").innerHTML = Object.entries(st.kill_chain).map(([k, v]) => `<div class="kc"><b>${k}</b>${v.slice(0, 4).map((x) => `<div>${esc(x)}</div>`).join("")}${v.length > 4 ? `<div class="stats">+${v.length - 4} more</div>` : ""}</div>`).join("");
   const ioc = Object.entries(st.iocs).flatMap(([k, v]) => v.map((x) => `<span class="chip" title="${k}">${esc(x)}</span>`));
