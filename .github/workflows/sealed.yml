@@ -1,0 +1,50 @@
+name: sealed-coverage
+
+# Scores the rule tagger on the dev / dev2 / sealed Splunk splits (docs/protocol.md).
+# Manual only. It first proves that the rules, loaders and normaliser equal the
+# pre-registered freeze, then downloads the pinned captures and runs the coverage bench.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: commit to score (must pass the freeze check)
+        required: false
+        default: main
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e . "matplotlib>=3.7"
+      - name: freeze check (pre-registered hashes)
+        run: python scripts/verify_freeze.py
+      - name: download pinned captures (sha256-checked)
+        env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: |
+          python scripts/download_data.py --source splunk
+          python scripts/download_data.py --split sealed
+      - name: score coverage
+        env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: |
+          git rev-parse HEAD > results/coverage_commit.txt
+          python scripts/bench.py --only coverage
+      - uses: actions/upload-artifact@v7
+        with:
+          name: sealed-coverage
+          path: |
+            results/coverage.json
+            results/coverage_commit.txt
+            results/RESULTS.md
+            results/figures/tagger_coverage.png

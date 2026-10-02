@@ -1,0 +1,16 @@
+{
+ "frozen_commit": "153eadeec29c9cdd757051cefe3989eae0c9fe63",
+ "note": "rules_v03/rules_linux/detect hashes were registered at the freeze commit (2026-09-27); the loader, normaliser and graph hashes were added on 2026-10-02, before any sealed file was scored, and equal their state at the freeze commit.",
+ "files": {
+  "src/rootline/rules_v03.py": "cc3c199518f7bd65f1d5d499ef1920d4f0e5f57869e60ea91d6627b279193e68",
+  "src/rootline/rules_linux.py": "c69413a1b4a5d96eff57bc130fb8813c288f0e2631e1755ff8d306069e386f8e",
+  "src/rootline/detect.py": "3d3b628e82d49565178cefbfbb65111f8c8bf1d59c3f1670f30452eb226c957c",
+  "src/rootline/normalize.py": "e9b781db862b0ffb9c8ad7ddd1810234c446b0933631c5db2b295914f7218190",
+  "src/rootline/models.py": "214533135174a16bcd75ac8e57f8e6a27cd676a80515eed500ca77b8a950c723",
+  "src/rootline/graph.py": "2c398610ee10071eb75237a0d11a33f3a861a0dbda1eb12258ed3e36a956563e",
+  "src/rootline/pipeline.py": "f1226c5445842bf9f0a43ac98d3cafe051a994c6c3da5fe3bc74380aa29b1d6e",
+  "src/rootline/loaders/__init__.py": "302cf63f2ee98a30861323490deb3face37bb0b6c563941b10f3eda44192ed93",
+  "src/rootline/loaders/sysmon.py": "53d6702bccd7e9b09dd06c07cd17755361ca2b6e2caefd31ee8ddf3f004883a1",
+  "src/rootline/loaders/auditd.py": "a014ffef6d3b299abda4879cd384e27eb35808441c9f0b644051649a0dbe45cf"
+ }
+}
