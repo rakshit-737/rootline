@@ -1,45 +1,66 @@
 flowchart LR
-  n0[/"/dev/null"/]
-  n1[/"/etc/gnutls/config"/]
-  n2[/"/etc/passwd"/]
-  n3[/"/home/runner/.aws/credentials"/]
-  n4[/"/home/runner/.config/systemd/user/rootline-lab.service"/]
-  n5[/"/tmp/rootline-lab-stage.sh"/]
-  n6[/"/usr/bin/cat"/]
-  n7[/"/usr/bin/curl"/]
-  n8[/"/usr/bin/mkdir"/]
-  n9[/"systemd"/]
-  n10(["rootline-lab-st[2805]"])
-  n11(["rootline-lab-st[2809]"])
-  n12(["cat[2809]"])
-  n13(["rootline-lab-st[2810]"])
-  n14(["mkdir[2810]"])
-  n15(["rootline-lab-st[2811]"])
-  n16(["curl[2811]"])
-  n17{{"127.0.0.1:4444"}}
-  n18{{"::1:4445"}}
-  n5 -->|executed| n10
-  n5 -->|read| n10
-  n10 -->|forked| n11
-  n11 -->|wrote| n0
-  n11 -->|forked| n12
-  n6 -->|executed| n12
-  n3 -->|read| n12
-  n12 -->|wrote| n0
-  n10 -->|forked| n13
-  n13 -->|forked| n14
-  n8 -->|executed| n14
-  n9 -->|read| n14
-  n10 -->|wrote| n4
-  n10 -->|connected| n17
-  n17 -->|received| n10
-  n10 -->|forked| n15
-  n15 -->|forked| n16
-  n7 -->|executed| n16
-  n1 -->|read| n16
-  n2 -->|read| n16
-  n16 -->|connected| n18
-  n18 -->|received| n16
-  n16 -->|wrote| n0
-  style n5 stroke:#d33,stroke-width:3px
-  style n10 fill:#fdd
+  n0[/".config"/]
+  n1[/"/dev/null"/]
+  n2[/"/etc/gnutls/config"/]
+  n3[/"/etc/passwd"/]
+  n4[/"/tmp/rl-home/.aws/credentials"/]
+  n5[/"/tmp/rl-home/.bash_history"/]
+  n6[/"/tmp/rl-home/.config/systemd/user/rootline-lab.service"/]
+  n7[/"/tmp/rl-home/lab/cron.d/rootline-lab"/]
+  n8[/"/tmp/rootline-lab-stage.sh"/]
+  n9[/"/usr/bin/cat"/]
+  n10[/"/usr/bin/curl"/]
+  n11[/"/usr/bin/mkdir"/]
+  n12[/"/usr/bin/rm"/]
+  n13[/"lab"/]
+  n14[/"systemd"/]
+  n15(["rootline-lab-st[2901]"])
+  n16(["curl[2902]"])
+  n17(["rootline-lab-st[2905]"])
+  n18(["cat[2905]"])
+  n19(["rootline-lab-st[2906]"])
+  n20(["mkdir[2906]"])
+  n21(["rootline-lab-st[2907]"])
+  n22(["rm[2907]"])
+  n23(["rootline-lab-st[2908]"])
+  n24(["curl[2908]"])
+  n25{{"198.51.100.7:4444"}}
+  n26{{"198.51.100.7:8081"}}
+  n27{{"[::1]:4445"}}
+  n10 -->|executed| n16
+  n16 -->|connected| n26
+  n26 -->|received| n16
+  n16 -->|wrote| n8
+  n8 -->|executed| n15
+  n8 -->|read| n15
+  n15 -->|forked| n17
+  n17 -->|wrote| n1
+  n17 -->|forked| n18
+  n9 -->|executed| n18
+  n4 -->|read| n18
+  n18 -->|wrote| n1
+  n15 -->|forked| n19
+  n19 -->|forked| n20
+  n11 -->|executed| n20
+  n0 -->|read| n20
+  n14 -->|read| n20
+  n13 -->|read| n20
+  n15 -->|wrote| n6
+  n15 -->|wrote| n7
+  n15 -->|forked| n21
+  n21 -->|forked| n22
+  n12 -->|executed| n22
+  n22 -->|deleted| n5
+  n15 -->|connected| n25
+  n25 -->|received| n15
+  n15 -->|forked| n23
+  n23 -->|forked| n24
+  n10 -->|executed| n24
+  n2 -->|read| n24
+  n3 -->|read| n24
+  n24 -->|connected| n27
+  n27 -->|received| n24
+  n24 -->|wrote| n1
+  style n8 stroke:#d33,stroke-width:3px
+  style n26 stroke:#d33,stroke-width:3px
+  style n15 fill:#fdd
