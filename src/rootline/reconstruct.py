@@ -30,6 +30,20 @@ SYSTEM_PATHS = re.compile(r"^/(usr|bin|sbin|lib|etc|opt|proc|sys)/|^/dev/(null|z
                           r"^c:/(windows|program files|programdata)/", re.I)
 APP_STATE = re.compile(r"/(\.mozilla|\.config|\.cache)/|/appdata/(roaming|locallow)/|/appdata/local/(?!temp/)", re.I)
 
+NON_IOC_PATHS = re.compile(r"^/(dev|proc|sys|run)/")
+
+
+def is_local_ip(ip: str) -> bool:
+    """Loopback, unspecified or link-local (IPv4, IPv6 and IPv4-mapped IPv6): never an external IOC."""
+    try:
+        a = ipaddress.ip_address(ip)
+    except ValueError:
+        return False
+    if isinstance(a, ipaddress.IPv6Address) and a.ipv4_mapped is not None:
+        a = a.ipv4_mapped
+    return a.is_loopback or a.is_unspecified or a.is_link_local
+
+
 STAGE_ORDER = ["initial-access", "delivery", "execution", "persistence", "privilege-escalation",
                "defense-evasion", "credential-access", "discovery", "lateral-movement", "collection",
                "command-and-control", "exfiltration", "impact"]
@@ -92,9 +106,10 @@ def score_entry(g: ProvenanceGraph, nid: str) -> float:
     if n.type is NodeType.SOCKET:
         ip = n.attrs.get("ip", "")
         try:
-            return 0.0 if ipaddress.ip_address(ip).is_loopback else 2.0
+            ipaddress.ip_address(ip)
         except ValueError:
             return 1.0
+        return 0.0 if is_local_ip(ip) else 2.0
     if n.type is NodeType.FILE:
         path = n.attrs.get("path", "")
         s = 0.0
@@ -210,13 +225,18 @@ def reconstruct(g: ProvenanceGraph, alert: Alert, alerts: list[Alert] | None = N
                          "text": _describe(g, e), "stage": stage,
                          "alerts": [a.rule_id for a in by_seq.get(e.seq, [])]})
 
-    iocs: dict[str, list[str]] = {"ipv4": [], "files": [], "sha256": []}
+    # "ip" holds every external address; "ipv4"/"ipv6" split it by family (schema v1 kept "ipv4")
+    iocs: dict[str, list[str]] = {"ip": [], "ipv4": [], "ipv6": [], "files": [], "sha256": []}
     for nid in sorted(nodes):
         n = g.nodes[nid]
-        if n.type is NodeType.SOCKET and not n.attrs.get("ip", "").startswith("127."):
+        if n.type is NodeType.SOCKET and not is_local_ip(n.attrs.get("ip", "")):
             if nid in fwd or nid in rc or any(e.dst == nid for e in edges if e.src in fwd):
-                iocs["ipv4"].append(n.attrs["ip"])
+                ip = n.attrs["ip"]
+                iocs["ip"].append(ip)
+                iocs["ipv6" if ":" in ip else "ipv4"].append(ip)
         elif n.type is NodeType.FILE:
+            if NON_IOC_PATHS.search(n.label):  # pseudo-files (/dev/null, /proc/...) are sinks, not indicators
+                continue
             wrote_by_attack = any(e.rel in (Relation.WROTE, Relation.DELETED) and e.src in fwd
                                   for e in g.in_edges.get(nid, []))
             if nid in rc or wrote_by_attack or (nid in back and ENTRY_EXT.search(n.label)):

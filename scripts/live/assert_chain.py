@@ -77,7 +77,7 @@ def check_chain(lines: list[str]) -> dict:
         "credential_read": any(lab.endswith(CREDS) for lab in labels),
         "persistence_write": any(lab.endswith(UNIT) for lab in labels),
         "listener_connect": "127.0.0.1:4444" in labels,
-        "ipv6_connect": "::1:4445" in labels,
+        "ipv6_connect": "[::1]:4445" in labels,
     }
     res["story"] = {**want, "vertices": len(r.nodes), "root_causes": [g.nodes[n].label for n in r.root_causes],
                     "labels": sorted(labels)}

@@ -74,7 +74,8 @@ class ProvenanceGraph:
         nid = f"sock:{ip}:{port}"
         if nid not in self.nodes:
             self._socks_by_ip[ip].append(nid)
-        self._node(nid, NodeType.SOCKET, f"{ip}:{port}", ts, ip=ip, port=port)
+        label = f"[{ip}]:{port}" if ":" in str(ip) else f"{ip}:{port}"
+        self._node(nid, NodeType.SOCKET, label, ts, ip=ip, port=port)
         if ip in self.dns:
             self.nodes[nid].attrs["domains"] = sorted(self.dns[ip])
         return nid
