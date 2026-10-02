@@ -1,6 +1,630 @@
 {
  "atlas": [
   {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "method": "ioc-grep",
+   "events": 68307,
+   "gt_events": 2942,
+   "story_nodes": 6,
+   "story_events": 202,
+   "precision": 1.0,
+   "recall": 0.0687,
+   "f1": 0.1285,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "method": "naive-bfs",
+   "events": 68307,
+   "gt_events": 2942,
+   "story_nodes": 5685,
+   "story_events": 52982,
+   "precision": 0.0555,
+   "recall": 1.0,
+   "f1": 0.1052,
+   "entity_recall": 1.0,
+   "seconds": 0.053
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "method": "rootline-noreduce",
+   "events": 68307,
+   "gt_events": 2942,
+   "story_nodes": 1719,
+   "story_events": 9172,
+   "precision": 0.3208,
+   "recall": 1.0,
+   "f1": 0.4857,
+   "entity_recall": 1.0,
+   "seconds": 1.196
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "method": "rootline",
+   "events": 68307,
+   "gt_events": 2942,
+   "story_nodes": 1719,
+   "story_events": 9172,
+   "precision": 0.3208,
+   "recall": 1.0,
+   "f1": 0.4857,
+   "entity_recall": 1.0,
+   "seconds": 0.892
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "method": "ioc-grep",
+   "events": 76490,
+   "gt_events": 3039,
+   "story_nodes": 2,
+   "story_events": 116,
+   "precision": 1.0,
+   "recall": 0.0382,
+   "f1": 0.0735,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "method": "naive-bfs",
+   "events": 76490,
+   "gt_events": 3039,
+   "story_nodes": 3641,
+   "story_events": 50288,
+   "precision": 0.0604,
+   "recall": 0.999,
+   "f1": 0.1139,
+   "entity_recall": 1.0,
+   "seconds": 0.009
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "method": "rootline-noreduce",
+   "events": 76490,
+   "gt_events": 3039,
+   "story_nodes": 12,
+   "story_events": 190,
+   "precision": 1.0,
+   "recall": 0.0625,
+   "f1": 0.1177,
+   "entity_recall": 1.0,
+   "seconds": 0.179
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "method": "rootline",
+   "events": 76490,
+   "gt_events": 3039,
+   "story_nodes": 12,
+   "story_events": 190,
+   "precision": 1.0,
+   "recall": 0.0625,
+   "f1": 0.1177,
+   "entity_recall": 1.0,
+   "seconds": 0.195
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "method": "ioc-grep",
+   "events": 81766,
+   "gt_events": 11514,
+   "story_nodes": 6,
+   "story_events": 378,
+   "precision": 1.0,
+   "recall": 0.0328,
+   "f1": 0.0636,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "method": "naive-bfs",
+   "events": 81766,
+   "gt_events": 11514,
+   "story_nodes": 9119,
+   "story_events": 68894,
+   "precision": 0.1671,
+   "recall": 1.0,
+   "f1": 0.2864,
+   "entity_recall": 1.0,
+   "seconds": 0.023
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "method": "rootline-noreduce",
+   "events": 81766,
+   "gt_events": 11514,
+   "story_nodes": 5720,
+   "story_events": 22226,
+   "precision": 0.518,
+   "recall": 0.9999,
+   "f1": 0.6825,
+   "entity_recall": 1.0,
+   "seconds": 0.686
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "method": "rootline",
+   "events": 81766,
+   "gt_events": 11514,
+   "story_nodes": 5720,
+   "story_events": 22226,
+   "precision": 0.518,
+   "recall": 0.9999,
+   "f1": 0.6825,
+   "entity_recall": 1.0,
+   "seconds": 0.766
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "method": "ioc-grep",
+   "events": 81624,
+   "gt_events": 11152,
+   "story_nodes": 2,
+   "story_events": 230,
+   "precision": 1.0,
+   "recall": 0.0206,
+   "f1": 0.0404,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "method": "naive-bfs",
+   "events": 81624,
+   "gt_events": 11152,
+   "story_nodes": 6988,
+   "story_events": 43864,
+   "precision": 0.2525,
+   "recall": 0.9931,
+   "f1": 0.4026,
+   "entity_recall": 1.0,
+   "seconds": 0.018
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "method": "rootline-noreduce",
+   "events": 81624,
+   "gt_events": 11152,
+   "story_nodes": 14,
+   "story_events": 275,
+   "precision": 1.0,
+   "recall": 0.0247,
+   "f1": 0.0481,
+   "entity_recall": 1.0,
+   "seconds": 0.097
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "method": "rootline",
+   "events": 81624,
+   "gt_events": 11152,
+   "story_nodes": 14,
+   "story_events": 275,
+   "precision": 1.0,
+   "recall": 0.0247,
+   "f1": 0.0481,
+   "entity_recall": 1.0,
+   "seconds": 0.387
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "method": "ioc-grep",
+   "events": 76081,
+   "gt_events": 11700,
+   "story_nodes": 6,
+   "story_events": 301,
+   "precision": 1.0,
+   "recall": 0.0257,
+   "f1": 0.0502,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "method": "naive-bfs",
+   "events": 76081,
+   "gt_events": 11700,
+   "story_nodes": 8439,
+   "story_events": 47881,
+   "precision": 0.2443,
+   "recall": 0.9999,
+   "f1": 0.3927,
+   "entity_recall": 1.0,
+   "seconds": 0.016
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "method": "rootline-noreduce",
+   "events": 76081,
+   "gt_events": 11700,
+   "story_nodes": 6092,
+   "story_events": 18809,
+   "precision": 0.6219,
+   "recall": 0.9998,
+   "f1": 0.7669,
+   "entity_recall": 1.0,
+   "seconds": 0.548
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "method": "rootline",
+   "events": 76081,
+   "gt_events": 11700,
+   "story_nodes": 6092,
+   "story_events": 18809,
+   "precision": 0.6219,
+   "recall": 0.9998,
+   "f1": 0.7669,
+   "entity_recall": 1.0,
+   "seconds": 0.486
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "method": "ioc-grep",
+   "events": 89799,
+   "gt_events": 11146,
+   "story_nodes": 2,
+   "story_events": 230,
+   "precision": 1.0,
+   "recall": 0.0206,
+   "f1": 0.0404,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "method": "naive-bfs",
+   "events": 89799,
+   "gt_events": 11146,
+   "story_nodes": 6352,
+   "story_events": 39709,
+   "precision": 0.2789,
+   "recall": 0.9937,
+   "f1": 0.4356,
+   "entity_recall": 1.0,
+   "seconds": 0.01
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "method": "rootline-noreduce",
+   "events": 89799,
+   "gt_events": 11146,
+   "story_nodes": 17,
+   "story_events": 282,
+   "precision": 1.0,
+   "recall": 0.0253,
+   "f1": 0.0494,
+   "entity_recall": 1.0,
+   "seconds": 0.075
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "method": "rootline",
+   "events": 89799,
+   "gt_events": 11146,
+   "story_nodes": 17,
+   "story_events": 282,
+   "precision": 1.0,
+   "recall": 0.0253,
+   "f1": 0.0494,
+   "entity_recall": 1.0,
+   "seconds": 0.239
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "method": "ioc-grep",
+   "events": 77635,
+   "gt_events": 2984,
+   "story_nodes": 7,
+   "story_events": 120,
+   "precision": 1.0,
+   "recall": 0.0402,
+   "f1": 0.0773,
+   "entity_recall": 0.6,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "method": "naive-bfs",
+   "events": 77635,
+   "gt_events": 2984,
+   "story_nodes": 5732,
+   "story_events": 59964,
+   "precision": 0.0497,
+   "recall": 0.9993,
+   "f1": 0.0947,
+   "entity_recall": 0.8,
+   "seconds": 0.022
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "method": "rootline-noreduce",
+   "events": 77635,
+   "gt_events": 2984,
+   "story_nodes": 2453,
+   "story_events": 20170,
+   "precision": 0.1475,
+   "recall": 0.997,
+   "f1": 0.257,
+   "entity_recall": 0.8,
+   "seconds": 0.893
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "method": "rootline",
+   "events": 77635,
+   "gt_events": 2984,
+   "story_nodes": 2453,
+   "story_events": 20170,
+   "precision": 0.1475,
+   "recall": 0.997,
+   "f1": 0.257,
+   "entity_recall": 0.8,
+   "seconds": 0.557
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "method": "ioc-grep",
+   "events": 67792,
+   "gt_events": 3026,
+   "story_nodes": 3,
+   "story_events": 116,
+   "precision": 1.0,
+   "recall": 0.0383,
+   "f1": 0.0738,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "method": "naive-bfs",
+   "events": 67792,
+   "gt_events": 3026,
+   "story_nodes": 3088,
+   "story_events": 36589,
+   "precision": 0.0826,
+   "recall": 0.9993,
+   "f1": 0.1527,
+   "entity_recall": 1.0,
+   "seconds": 0.009
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "method": "rootline-noreduce",
+   "events": 67792,
+   "gt_events": 3026,
+   "story_nodes": 13,
+   "story_events": 191,
+   "precision": 1.0,
+   "recall": 0.0631,
+   "f1": 0.1187,
+   "entity_recall": 1.0,
+   "seconds": 0.101
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "method": "rootline",
+   "events": 67792,
+   "gt_events": 3026,
+   "story_nodes": 13,
+   "story_events": 191,
+   "precision": 1.0,
+   "recall": 0.0631,
+   "f1": 0.1187,
+   "entity_recall": 1.0,
+   "seconds": 0.237
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "method": "ioc-grep",
+   "events": 214035,
+   "gt_events": 11146,
+   "story_nodes": 9,
+   "story_events": 235,
+   "precision": 1.0,
+   "recall": 0.0211,
+   "f1": 0.0413,
+   "entity_recall": 0.75,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "method": "naive-bfs",
+   "events": 214035,
+   "gt_events": 11146,
+   "story_nodes": 10705,
+   "story_events": 102350,
+   "precision": 0.1089,
+   "recall": 0.9999,
+   "f1": 0.1964,
+   "entity_recall": 1.0,
+   "seconds": 0.029
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "method": "rootline-noreduce",
+   "events": 214035,
+   "gt_events": 11146,
+   "story_nodes": 5700,
+   "story_events": 33161,
+   "precision": 0.3357,
+   "recall": 0.9987,
+   "f1": 0.5024,
+   "entity_recall": 1.0,
+   "seconds": 0.614
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "method": "rootline",
+   "events": 214035,
+   "gt_events": 11146,
+   "story_nodes": 5700,
+   "story_events": 33161,
+   "precision": 0.3357,
+   "recall": 0.9987,
+   "f1": 0.5024,
+   "entity_recall": 1.0,
+   "seconds": 0.695
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "method": "ioc-grep",
+   "events": 75423,
+   "gt_events": 11125,
+   "story_nodes": 2,
+   "story_events": 230,
+   "precision": 1.0,
+   "recall": 0.0207,
+   "f1": 0.0405,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "method": "naive-bfs",
+   "events": 75423,
+   "gt_events": 11125,
+   "story_nodes": 6151,
+   "story_events": 25074,
+   "precision": 0.4403,
+   "recall": 0.9924,
+   "f1": 0.61,
+   "entity_recall": 1.0,
+   "seconds": 0.011
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "method": "rootline-noreduce",
+   "events": 75423,
+   "gt_events": 11125,
+   "story_nodes": 12,
+   "story_events": 272,
+   "precision": 1.0,
+   "recall": 0.0244,
+   "f1": 0.0477,
+   "entity_recall": 1.0,
+   "seconds": 0.094
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "method": "rootline",
+   "events": 75423,
+   "gt_events": 11125,
+   "story_nodes": 12,
+   "story_events": 272,
+   "precision": 1.0,
+   "recall": 0.0244,
+   "f1": 0.0477,
+   "entity_recall": 1.0,
+   "seconds": 0.3
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "method": "ioc-grep",
+   "events": 84581,
+   "gt_events": 4097,
+   "story_nodes": 10,
+   "story_events": 139,
+   "precision": 0.9928,
+   "recall": 0.0337,
+   "f1": 0.0652,
+   "entity_recall": 0.8,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "method": "naive-bfs",
+   "events": 84581,
+   "gt_events": 4097,
+   "story_nodes": 5941,
+   "story_events": 63999,
+   "precision": 0.0639,
+   "recall": 0.9976,
+   "f1": 0.12,
+   "entity_recall": 1.0,
+   "seconds": 0.023
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "method": "rootline-noreduce",
+   "events": 84581,
+   "gt_events": 4097,
+   "story_nodes": 2705,
+   "story_events": 25332,
+   "precision": 0.1609,
+   "recall": 0.9949,
+   "f1": 0.277,
+   "entity_recall": 1.0,
+   "seconds": 0.977
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "method": "rootline",
+   "events": 84581,
+   "gt_events": 4097,
+   "story_nodes": 2705,
+   "story_events": 25332,
+   "precision": 0.1609,
+   "recall": 0.9949,
+   "f1": 0.277,
+   "entity_recall": 1.0,
+   "seconds": 0.647
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "method": "ioc-grep",
+   "events": 89866,
+   "gt_events": 3048,
+   "story_nodes": 5,
+   "story_events": 138,
+   "precision": 1.0,
+   "recall": 0.0453,
+   "f1": 0.0866,
+   "entity_recall": 1.0,
+   "seconds": 0.0
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "method": "naive-bfs",
+   "events": 89866,
+   "gt_events": 3048,
+   "story_nodes": 3859,
+   "story_events": 61536,
+   "precision": 0.0495,
+   "recall": 0.9993,
+   "f1": 0.0943,
+   "entity_recall": 1.0,
+   "seconds": 0.012
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "method": "rootline-noreduce",
+   "events": 89866,
+   "gt_events": 3048,
+   "story_nodes": 1329,
+   "story_events": 3039,
+   "precision": 0.972,
+   "recall": 0.9692,
+   "f1": 0.9706,
+   "entity_recall": 1.0,
+   "seconds": 0.086
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "method": "rootline",
+   "events": 89866,
+   "gt_events": 3048,
+   "story_nodes": 1329,
+   "story_events": 3039,
+   "precision": 0.972,
+   "recall": 0.9692,
+   "f1": 0.9706,
+   "entity_recall": 1.0,
+   "seconds": 0.225
+  },
+  {
    "scenario": "S1-CVE-2015-5122_windows",
    "method": "ioc-grep",
    "events": 53538,
@@ -24,7 +648,7 @@
    "recall": 0.9994,
    "f1": 0.1545,
    "entity_recall": 1.0,
-   "seconds": 0.008
+   "seconds": 0.016
   },
   {
    "scenario": "S1-CVE-2015-5122_windows",
@@ -37,7 +661,7 @@
    "recall": 0.9997,
    "f1": 0.5481,
    "entity_recall": 1.0,
-   "seconds": 0.101
+   "seconds": 0.159
   },
   {
    "scenario": "S1-CVE-2015-5122_windows",
@@ -50,7 +674,7 @@
    "recall": 0.9997,
    "f1": 0.5481,
    "entity_recall": 1.0,
-   "seconds": 0.125
+   "seconds": 0.19
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -76,7 +700,7 @@
    "recall": 1.0,
    "f1": 0.3921,
    "entity_recall": 1.0,
-   "seconds": 0.198
+   "seconds": 0.02
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -89,7 +713,7 @@
    "recall": 0.9999,
    "f1": 0.6686,
    "entity_recall": 1.0,
-   "seconds": 2.939
+   "seconds": 0.396
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -102,7 +726,7 @@
    "recall": 0.9999,
    "f1": 0.6686,
    "entity_recall": 1.0,
-   "seconds": 3.729
+   "seconds": 0.43
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -128,7 +752,7 @@
    "recall": 0.9986,
    "f1": 0.1461,
    "entity_recall": 1.0,
-   "seconds": 0.08
+   "seconds": 0.016
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -141,7 +765,7 @@
    "recall": 0.9957,
    "f1": 0.2771,
    "entity_recall": 1.0,
-   "seconds": 7.178
+   "seconds": 0.304
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -154,7 +778,7 @@
    "recall": 0.9957,
    "f1": 0.2771,
    "entity_recall": 1.0,
-   "seconds": 2.154
+   "seconds": 0.417
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -180,7 +804,7 @@
    "recall": 1.0,
    "f1": 0.3814,
    "entity_recall": 1.0,
-   "seconds": 0.232
+   "seconds": 0.018
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -193,7 +817,7 @@
    "recall": 0.9988,
    "f1": 0.742,
    "entity_recall": 1.0,
-   "seconds": 2.167
+   "seconds": 0.447
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -206,10 +830,154 @@
    "recall": 0.9988,
    "f1": 0.742,
    "entity_recall": 1.0,
-   "seconds": 1.822
+   "seconds": 0.362
   }
  ],
  "reduction": [
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "edges_before": 69286,
+   "edges_after": 16364,
+   "nodes_before": 6489,
+   "nodes_after": 6489,
+   "edge_ratio": 4.23,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 1316,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.418
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "edges_before": 75711,
+   "edges_after": 13206,
+   "nodes_before": 5085,
+   "nodes_after": 5085,
+   "edge_ratio": 5.73,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 1367,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.171
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "edges_before": 82949,
+   "edges_after": 19085,
+   "nodes_before": 9758,
+   "nodes_after": 9758,
+   "edge_ratio": 4.35,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 5359,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.296
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "edges_before": 80890,
+   "edges_after": 15658,
+   "nodes_before": 8324,
+   "nodes_after": 8324,
+   "edge_ratio": 5.17,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 5209,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.202
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "edges_before": 76755,
+   "edges_after": 19327,
+   "nodes_before": 9913,
+   "nodes_after": 9913,
+   "edge_ratio": 3.97,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 5454,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.284
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "edges_before": 89972,
+   "edges_after": 17621,
+   "nodes_before": 9523,
+   "nodes_after": 9523,
+   "edge_ratio": 5.11,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 5209,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.168
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "edges_before": 77819,
+   "edges_after": 18006,
+   "nodes_before": 6965,
+   "nodes_after": 6965,
+   "edge_ratio": 4.32,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 1359,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.202
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "edges_before": 67931,
+   "edges_after": 11842,
+   "nodes_before": 4841,
+   "nodes_after": 4841,
+   "edge_ratio": 5.74,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 1366,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.313
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "edges_before": 215333,
+   "edges_after": 45016,
+   "nodes_before": 21867,
+   "nodes_after": 21867,
+   "edge_ratio": 4.78,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 5228,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.583
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "edges_before": 75196,
+   "edges_after": 15265,
+   "nodes_before": 8321,
+   "nodes_after": 8321,
+   "edge_ratio": 4.93,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 5207,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.181
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "edges_before": 84694,
+   "edges_after": 19141,
+   "nodes_before": 7291,
+   "nodes_after": 7291,
+   "edge_ratio": 4.42,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 1670,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.259
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "edges_before": 89398,
+   "edges_after": 15381,
+   "nodes_before": 6270,
+   "nodes_after": 6270,
+   "edge_ratio": 5.81,
+   "node_ratio": 1.0,
+   "attack_edge_keys": 1365,
+   "attack_edges_preserved": 1.0,
+   "seconds": 0.172
+  },
   {
    "scenario": "S1-CVE-2015-5122_windows",
    "edges_before": 54589,
@@ -220,7 +988,7 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 1492,
    "attack_edges_preserved": 1.0,
-   "seconds": 0.993
+   "seconds": 0.107
   },
   {
    "scenario": "S2-CVE-2015-3105_windows",
@@ -232,7 +1000,7 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 2998,
    "attack_edges_preserved": 1.0,
-   "seconds": 1.281
+   "seconds": 0.144
   },
   {
    "scenario": "S3-CVE-2017-11882_windows",
@@ -244,7 +1012,7 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 1557,
    "attack_edges_preserved": 1.0,
-   "seconds": 0.972
+   "seconds": 0.135
   },
   {
    "scenario": "S4-CVE-2017-0199_windows_py",
@@ -256,10 +1024,490 @@
    "node_ratio": 1.0,
    "attack_edge_keys": 5376,
    "attack_edges_preserved": 1.0,
-   "seconds": 2.33
+   "seconds": 0.175
   }
  ],
  "anomaly": [
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "method": "iforest",
+   "processes": 367,
+   "malicious": 2,
+   "first_hit_rank": 2.0,
+   "hits@10": 1.3,
+   "recall@10": 0.65,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    2.0,
+    2.0
+   ],
+   "hits@10_ci95": [
+    0.954,
+    1.646
+   ],
+   "recall@10_ci95": [
+    0.477,
+    0.823
+   ]
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "method": "degree",
+   "processes": 367,
+   "malicious": 2,
+   "first_hit_rank": 7,
+   "hits@10": 1,
+   "recall@10": 0.5
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h1",
+   "method": "random (expected)",
+   "processes": 367,
+   "malicious": 2,
+   "first_hit_rank": 122.7,
+   "hits@10": 0.054,
+   "recall@10": 0.027
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "method": "iforest",
+   "processes": 402,
+   "malicious": 3,
+   "first_hit_rank": 1.7,
+   "hits@10": 2.8,
+   "recall@10": 0.933,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.354,
+    2.046
+   ],
+   "hits@10_ci95": [
+    2.498,
+    3.0
+   ],
+   "recall@10_ci95": [
+    0.833,
+    1.0
+   ]
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "method": "degree",
+   "processes": 402,
+   "malicious": 3,
+   "first_hit_rank": 8,
+   "hits@10": 1,
+   "recall@10": 0.333
+  },
+  {
+   "scenario": "M1-CVE-2015-5122_windows_h2",
+   "method": "random (expected)",
+   "processes": 402,
+   "malicious": 3,
+   "first_hit_rank": 100.8,
+   "hits@10": 0.075,
+   "recall@10": 0.025
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "method": "iforest",
+   "processes": 287,
+   "malicious": 4,
+   "first_hit_rank": 2.0,
+   "hits@10": 4.0,
+   "recall@10": 1.0,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    2.0,
+    2.0
+   ],
+   "hits@10_ci95": [
+    4.0,
+    4.0
+   ],
+   "recall@10_ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "method": "degree",
+   "processes": 287,
+   "malicious": 4,
+   "first_hit_rank": 1,
+   "hits@10": 1,
+   "recall@10": 0.25
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h1",
+   "method": "random (expected)",
+   "processes": 287,
+   "malicious": 4,
+   "first_hit_rank": 57.6,
+   "hits@10": 0.139,
+   "recall@10": 0.035
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "method": "iforest",
+   "processes": 336,
+   "malicious": 5,
+   "first_hit_rank": 1.9,
+   "hits@10": 3.9,
+   "recall@10": 0.78,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.674,
+    2.126
+   ],
+   "hits@10_ci95": [
+    3.674,
+    4.126
+   ],
+   "recall@10_ci95": [
+    0.735,
+    0.825
+   ]
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "method": "degree",
+   "processes": 336,
+   "malicious": 5,
+   "first_hit_rank": 1,
+   "hits@10": 1,
+   "recall@10": 0.2
+  },
+  {
+   "scenario": "M2-CVE-2015-5119_windows_py_h2",
+   "method": "random (expected)",
+   "processes": 336,
+   "malicious": 5,
+   "first_hit_rank": 56.2,
+   "hits@10": 0.149,
+   "recall@10": 0.03
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "method": "iforest",
+   "processes": 371,
+   "malicious": 3,
+   "first_hit_rank": 1.5,
+   "hits@10": 2.2,
+   "recall@10": 0.734,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.123,
+    1.877
+   ],
+   "hits@10_ci95": [
+    1.898,
+    2.502
+   ],
+   "recall@10_ci95": [
+    0.633,
+    0.834
+   ]
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "method": "degree",
+   "processes": 371,
+   "malicious": 3,
+   "first_hit_rank": 1,
+   "hits@10": 1,
+   "recall@10": 0.333
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h1",
+   "method": "random (expected)",
+   "processes": 371,
+   "malicious": 3,
+   "first_hit_rank": 93.0,
+   "hits@10": 0.081,
+   "recall@10": 0.027
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "method": "iforest",
+   "processes": 397,
+   "malicious": 4,
+   "first_hit_rank": 1.9,
+   "hits@10": 3.6,
+   "recall@10": 0.9,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.674,
+    2.126
+   ],
+   "hits@10_ci95": [
+    3.1,
+    4.0
+   ],
+   "recall@10_ci95": [
+    0.775,
+    1.0
+   ]
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "method": "degree",
+   "processes": 397,
+   "malicious": 4,
+   "first_hit_rank": 1,
+   "hits@10": 1,
+   "recall@10": 0.25
+  },
+  {
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "method": "random (expected)",
+   "processes": 397,
+   "malicious": 4,
+   "first_hit_rank": 79.6,
+   "hits@10": 0.101,
+   "recall@10": 0.025
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "method": "iforest",
+   "processes": 388,
+   "malicious": 2,
+   "first_hit_rank": 1.9,
+   "hits@10": 1.9,
+   "recall@10": 0.95,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.674,
+    2.126
+   ],
+   "hits@10_ci95": [
+    1.674,
+    2.0
+   ],
+   "recall@10_ci95": [
+    0.837,
+    1.0
+   ]
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "method": "degree",
+   "processes": 388,
+   "malicious": 2,
+   "first_hit_rank": 9,
+   "hits@10": 1,
+   "recall@10": 0.5
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h1",
+   "method": "random (expected)",
+   "processes": 388,
+   "malicious": 2,
+   "first_hit_rank": 129.7,
+   "hits@10": 0.052,
+   "recall@10": 0.026
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "method": "iforest",
+   "processes": 344,
+   "malicious": 3,
+   "first_hit_rank": 1.9,
+   "hits@10": 3.0,
+   "recall@10": 1.0,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.674,
+    2.126
+   ],
+   "hits@10_ci95": [
+    3.0,
+    3.0
+   ],
+   "recall@10_ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "method": "degree",
+   "processes": 344,
+   "malicious": 3,
+   "first_hit_rank": 8,
+   "hits@10": 1,
+   "recall@10": 0.333
+  },
+  {
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "method": "random (expected)",
+   "processes": 344,
+   "malicious": 3,
+   "first_hit_rank": 86.2,
+   "hits@10": 0.087,
+   "recall@10": 0.029
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "method": "iforest",
+   "processes": 837,
+   "malicious": 3,
+   "first_hit_rank": 1.7,
+   "hits@10": 1.0,
+   "recall@10": 0.333,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.354,
+    2.046
+   ],
+   "hits@10_ci95": [
+    1.0,
+    1.0
+   ],
+   "recall@10_ci95": [
+    0.333,
+    0.333
+   ]
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "method": "degree",
+   "processes": 837,
+   "malicious": 3,
+   "first_hit_rank": 6,
+   "hits@10": 1,
+   "recall@10": 0.333
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h1",
+   "method": "random (expected)",
+   "processes": 837,
+   "malicious": 3,
+   "first_hit_rank": 209.5,
+   "hits@10": 0.036,
+   "recall@10": 0.012
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "method": "iforest",
+   "processes": 333,
+   "malicious": 4,
+   "first_hit_rank": 2.0,
+   "hits@10": 4.0,
+   "recall@10": 1.0,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    2.0,
+    2.0
+   ],
+   "hits@10_ci95": [
+    4.0,
+    4.0
+   ],
+   "recall@10_ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "method": "degree",
+   "processes": 333,
+   "malicious": 4,
+   "first_hit_rank": 1,
+   "hits@10": 1,
+   "recall@10": 0.25
+  },
+  {
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "method": "random (expected)",
+   "processes": 333,
+   "malicious": 4,
+   "first_hit_rank": 66.8,
+   "hits@10": 0.12,
+   "recall@10": 0.03
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "method": "iforest",
+   "processes": 427,
+   "malicious": 7,
+   "first_hit_rank": 2.3,
+   "hits@10": 3.7,
+   "recall@10": 0.528,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.954,
+    2.646
+   ],
+   "hits@10_ci95": [
+    3.354,
+    4.046
+   ],
+   "recall@10_ci95": [
+    0.479,
+    0.577
+   ]
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "method": "degree",
+   "processes": 427,
+   "malicious": 7,
+   "first_hit_rank": 9,
+   "hits@10": 1,
+   "recall@10": 0.143
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "method": "random (expected)",
+   "processes": 427,
+   "malicious": 7,
+   "first_hit_rank": 53.5,
+   "hits@10": 0.164,
+   "recall@10": 0.023
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "method": "iforest",
+   "processes": 453,
+   "malicious": 2,
+   "first_hit_rank": 1.6,
+   "hits@10": 1.0,
+   "recall@10": 0.5,
+   "seeds": 10,
+   "first_hit_rank_ci95": [
+    1.231,
+    1.969
+   ],
+   "hits@10_ci95": [
+    1.0,
+    1.0
+   ],
+   "recall@10_ci95": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "method": "degree",
+   "processes": 453,
+   "malicious": 2,
+   "first_hit_rank": 9,
+   "hits@10": 1,
+   "recall@10": 0.5
+  },
+  {
+   "scenario": "M6-CVE-2017-11882_windows_h2",
+   "method": "random (expected)",
+   "processes": 453,
+   "malicious": 2,
+   "first_hit_rank": 151.3,
+   "hits@10": 0.044,
+   "recall@10": 0.022
+  },
   {
    "scenario": "S1-CVE-2015-5122_windows",
    "method": "iforest",
@@ -421,5 +1669,6 @@
    "recall@10": 0.031
   }
  ],
- "wall_seconds": 542.1
+ "skipped": [],
+ "wall_seconds": 327.8
 }
