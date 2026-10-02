@@ -1,0 +1,4 @@
+graft tests
+prune tests/__pycache__
+global-exclude *.py[cod]
+include LICENSE CHANGELOG.md README.md
