@@ -1,43 +1,52 @@
 #!/usr/bin/env bpftrace
 /*
- * ROOTLINE reference probe (v1.1). Exercised LIVE in CI: the `live-ebpf` job
- * in .github/workflows/ci.yml runs it with sudo on an Ubuntu runner while a
- * scripted, benign activity chain runs, then reconstructs the chain.
+ * ROOTLINE reference probe (v1.2). Exercised LIVE in CI: the `live-ebpf` job in
+ * .github/workflows/ci.yml runs it with sudo on an Ubuntu runner while a scripted,
+ * benign activity chain runs, then reconstructs the chain.
  *
- * Emits key=value lines that rootline.normalize.parse_bpftrace_line reads:
+ * Run it with JSON output and its own PID as the first argument, so it never
+ * traces itself:
  *
- *   sudo bpftrace probes/rootline.bt > capture.log
- *   rootline analyze capture.log
+ *   sudo sh -c 'exec bpftrace -f json probes/rootline.bt $$' > capture.jsonl
+ *   rootline analyze capture.jsonl
+ *
+ * With -f json every record is a JSON string ({"type":"printf","data":...}), so a
+ * file name or process name containing a newline cannot fake a second record.
+ * Inside a record the layout is fixed: numeric fields first, then at most one
+ * free-text path=, then comm= (<= 15 bytes) last. rootline.normalize parses it
+ * with an anchored regex, so a crafted name cannot change the kind or the pids.
  *
  * Observe-only: attaches to tracepoints/kprobes, never modifies syscalls.
  * Run ONLY on a host you own. Needs kernel BTF (struct sock / task_struct).
  *
- * v1.1 fixes over the v1.0 reference:
- *   - self-PID filtering: nothing emitted by or about the bpftrace process
- *     itself (its stdout writes would otherwise feed back into the trace);
- *   - exit reported only for the thread-group leader, so a worker thread
- *     exiting no longer ends its whole process vertex;
- *   - execve reported at sys_exit only when it succeeded, with the NEW comm;
- *   - openat reported at sys_exit only when it succeeded, and the returned fd
- *     is remembered so the first write() to it is reported with its PATH
- *     (fd -> path resolution); close() forgets the fd;
- *   - IPv6 connect (AF_INET6 = 10) as well as IPv4 (AF_INET = 2).
- *   - timestamps are emitted as tsns= (nanoseconds, unambiguous);
- *   - dup2/dup3 carry the path to the new fd (shell `> file` redirections).
- * Known gaps: dup()/fcntl(F_DUPFD)-duplicated fds and fds inherited across fork
- * are not resolved; argv is not captured; paths are truncated at the default 64-byte
- * string limit (raising it overflows the 512-byte BPF stack in the exit probes).
+ * v1.2 over v1.1:
+ *   - self filtering by PID ($1 = bpftrace's own PID), not by process name: a
+ *     process that renames itself "bpftrace" is still traced;
+ *   - process creation from kprobe:wake_up_new_task, reported only for new thread
+ *     groups (threads are not processes) and with the parent's TGID as pid=;
+ *   - fd -> path maps are keyed by (tgid, process start time, fd), so a recycled
+ *     PID never inherits a dead process's fd paths.
+ * Kept from v1.1: execve/openat reported at sys_exit only on success, the first
+ * write() per opened fd carries its path, dup2/dup3 carry the path to the new fd,
+ * IPv4 and IPv6 connect, tsns= nanosecond timestamps, exit only for the group leader.
+ * Known gaps: relative paths are reported as passed to openat (no cwd/dirfd
+ * resolution); dup()/fcntl(F_DUPFD) and fds inherited across fork are not
+ * resolved; argv is not captured; paths are cut at bpftrace's 64-byte default
+ * string size (raising it overflows the 512-byte BPF stack in the exit probes).
  */
 
-tracepoint:sched:sched_process_fork
-/comm != "bpftrace"/
+kprobe:wake_up_new_task
+/pid != $1/
 {
-  printf("tsns=%llu kind=fork pid=%d ppid=%d uid=%d comm=%s child_pid=%d\n",
-         nsecs, args->parent_pid, curtask->real_parent->tgid, uid, comm, args->child_pid);
+  $t = (struct task_struct *)arg0;
+  if ($t->tgid == $t->pid) {
+    printf("tsns=%llu kind=fork pid=%d ppid=%d uid=%d child_pid=%d comm=%s\n",
+           nsecs, pid, curtask->real_parent->tgid, uid, $t->pid, comm);
+  }
 }
 
 tracepoint:syscalls:sys_enter_execve
-/comm != "bpftrace"/
+/pid != $1/
 {
   @exe[tid] = str(args->filename);
   @inexec[tid] = 1;
@@ -47,15 +56,15 @@ tracepoint:syscalls:sys_exit_execve
 /@inexec[tid]/
 {
   if (args->ret == 0) {
-    printf("tsns=%llu kind=execve pid=%d ppid=%d uid=%d comm=%s path=%s\n",
-           nsecs, pid, curtask->real_parent->tgid, uid, comm, @exe[tid]);
+    printf("tsns=%llu kind=execve pid=%d ppid=%d uid=%d path=%s comm=%s\n",
+           nsecs, pid, curtask->real_parent->tgid, uid, @exe[tid], comm);
   }
   delete(@exe[tid]);
   delete(@inexec[tid]);
 }
 
 tracepoint:syscalls:sys_enter_openat
-/comm != "bpftrace"/
+/pid != $1/
 {
   @opath[tid] = str(args->filename);
   /* O_WRONLY=1 O_RDWR=2 O_CREAT=0100 */
@@ -67,13 +76,14 @@ tracepoint:syscalls:sys_exit_openat
 /@inopen[tid]/
 {
   if (args->ret >= 0) {
-    printf("tsns=%llu kind=openat pid=%d ppid=%d uid=%d comm=%s path=%s flags=%s fd=%d\n",
-           nsecs, pid, curtask->real_parent->tgid, uid, comm, @opath[tid],
-           @ow[tid] ? "O_WRONLY" : "O_RDONLY", args->ret);
+    printf("tsns=%llu kind=openat pid=%d ppid=%d uid=%d flags=%s fd=%d path=%s comm=%s\n",
+           nsecs, pid, curtask->real_parent->tgid, uid,
+           @ow[tid] ? "O_WRONLY" : "O_RDONLY", args->ret, @opath[tid], comm);
     if (@ow[tid]) {
-      @wfd[pid, args->ret] = @opath[tid];
-      @wpending[pid, args->ret] = 1;
-      @wopen[pid, args->ret] = 1;
+      $st = curtask->group_leader->start_time;
+      @wfd[pid, $st, args->ret] = @opath[tid];
+      @wpending[pid, $st, args->ret] = 1;
+      @wopen[pid, $st, args->ret] = 1;
     }
   }
   delete(@opath[tid]);
@@ -82,64 +92,68 @@ tracepoint:syscalls:sys_exit_openat
 }
 
 tracepoint:syscalls:sys_enter_write
-/@wpending[pid, args->fd] == 1/
+/@wpending[pid, curtask->group_leader->start_time, args->fd] == 1/
 {
-  /* fd -> path: report the first write() per (pid, fd) with the path it was opened as */
-  printf("tsns=%llu kind=write pid=%d ppid=%d uid=%d comm=%s path=%s fd=%d\n",
-         nsecs, pid, curtask->real_parent->tgid, uid, comm, @wfd[pid, args->fd], args->fd);
-  delete(@wpending[pid, args->fd]);
+  /* fd -> path: report the first write() per (process, fd) with the path it was opened as */
+  $st = curtask->group_leader->start_time;
+  printf("tsns=%llu kind=write pid=%d ppid=%d uid=%d fd=%d path=%s comm=%s\n",
+         nsecs, pid, curtask->real_parent->tgid, uid, args->fd, @wfd[pid, $st, args->fd], comm);
+  delete(@wpending[pid, $st, args->fd]);
 }
 
 /* shells redirect with open + dup2(fd, 1) + close(fd): carry the path to the new fd */
 tracepoint:syscalls:sys_enter_dup2
-/@wopen[pid, args->oldfd]/
+/@wopen[pid, curtask->group_leader->start_time, args->oldfd]/
 {
-  @wfd[pid, args->newfd] = @wfd[pid, args->oldfd];
-  @wopen[pid, args->newfd] = 1;
-  @wpending[pid, args->newfd] = 1;
+  $st = curtask->group_leader->start_time;
+  @wfd[pid, $st, args->newfd] = @wfd[pid, $st, args->oldfd];
+  @wpending[pid, $st, args->newfd] = 1;
+  @wopen[pid, $st, args->newfd] = 1;
 }
 
 tracepoint:syscalls:sys_enter_dup3
-/@wopen[pid, args->oldfd]/
+/@wopen[pid, curtask->group_leader->start_time, args->oldfd]/
 {
-  @wfd[pid, args->newfd] = @wfd[pid, args->oldfd];
-  @wopen[pid, args->newfd] = 1;
-  @wpending[pid, args->newfd] = 1;
+  $st = curtask->group_leader->start_time;
+  @wfd[pid, $st, args->newfd] = @wfd[pid, $st, args->oldfd];
+  @wpending[pid, $st, args->newfd] = 1;
+  @wopen[pid, $st, args->newfd] = 1;
 }
 
 tracepoint:syscalls:sys_enter_close
-/@wopen[pid, args->fd]/
+/@wopen[pid, curtask->group_leader->start_time, args->fd]/
 {
-  delete(@wfd[pid, args->fd]);
-  delete(@wpending[pid, args->fd]);
-  delete(@wopen[pid, args->fd]);
+  $st = curtask->group_leader->start_time;
+  delete(@wfd[pid, $st, args->fd]);
+  delete(@wpending[pid, $st, args->fd]);
+  delete(@wopen[pid, $st, args->fd]);
 }
 
 tracepoint:syscalls:sys_enter_unlinkat
-/comm != "bpftrace"/
+/pid != $1/
 {
-  printf("tsns=%llu kind=unlinkat pid=%d ppid=%d uid=%d comm=%s path=%s\n",
-         nsecs, pid, curtask->real_parent->tgid, uid, comm, str(args->pathname));
+  printf("tsns=%llu kind=unlinkat pid=%d ppid=%d uid=%d path=%s comm=%s\n",
+         nsecs, pid, curtask->real_parent->tgid, uid, str(args->pathname), comm);
 }
 
 kprobe:tcp_connect
-/comm != "bpftrace"/
+/pid != $1/
 {
   $sk = (struct sock *)arg0;
   $fam = $sk->__sk_common.skc_family;
   if ($fam == 2) {
-    printf("tsns=%llu kind=connect pid=%d ppid=%d uid=%d comm=%s dst_ip=%s dst_port=%d\n",
-           nsecs, pid, curtask->real_parent->tgid, uid, comm,
-           ntop($sk->__sk_common.skc_daddr), bswap($sk->__sk_common.skc_dport));
+    printf("tsns=%llu kind=connect pid=%d ppid=%d uid=%d dst_port=%d dst_ip=%s comm=%s\n",
+           nsecs, pid, curtask->real_parent->tgid, uid,
+           bswap($sk->__sk_common.skc_dport), ntop($sk->__sk_common.skc_daddr), comm);
   } else if ($fam == 10) {
-    printf("tsns=%llu kind=connect pid=%d ppid=%d uid=%d comm=%s dst_ip=%s dst_port=%d\n",
-           nsecs, pid, curtask->real_parent->tgid, uid, comm,
-           ntop($sk->__sk_common.skc_v6_daddr.in6_u.u6_addr8), bswap($sk->__sk_common.skc_dport));
+    printf("tsns=%llu kind=connect pid=%d ppid=%d uid=%d dst_port=%d dst_ip=%s comm=%s\n",
+           nsecs, pid, curtask->real_parent->tgid, uid,
+           bswap($sk->__sk_common.skc_dport), ntop($sk->__sk_common.skc_v6_daddr.in6_u.u6_addr8), comm);
   }
 }
 
 tracepoint:sched:sched_process_exit
-/comm != "bpftrace" && pid == tid/
+/pid != $1 && pid == tid/
 {
   printf("tsns=%llu kind=exit pid=%d ppid=%d uid=%d comm=%s\n",
          nsecs, pid, curtask->real_parent->tgid, uid, comm);
