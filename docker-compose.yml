@@ -6,7 +6,7 @@ services:
     build: .
     ports: ["127.0.0.1:8000:8000"]
   neo4j:
-    image: neo4j:5-community
+    image: neo4j:5-community@sha256:d9cfe82983d27f5a75b3aaae8f316d04f9a698a3b7f6103a508f7caf8362f255  # pinned by digest
     environment:
       NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-rootline-lab}   # set NEO4J_PASSWORD; the default is lab-only
     ports: ["127.0.0.1:7474:7474", "127.0.0.1:7687:7687"]

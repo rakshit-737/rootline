@@ -16,8 +16,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
       - run: python -m pip install "ruff>=0.5"
@@ -30,10 +30,10 @@ jobs:
     # the scored coverage record has been edited since the scoring.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
       - name: freeze holds at the freeze commit 153eade
@@ -59,8 +59,8 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         python: ["3.10", "3.11", "3.12", "3.13", "3.14"]
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e ".[dev]"
@@ -75,8 +75,8 @@ jobs:
     # the engine itself must keep working with the standard library only
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e . pytest
@@ -86,7 +86,7 @@ jobs:
     # builds the image and checks the preloaded Log4Shell story is served
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - run: docker build -t rootline:ci .
       - run: docker run -d --name rl -p 127.0.0.1:8000:8000 rootline:ci
       - name: health and preloaded story
@@ -105,8 +105,8 @@ jobs:
     # docker-compose stack: UI up, and the Cypher export actually imports into Neo4j
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e .
@@ -132,12 +132,14 @@ jobs:
     # known-vulnerability check of the runtime extras (pip-audit against PyPI advisories)
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
       - run: python -m pip install --upgrade pip && python -m pip install -e ".[api,ml,stix]" pip-audit
       - run: pip-audit --skip-editable
+      - name: audit the Docker image's hash-locked dependencies
+        run: pip-audit -r requirements-docker.txt --require-hashes --disable-pip
 
   live-ebpf:
     # Runs the bpftrace probe LIVE (sudo) on the runner's real kernel while a benign,
@@ -150,8 +152,8 @@ jobs:
       matrix:
         run: [1, 2, 3, 4, 5]
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e .
@@ -170,7 +172,7 @@ jobs:
       - name: capture excerpt (lines touching the chain)
         if: always()
         run: grep -E "rootline-lab|rl-home|198\.51\.100\.7|::1|kind=fork|kind=exit|bpftrace" live-out/capture.jsonl | head -4000 > live-out/capture_excerpt.jsonl || true
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         if: always()
         with:
           name: live-ebpf-${{ matrix.run }}
