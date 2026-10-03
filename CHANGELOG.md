@@ -6,6 +6,8 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-10-03
+
 ### Added
 - `rootline.stats`: standard-library Wilson, Student-t and log-cluster bootstrap intervals, a
   paired t-test, exact sign and sign-flip tests, and p-value formatting that never prints 0.
