@@ -38,11 +38,12 @@ input[type=file] { display: none; }
 #stage { position: relative; }
 #graph { width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
 #graph text { font-size: 13px; fill: var(--ink); }
+#graph .lbg { fill: var(--panel); }
 .edge { fill: none; stroke: var(--line); stroke-width: 1.2; }
 .edge.on { stroke: var(--muted); }
 .edge.now { stroke: var(--hl); stroke-width: 2.5; }
 .node circle, .node rect, .node polygon { stroke-width: 2; }
-.node.dim { opacity: .25; }
+.node.dim > :not(.lbg) { opacity: .25; }
 .controls { display: flex; gap: 8px; align-items: center; margin: 10px 0; }
 .controls input[type=range] { flex: 1; }
 #now { min-height: 42px; padding: 8px 10px; border-radius: 8px; background: var(--chip); font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; }
@@ -139,10 +140,13 @@ function side() {
     `<tr><td style="white-space:nowrap">${esc(a.rule_id)}</td><td class="sev-${a.severity}">${a.severity}</td><td>${esc(a.description)}</td></tr>`).join("") + "</table>" : "No alerts.";
   if (!st) { $("kc").textContent = "No alert to pivot on: the capture looks clean."; $("iocs").textContent = "-"; $("links").innerHTML = ""; return; }
   $("kc").innerHTML = Object.entries(st.kill_chain).map(([k, v]) => `<div class="kc"><b>${k}</b>${v.slice(0, 4).map((x) => `<div>${esc(x)}</div>`).join("")}${v.length > 4 ? `<div class="stats">+${v.length - 4} more</div>` : ""}</div>`).join("");
-  const ioc = Object.entries(st.iocs).flatMap(([k, v]) => v.map((x) => `<span class="chip" title="${k}">${esc(x)}</span>`));
+  // "ip" lists every external address and "ipv4"/"ipv6" split the same ones by family: show each value once
+  const seenIoc = new Set();
+  const ioc = Object.entries(st.iocs).flatMap(([k, v]) => v.filter((x) => !seenIoc.has(x) && seenIoc.add(x))
+    .map((x) => `<span class="chip" title="${k}">${esc(x)}</span>`));
   $("iocs").innerHTML = ioc.join("") || "-";
   const id = cur.summary.id;
-  $("links").innerHTML = `<a href="${url(`/api/stories/${id}`)}">story.json</a><a href="${url(`/api/stories/${id}/stix`)}">STIX 2.1</a><a href="${url(`/api/stories/${id}/mermaid`, ".mmd")}">Mermaid</a><a href="${url(`/api/stories/${id}/cypher`, ".cypher")}">Neo4j Cypher</a>`;
+  $("links").innerHTML = `<a href="${url(`/api/stories/${id}`)}">story.json</a><a href="${url(`/api/stories/${id}/stix`)}">STIX 2.1</a><a href="${url(`/api/stories/${id}/mermaid`, ".mmd.txt")}">Mermaid</a><a href="${url(`/api/stories/${id}/cypher`, ".cypher.txt")}">Neo4j Cypher</a>`;
 }
 function draw() {
   const svg = $("graph");
@@ -170,17 +174,12 @@ function draw() {
   });
   svg.setAttribute("viewBox", `0 0 ${COLS.length * W + 40} ${maxRows * H + 60}`);
   COLS.forEach((c, ci) => { const t = document.createElementNS(NS, "text"); t.setAttribute("x", 30 + ci * W); t.setAttribute("y", 18); t.textContent = c.toUpperCase(); t.style.fill = "var(--muted)"; svg.appendChild(t); });
+  // Edges are drawn under the vertices and routed around the labels: nodes are placed first so
+  // each label's rendered width is known, then every edge leaves from the end of its source label
+  // (or loops out on the left for two vertices in the same column) and ends at the target marker.
   const eg = document.createElementNS(NS, "g"); svg.appendChild(eg);
-  st.timeline.forEach((t, i) => {
-    const a = pos[t.src], b = pos[t.dst];
-    if (!a || !b) return;
-    const p = document.createElementNS(NS, "path");
-    const mx = (a.x + b.x) / 2 + (a.x === b.x ? 60 : 0);
-    p.setAttribute("d", `M${a.x + 6},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x - 6},${b.y}`);
-    p.setAttribute("class", "edge"); p.dataset.i = i;
-    const title = document.createElementNS(NS, "title"); title.textContent = t.text; p.appendChild(title);
-    eg.appendChild(p);
-  });
+  const ng = document.createElementNS(NS, "g"); svg.appendChild(ng);
+  const right = {}, MAXW = W - 50;
   Object.values(pos).forEach(({ x, y, n }) => {
     const g = document.createElementNS(NS, "g"); g.setAttribute("class", "node"); g.dataset.id = n.id;
     let shape;
@@ -189,9 +188,36 @@ function draw() {
     else { shape = document.createElementNS(NS, "polygon"); shape.setAttribute("points", `${x},${y - 7} ${x + 7},${y} ${x},${y + 7} ${x - 7},${y}`); }
     shape.style.fill = COLOR[n.col]; shape.style.stroke = COLOR[n.col];
     const label = document.createElementNS(NS, "text"); label.setAttribute("x", x + 11); label.setAttribute("y", y + 4);
-    const txt = n.label.length > 30 ? "..." + n.label.slice(-28) : n.label; label.textContent = txt;
     const title = document.createElementNS(NS, "title"); title.textContent = `${n.label} (${n.type}, ${n.col})`;
-    g.append(shape, label, title); svg.appendChild(g);
+    const bg = document.createElementNS(NS, "rect"); bg.setAttribute("class", "lbg");  // masks edges under the label
+    g.append(shape, bg, label, title); ng.appendChild(g);
+    const width = () => { try { return label.getComputedTextLength() || label.textContent.length * 7.2; } catch (e) { return label.textContent.length * 7.2; } };
+    let keep = n.label.length;
+    label.textContent = n.label;
+    while (keep > 6 && width() > MAXW) { keep -= 1; label.textContent = "..." + n.label.slice(-keep); }
+    const w = width();
+    bg.setAttribute("x", x + 9); bg.setAttribute("y", y - 9); bg.setAttribute("width", w + 4); bg.setAttribute("height", 18);
+    right[n.id] = x + 11 + w + 5;
+  });
+  st.timeline.forEach((t, i) => {
+    const a = pos[t.src], b = pos[t.dst];
+    if (!a || !b) return;
+    let d;
+    if (a.x === b.x) {  // same column: loop out on the left, away from the labels
+      const lx = a.x - 16 - Math.min(14, Math.abs(b.y - a.y) / 12);
+      d = `M${a.x - 7},${a.y} C${lx},${a.y} ${lx},${b.y} ${b.x - 7},${b.y}`;
+    } else if (a.x < b.x) {  // left to right: from the end of the source label to the target marker
+      const sx = Math.min(right[t.src], b.x - 16), mx = (sx + b.x) / 2;
+      d = `M${sx},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x - 8},${b.y}`;
+    } else {  // right to left: from the left of the source marker to the end of the target label
+      const ex = Math.min(right[t.dst], a.x - 16), mx = (a.x + ex) / 2;
+      d = `M${a.x - 8},${a.y} C${mx},${a.y} ${mx},${b.y} ${ex},${b.y}`;
+    }
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", d);
+    p.setAttribute("class", "edge"); p.dataset.i = i;
+    const title = document.createElementNS(NS, "title"); title.textContent = t.text; p.appendChild(title);
+    eg.appendChild(p);
   });
   $("slider").max = st.timeline.length;
   step = Math.min(step, st.timeline.length);
@@ -208,6 +234,8 @@ function render() {
     if (i < step) { seen.add(st.timeline[i].src); seen.add(st.timeline[i].dst); }
   });
   document.querySelectorAll("#graph .node").forEach((g) => g.classList.toggle("dim", step > 0 && !seen.has(g.dataset.id)));
+  const now = document.querySelector("#graph .edge.now");
+  if (now) now.parentNode.appendChild(now);  // the current edge is drawn above the others
   const t = st.timeline[step - 1];
   $("pos").textContent = `${step} / ${st.timeline.length}`;
   $("now").innerHTML = t ? `<b>${t.stage ? esc(t.stage) + ": " : ""}</b>${esc(t.text)}<br><span class="stats">t=${t.ts}${t.alerts.length ? " &middot; alerts " + t.alerts.join(", ") : ""}</span>` : "Press Play to replay the attack story edge by edge.";
