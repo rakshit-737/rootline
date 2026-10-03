@@ -23,9 +23,16 @@ from typing import Any
 
 
 def mean(xs: Iterable[float]) -> float:
-    """Arithmetic mean; ``nan`` for an empty input."""
+    """Arithmetic mean (exactly rounded ``math.fsum``, so it does not depend on the Python version); ``nan`` if empty."""
     xs = list(xs)
-    return sum(xs) / len(xs) if xs else float("nan")
+    return math.fsum(xs) / len(xs) if xs else float("nan")
+
+
+def sig(x: float | None, digits: int = 4) -> float | None:
+    """Round to ``digits`` significant digits (keeps tiny p-values non-zero, unlike fixed decimals)."""
+    if x is None or x == 0 or math.isinf(x) or math.isnan(x):
+        return x
+    return float(f"{x:.{digits}g}")
 
 
 def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
@@ -105,7 +112,7 @@ def t_interval(xs: Sequence[float]) -> tuple[float, float, float]:
     m = mean(xs)
     if n < 2:
         return m, m, m
-    sd = math.sqrt(sum((x - m) ** 2 for x in xs) / (n - 1))
+    sd = math.sqrt(math.fsum((x - m) ** 2 for x in xs) / (n - 1))
     h = t_ppf975(n - 1) * sd / math.sqrt(n)
     return m, m - h, m + h
 
@@ -116,7 +123,7 @@ def paired_t(diffs: Sequence[float]) -> dict[str, Any]:
     if n < 2:
         return {"t": None, "df": max(0, n - 1), "p": None}
     m = mean(diffs)
-    sd = math.sqrt(sum((x - m) ** 2 for x in diffs) / (n - 1))
+    sd = math.sqrt(math.fsum((x - m) ** 2 for x in diffs) / (n - 1))
     if sd == 0:
         t = math.inf if m else 0.0
         return {"t": t if m >= 0 else -t, "df": n - 1, "p": 0.0 if m else 1.0}

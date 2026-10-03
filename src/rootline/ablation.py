@@ -40,7 +40,7 @@ from .graph import ProvenanceGraph
 from .loaders.atlas import AtlasScenario, entity_matches
 from .models import Alert, Severity
 from .reconstruct import contact_window, reconstruct
-from .stats import cluster_bootstrap, mean, paired_log_test, sign_test, t_interval  # noqa: F401
+from .stats import cluster_bootstrap, mean, paired_log_test, sig, sign_test, t_interval  # noqa: F401
 
 VARIANTS: dict[str, dict[str, bool]] = {
     "naive": {"timed": False, "stops": False, "spine": False, "accessed": False},
@@ -138,7 +138,8 @@ def summarize(rows: list[dict[str, Any]], base: str = "naive") -> dict[str, Any]
     Paired differences against ``base`` are tested at the **log** level, the unit
     that is independent: exact sign test, exact sign-flip test and paired t
     (``logs``). Pivot counts (``pivots``) are descriptive only, because pivots
-    in one log share a graph. p-values are stored unrounded.
+    in one log share a graph. p-values and t are stored to 4 significant digits
+    (never rounded to 0).
     """
     out: dict[str, Any] = {}
     for group in sorted({r["group"] for r in rows}):
@@ -172,8 +173,11 @@ def summarize(rows: list[dict[str, Any]], base: str = "naive") -> dict[str, Any]
                     vd[f"delta_{m}_vs_{base}"] = {
                         "mean": round(mu, 4), "ci95": [round(lo, 4), round(hi, 4)],
                         "t_ci95": [round(x, 4) for x in lt["t_ci95"]],
-                        "logs": {k: lt[k] for k in ("n", "higher", "lower", "tied", "sign_test_p", "sign_flip_p",
-                                                   "t", "df", "t_p", "min_attainable_p")},
+                        # p and t to 4 significant digits: stable across platforms' libm, never rounded to 0
+                        "logs": {k: (sig(lt[k]) if k in ("sign_test_p", "sign_flip_p", "t", "t_p",
+                                                         "min_attainable_p") else lt[k])
+                                 for k in ("n", "higher", "lower", "tied", "sign_test_p", "sign_flip_p",
+                                           "t", "df", "t_p", "min_attainable_p")},
                         "pivots": {k: piv[k] for k in ("higher", "lower", "tied")}}
             d[v] = vd
         out[group] = d
