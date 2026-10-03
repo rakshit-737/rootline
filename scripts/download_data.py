@@ -11,6 +11,7 @@ Sysmon-for-Linux / auditd event logs.
     python scripts/download_data.py --all           # + optional (ATLAS M1-M6, sealed split)
     python scripts/download_data.py --split sealed  # one split only (dev, dev2, sealed)
     python scripts/download_data.py --source otrf   # one source only
+    python scripts/download_data.py --only atlas/S1.zip atlas/M1.zip   # exact entries
     python scripts/download_data.py --list
 
 Stdlib only. Resumable: files whose checksum already matches are skipped.
@@ -109,12 +110,20 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--source", choices=["atlas", "otrf", "splunk"])
     p.add_argument("--split", choices=["dev", "dev2", "sealed", "repro"], help="only this split (repro = ATLAS S2-S4 for repro/)")
     p.add_argument("--allow-unverified", action="store_true", help="fetch entries without a pinned sha256")
-    p.add_argument("--list", action="store_true")
-    p.add_argument("--dest", type=Path, default=None)
+    p.add_argument("--only", nargs="+", metavar="DEST",
+                   help="fetch exactly these manifest entries, by dest path (e.g. atlas/S1.zip atlas/M1.zip)")
+    p.add_argument("--list", action="store_true", help="list the selected files and their total size")
+    p.add_argument("--dest", type=Path, default=None, help="data directory (default: $ROOTLINE_DATA)")
     ns = p.parse_args(argv)
     items = json.loads(MANIFEST.read_text())["files"]
-    items = [i for i in items if (ns.all or ns.split or not i.get("optional"))
-             and (not ns.source or i["source"] == ns.source) and (not ns.split or i.get("split") == ns.split)]
+    if ns.only:
+        unknown = set(ns.only) - {i["dest"] for i in items}
+        if unknown:
+            p.error(f"not in the manifest: {', '.join(sorted(unknown))}")
+        items = [i for i in items if i["dest"] in ns.only]
+    else:
+        items = [i for i in items if (ns.all or ns.split or not i.get("optional"))
+                 and (not ns.source or i["source"] == ns.source) and (not ns.split or i.get("split") == ns.split)]
     root = ns.dest or data_dir()
     if ns.list:
         for i in items:

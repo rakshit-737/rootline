@@ -1,19 +1,28 @@
 #!/usr/bin/env python3
-"""Reproduce every number in README "Results" from the downloaded public data.
+"""Reproduce the README "Results" numbers that come from the downloaded public data.
 
-    python scripts/download_data.py          # once (~0.74 GB; add --split sealed for the sealed set)
-    python scripts/bench.py                  # all benchmarks -> results/
-    python scripts/bench.py --only atlas     # atlas | coverage | log4shell
+    python scripts/download_data.py && python scripts/download_data.py --source atlas --all
+    python scripts/bench.py                       # atlas + log4shell (the default run)
+    python scripts/bench.py --only atlas          # one of: atlas | log4shell | coverage
+    python scripts/bench.py --render-only         # RESULTS.md + figures from results/*.json
 
-Writes results/*.json (raw), results/RESULTS.md (tables) and
-results/figures/*.png. Deterministic: IsolationForest runs seeds 0-9 and reports mean + 95 % CI.
+Writes results/*.json (raw, each with a ``provenance`` block: commit, run id,
+Python), results/RESULTS.md and results/figures/*.png. IsolationForest runs
+seeds 0-9 and reports mean + 95 % CI; everything else is deterministic.
+
+Rule coverage is NOT part of the default run. ``--only coverage`` first runs
+``scripts/verify_freeze.py``: the dev/dev2/sealed numbers in
+results/coverage.json are the sealed-protocol record (docs/protocol.md) and may
+only be rewritten by the frozen code. At any other commit, ``--only coverage
+--allow-unfrozen`` scores the in-sample dev and dev2 splits (never sealed) into
+results/coverage_head.json, labelled in-sample.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
-import platform
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -21,13 +30,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from rootline import __version__  # noqa: E402
 from rootline.bench import clip_anomaly_rows, run_atlas, run_coverage, summarize_coverage  # noqa: E402
 from rootline.export import dumps, to_mermaid, to_story  # noqa: E402
 from rootline.loaders import load_many  # noqa: E402
+from rootline.loaders.atlas import discover  # noqa: E402
 from rootline.pipeline import analyze  # noqa: E402
+from rootline.provenance import describe, provenance  # noqa: E402
 
 OUT = ROOT / "results"
+MANIFEST = ROOT / "scripts" / "data_manifest.json"
+
+
+class BenchError(SystemExit):
+    """A benchmark cannot run on the data present; nothing is written."""
+
+    def __init__(self, msg: str) -> None:
+        print(f"[bench] error: {msg}", file=sys.stderr)
+        super().__init__(2)
 
 
 def data_dir() -> Path:
@@ -46,24 +65,84 @@ def md_table(rows: list[dict], cols: list[str]) -> str:
 
 
 def bench_atlas(data: Path) -> dict:
+    """ATLAS IOC-pivot reconstruction, reduction and anomaly ranking -> results/atlas.json."""
+    root = data / "atlas"
+    if not discover(str(root)):
+        raise BenchError(f"no ATLAS scenarios under {root}; run "
+                         "python scripts/download_data.py --source atlas --all")
+    prov = provenance("scripts/bench.py --only atlas", ROOT)
     t = time.perf_counter()
-    res = run_atlas(str(data / "atlas"))
+    res = run_atlas(str(root))
+    if not res["atlas"]:
+        raise BenchError(f"ATLAS produced no result rows under {root}; results/atlas.json left unchanged")
     res["wall_seconds"] = round(time.perf_counter() - t, 1)
+    res["provenance"] = prov
     (OUT / "atlas.json").write_text(json.dumps(res, indent=1))
     return res
 
 
-def bench_coverage(data: Path) -> dict:
-    rows = run_coverage(str(ROOT / "scripts" / "data_manifest.json"), str(data))
-    res = {"rows": rows, "summary": summarize_coverage(rows)}
-    (OUT / "coverage.json").write_text(json.dumps(res, indent=1))
+def manifest_files(splits: tuple[str, ...]) -> dict[str, list[str]]:
+    """Manifest entries (non-zip Splunk/OTRF captures) the coverage bench scores, per split."""
+    items = json.loads(MANIFEST.read_text(encoding="utf-8"))["files"]
+    out: dict[str, list[str]] = {s: [] for s in splits}
+    for it in items:
+        if it["source"] in ("splunk", "otrf") and it.get("split") in splits and not it["dest"].endswith(".zip"):
+            out[it["split"]].append(it["dest"])
+    return out
+
+
+def freeze_ok() -> bool:
+    """Run scripts/verify_freeze.py (pre-registered hashes of the sealed-protocol sources)."""
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / "verify_freeze.py")], cwd=ROOT)
+    return r.returncode == 0
+
+
+def bench_coverage(data: Path, allow_unfrozen: bool = False) -> dict:
+    """Rule coverage on the Splunk splits.
+
+    With the frozen sources (the freeze check passes) all three splits are scored
+    into results/coverage.json. Otherwise only ``--allow-unfrozen`` proceeds, and it
+    scores dev and dev2 (never sealed) into results/coverage_head.json, labelled
+    in-sample. Every scored split must be fully downloaded.
+    """
+    frozen = freeze_ok()
+    if not frozen and not allow_unfrozen:
+        raise BenchError("the freeze check failed, so this code is not the pre-registered v0.3 version and "
+                         "must not rewrite results/coverage.json; pass --allow-unfrozen to score the "
+                         "in-sample dev/dev2 splits into results/coverage_head.json instead")
+    splits = ("dev", "dev2", "sealed") if frozen else ("dev", "dev2")
+    for split, files in manifest_files(splits).items():
+        missing = [f for f in files if not (data / f).exists()]
+        if not files or missing:
+            raise BenchError(f"split {split!r}: {len(missing)} of {len(files)} manifest captures are not "
+                             f"downloaded under {data}; run python scripts/download_data.py --split {split}")
+    prov = provenance("scripts/bench.py --only coverage" + ("" if frozen else " --allow-unfrozen"), ROOT)
+    prov["freeze_check"] = "passed (scripts/verify_freeze.py)" if frozen else "failed: post-freeze sources"
+    rows = run_coverage(str(MANIFEST), str(data), splits)
+    res = {"rows": rows, "summary": summarize_coverage(rows), "provenance": prov}
+    if frozen:
+        (OUT / "coverage.json").write_text(json.dumps(res, indent=1))
+    else:
+        res["label"] = ("in-sample: dev and dev2 re-scored with the post-freeze code at this commit; "
+                        "sealed is never re-scored here (docs/protocol.md)")
+        (OUT / "coverage_head.json").write_text(json.dumps(res, indent=1))
     return res
 
 
+def otrf_file(data: Path, pattern: str) -> Path:
+    """Find an extracted OTRF capture (the downloader extracts next to the zip)."""
+    for d in (data / "otrf", data / "otrf" / "x"):
+        hit = sorted(d.glob(pattern)) if d.is_dir() else []
+        if hit:
+            return hit[0]
+    raise BenchError(f"no {pattern} under {data / 'otrf'}; run python scripts/download_data.py --source otrf")
+
+
 def bench_log4shell(data: Path) -> dict:
-    d = data / "otrf" / "x"
-    sysmon = next(d.glob("syslog_sysmon_log4shell*.json"))
-    auoms = next(d.glob("syslog_auoms_auditd_log4shell*.json"))
+    """OTRF Log4Shell, Sysmon alone vs Sysmon + AUOMS fused -> results/log4shell.json and the story files."""
+    sysmon = otrf_file(data, "syslog_sysmon_log4shell*.json")
+    auoms = otrf_file(data, "syslog_auoms_auditd_log4shell*.json")
+    prov = provenance("scripts/bench.py --only log4shell", ROOT)
     out = {}
     for name, paths in (("sysmon-only", [sysmon]), ("sysmon+auoms", [sysmon, auoms])):
         t = time.perf_counter()
@@ -77,10 +156,13 @@ def bench_log4shell(data: Path) -> dict:
                      "reaches_ldap_1389": any(lab.endswith(":1389") for lab in labels),
                      "seconds": round(time.perf_counter() - t, 3)}
         if name == "sysmon+auoms" and r:
-            (OUT / "log4shell_story.json").write_text(dumps(to_story(a.graph, r)))
+            story = to_story(a.graph, r)
+            story["generated_by"] = prov
+            (OUT / "log4shell_story.json").write_text(dumps(story))
             (OUT / "log4shell_story.mmd").write_text(to_mermaid(a.graph, r) + "\n")
-    (OUT / "log4shell.json").write_text(json.dumps(out, indent=1))
-    return out
+    res = {"inputs": out, "provenance": prov}
+    (OUT / "log4shell.json").write_text(json.dumps(res, indent=1))
+    return res
 
 
 def figures(atlas: dict | None, cov: dict | None) -> None:
@@ -93,7 +175,9 @@ def figures(atlas: dict | None, cov: dict | None) -> None:
         return
     fig_dir = OUT / "figures"
     fig_dir.mkdir(exist_ok=True)
-    colors = {"ioc-grep": "#9aa5b1", "naive-bfs": "#e0a458", "rootline-noreduce": "#7fb3d5", "rootline": "#1f618d"}
+    # rootline-noreduce is a check (stories with and without reduction are identical by design),
+    # not a separate method, so it is left out of the figure; it stays in atlas.json.
+    colors = {"ioc-grep": "#9aa5b1", "naive-bfs": "#e0a458", "rootline": "#1f618d"}
     if atlas:
         rows = atlas["atlas"]
         scen = sorted({r["scenario"] for r in rows})
@@ -151,10 +235,12 @@ def figures(atlas: dict | None, cov: dict | None) -> None:
         plt.close(fig)
 
 def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
-    parts = [f"# ROOTLINE benchmark results\n\nGenerated by `python scripts/bench.py` - rootline {__version__}, "
-             f"Python {platform.python_version()}, {platform.system()}.\n"]
+    parts = ["# ROOTLINE benchmark results\n",
+             "Rendered by `python scripts/bench.py` from results/*.json. Each section names the run that "
+             "produced it.\n"]
     if atlas:
         parts.append("## ATLAS: attack reconstruction from the analyst IOC (S1-S4 in-sample, M hosts held out)\n")
+        parts.append(f"Source: {describe(atlas.get('provenance'))}.\n")
         parts.append(md_table(atlas["atlas"], ["scenario", "method", "events", "gt_events", "story_nodes",
                                                 "story_events", "precision", "recall", "f1", "entity_recall",
                                                 "seconds"]))
@@ -175,6 +261,7 @@ def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
                                                      "recall@10", "recall@10_ci95"]))
     if cov:
         parts.append("\n## Tagger coverage: Splunk attack_data Linux captures (dev / dev2 / sealed)\n")
+        parts.append(f"Source: {describe(cov.get('provenance'))}.\n")
         parts.append("Protocol: docs/protocol.md. *dev* and *dev2* are in-sample for v0.3; *sealed* was scored "
                      "once with the frozen rules. Technique match is at parent-technique level. Intervals are "
                      "95 % Wilson. Alert precision is the share of alerts naming the capture's technique "
@@ -202,7 +289,9 @@ def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
         parts.append("\n</details>")
     if l4s:
         parts.append("\n## OTRF Log4Shell (CVE-2021-44228): single sensor vs fused sensors\n")
-        parts.append(md_table([{"input": k, **v} for k, v in l4s.items()],
+        parts.append(f"Source: {describe(l4s.get('provenance'))}.\n")
+        inputs = l4s.get("inputs", {k: v for k, v in l4s.items() if k != "provenance"})
+        parts.append(md_table([{"input": k, **v} for k, v in inputs.items()],
                               ["input", "events", "vertices", "alerts", "story_vertices", "root_causes",
                                "reaches_java", "reaches_ldap_1389", "seconds"]))
     (OUT / "RESULTS.md").write_text("\n".join(parts) + "\n")
@@ -210,10 +299,16 @@ def write_md(atlas: dict | None, cov: dict | None, l4s: dict | None) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--only", choices=["atlas", "coverage", "log4shell"])
+    p.add_argument("--only", choices=["atlas", "coverage", "log4shell"],
+                   help="run one benchmark (default: atlas and log4shell; coverage only when named)")
+    p.add_argument("--allow-unfrozen", action="store_true",
+                   help="with --only coverage at a post-freeze commit: score dev/dev2 into "
+                        "results/coverage_head.json (in-sample) instead of refusing")
     p.add_argument("--render-only", action="store_true",
                    help="re-render RESULTS.md and figures from results/*.json without re-running")
     ns = p.parse_args(argv)
+    if ns.allow_unfrozen and ns.only != "coverage":
+        p.error("--allow-unfrozen only applies to --only coverage")
     data = data_dir()
     if not data.exists() and not ns.render_only:
         print(f"[bench] no data at {data}; run scripts/download_data.py first", file=sys.stderr)
@@ -233,14 +328,25 @@ def main(argv: list[str] | None = None) -> int:
         write_md(atlas, cov, l4s)
         print(f"[bench] re-rendered {OUT / 'RESULTS.md'} from cached results")
         return 0
-    atlas = bench_atlas(data) if ns.only in (None, "atlas") else cached("atlas")
-    print("[bench] atlas done")
-    cov = bench_coverage(data) if ns.only in (None, "coverage") else cached("coverage")
-    print("[bench] coverage done")
-    l4s = bench_log4shell(data) if ns.only in (None, "log4shell") else cached("log4shell")
-    print("[bench] log4shell done")
-    figures(atlas, cov)
-    write_md(atlas, cov, l4s)
+    wanted = {"atlas", "log4shell"} if ns.only is None else {ns.only}
+    runners = {"atlas": lambda: bench_atlas(data),
+               "coverage": lambda: bench_coverage(data, ns.allow_unfrozen),
+               "log4shell": lambda: bench_log4shell(data)}
+    res: dict[str, dict | None] = {}
+    for name in ("atlas", "coverage", "log4shell"):
+        if name in wanted:
+            t = time.perf_counter()
+            res[name] = runners[name]()
+            print(f"[bench] {name} done ({time.perf_counter() - t:.0f} s)")
+        else:
+            res[name] = cached(name)
+            print(f"[bench] {name}: " + (f"reused results/{name}.json (not re-run)" if res[name]
+                                         else "no cached result (not run)"))
+    if ns.only == "coverage" and ns.allow_unfrozen:
+        res["coverage"] = cached("coverage")  # the tables and figure keep showing the sealed record
+        print("[bench] coverage: wrote results/coverage_head.json (in-sample); results/coverage.json untouched")
+    figures(res["atlas"], res["coverage"])
+    write_md(res["atlas"], res["coverage"], res["log4shell"])
     print(f"[bench] wrote {OUT / 'RESULTS.md'}")
     return 0
 
