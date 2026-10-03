@@ -1,0 +1,1928 @@
+{
+ "rows": [
+  {
+   "dataset": "attack_techniques/T1082/atomic_red_team/linux-sysmon.log",
+   "technique": "T1082",
+   "split": "dev",
+   "events": 2,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1068/pkexec/linux-sysmon.log",
+   "technique": "T1068",
+   "split": "dev",
+   "events": 2,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-016"
+   ],
+   "v02_techniques": [
+    "T1068"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-016"
+   ],
+   "v03_techniques": [
+    "T1068"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1021.004/atomic_red_team/linux-sysmon.log",
+   "technique": "T1021.004",
+   "split": "dev",
+   "events": 2,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-014"
+   ],
+   "v02_techniques": [
+    "T1021.004"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-014"
+   ],
+   "v03_techniques": [
+    "T1021.004"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/telnet/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 2,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-016"
+   ],
+   "v02_techniques": [
+    "T1548"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-016"
+   ],
+   "v03_techniques": [
+    "T1548"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1068/linux_pedit/sysmon_linux.log",
+   "technique": "T1068",
+   "split": "dev",
+   "events": 2,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1027/url_encoded_curl/linux-sysmon.log",
+   "technique": "T1027",
+   "split": "dev",
+   "events": 2,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-009",
+    "RL-010"
+   ],
+   "v02_techniques": [
+    "T1027",
+    "T1105"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-009",
+    "RL-010"
+   ],
+   "v03_techniques": [
+    "T1027",
+    "T1105"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1489/linux_auditd_sysmon_service_stop/linux_auditd_sysmon_service_stop.log",
+   "technique": "T1489",
+   "split": "dev",
+   "events": 0,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548/busybox/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 4,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008",
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/rpm/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 4,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548/apt_get/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 4,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1098.004/ssh_authorized_keys/authkey_linux-sysmon.log",
+   "technique": "T1098.004",
+   "split": "dev",
+   "events": 5,
+   "v01_alerts": 1,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-005"
+   ],
+   "v01_techniques": [
+    "T1546.004"
+   ],
+   "v02_alerts": 1,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-005"
+   ],
+   "v02_techniques": [
+    "T1546.004"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-005"
+   ],
+   "v03_techniques": [
+    "T1546.004"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/c99/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 6,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548/csvtool/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 8,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/gawk/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 8,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/gem/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 8,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1014/medusa_rootkit/sysmon_linux.log",
+   "technique": "T1014",
+   "split": "dev",
+   "events": 7,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 5,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-017"
+   ],
+   "v02_techniques": [
+    "T1574.006"
+   ],
+   "v03_alerts": 5,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-017"
+   ],
+   "v03_techniques": [
+    "T1574.006"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/puppet/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 8,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1068/linux_dirtyfrag/linux_sysmon.log",
+   "technique": "T1068",
+   "split": "dev",
+   "events": 8,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-016"
+   ],
+   "v02_techniques": [
+    "T1204.002"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-016"
+   ],
+   "v03_techniques": [
+    "T1204.002"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/make/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 4,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548/ruby/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 12,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/find/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 12,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 3,
+   "v02_on_technique": 3,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 3,
+   "v03_on_technique": 3,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/octave/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 12,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/composer/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 12,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548/sqlite3/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 16,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 3,
+   "v02_on_technique": 3,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 3,
+   "v03_on_technique": 3,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/openvpn/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 16,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 3,
+   "v02_on_technique": 3,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 3,
+   "v03_on_technique": 3,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/mysql/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 16,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/cpulimit/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 18,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/php/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 20,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/c89/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 20,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548/node/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 20,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1572/ngrok/ngrok_linux-sysmon.log",
+   "technique": "T1572",
+   "split": "dev",
+   "events": 10,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-013"
+   ],
+   "v02_techniques": [
+    "T1572"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-013"
+   ],
+   "v03_techniques": [
+    "T1572"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/gdb/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 26,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1027/atomic_red_team/linux-sysmon.log",
+   "technique": "T1027",
+   "split": "dev",
+   "events": 27,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 6,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-009"
+   ],
+   "v02_techniques": [
+    "T1140"
+   ],
+   "v03_alerts": 6,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-009"
+   ],
+   "v03_techniques": [
+    "T1140"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/awk/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 36,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/emacs/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 38,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1115/atomic_red_team/linux-sysmon.log",
+   "technique": "T1115",
+   "split": "dev",
+   "events": 43,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 5,
+   "v02_on_technique": 5,
+   "v02_rules": [
+    "RL-015"
+   ],
+   "v02_techniques": [
+    "T1115"
+   ],
+   "v03_alerts": 5,
+   "v03_on_technique": 5,
+   "v03_rules": [
+    "RL-015"
+   ],
+   "v03_techniques": [
+    "T1115"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1105/atomic_red_team/curl-linux-sysmon.log",
+   "technique": "T1105",
+   "split": "dev",
+   "events": 68,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 24,
+   "v02_on_technique": 24,
+   "v02_rules": [
+    "RL-010"
+   ],
+   "v02_techniques": [
+    "T1105"
+   ],
+   "v03_alerts": 24,
+   "v03_on_technique": 24,
+   "v03_rules": [
+    "RL-010"
+   ],
+   "v03_techniques": [
+    "T1105"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/apt/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 66,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1548.003"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1105/atomic_red_team/linux-sysmon_curlwget.log",
+   "technique": "T1105",
+   "split": "dev",
+   "events": 154,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1190/spring4shell/java_write_jsp-linux-sysmon.log",
+   "technique": "T1190",
+   "split": "dev",
+   "events": 157,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1053.003/crontab_list_parameter/sysmon_linux.log",
+   "technique": "T1053.003",
+   "split": "dev",
+   "events": 355,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "malware/awfulshred/test3/sysmon_linux.log",
+   "technique": "malware/awfulshred",
+   "split": "dev",
+   "events": 530,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 3,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548/docker/sysmon_linux.log",
+   "technique": "T1548",
+   "split": "dev",
+   "events": 631,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-010"
+   ],
+   "v02_techniques": [
+    "T1105"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-010"
+   ],
+   "v03_techniques": [
+    "T1105"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1485/rm_shred_critical_dir/sysmon_linux.log",
+   "technique": "T1485",
+   "split": "dev",
+   "events": 812,
+   "v01_alerts": 1,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-006"
+   ],
+   "v01_techniques": [
+    "T1070.002"
+   ],
+   "v02_alerts": 6,
+   "v02_on_technique": 5,
+   "v02_rules": [
+    "RL-006",
+    "RL-011"
+   ],
+   "v02_techniques": [
+    "T1070.002",
+    "T1485"
+   ],
+   "v03_alerts": 6,
+   "v03_on_technique": 5,
+   "v03_rules": [
+    "RL-006",
+    "RL-011"
+   ],
+   "v03_techniques": [
+    "T1070.002",
+    "T1485"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1485/rm_boot_dir/sysmon_linux.log",
+   "technique": "T1485",
+   "split": "dev",
+   "events": 726,
+   "v01_alerts": 1,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-006"
+   ],
+   "v01_techniques": [
+    "T1070.002"
+   ],
+   "v02_alerts": 9,
+   "v02_on_technique": 8,
+   "v02_rules": [
+    "RL-006",
+    "RL-011"
+   ],
+   "v02_techniques": [
+    "T1070.002",
+    "T1485"
+   ],
+   "v03_alerts": 9,
+   "v03_on_technique": 8,
+   "v03_rules": [
+    "RL-006",
+    "RL-011"
+   ],
+   "v03_techniques": [
+    "T1070.002",
+    "T1485"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1059.004/linux_discovery_tools/sysmon_linux.log",
+   "technique": "T1059.004",
+   "split": "dev",
+   "events": 3731,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 1,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-024"
+   ],
+   "v03_techniques": [
+    "T1003.008"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1003.008/copy_file_stdoutpipe/sysmon_linux.log",
+   "technique": "T1003.008",
+   "split": "dev2",
+   "events": 11120,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 2,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-021",
+    "RL-024"
+   ],
+   "v03_techniques": [
+    "T1003.008",
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1016/atomic_red_team/linux_net_discovery/sysmon_linux.log",
+   "technique": "T1016",
+   "split": "dev2",
+   "events": 18203,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 1,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-018"
+   ],
+   "v02_techniques": [
+    "T1082"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-018"
+   ],
+   "v03_techniques": [
+    "T1082"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1053.002/at_execution/sysmon_linux.log",
+   "technique": "T1053.002",
+   "split": "dev2",
+   "events": 54025,
+   "v01_alerts": 3,
+   "v01_on_technique": 2,
+   "v01_rules": [
+    "RL-002",
+    "RL-005"
+   ],
+   "v01_techniques": [
+    "T1053.003",
+    "T1059.004"
+   ],
+   "v02_alerts": 3,
+   "v02_on_technique": 2,
+   "v02_rules": [
+    "RL-002",
+    "RL-005"
+   ],
+   "v02_techniques": [
+    "T1053.003",
+    "T1059.004"
+   ],
+   "v03_alerts": 3,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-002",
+    "RL-005"
+   ],
+   "v03_techniques": [
+    "T1053.003",
+    "T1059.004"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1053.003/cronjobs_entry/sysmon_linux.log",
+   "technique": "T1053.003",
+   "split": "dev2",
+   "events": 59682,
+   "v01_alerts": 18,
+   "v01_on_technique": 16,
+   "v01_rules": [
+    "RL-002",
+    "RL-005"
+   ],
+   "v01_techniques": [
+    "T1053.003",
+    "T1059.004"
+   ],
+   "v02_alerts": 21,
+   "v02_on_technique": 16,
+   "v02_rules": [
+    "RL-002",
+    "RL-005",
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1053.003",
+    "T1059.004",
+    "T1548.003"
+   ],
+   "v03_alerts": 21,
+   "v03_on_technique": 16,
+   "v03_rules": [
+    "RL-002",
+    "RL-005",
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1053.003",
+    "T1059.004",
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1053.003/cronjobs_entry/sysmon_linux_cron_append.log",
+   "technique": "T1053.003",
+   "split": "dev2",
+   "events": 7598,
+   "v01_alerts": 8,
+   "v01_on_technique": 8,
+   "v01_rules": [
+    "RL-005"
+   ],
+   "v01_techniques": [
+    "T1053.003"
+   ],
+   "v02_alerts": 8,
+   "v02_on_technique": 8,
+   "v02_rules": [
+    "RL-005"
+   ],
+   "v02_techniques": [
+    "T1053.003"
+   ],
+   "v03_alerts": 8,
+   "v03_on_technique": 8,
+   "v03_rules": [
+    "RL-005"
+   ],
+   "v03_techniques": [
+    "T1053.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1053.003/crontab_edit_parameter/sysmon_linux.log",
+   "technique": "T1053.003",
+   "split": "dev2",
+   "events": 57862,
+   "v01_alerts": 18,
+   "v01_on_technique": 16,
+   "v01_rules": [
+    "RL-002",
+    "RL-005"
+   ],
+   "v01_techniques": [
+    "T1053.003",
+    "T1059.004"
+   ],
+   "v02_alerts": 18,
+   "v02_on_technique": 16,
+   "v02_rules": [
+    "RL-002",
+    "RL-005"
+   ],
+   "v02_techniques": [
+    "T1053.003",
+    "T1059.004"
+   ],
+   "v03_alerts": 18,
+   "v03_on_technique": 16,
+   "v03_rules": [
+    "RL-002",
+    "RL-005"
+   ],
+   "v03_techniques": [
+    "T1053.003",
+    "T1059.004"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1053.006/service_systemd/sysmon_linux.log",
+   "technique": "T1053.006",
+   "split": "dev2",
+   "events": 59809,
+   "v01_alerts": 2,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-005"
+   ],
+   "v01_techniques": [
+    "T1546.004"
+   ],
+   "v02_alerts": 2,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-005"
+   ],
+   "v02_techniques": [
+    "T1546.004"
+   ],
+   "v03_alerts": 21,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-005",
+    "RL-023"
+   ],
+   "v03_techniques": [
+    "T1543.002",
+    "T1546.004"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1098.004/ssh_authorized_keys/sysmon_linux.log",
+   "technique": "T1098.004",
+   "split": "dev2",
+   "events": 14571,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1190/outbound_java/linux-sysmon.log",
+   "technique": "T1190",
+   "split": "dev2",
+   "events": 12229,
+   "v01_alerts": 1,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-003"
+   ],
+   "v01_techniques": [
+    "T1071"
+   ],
+   "v02_alerts": 1,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-003"
+   ],
+   "v02_techniques": [
+    "T1071"
+   ],
+   "v03_alerts": 1,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-003"
+   ],
+   "v03_techniques": [
+    "T1071"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1485/linux_dd_file_overwrite/sysmon_linux.log",
+   "technique": "T1485",
+   "split": "dev2",
+   "events": 6922,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-011"
+   ],
+   "v02_techniques": [
+    "T1561.001"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-011"
+   ],
+   "v03_techniques": [
+    "T1561.001"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1489/linux_service_stop_disable/sysmon_linux.log",
+   "technique": "T1489",
+   "split": "dev2",
+   "events": 4486,
+   "v01_alerts": 1,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-006"
+   ],
+   "v01_techniques": [
+    "T1070.002"
+   ],
+   "v02_alerts": 10,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-006",
+    "RL-008",
+    "RL-011"
+   ],
+   "v02_techniques": [
+    "T1070.002",
+    "T1485",
+    "T1548.003"
+   ],
+   "v03_alerts": 18,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-006",
+    "RL-008",
+    "RL-011",
+    "RL-023"
+   ],
+   "v03_techniques": [
+    "T1070.002",
+    "T1485",
+    "T1543.002",
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1546.004/linux_init_profile/sysmon_linux.log",
+   "technique": "T1546.004",
+   "split": "dev2",
+   "events": 42359,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-023"
+   ],
+   "v03_techniques": [
+    "T1546.004"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1547.006/loading_linux_kernel_module/sysmon_linux.log",
+   "technique": "T1547.006",
+   "split": "dev2",
+   "events": 15662,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 5,
+   "v03_on_technique": 5,
+   "v03_rules": [
+    "RL-020"
+   ],
+   "v03_techniques": [
+    "T1547.006"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548.001/chmod_uid/sysmon_linux.log",
+   "technique": "T1548.001",
+   "split": "dev2",
+   "events": 23666,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 3,
+   "v03_on_technique": 3,
+   "v03_rules": [
+    "RL-019"
+   ],
+   "v03_techniques": [
+    "T1548.001"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548.001/linux_setcap/sysmon_linux.log",
+   "technique": "T1548.001",
+   "split": "dev2",
+   "events": 16027,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-019"
+   ],
+   "v03_techniques": [
+    "T1548.001"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548.003/doas/sysmon_linux.log",
+   "technique": "T1548.003",
+   "split": "dev2",
+   "events": 7588,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548.003/doas_exec/sysmon_linux.log",
+   "technique": "T1548.003",
+   "split": "dev2",
+   "events": 14888,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548.003/linux_adduser/sysmon_linux.log",
+   "technique": "T1548.003",
+   "split": "dev2",
+   "events": 11448,
+   "v01_alerts": 2,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-005"
+   ],
+   "v01_techniques": [
+    "T1546.004"
+   ],
+   "v02_alerts": 3,
+   "v02_on_technique": 1,
+   "v02_rules": [
+    "RL-005",
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1546.004",
+    "T1548.003"
+   ],
+   "v03_alerts": 3,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-005",
+    "RL-008"
+   ],
+   "v03_techniques": [
+    "T1546.004",
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548.003/nopasswd_sudoers/sysmon_linux.log",
+   "technique": "T1548.003",
+   "split": "dev2",
+   "events": 33785,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 2,
+   "v03_on_technique": 2,
+   "v03_rules": [
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548.003/sudo_su/sysmon_linux.log",
+   "technique": "T1548.003",
+   "split": "dev2",
+   "events": 12271,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 1,
+   "v03_on_technique": 1,
+   "v03_rules": [
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1548.003/sudoers_temp/sysmon_linux.log",
+   "technique": "T1548.003",
+   "split": "dev2",
+   "events": 6748,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "attack_techniques/T1548.003/visudo/sysmon_linux.log",
+   "technique": "T1548.003",
+   "split": "dev2",
+   "events": 29830,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 3,
+   "v03_on_technique": 3,
+   "v03_rules": [
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "attack_techniques/T1574.006/lib_hijack/sysmon_linux.log",
+   "technique": "T1574.006",
+   "split": "dev2",
+   "events": 27457,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 0,
+   "v03_on_technique": 0,
+   "v03_rules": [],
+   "v03_techniques": []
+  },
+  {
+   "dataset": "malware/acidrain/sysmon_linux.log",
+   "technique": "malware/acidrain",
+   "split": "dev2",
+   "events": 17326,
+   "v01_alerts": 5,
+   "v01_on_technique": 0,
+   "v01_rules": [
+    "RL-006"
+   ],
+   "v01_techniques": [
+    "T1070.002"
+   ],
+   "v02_alerts": 39,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-006",
+    "RL-008"
+   ],
+   "v02_techniques": [
+    "T1070.002",
+    "T1548.003"
+   ],
+   "v03_alerts": 46,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-006",
+    "RL-008",
+    "RL-019",
+    "RL-023"
+   ],
+   "v03_techniques": [
+    "T1070.002",
+    "T1543.002",
+    "T1548.001",
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "malware/awfulshred/test1/sysmon_linux.log",
+   "technique": "malware/awfulshred",
+   "split": "dev2",
+   "events": 31708,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 2,
+   "v02_on_technique": 0,
+   "v02_rules": [
+    "RL-011"
+   ],
+   "v02_techniques": [
+    "T1485"
+   ],
+   "v03_alerts": 2,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-011"
+   ],
+   "v03_techniques": [
+    "T1485"
+   ]
+  },
+  {
+   "dataset": "malware/awfulshred/test2/sysmon_linux.log",
+   "technique": "malware/awfulshred",
+   "split": "dev2",
+   "events": 42623,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 2,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  },
+  {
+   "dataset": "malware/cyclopsblink/sysmon_linux.log",
+   "technique": "malware/cyclopsblink",
+   "split": "dev2",
+   "events": 80736,
+   "v01_alerts": 0,
+   "v01_on_technique": 0,
+   "v01_rules": [],
+   "v01_techniques": [],
+   "v02_alerts": 0,
+   "v02_on_technique": 0,
+   "v02_rules": [],
+   "v02_techniques": [],
+   "v03_alerts": 1,
+   "v03_on_technique": 0,
+   "v03_rules": [
+    "RL-021"
+   ],
+   "v03_techniques": [
+    "T1548.003"
+   ]
+  }
+ ],
+ "summary": {
+  "dev": {
+   "datasets": 46,
+   "with_events": 45,
+   "v01_detected": 3,
+   "v01_detected_ci95": [
+    0.023,
+    0.179
+   ],
+   "v01_technique_match": 0,
+   "v01_technique_match_ci95": [
+    0.0,
+    0.079
+   ],
+   "v01_alerts": 3,
+   "v01_alert_precision": 0.0,
+   "v02_detected": 32,
+   "v02_detected_ci95": [
+    0.566,
+    0.823
+   ],
+   "v02_technique_match": 27,
+   "v02_technique_match_ci95": [
+    0.455,
+    0.73
+   ],
+   "v02_alerts": 100,
+   "v02_alert_precision": 0.83,
+   "v03_detected": 34,
+   "v03_detected_ci95": [
+    0.613,
+    0.858
+   ],
+   "v03_technique_match": 27,
+   "v03_technique_match_ci95": [
+    0.455,
+    0.73
+   ],
+   "v03_alerts": 105,
+   "v03_alert_precision": 0.8
+  },
+  "dev2": {
+   "datasets": 27,
+   "with_events": 27,
+   "v01_detected": 9,
+   "v01_detected_ci95": [
+    0.186,
+    0.522
+   ],
+   "v01_technique_match": 4,
+   "v01_technique_match_ci95": [
+    0.059,
+    0.325
+   ],
+   "v01_alerts": 58,
+   "v01_alert_precision": 0.724,
+   "v02_detected": 12,
+   "v02_detected_ci95": [
+    0.276,
+    0.627
+   ],
+   "v02_technique_match": 5,
+   "v02_technique_match_ci95": [
+    0.082,
+    0.367
+   ],
+   "v02_alerts": 110,
+   "v02_alert_precision": 0.391,
+   "v03_detected": 23,
+   "v03_detected_ci95": [
+    0.675,
+    0.941
+   ],
+   "v03_technique_match": 14,
+   "v03_technique_match_ci95": [
+    0.34,
+    0.693
+   ],
+   "v03_alerts": 166,
+   "v03_alert_precision": 0.367
+  }
+ },
+ "provenance": {
+  "script": "scripts/bench.py --only coverage --allow-unfrozen",
+  "rootline": "1.1.0",
+  "commit": "84404d6cb2715b7701cd5cb0a7b25a628203a8d4",
+  "dirty": false,
+  "workflow": "bench",
+  "run_id": 37091479765,
+  "run_attempt": 1,
+  "python": "3.12.14",
+  "pythonhashseed": "0",
+  "platform": "Linux 6.17.0-1022-azure (x86_64)",
+  "generated_utc": "2026-10-03T02:56:43Z",
+  "freeze_check": "failed: post-freeze sources"
+ },
+ "label": "in-sample: dev and dev2 re-scored with the post-freeze code at this commit; sealed is never re-scored here (docs/protocol.md)"
+}
