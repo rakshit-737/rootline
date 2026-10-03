@@ -32,3 +32,16 @@ sealed numbers count as in-sample.
   and the README says so.
 - The freeze commit was pushed only on 2026-10-02, so its date is the author's claim.
   The sealed files and selection rule are public and pinned, so anyone can re-score.
+
+## Addendum (2026-10-03): state after scoring, and an erratum
+
+- After the scoring run, docstrings were edited in `rules_v03.py` and `detect.py` (284c125)
+  and in `graph.py`, `models.py`, `pipeline.py` and `loaders/__init__.py` (580470b), and the
+  normaliser, graph and Sysmon/auditd loaders were hardened with logic changes (f1e71e6,
+  bc6984d). By this ADR's own rule the loaders shipped since v1.1.0 are a post-freeze version:
+  the sealed numbers belong to 60e3561, and any sealed re-score at a later commit is in-sample.
+  The rule logic itself is unchanged (docstring-free syntax trees equal the freeze), and
+  re-scoring dev/dev2 at HEAD reproduces every committed row. Details and the CI checks are in
+  [the protocol](../protocol.md#state-after-scoring).
+- Erratum: the Wilson interval above was rounded twice. Computed once from 4/64 it is
+  [2 %, 15 %] (0.0246, 0.1500), not [3 %, 15 %].

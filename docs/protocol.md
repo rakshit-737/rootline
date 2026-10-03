@@ -55,6 +55,48 @@ replaces it with a three-way protocol that makes the leak explicit.
 - Scoring: once, in the manual `sealed-coverage` GitHub Actions workflow, which runs the
   freeze check first. The run id is recorded in the README and in `results/coverage.json`.
 
+## State after scoring
+
+*Addendum, 2026-10-03. The sections above are unchanged since the scoring run.*
+
+The sealed split was scored once, in `sealed-coverage` run 36994398382 (2026-10-02 10:14 UTC)
+at commit `60e3561`, after `scripts/verify_freeze.py` passed. **The sealed numbers belong to
+60e3561.** Afterwards, the following commits touched files listed in `scripts/freeze_v03.json`:
+
+| Commit (2026-10-02, UTC) | Frozen files touched | Kind of change |
+|---|---|---|
+| `284c125` (10:25) | `rules_v03.py`, `detect.py` | docstrings only (the "sealed was scored" sentences) |
+| `f1e71e6` (10:36) | `normalize.py`, `loaders/sysmon.py`, `loaders/auditd.py` | **logic**: strict probe-record parsing, visible control characters, bounded timestamps, linear Sysmon scan, malformed numbers skipped |
+| `bc6984d` (10:36) | `graph.py` | **logic**: `[v6]:port` socket labels (with the reconstructor's loopback/link-local and IOC fixes) |
+| `580470b` (11:09) | `graph.py`, `models.py`, `pipeline.py`, `loaders/__init__.py` | docstrings only |
+
+What this means:
+
+- At v1.1.0 and later, `python scripts/verify_freeze.py` reports 9 of 10 files changed; only
+  `rules_linux.py` is byte-identical. The pre-registered hashes still hold at the freeze commit
+  and at the scored commit: `python scripts/verify_freeze.py --ref 153eade` and
+  `--ref 60e3561` both print "freeze intact".
+- The **rule logic is unchanged**: comparing syntax trees with docstrings removed,
+  `rules_v03.py`, `rules_linux.py` and `detect.py` at HEAD equal the freeze
+  (`python scripts/verify_freeze.py --ast 153eade --files ...`). So do `models.py`,
+  `pipeline.py` and `loaders/__init__.py`. `normalize.py`, `graph.py` and the Sysmon and
+  auditd loaders differ in logic.
+- By rule 3 above, those loaders and the normaliser are a **post-freeze version**. Any sealed
+  re-score at a commit after 60e3561 is in-sample and must be labelled so. `scripts/bench.py`
+  enforces this: it refuses to rewrite `results/coverage.json` unless the freeze check passes,
+  and `--allow-unfrozen` scores only `dev` and `dev2`, into `results/coverage_head.json`.
+- Check on in-sample data: re-scoring `dev` and `dev2` with the post-freeze code (bench run
+  37092501921 at cde2a39) reproduces all 73 committed rows exactly (34/45, 27/45; 23/27,
+  14/27), so the hardening is neutral on the captures the rules were written from. It says
+  nothing about sealed, which is not re-scored.
+- `results/coverage.json`'s summary key `sealed-excluding-v03-target-techniques` (3/51
+  detected) was added after the scoring run. It is computed from that run's committed rows by
+  `rootline.bench.sealed_excluding_v03_targets()`; it is not in the run's own artefact.
+- CI (`freeze-record` job) checks on every push that the freeze holds at 153eade and 60e3561,
+  that the rule logic at HEAD equals the freeze, and that `freeze_v03.json` and
+  `results/coverage.json` are unchanged since scoring. The frozen files are no longer edited,
+  not even for docstrings.
+
 ## Known leaks, stated up front
 
 - The sealed file **paths** (which contain technique IDs and short names such as
