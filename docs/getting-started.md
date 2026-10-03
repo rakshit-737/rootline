@@ -15,7 +15,7 @@ pip install -e .
 rootline analyze tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_auoms.json
 ```
 
-Expected output (about 0.4 s):
+The complete output (deterministic, about 0.4 s):
 
 ```text
 [+] graph: {'events': 108, 'nodes': 105, 'edges': 111, 'process': 83, 'socket': 5, 'file': 17}  (rejected records: 0)
@@ -23,14 +23,21 @@ Expected output (about 0.4 s):
 [+] alerts: 2
     RL-009  medium   T1140      base64 decoding: base64 -d
     RL-003  critical T1071      bash opened outbound connection to 192.168.2.6:443 (reverse shell / C2)
+
 [*] pivot: RL-003 on bash[17806]
 [*] root cause(s): ['192.168.2.6:8888', '192.168.2.6:1389']
 [*] story: 13 nodes / 18 edges (backward 9, forward 4, accessed 2)
+[*] kill chain:
+    initial-access: 192.168.2.6:8888  (+1 more)
+    command-and-control: bash[17806] connected to 192.168.2.6:443  (+1 more)
+[*] IOCs: {"ip": ["192.168.2.6"], "ipv4": ["192.168.2.6"], "ipv6": [], "files": [], "sha256": []}
+[*] integrity head: d1b6e3cde1f07bcf93a670231d4002586cfbab5a7aa3b935a75b910176898656
 ```
 
 The reverse shell traces back through `java[1340]` to the attacker's LDAP (`:1389`) and HTTP
 (`:8888`) callbacks: the JNDI exploitation chain. The two files are the full OTRF capture,
-recorded by two sensors on one host (Sysmon for Linux and AUOMS), which ROOTLINE fuses.
+recorded by two sensors on one host (Sysmon for Linux and AUOMS), which ROOTLINE fuses. The
+integrity head is the SHA-256 hash-chain head of the provenance record; `rootline verify` checks it.
 
 ## More commands
 

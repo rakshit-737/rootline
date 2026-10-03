@@ -176,6 +176,16 @@ def ablation() -> str:
                  f"{dpr['pivots']['lower']} lower); recall {num(drc['mean'], 4, signed=True)} "
                  f"{iv(*drc['ci95'], 4, signed=True)}, lower on {drc['logs']['lower']} of {drc['logs']['n']} logs "
                  f"({drc['logs']['tied']} tied).\n")
+    ts, fu = m["time+stops"]["f1"]["per_log"], m["full"]["f1"]["per_log"]
+    diff = {lg: ts[lg] - fu[lg] for lg in sorted(fu)}
+    mu, lo, hi = cluster_bootstrap(diff)
+    lt = paired_log_test(diff)
+    rc = [x["rc_hit3"]["mean"] for g in ("S", "M") for v, x in a["summary"][g].items() if v in VARS]
+    parts.append(f"**Highest held-out F1 point estimate**: time+stops {num(m['time+stops']['f1']['mean'])} vs full "
+                 f"{num(m['full']['f1']['mean'])}; difference {num(mu, signed=True)} {iv(lo, hi, signed=True)}, "
+                 f"higher on {lt['higher']} of {lt['n']} logs (sign-flip {fmt_p(lt['sign_flip_p'])}), so it is the "
+                 f"highest point estimate, not a significant winner. Root-cause hit@3 ranges "
+                 f"{num(min(rc))}-{num(max(rc))} over all variants and both groups.\n")
     rows = []
     for name, d in stops_split(m).items():
         lt = sign_test(d["dp"])
@@ -449,7 +459,7 @@ def headline() -> str:
         ["ATLAS paper's graph-traversal baseline vs ROOTLINE naive reachability, event precision",
          f"{num(PAPER_TRAVERSAL[0])} vs {num(s['naive']['precision']['mean'])} / "
          f"{num(m['naive']['precision']['mean'])}: consistent", "paper Table 5; " + ab],
-        ["ATLAS LSTM, our reproduction (entity F1, S1-S4)",
+        ["ATLAS LSTM, our reproduction (entity F1, S1-S4, mean of 5 seeds)",
          f"{rng(min(ours), max(ours))} vs ATLAS's cleaned list under our scorer "
          f"{rng(min(cl), max(cl))} (paper {rng(min(pap), max(pap))}): **not reproduced**",
          f"`atlas_repro.json`, atlas-repro run {rp['provenance']['run_id']}"],

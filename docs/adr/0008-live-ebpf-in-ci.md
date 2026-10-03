@@ -34,9 +34,12 @@ GitHub Actions unless `ROOTLINE_LAB=1` is set.
 
 ## Consequences
 
-- The probe is now tested on a real kernel on every push. Over the first 9 pushes with
-  probe v1.2, 41 of 42 completed jobs passed (the failure was an over-strict fork-parent
-  check, since corrected); results are in `results/live_ebpf.json`.
+- The probe is now tested on a real kernel on every push. Over the 15 pushes to main with
+  probe v1.2 from 0e86829 to 2aad2d0, 71 of 72 completed jobs passed (Wilson 95 %
+  [0.925, 0.998]) and the chain was recovered in all 72; the failure was an over-strict
+  fork-parent check, since corrected. One row per job, collected from the CI artefacts by
+  `scripts/live/collect_repeatability.py`, is in `results/live_ebpf.json`. (Corrected
+  2026-10-03: the earlier count, 41 of 42 over 9 pushes, missed run 36998890924.)
 - This is bpftrace on a GitHub-hosted Azure kernel, not a libbpf CO-RE probe, and the
   chain is scripted and benign. It shows the sensor-to-story path works; it says nothing
   about evasion-resistant collection.

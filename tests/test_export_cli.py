@@ -64,3 +64,15 @@ def test_cli_demo(tmp_path, capsys):
     out = capsys.readouterr().out
     assert "root_cause_correct: True" in out
     assert (tmp_path / "stix.json").exists() and (tmp_path / "story.mmd").exists()
+
+
+def test_readme_quickstart_output_is_the_real_output(capsys):
+    """README's 'Try it in 60 seconds' block is the complete, verbatim CLI output."""
+    from pathlib import Path
+
+    from rootline.cli import main
+    root = Path(__file__).resolve().parents[1]
+    fx = root / "tests" / "fixtures"
+    assert main(["analyze", str(fx / "log4shell_sysmon.json"), str(fx / "log4shell_auoms.json")]) == 0
+    out = capsys.readouterr().out.rstrip("\n")
+    assert "```text\n" + out + "\n```" in (root / "README.md").read_text(encoding="utf-8")

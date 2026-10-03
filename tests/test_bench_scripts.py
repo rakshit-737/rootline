@@ -8,6 +8,9 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 FX = ROOT / "tests" / "fixtures"
+# the sdist ships tests and scripts but not results/ or docs/
+needs_repo = pytest.mark.skipif(not (ROOT / "results").is_dir() or not (ROOT / "docs").is_dir(),
+                                reason="results/ and docs/ are only in a git checkout")
 
 
 def load_script(name: str, out: Path, data: Path):
@@ -88,3 +91,26 @@ def test_verify_freeze_helpers():
     assert vf.logic_dump(a) == vf.logic_dump(b) != vf.logic_dump(c)
     with pytest.raises(SystemExit):
         vf.main(["--help"])
+
+
+def _headline_block(text: str) -> list[str]:
+    lines = text.splitlines()
+    start = next(i for i, ln in enumerate(lines) if ln.startswith("| Result | Number | Source"))
+    end = next(i for i in range(start, len(lines)) if not lines[i].startswith("|"))
+    return lines[start:end]
+
+
+@needs_repo
+def test_tables_are_rendered_from_the_committed_json():
+    spec = importlib.util.spec_from_file_location("render_tables", ROOT / "scripts" / "render_tables.py")
+    rt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rt)
+    assert rt.main(["--check"]) == 0, "results/TABLES.md is stale: run python scripts/render_tables.py"
+
+
+@needs_repo
+def test_readme_and_docs_headline_tables_match_tables_md():
+    """Every headline number in the README and on the docs home page is the rendered one, verbatim."""
+    tables = _headline_block((ROOT / "results" / "TABLES.md").read_text(encoding="utf-8"))
+    for doc in ("README.md", "docs/index.md"):
+        assert _headline_block((ROOT / doc).read_text(encoding="utf-8")) == tables, doc

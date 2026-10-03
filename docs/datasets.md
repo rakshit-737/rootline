@@ -30,6 +30,24 @@ audit CSVs. ATLAS model weights (`*.h5`) are skipped on extraction.
 - Z. Xu et al. *High Fidelity Data Reduction for Big Data Security Dependency
   Analyses (CPR).* CCS 2016.
 
+Prior art compared in the README (its References section numbers the same works):
+
+- S. M. Milajerdi, R. Gjomemo, B. Eshete, R. Sekar, V. N. Venkatakrishnan. *HOLMES: Real-time
+  APT Detection through Correlation of Suspicious Information Flows.* IEEE S&P 2019.
+- W. U. Hassan et al. *NoDoze: Combatting Threat Alert Fatigue with Automated Provenance
+  Triage.* NDSS 2019.
+- P. Fang et al. *Back-Propagating System Dependency Impact for Attack Investigation*
+  (DEPIMPACT). USENIX Security 2022.
+- A. Gehani, D. Tariq. *SPADE: Support for Provenance Auditing in Distributed Environments.*
+  Middleware 2012.
+- T. Pasquier, X. Han, M. Goldstein, T. Moyer, D. Eyers, M. Seltzer, J. Bacon. *Practical
+  Whole-System Provenance Capture* (CamFlow). ACM SoCC 2017.
+- Y. Tang et al. *NodeMerge: Template Based Efficient Data Reduction For Big-Data Causality
+  Analysis.* ACM CCS 2018.
+- K. H. Lee, X. Zhang, D. Xu. *LogGC: Garbage Collecting Audit Log.* ACM CCS 2013.
+- Falco (<https://falco.org>), Tetragon (<https://tetragon.io>), DARPA Transparent Computing
+  (<https://github.com/darpa-i2o/Transparent-Computing>).
+
 ## ATLASv2 (not used yet)
 
 ATLASv2 (bitbucket.org/sts-lab/atlasv2) re-runs the ATLAS attacks with Sysmon and
