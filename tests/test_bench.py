@@ -185,3 +185,14 @@ def test_derived_sealed_view_is_recomputed_from_committed_rows():
     got = sealed_excluding_v03_targets(cov["rows"])
     assert got == cov["summary"]["sealed-excluding-v03-target-techniques"]
     assert (got["datasets"], got["with_events"], got["v03_detected"], got["v03_technique_match"]) == (117, 51, 3, 1)
+
+
+@pytest.mark.skipif(not (Path(__file__).resolve().parents[1] / "results").is_dir(), reason="git checkout only")
+def test_dev_dev2_rescored_at_head_equal_the_scored_rows():
+    """coverage_head.json (post-freeze code, in-sample) reproduces every dev/dev2 row scored at 60e3561."""
+    res = Path(__file__).resolve().parents[1] / "results"
+    head = json.loads((res / "coverage_head.json").read_text())
+    scored = {(r["split"], r["dataset"]): r for r in json.loads((res / "coverage.json").read_text())["rows"]}
+    assert head["provenance"]["freeze_check"].startswith("failed") and "in-sample" in head["label"]
+    assert {r["split"] for r in head["rows"]} == {"dev", "dev2"}  # sealed is never re-scored
+    assert len(head["rows"]) == 73 and all(scored[(r["split"], r["dataset"])] == r for r in head["rows"])
