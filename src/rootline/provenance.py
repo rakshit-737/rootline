@@ -58,11 +58,16 @@ def provenance(script: str, root: str | Path | None = None) -> dict[str, Any]:
 
 
 def describe(p: dict[str, Any] | None) -> str:
-    """One-line human summary of a provenance block (for Markdown headers)."""
+    """One-line human summary of a provenance block (for Markdown headers); missing fields are left out."""
     if not p:
         return "no provenance recorded"
-    where = (f"GitHub Actions `{p['workflow']}` run {p['run_id']}" if p.get("run_id")
-             else f"a local run on {p.get('platform', '?')}")
-    commit = (p.get("commit") or "?")[:12] + (" (dirty tree)" if p.get("dirty") else "")
-    return f"`{p.get('script', '?')}` - rootline {p.get('rootline', '?')}, commit {commit}, {where}, " \
-           f"Python {p.get('python', '?')}"
+    parts = [f"`{p['script']}`"] if p.get("script") else []
+    if p.get("rootline"):
+        parts.append(f"rootline {p['rootline']}")
+    if p.get("commit"):
+        parts.append(f"commit {p['commit'][:12]}" + (" (dirty tree)" if p.get("dirty") else ""))
+    parts.append(f"GitHub Actions `{p.get('workflow', '?')}` run {p['run_id']}" if p.get("run_id")
+                 else f"a local run on {p.get('platform', '?')}")
+    if p.get("python"):
+        parts.append(f"Python {p['python']}")
+    return ", ".join(parts)
