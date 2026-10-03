@@ -1,0 +1,113 @@
+name: bench
+
+# Regenerates the result files that come from public data in CI, so each records the
+# commit and this workflow's run id (a `provenance` block): results/atlas.json,
+# results/ablation.json, results/log4shell.json, and an in-sample re-score of the
+# dev/dev2 rule splits at this commit (results/coverage_head.json).
+# Manual only. It never scores the sealed split (see docs/protocol.md).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONHASHSEED: "0"
+
+jobs:
+  atlas:
+    # IOC-pivot reconstruction, reduction and IsolationForest ranking on ATLAS S1-S4 + M1-M6 hosts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[bench]"
+      - name: data (ATLAS S1.zip + M1.zip, 76 MB, sha256-checked)
+        env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: python scripts/download_data.py --only atlas/S1.zip atlas/M1.zip
+      - env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: python scripts/bench.py --only atlas
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bench-atlas
+          path: |
+            results/atlas.json
+            results/figures/atlas_prf.png
+
+  ablation:
+    # every component of the reconstructor switched off in turn, every ground-truth entity as a pivot
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[bench]"
+      - name: data (ATLAS S1.zip + M1.zip, 76 MB, sha256-checked)
+        env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: python scripts/download_data.py --only atlas/S1.zip atlas/M1.zip
+      - env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: python scripts/ablation.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bench-ablation
+          path: |
+            results/ablation.json
+            results/figures/ablation.png
+            results/figures/ablation_stops.png
+
+  log4shell:
+    # OTRF Log4Shell: Sysmon for Linux alone vs fused with AUOMS
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[bench]"
+      - env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: python scripts/download_data.py --source otrf
+      - env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: python scripts/bench.py --only log4shell
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bench-log4shell
+          path: |
+            results/log4shell.json
+            results/log4shell_story.json
+            results/log4shell_story.mmd
+
+  coverage-head:
+    # dev + dev2 (in-sample) re-scored with this commit's post-freeze loaders; sealed is never touched
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[bench]"
+      - name: data (Splunk dev + dev2 captures, sha256-checked)
+        env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: |
+          python scripts/download_data.py --source splunk --split dev
+          python scripts/download_data.py --source splunk --split dev2
+      - env:
+          ROOTLINE_DATA: ${{ runner.temp }}/data
+        run: python scripts/bench.py --only coverage --allow-unfrozen
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bench-coverage-head
+          path: results/coverage_head.json
