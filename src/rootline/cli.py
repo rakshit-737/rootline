@@ -65,6 +65,7 @@ def _resolve_pivot(records: list[dict[str, Any]], ioc: str) -> str:
 
 
 def cmd_synth(ns: argparse.Namespace) -> int:
+    """``rootline synth``: write a synthetic capture (and optionally its ground truth)."""
     recs, truth = generate(ns.benign, attack=not ns.no_attack, seed=ns.seed)
     write_jsonl(recs, ns.out)
     if ns.truth:
@@ -74,6 +75,7 @@ def cmd_synth(ns: argparse.Namespace) -> int:
 
 
 def cmd_analyze(ns: argparse.Namespace) -> int:
+    """``rootline analyze``: build, tag and reconstruct; optionally export the story."""
     if ns.iforest:
         try:
             import sklearn  # noqa: F401
@@ -98,6 +100,7 @@ def cmd_analyze(ns: argparse.Namespace) -> int:
 
 
 def cmd_serve(ns: argparse.Namespace) -> int:  # pragma: no cover - starts a server
+    """``rootline serve``: start the API and replay UI on loopback."""
     try:
         from .api import serve
     except ImportError:
@@ -107,6 +110,7 @@ def cmd_serve(ns: argparse.Namespace) -> int:  # pragma: no cover - starts a ser
 
 
 def cmd_verify(ns: argparse.Namespace) -> int:
+    """``rootline verify``: print the hash-chain head, or check it (exit 2 on mismatch)."""
     n = Normalizer()
     evs = sorted(n.normalize(load_many([ns.events], ns.format)), key=lambda e: (e.ts, e.seq))
     if not evs:
@@ -123,6 +127,7 @@ def cmd_verify(ns: argparse.Namespace) -> int:
 
 
 def cmd_demo(ns: argparse.Namespace) -> int:
+    """``rootline demo``: synthetic intrusion end to end, scored against its ground truth."""
     os.makedirs(ns.outdir, exist_ok=True)
     base, _ = generate(ns.benign, attack=False, seed=1)
     recs, truth = generate(ns.benign, attack=True, seed=7)
@@ -144,6 +149,7 @@ def cmd_demo(ns: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Entry point of the ``rootline`` command; returns the process exit code."""
     p = argparse.ArgumentParser(prog="rootline", description="Provenance-graph attack reconstruction")
     p.add_argument("--version", action="version", version=__version__)
     sp = p.add_subparsers(dest="cmd", required=True)

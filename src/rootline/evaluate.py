@@ -23,10 +23,14 @@ def attack_edges(g: ProvenanceGraph) -> set[tuple[str, str, Relation]]:
 
 
 def attack_nodes(g: ProvenanceGraph) -> set[str]:
+    """Vertices touched by an attack-labelled edge."""
     return {n for s, d, _ in attack_edges(g) for n in (s, d)}
 
 
 def evaluate(a: Analysis, truth: dict[str, Any]) -> dict[str, Any]:
+    """Score an analysis against synthetic ground truth: root-cause accuracy, blast-radius
+    recall, attack-path preservation under reduction and the reduction ratio.
+    """
     r = a.reconstruction
     gt_edges = attack_edges(a.raw)
     kept = {(e.src, e.dst, e.rel) for e in a.graph.edges}

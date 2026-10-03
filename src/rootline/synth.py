@@ -30,6 +30,8 @@ LIBS = ["/usr/lib/x86_64-linux-gnu/libc.so.6", "/etc/ld.so.cache", "/usr/lib/loc
 
 @dataclass
 class Sim:
+    """A tiny scripted host: tracks processes and emits raw records with a moving clock."""
+
     host: str = "lab-vm"
     rng: random.Random = field(default_factory=lambda: random.Random(7))
     t: float = T0
@@ -39,10 +41,12 @@ class Sim:
     label: str | None = None
 
     def tick(self, lo: float = 0.001, hi: float = 0.05) -> float:
+        """Advance the clock by a random step and return the new timestamp."""
         self.t += self.rng.uniform(lo, hi)
         return round(self.t, 6)
 
     def emit(self, kind: str, pid: int, **kw: Any) -> None:
+        """Append one raw record for ``pid`` (current comm/exe/uid filled in)."""
         p = self.procs[pid]
         rec = {"ts": self.tick(), "host": self.host, "kind": kind, "pid": pid, "ppid": p["ppid"],
                "uid": p["uid"], "comm": p["comm"], "exe": p["exe"], **kw}
@@ -51,10 +55,12 @@ class Sim:
         self.records.append(rec)
 
     def spawn_root(self, pid: int, comm: str, exe: str, uid: int = 0, ppid: int = 1) -> int:
+        """Register an already-running process (no fork event) and return its pid."""
         self.procs[pid] = {"ppid": ppid, "uid": uid, "comm": comm, "exe": exe}
         return pid
 
     def fork(self, pid: int) -> int:
+        """Fork ``pid`` and return the child's pid."""
         child = self.next_pid
         self.next_pid += 1
         self.emit("fork", pid, child_pid=child)
@@ -62,6 +68,7 @@ class Sim:
         return child
 
     def exec(self, pid: int, path: str, *argv: str, sha256: str | None = None, libs: bool = True) -> None:
+        """Exec ``path`` in ``pid`` (with the usual shared-library opens unless ``libs`` is false)."""
         comm = path.rsplit("/", 1)[-1][:15]
         self.procs[pid].update(comm=comm, exe=path)
         kw: dict[str, Any] = {"path": path, "argv": [comm, *argv]}
@@ -73,26 +80,32 @@ class Sim:
                 self.emit("open", pid, path=lib, flags="O_RDONLY")
 
     def spawn(self, parent: int, path: str, *argv: str, **kw: Any) -> int:
+        """Fork ``parent`` and exec ``path`` in the child; return the child's pid."""
         c = self.fork(parent)
         self.exec(c, path, *argv, **kw)
         return c
 
     def read(self, pid: int, path: str) -> None:
+        """Open ``path`` read-only."""
         self.emit("open", pid, path=path, flags="O_RDONLY")
 
     def write(self, pid: int, path: str, sha256: str | None = None) -> None:
+        """Open ``path`` for writing (optionally recording the written content's hash)."""
         kw: dict[str, Any] = {"path": path, "flags": "O_WRONLY|O_CREAT"}
         if sha256:
             kw["sha256"] = sha256
         self.emit("open", pid, **kw)
 
     def connect(self, pid: int, ip: str, port: int) -> None:
+        """Outbound connection to ``ip:port``."""
         self.emit("connect", pid, dst_ip=ip, dst_port=port)
 
     def unlink(self, pid: int, path: str) -> None:
+        """Delete ``path``."""
         self.emit("unlink", pid, path=path)
 
     def exit(self, pid: int) -> None:
+        """Process exit."""
         self.emit("exit", pid)
 
 
@@ -180,6 +193,7 @@ def generate(n_benign: int = 300, attack: bool = True, seed: int = 7, host: str 
 
 
 def write_jsonl(records: list[dict[str, Any]], path: str) -> None:
+    """Write raw records as compact JSON lines."""
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
         for r in records:
             fh.write(json.dumps(r, separators=(",", ":")) + "\n")

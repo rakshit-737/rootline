@@ -39,5 +39,24 @@ line-length = 120
 target-version = "py310"
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "B"]
+# D101-D103: every public class, method and function in src/ has a docstring
+select = ["E", "F", "W", "I", "B", "D101", "D102", "D103"]
 ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# The sources pinned in scripts/freeze_v03.json (the sealed-protocol record, docs/protocol.md)
+# are not edited, not even for docstrings; tests, scripts and the paper reproduction are exempt.
+"src/rootline/rules_v03.py" = ["D1"]
+"src/rootline/rules_linux.py" = ["D1"]
+"src/rootline/detect.py" = ["D1"]
+"src/rootline/normalize.py" = ["D1"]
+"src/rootline/models.py" = ["D1"]
+"src/rootline/graph.py" = ["D1"]
+"src/rootline/pipeline.py" = ["D1"]
+"src/rootline/loaders/__init__.py" = ["D1"]
+"src/rootline/loaders/sysmon.py" = ["D1"]
+"src/rootline/loaders/auditd.py" = ["D1"]
+"tests/**" = ["D1"]
+"scripts/**" = ["D1"]
+"repro/**" = ["D1"]
+"docs/**" = ["D1"]

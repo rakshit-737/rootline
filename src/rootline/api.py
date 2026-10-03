@@ -66,6 +66,7 @@ class Store:
         return sid
 
     def get(self, sid: str) -> Analysis:
+        """Return a stored analysis, or raise HTTP 404 for an unknown id."""
         try:
             return self.items[sid][1]
         except KeyError:
@@ -78,6 +79,7 @@ def _csrf(x_rootline: str | None = Header(None)) -> None:
 
 
 def summary(sid: str, name: str, a: Analysis) -> dict[str, Any]:
+    """The story list entry for one analysis: sizes, alert count and root causes."""
     r = a.reconstruction
     return {"id": sid, "name": name, "events": len(a.raw.events), "vertices": len(a.raw.nodes),
             "alerts": len(a.alerts), "story_vertices": len(r.nodes) if r else 0,

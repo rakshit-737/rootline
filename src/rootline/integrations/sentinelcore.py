@@ -3,8 +3,8 @@
 ROOTLINE is meant to sit on top of SentinelCore's eBPF/strace sensing core
 ("don't rebuild the sensor; build the graph brain"). SentinelCore's code is
 not in this repo, so this module defines the *contract* ROOTLINE expects and
-a best-guess field mapping. Adjust ``FIELD_MAP`` once SentinelCore's real
-event schema is plugged in (TODO, Grade C).
+a best-guess field mapping. ``FIELD_MAP`` is an assumption until it is aligned
+with SentinelCore's real event schema (listed under Limitations and on the roadmap).
 
 Expected SentinelCore record (JSON per line), e.g.::
 
@@ -30,6 +30,7 @@ class EventSource(Protocol):
 
 
 def adapt(record: dict[str, Any]) -> dict[str, Any]:
+    """Map one SentinelCore record to a ROOTLINE raw record (``timestamp_ns`` becomes ``ts``)."""
     out: dict[str, Any] = {}
     for k, v in record.items():
         out[FIELD_MAP.get(k, k)] = v
@@ -40,5 +41,6 @@ def adapt(record: dict[str, Any]) -> dict[str, Any]:
 
 
 def adapt_stream(records: Iterable[dict[str, Any]]) -> Iterator[dict[str, Any]]:
+    """Lazily adapt a stream of SentinelCore records."""
     for r in records:
         yield adapt(r)

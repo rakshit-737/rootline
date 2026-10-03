@@ -44,6 +44,7 @@ from .stats import wilson  # noqa: F401  (re-exported: bench.wilson is public)
 
 # ------------------------------------------------------------------- tracing
 def ioc_seeds(g: ProvenanceGraph, ioc: str) -> list[str]:
+    """Vertices matching an analyst IOC: sockets by IP or resolved domain, files by path suffix."""
     ioc = ioc.strip().lower()
     if not ioc:
         return []
@@ -58,6 +59,7 @@ def ioc_seeds(g: ProvenanceGraph, ioc: str) -> list[str]:
 
 
 def trace_grep(g: ProvenanceGraph, seeds: list[str]) -> set[str]:
+    """Seeds plus their direct neighbours: what a grep or SIEM search for the IOC returns."""
     nodes = set(seeds)
     for s in seeds:
         nodes |= {e.src for e in g.in_edges.get(s, [])} | {e.dst for e in g.out_edges.get(s, [])}
@@ -82,6 +84,7 @@ def trace_naive(g: ProvenanceGraph, seeds: list[str]) -> set[str]:
 
 
 def trace_rootline(g: ProvenanceGraph, seeds: list[str]) -> set[str]:
+    """ROOTLINE's reconstruction from the seeds, each anchored at its own contact window."""
     win = [(s, *contact_window(g, s)) for s in seeds]
     spec = [(s, last, first) for s, first, last in win]
     t = max(x[1] for x in spec)
@@ -91,10 +94,12 @@ def trace_rootline(g: ProvenanceGraph, seeds: list[str]) -> set[str]:
 
 # ------------------------------------------------------------------- scoring
 def story_seqs(raw: ProvenanceGraph, nodes: set[str]) -> set[int]:
+    """Event sequence numbers whose provenance edge has both endpoints in the story."""
     return {e.seq for e in raw.edges if e.src in nodes and e.dst in nodes}
 
 
 def prf(pred: set[int], gt: set[int]) -> dict[str, float]:
+    """Precision, recall and F1 of predicted vs ground-truth event sets (4 dp)."""
     tp = len(pred & gt)
     p = tp / len(pred) if pred else 0.0
     r = tp / len(gt) if gt else 0.0
@@ -104,6 +109,8 @@ def prf(pred: set[int], gt: set[int]) -> dict[str, float]:
 
 @dataclass
 class AtlasResult:
+    """One method on one ATLAS log, scored at event level from the analyst IOC."""
+
     scenario: str
     method: str
     events: int
@@ -119,6 +126,11 @@ class AtlasResult:
 
 def run_atlas_scenario(sc: AtlasScenario, ioc: str | None = None,
                        raw: ProvenanceGraph | None = None) -> list[AtlasResult]:
+    """Score ioc-grep, naive reachability and ROOTLINE (with and without reduction)
+    from the analyst IOC on one ATLAS log.
+
+    Raises ``ValueError`` when the IOC matches no vertex on this host.
+    """
     raw = raw if raw is not None else build_graph(sc.records)[0]
     gt = {ev.seq for ev in raw.events if ev.label == "attack" and ev.kind.value != "dns"}
     ioc = ioc or (sc.artifacts[0] if sc.artifacts else "")
@@ -149,6 +161,7 @@ def run_atlas_scenario(sc: AtlasScenario, ioc: str | None = None,
 
 
 def reduction_stats(sc: AtlasScenario, raw: ProvenanceGraph | None = None) -> dict[str, Any]:
+    """Edge/vertex counts before and after reduction, and the share of attack edges kept."""
     raw = raw if raw is not None else build_graph(sc.records)[0]
     attack_seqs = {ev.seq for ev in raw.events if ev.label == "attack"}  # hoisted: was rebuilt per edge (O(E*N))
     gt_keys = {(e.src, e.dst, e.rel) for e in raw.edges if e.seq in attack_seqs}
@@ -163,6 +176,9 @@ def reduction_stats(sc: AtlasScenario, raw: ProvenanceGraph | None = None) -> di
 
 
 def run_atlas(root: str) -> dict[str, Any]:
+    """All ATLAS benchmarks over every log under ``root``: IOC-pivot rows, reduction stats,
+    anomaly rankings and the logs skipped because the IOC never touches them.
+    """
     rows, red, anom, skipped = [], [], [], []
     for d, s in discover(root):
         sc = load_scenario(d, s)
@@ -182,6 +198,7 @@ def run_atlas(root: str) -> dict[str, Any]:
 
 # ------------------------------------------------------------- tagger cover
 def technique_of(path: str) -> str:
+    """The ATT&CK technique (or ``malware/<family>``) encoded in an attack_data path."""
     parts = path.replace("\\", "/").split("/")
     for p in parts:
         if p.startswith("T1") and p[1:2].isdigit():
@@ -197,6 +214,7 @@ def _tech_match(techs: list[str], want: str) -> bool:
 
 
 def coverage_row(path: str, dest: str, split: str) -> dict[str, Any]:
+    """Load one capture and record the alerts and techniques of rule sets v0.1, v0.2, v0.3."""
     recs = load_records(path)
     g, _ = build_graph(recs)
     row: dict[str, Any] = {"dataset": dest.split("/", 1)[1], "technique": technique_of(dest), "split": split,
@@ -212,6 +230,9 @@ def coverage_row(path: str, dest: str, split: str) -> dict[str, Any]:
 
 
 def run_coverage(manifest: str, data_root: str, splits: tuple[str, ...] = SPLITS) -> list[dict[str, Any]]:
+    """Score every downloaded manifest capture of the given splits (missing files are
+    skipped here; scripts/bench.py refuses to write when any is missing).
+    """
     with open(manifest, encoding="utf-8") as fh:
         items = json.load(fh)["files"]
     rows = []

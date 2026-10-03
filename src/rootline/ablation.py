@@ -77,6 +77,7 @@ def pivots(sc: AtlasScenario, g: ProvenanceGraph) -> list[tuple[str, list[str]]]
 
 
 def run_variant(g: ProvenanceGraph, seeds: list[str], flags: dict[str, bool]):
+    """Reconstruct from ``seeds`` with the components in ``flags`` switched on or off."""
     win = [(s, *contact_window(g, s)) for s in seeds]
     spec = [(s, last, first) for s, first, last in win]
     t = max(x[1] for x in spec)
@@ -84,6 +85,12 @@ def run_variant(g: ProvenanceGraph, seeds: list[str], flags: dict[str, bool]):
 
 
 def run_scenario(sc: AtlasScenario, g: ProvenanceGraph, group: str) -> list[dict[str, Any]]:
+    """Run every variant from every pivot of one log and score it.
+
+    Returns one row per (pivot, variant): story size, event precision/recall/F1 against
+    ATLAS's labels, entity recall (entities the pivot itself covers excluded) and
+    whether a top-3 root cause is a ground-truth entity.
+    """
     gt = {ev.seq for ev in g.events if ev.label == "attack" and ev.kind.value != "dns"}
     labels = sc.host_labels
     rows = []

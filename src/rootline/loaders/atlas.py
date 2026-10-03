@@ -40,6 +40,10 @@ def _image(p: str) -> str:
 
 @dataclass
 class AtlasScenario:
+    """One ATLAS log with its ground truth: the host, attacker IPs, malicious entities,
+    the analyst's starting IOC and the parsed raw records.
+    """
+
     name: str
     log_path: str
     host_ip: str
@@ -56,6 +60,9 @@ class AtlasScenario:
 
 
 def parse_lines(lines: Iterator[str], host_ip: str, host: str = "atlas") -> tuple[list[dict[str, Any]], dict[str, int]]:
+    """Parse ATLAS pre-processed log lines into raw records, counting what is dropped
+    (browser rows, rows without a pid, short rows, flows not involving the host).
+    """
     recs: list[dict[str, Any]] = []
     dropped = {"browser": 0, "no_pid": 0, "short": 0, "other_flow": 0}
     seen: dict[str, str] = {}  # pid -> image currently running there

@@ -26,6 +26,9 @@ _SYS = re.compile(r"^/(usr|bin|sbin|lib|opt)/|^c:/(windows|program files)", re.I
 
 
 def features(g: ProvenanceGraph, nid: str) -> list[float]:
+    """Per-process feature vector (see ``FEATURES``): log-scaled fan-in/fan-out counts plus
+    flags such as an executable under a user-writable directory.
+    """
     outs, ins = g.out_edges.get(nid, []), g.in_edges.get(nid, [])
     wrote = {e.dst for e in outs if e.rel is Relation.WROTE}
     deleted = {e.dst for e in outs if e.rel is Relation.DELETED}
@@ -51,6 +54,10 @@ class IForestTagger:
     drop: tuple[str, ...] = ()
 
     def score(self, g: ProvenanceGraph) -> list[tuple[str, float]]:
+        """Rank process vertices by IsolationForest anomaly score, most anomalous first.
+
+        Returns an empty list for graphs with fewer than 8 processes.
+        """
         try:
             from sklearn.ensemble import IsolationForest
         except ImportError as e:  # pragma: no cover - exercised only without the extra
@@ -65,6 +72,7 @@ class IForestTagger:
         return sorted(zip(procs, (float(x) for x in s), strict=True), key=lambda t: -t[1])
 
     def tag(self, g: ProvenanceGraph, top_k: int = 10) -> list[Alert]:
+        """Turn the ``top_k`` most anomalous processes into low-severity ``RL-A03`` alerts."""
         out = []
         for nid, sc in self.score(g)[:top_k]:
             if sc < self.min_score:
