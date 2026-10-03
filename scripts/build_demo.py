@@ -10,6 +10,7 @@ switched into static mode (no uploads).
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -34,7 +35,9 @@ def build(out: Path) -> list[str]:
     (out / "api" / "stories.json").write_text(json.dumps(stories), encoding="utf-8")
     for s in stories:
         sid = s["id"]
-        for suffix, ext in (("", ".json"), ("/stix", ".json"), ("/mermaid", ".mmd"), ("/cypher", ".cypher")):
+        # text exports get a .txt suffix so GitHub Pages serves them as text/plain, like the live API
+        # (a bare .mmd is served as application/vnd.chipnuts.karaoke-mmd, .cypher as a download)
+        for suffix, ext in (("", ".json"), ("/stix", ".json"), ("/mermaid", ".mmd.txt"), ("/cypher", ".cypher.txt")):
             r = c.get(f"/api/stories/{sid}{suffix}")
             if r.status_code == 404:
                 continue
@@ -47,6 +50,14 @@ def build(out: Path) -> list[str]:
     return [s["name"] for s in stories]
 
 
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("dest", nargs="?", default="docs/demo", type=Path,
+                   help="output directory for the static site (default: docs/demo)")
+    ns = p.parse_args(argv)
+    print("static demo:", build(ns.dest), "->", ns.dest)
+    return 0
+
+
 if __name__ == "__main__":
-    dest = Path(sys.argv[1] if len(sys.argv) > 1 else "docs/demo")
-    print("static demo:", build(dest), "->", dest)
+    sys.exit(main())
