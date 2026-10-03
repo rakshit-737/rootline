@@ -47,8 +47,9 @@ All notable changes are listed here. The format follows
 - The replay UI routes edges around vertex labels and shows each IOC once; the static demo
   serves Mermaid and Cypher exports as text. Hero screenshot refreshed.
 - Supply chain: first-party actions pinned by SHA, the base and Neo4j images by digest, and the
-  image installs its dependencies from the hash-locked `requirements-docker.txt`
-  (`--require-hashes`), which pip-audit also checks.
+  image installs its dependencies from the hash-locked `docker/requirements.lock`
+  (`--require-hashes`), which pip-audit also checks; the lock sits outside Dependabot's pip
+  scope, where single-pin bumps (PR #6, pydantic-core) would break it.
 - `httpx2` joins the `api` and `dev` extras (starlette's TestClient prefers it).
 - Docstrings on every public function and class outside the frozen sources; ruff D101-D103
   in lint.

@@ -139,7 +139,7 @@ jobs:
       - run: python -m pip install --upgrade pip && python -m pip install -e ".[api,ml,stix]" pip-audit
       - run: pip-audit --skip-editable
       - name: audit the Docker image's hash-locked dependencies
-        run: pip-audit -r requirements-docker.txt --require-hashes --disable-pip
+        run: pip-audit -r docker/requirements.lock --require-hashes --disable-pip
 
   live-ebpf:
     # Runs the bpftrace probe LIVE (sudo) on the runner's real kernel while a benign,
