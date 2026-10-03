@@ -39,6 +39,7 @@ from .models import Alert, NodeType, Severity
 from .pipeline import build_graph
 from .reconstruct import contact_window, reconstruct
 from .reduce import reduce_graph
+from .stats import wilson  # noqa: F401  (re-exported: bench.wilson is public)
 
 
 # ------------------------------------------------------------------- tracing
@@ -224,17 +225,6 @@ def run_coverage(manifest: str, data_root: str, splits: tuple[str, ...] = SPLITS
             continue
         rows.append(coverage_row(path, it["dest"], it["split"]))
     return rows
-
-
-def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
-    """Wilson score interval for a binomial proportion (stdlib only)."""
-    if n == 0:
-        return 0.0, 0.0
-    p = k / n
-    d = 1 + z * z / n
-    c = (p + z * z / (2 * n)) / d
-    h = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / d
-    return max(0.0, c - h), min(1.0, c + h)
 
 
 def summarize_coverage(rows: list[dict[str, Any]], dev_techniques: set[str] | None = None) -> dict[str, Any]:
