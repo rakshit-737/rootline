@@ -23,6 +23,34 @@ jobs:
       - run: python -m pip install "ruff>=0.5"
       - run: ruff check src tests scripts repro
 
+  freeze-record:
+    # The sealed-protocol record (docs/protocol.md): the pre-registered hashes hold at the
+    # freeze commit and at the commit that scored sealed, the rule files at HEAD still have
+    # the frozen logic (docstrings and comments aside), and neither the freeze manifest nor
+    # the scored coverage record has been edited since the scoring.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: freeze holds at the freeze commit 153eade
+        run: python scripts/verify_freeze.py --ref 153eadeec29c9cdd757051cefe3989eae0c9fe63
+      - name: freeze holds at the scored commit 60e3561 (sealed-coverage run 36994398382)
+        run: python scripts/verify_freeze.py --ref 60e35616b128dba8641709a560ead67ad4adef6a
+      - name: rule files at HEAD have the frozen logic
+        run: >-
+          python scripts/verify_freeze.py --ast 153eadeec29c9cdd757051cefe3989eae0c9fe63
+          --files src/rootline/rules_v03.py src/rootline/rules_linux.py src/rootline/detect.py
+      - name: post-scoring differences of the other frozen sources (informational)
+        run: python scripts/verify_freeze.py --ast 60e35616b128dba8641709a560ead67ad4adef6a || true
+      - name: freeze manifest and scored coverage record unchanged since scoring
+        run: |
+          git diff --exit-code 60e35616b128dba8641709a560ead67ad4adef6a HEAD -- scripts/freeze_v03.json
+          git diff --exit-code 8b11ba0407aafcfbc235d24e908d93c2055e6418 HEAD -- results/coverage.json
+
   test:
     runs-on: ${{ matrix.os }}
     strategy:

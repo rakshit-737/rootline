@@ -75,3 +75,16 @@ def test_ablation_without_scenarios_exits_nonzero(dirs, capsys):
     assert ablation.main([]) == 2
     assert "no ATLAS scenarios" in capsys.readouterr().err
     assert not (out / "ablation.json").exists()
+
+
+def test_verify_freeze_helpers():
+    spec = importlib.util.spec_from_file_location("verify_freeze", ROOT / "scripts" / "verify_freeze.py")
+    vf = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(vf)
+    assert vf.lf_sha256(b"a\r\nb\n") == vf.lf_sha256(b"a\nb\n")
+    a = b'"""Doc."""\ndef f(x):\n    """Old doc."""\n    return x + 1  # comment\n'
+    b = b'"""New module doc."""\ndef f(x):\n    """New doc."""\n    return x + 1\n'
+    c = b'def f(x):\n    return x + 2\n'
+    assert vf.logic_dump(a) == vf.logic_dump(b) != vf.logic_dump(c)
+    with pytest.raises(SystemExit):
+        vf.main(["--help"])
