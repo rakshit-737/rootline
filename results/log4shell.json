@@ -8,7 +8,7 @@
    "root_causes": [],
    "reaches_java": false,
    "reaches_ldap_1389": false,
-   "seconds": 0.059
+   "seconds": 0.058
   },
   "sysmon+auoms": {
    "events": 108,
@@ -21,20 +21,20 @@
    ],
    "reaches_java": true,
    "reaches_ldap_1389": true,
-   "seconds": 0.025
+   "seconds": 0.024
   }
  },
  "provenance": {
   "script": "scripts/bench.py --only log4shell",
   "rootline": "1.1.0",
-  "commit": "84404d6cb2715b7701cd5cb0a7b25a628203a8d4",
+  "commit": "cde2a392b1e8999b32a326afed6e52d7985db29e",
   "dirty": false,
   "workflow": "bench",
-  "run_id": 37091479765,
+  "run_id": 37092501921,
   "run_attempt": 1,
   "python": "3.12.14",
   "pythonhashseed": "0",
   "platform": "Linux 6.17.0-1022-azure (x86_64)",
-  "generated_utc": "2026-10-03T02:56:07Z"
+  "generated_utc": "2026-10-03T03:14:15Z"
  }
 }

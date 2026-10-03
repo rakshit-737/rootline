@@ -2,15 +2,15 @@
  "provenance": {
   "script": "scripts/ablation.py",
   "rootline": "1.1.0",
-  "commit": "84404d6cb2715b7701cd5cb0a7b25a628203a8d4",
+  "commit": "cde2a392b1e8999b32a326afed6e52d7985db29e",
   "dirty": false,
   "workflow": "bench",
-  "run_id": 37091479765,
+  "run_id": 37092501921,
   "run_attempt": 1,
   "python": "3.12.14",
   "pythonhashseed": "0",
   "platform": "Linux 6.17.0-1022-azure (x86_64)",
-  "generated_utc": "2026-10-03T02:56:14Z"
+  "generated_utc": "2026-10-03T03:14:12Z"
  },
  "variants": {
   "naive": {
@@ -2542,7 +2542,7 @@
     "c:/users/aalsahee/appdata/local/temp/tardebb.tmp",
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp"
    ],
-   "seconds": 0.407
+   "seconds": 0.352
   },
   {
    "group": "M",
@@ -2561,7 +2561,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.188
+   "seconds": 0.15
   },
   {
    "group": "M",
@@ -2580,7 +2580,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.421
+   "seconds": 0.348
   },
   {
    "group": "M",
@@ -2599,7 +2599,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.226
+   "seconds": 0.21
   },
   {
    "group": "M",
@@ -2618,7 +2618,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.151
+   "seconds": 0.141
   },
   {
    "group": "M",
@@ -2656,7 +2656,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.105
+   "seconds": 0.099
   },
   {
    "group": "M",
@@ -2675,7 +2675,7 @@
     "c:/users/aalsahee/appdata/local/temp/tardebb.tmp",
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp"
    ],
-   "seconds": 0.38
+   "seconds": 0.328
   },
   {
    "group": "M",
@@ -2694,7 +2694,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.221
+   "seconds": 0.191
   },
   {
    "group": "M",
@@ -2713,7 +2713,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.34
+   "seconds": 0.346
   },
   {
    "group": "M",
@@ -2732,7 +2732,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.219
+   "seconds": 0.209
   },
   {
    "group": "M",
@@ -2751,7 +2751,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.15
+   "seconds": 0.143
   },
   {
    "group": "M",
@@ -2770,7 +2770,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.097
+   "seconds": 0.091
   },
   {
    "group": "M",
@@ -2789,7 +2789,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.106
+   "seconds": 0.099
   },
   {
    "group": "M",
@@ -2808,7 +2808,7 @@
     "c:/users/aalsahee/appdata/local/temp/tardebb.tmp",
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp"
    ],
-   "seconds": 0.363
+   "seconds": 0.326
   },
   {
    "group": "M",
@@ -2827,7 +2827,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.215
+   "seconds": 0.185
   },
   {
    "group": "M",
@@ -2846,7 +2846,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.217
+   "seconds": 0.188
   },
   {
    "group": "M",
@@ -2865,7 +2865,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.045
+   "seconds": 0.04
   },
   {
    "group": "M",
@@ -2884,7 +2884,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.091
+   "seconds": 0.085
   },
   {
    "group": "M",
@@ -2903,7 +2903,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.022
+   "seconds": 0.02
   },
   {
    "group": "M",
@@ -2922,7 +2922,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabdeba.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.029
+   "seconds": 0.026
   },
   {
    "group": "M",
@@ -2941,7 +2941,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.234
+   "seconds": 0.213
   },
   {
    "group": "M",
@@ -2960,7 +2960,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.122
+   "seconds": 0.097
   },
   {
    "group": "M",
@@ -2979,7 +2979,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.237
+   "seconds": 0.215
   },
   {
    "group": "M",
@@ -2998,7 +2998,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.069
+   "seconds": 0.064
   },
   {
    "group": "M",
@@ -3017,7 +3017,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.138
+   "seconds": 0.13
   },
   {
    "group": "M",
@@ -3036,7 +3036,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.03
+   "seconds": 0.027
   },
   {
    "group": "M",
@@ -3055,7 +3055,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.03
+   "seconds": 0.026
   },
   {
    "group": "M",
@@ -3074,7 +3074,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.233
+   "seconds": 0.206
   },
   {
    "group": "M",
@@ -3093,7 +3093,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.128
+   "seconds": 0.092
   },
   {
    "group": "M",
@@ -3112,7 +3112,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.187
+   "seconds": 0.179
   },
   {
    "group": "M",
@@ -3131,7 +3131,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.126
+   "seconds": 0.096
   },
   {
    "group": "M",
@@ -3150,7 +3150,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.142
+   "seconds": 0.129
   },
   {
    "group": "M",
@@ -3169,7 +3169,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.031
+   "seconds": 0.027
   },
   {
    "group": "M",
@@ -3188,7 +3188,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.029
+   "seconds": 0.026
   },
   {
    "group": "M",
@@ -3207,7 +3207,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.292
+   "seconds": 0.235
   },
   {
    "group": "M",
@@ -3226,7 +3226,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.145
+   "seconds": 0.11
   },
   {
    "group": "M",
@@ -3245,7 +3245,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.244
+   "seconds": 0.221
   },
   {
    "group": "M",
@@ -3264,7 +3264,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.07
+   "seconds": 0.066
   },
   {
    "group": "M",
@@ -3283,7 +3283,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.149
+   "seconds": 0.146
   },
   {
    "group": "M",
@@ -3302,7 +3302,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.039
+   "seconds": 0.038
   },
   {
    "group": "M",
@@ -3321,7 +3321,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar1632.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar1621.tmp"
    ],
-   "seconds": 0.046
+   "seconds": 0.044
   },
   {
    "group": "M",
@@ -3340,7 +3340,7 @@
     "c:/$recycle.bin",
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp"
    ],
-   "seconds": 0.481
+   "seconds": 0.428
   },
   {
    "group": "M",
@@ -3359,7 +3359,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.25
+   "seconds": 0.208
   },
   {
    "group": "M",
@@ -3378,7 +3378,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.403
+   "seconds": 0.387
   },
   {
    "group": "M",
@@ -3397,7 +3397,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.244
+   "seconds": 0.22
   },
   {
    "group": "M",
@@ -3416,7 +3416,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.165
+   "seconds": 0.161
   },
   {
    "group": "M",
@@ -3435,7 +3435,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.101
+   "seconds": 0.095
   },
   {
    "group": "M",
@@ -3454,7 +3454,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.127
+   "seconds": 0.118
   },
   {
    "group": "M",
@@ -3473,7 +3473,7 @@
     "c:/$recycle.bin",
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp"
    ],
-   "seconds": 0.519
+   "seconds": 0.45
   },
   {
    "group": "M",
@@ -3492,7 +3492,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.164
+   "seconds": 0.153
   },
   {
    "group": "M",
@@ -3511,7 +3511,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.403
+   "seconds": 0.387
   },
   {
    "group": "M",
@@ -3530,7 +3530,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.243
+   "seconds": 0.211
   },
   {
    "group": "M",
@@ -3549,7 +3549,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.162
+   "seconds": 0.153
   },
   {
    "group": "M",
@@ -3568,7 +3568,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.099
+   "seconds": 0.092
   },
   {
    "group": "M",
@@ -3587,7 +3587,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.172
+   "seconds": 0.155
   },
   {
    "group": "M",
@@ -3606,7 +3606,7 @@
     "c:/$recycle.bin",
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp"
    ],
-   "seconds": 0.463
+   "seconds": 0.428
   },
   {
    "group": "M",
@@ -3625,7 +3625,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.274
+   "seconds": 0.271
   },
   {
    "group": "M",
@@ -3644,7 +3644,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.431
+   "seconds": 0.44
   },
   {
    "group": "M",
@@ -3663,7 +3663,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.263
+   "seconds": 0.252
   },
   {
    "group": "M",
@@ -3682,7 +3682,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.179
+   "seconds": 0.18
   },
   {
    "group": "M",
@@ -3701,7 +3701,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.098
+   "seconds": 0.102
   },
   {
    "group": "M",
@@ -3720,7 +3720,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar4512.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar4483.tmp"
    ],
-   "seconds": 0.121
+   "seconds": 0.126
   },
   {
    "group": "M",
@@ -3739,7 +3739,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.042
+   "seconds": 0.044
   },
   {
    "group": "M",
@@ -3758,7 +3758,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.087
+   "seconds": 0.073
   },
   {
    "group": "M",
@@ -3777,7 +3777,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.042
+   "seconds": 0.043
   },
   {
    "group": "M",
@@ -3796,7 +3796,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.098
+   "seconds": 0.076
   },
   {
    "group": "M",
@@ -3834,7 +3834,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.023
+   "seconds": 0.02
   },
   {
    "group": "M",
@@ -3853,7 +3853,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.024
+   "seconds": 0.02
   },
   {
    "group": "M",
@@ -3872,7 +3872,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.04
+   "seconds": 0.039
   },
   {
    "group": "M",
@@ -3891,7 +3891,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.04
+   "seconds": 0.042
   },
   {
    "group": "M",
@@ -3910,7 +3910,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.1
+   "seconds": 0.077
   },
   {
    "group": "M",
@@ -3929,7 +3929,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.05
+   "seconds": 0.043
   },
   {
    "group": "M",
@@ -3948,7 +3948,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.027
+   "seconds": 0.023
   },
   {
    "group": "M",
@@ -3967,7 +3967,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.025
+   "seconds": 0.021
   },
   {
    "group": "M",
@@ -3986,7 +3986,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.024
+   "seconds": 0.02
   },
   {
    "group": "M",
@@ -4005,7 +4005,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.266
+   "seconds": 0.247
   },
   {
    "group": "M",
@@ -4024,7 +4024,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.144
+   "seconds": 0.127
   },
   {
    "group": "M",
@@ -4062,7 +4062,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.156
+   "seconds": 0.137
   },
   {
    "group": "M",
@@ -4081,7 +4081,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.141
+   "seconds": 0.142
   },
   {
    "group": "M",
@@ -4119,7 +4119,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.073
+   "seconds": 0.075
   },
   {
    "group": "M",
@@ -4138,7 +4138,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.283
+   "seconds": 0.255
   },
   {
    "group": "M",
@@ -4157,7 +4157,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.183
+   "seconds": 0.155
   },
   {
    "group": "M",
@@ -4176,7 +4176,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.228
+   "seconds": 0.197
   },
   {
    "group": "M",
@@ -4195,7 +4195,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.111
+   "seconds": 0.103
   },
   {
    "group": "M",
@@ -4214,7 +4214,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.151
+   "seconds": 0.128
   },
   {
    "group": "M",
@@ -4233,7 +4233,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.064
+   "seconds": 0.061
   },
   {
    "group": "M",
@@ -4252,7 +4252,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.095
+   "seconds": 0.087
   },
   {
    "group": "M",
@@ -4271,7 +4271,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.298
+   "seconds": 0.265
   },
   {
    "group": "M",
@@ -4290,7 +4290,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.18
+   "seconds": 0.148
   },
   {
    "group": "M",
@@ -4309,7 +4309,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.224
+   "seconds": 0.203
   },
   {
    "group": "M",
@@ -4328,7 +4328,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.111
+   "seconds": 0.103
   },
   {
    "group": "M",
@@ -4347,7 +4347,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.158
+   "seconds": 0.128
   },
   {
    "group": "M",
@@ -4366,7 +4366,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.07
+   "seconds": 0.06
   },
   {
    "group": "M",
@@ -4385,7 +4385,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.1
+   "seconds": 0.084
   },
   {
    "group": "M",
@@ -4404,7 +4404,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.318
+   "seconds": 0.294
   },
   {
    "group": "M",
@@ -4423,7 +4423,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.176
+   "seconds": 0.16
   },
   {
    "group": "M",
@@ -4442,7 +4442,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.159
+   "seconds": 0.134
   },
   {
    "group": "M",
@@ -4461,7 +4461,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.071
+   "seconds": 0.063
   },
   {
    "group": "M",
@@ -4480,7 +4480,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.068
+   "seconds": 0.06
   },
   {
    "group": "M",
@@ -4499,7 +4499,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.035
+   "seconds": 0.029
   },
   {
    "group": "M",
@@ -4518,220 +4518,220 @@
     "c:/users/aalsahee/appdata/local/temp/tar5df0.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar5d90.tmp"
    ],
-   "seconds": 0.059
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "naive",
-   "story_nodes": 5152,
-   "story_events": 10931,
-   "precision": 1.0,
-   "recall": 0.9807,
-   "f1": 0.9903,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.094
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "naive+stops",
-   "story_nodes": 5152,
-   "story_events": 10931,
-   "precision": 1.0,
-   "recall": 0.9807,
-   "f1": 0.9903,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.051
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time",
-   "story_nodes": 5063,
-   "story_events": 10756,
-   "precision": 1.0,
-   "recall": 0.965,
-   "f1": 0.9822,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.112
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops",
-   "story_nodes": 5063,
-   "story_events": 10756,
-   "precision": 1.0,
-   "recall": 0.965,
-   "f1": 0.9822,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.051
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+spine",
-   "story_nodes": 19,
-   "story_events": 286,
-   "precision": 1.0,
-   "recall": 0.0257,
-   "f1": 0.05,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.029
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops+spine",
-   "story_nodes": 17,
-   "story_events": 282,
-   "precision": 1.0,
-   "recall": 0.0253,
-   "f1": 0.0494,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.026
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "full",
-   "story_nodes": 17,
-   "story_events": 282,
-   "precision": 1.0,
-   "recall": 0.0253,
-   "f1": 0.0494,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.026
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive",
-   "story_nodes": 5152,
-   "story_events": 10931,
-   "precision": 1.0,
-   "recall": 0.9807,
-   "f1": 0.9903,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.045
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive+stops",
-   "story_nodes": 5152,
-   "story_events": 10931,
-   "precision": 1.0,
-   "recall": 0.9807,
-   "f1": 0.9903,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.105
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "time",
-   "story_nodes": 5063,
-   "story_events": 10756,
-   "precision": 1.0,
-   "recall": 0.965,
-   "f1": 0.9822,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.054
-  },
-  {
-   "group": "M",
-   "scenario": "M3-CVE-2015-3105_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "time+stops",
-   "story_nodes": 5063,
-   "story_events": 10756,
-   "precision": 1.0,
-   "recall": 0.965,
-   "f1": 0.9822,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
    "seconds": 0.053
   },
   {
    "group": "M",
    "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "naive",
+   "story_nodes": 5152,
+   "story_events": 10931,
+   "precision": 1.0,
+   "recall": 0.9807,
+   "f1": 0.9903,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.072
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "naive+stops",
+   "story_nodes": 5152,
+   "story_events": 10931,
+   "precision": 1.0,
+   "recall": 0.9807,
+   "f1": 0.9903,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.042
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time",
+   "story_nodes": 5063,
+   "story_events": 10756,
+   "precision": 1.0,
+   "recall": 0.965,
+   "f1": 0.9822,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.077
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+stops",
+   "story_nodes": 5063,
+   "story_events": 10756,
+   "precision": 1.0,
+   "recall": 0.965,
+   "f1": 0.9822,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.043
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+spine",
+   "story_nodes": 19,
+   "story_events": 286,
+   "precision": 1.0,
+   "recall": 0.0257,
+   "f1": 0.05,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.021
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+stops+spine",
+   "story_nodes": 17,
+   "story_events": 282,
+   "precision": 1.0,
+   "recall": 0.0253,
+   "f1": 0.0494,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.02
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "full",
+   "story_nodes": 17,
+   "story_events": 282,
+   "precision": 1.0,
+   "recall": 0.0253,
+   "f1": 0.0494,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.021
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive",
+   "story_nodes": 5152,
+   "story_events": 10931,
+   "precision": 1.0,
+   "recall": 0.9807,
+   "f1": 0.9903,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.039
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive+stops",
+   "story_nodes": 5152,
+   "story_events": 10931,
+   "precision": 1.0,
+   "recall": 0.9807,
+   "f1": 0.9903,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.078
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "time",
+   "story_nodes": 5063,
+   "story_events": 10756,
+   "precision": 1.0,
+   "recall": 0.965,
+   "f1": 0.9822,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.044
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "time+stops",
+   "story_nodes": 5063,
+   "story_events": 10756,
+   "precision": 1.0,
+   "recall": 0.965,
+   "f1": 0.9822,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.043
+  },
+  {
+   "group": "M",
+   "scenario": "M3-CVE-2015-3105_windows_py_h2",
    "pivot": "0xalsaheel.com",
    "variant": "time+spine",
    "story_nodes": 19,
@@ -4746,7 +4746,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.03
+   "seconds": 0.023
   },
   {
    "group": "M",
@@ -4765,7 +4765,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.081
+   "seconds": 0.055
   },
   {
    "group": "M",
@@ -4784,7 +4784,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.029
+   "seconds": 0.022
   },
   {
    "group": "M",
@@ -4803,7 +4803,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.264
+   "seconds": 0.22
   },
   {
    "group": "M",
@@ -4841,7 +4841,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.236
+   "seconds": 0.216
   },
   {
    "group": "M",
@@ -4860,7 +4860,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.094
+   "seconds": 0.093
   },
   {
    "group": "M",
@@ -4879,7 +4879,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.193
+   "seconds": 0.175
   },
   {
    "group": "M",
@@ -4898,7 +4898,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.055
+   "seconds": 0.053
   },
   {
    "group": "M",
@@ -4917,7 +4917,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.083
+   "seconds": 0.079
   },
   {
    "group": "M",
@@ -4936,7 +4936,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.418
+   "seconds": 0.388
   },
   {
    "group": "M",
@@ -4955,7 +4955,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.315
+   "seconds": 0.285
   },
   {
    "group": "M",
@@ -4974,7 +4974,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.345
+   "seconds": 0.331
   },
   {
    "group": "M",
@@ -4993,7 +4993,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.261
+   "seconds": 0.246
   },
   {
    "group": "M",
@@ -5012,7 +5012,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.212
+   "seconds": 0.209
   },
   {
    "group": "M",
@@ -5031,7 +5031,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.153
+   "seconds": 0.166
   },
   {
    "group": "M",
@@ -5050,7 +5050,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.223
+   "seconds": 0.209
   },
   {
    "group": "M",
@@ -5069,7 +5069,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.428
+   "seconds": 0.348
   },
   {
    "group": "M",
@@ -5088,7 +5088,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.299
+   "seconds": 0.257
   },
   {
    "group": "M",
@@ -5107,7 +5107,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.328
+   "seconds": 0.291
   },
   {
    "group": "M",
@@ -5126,7 +5126,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.238
+   "seconds": 0.223
   },
   {
    "group": "M",
@@ -5145,7 +5145,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.194
+   "seconds": 0.186
   },
   {
    "group": "M",
@@ -5183,7 +5183,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.226
+   "seconds": 0.195
   },
   {
    "group": "M",
@@ -5202,7 +5202,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.334
+   "seconds": 0.297
   },
   {
    "group": "M",
@@ -5221,7 +5221,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.255
+   "seconds": 0.219
   },
   {
    "group": "M",
@@ -5240,7 +5240,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.254
+   "seconds": 0.23
   },
   {
    "group": "M",
@@ -5259,7 +5259,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.13
+   "seconds": 0.128
   },
   {
    "group": "M",
@@ -5278,7 +5278,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.21
+   "seconds": 0.172
   },
   {
    "group": "M",
@@ -5297,7 +5297,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.117
+   "seconds": 0.111
   },
   {
    "group": "M",
@@ -5316,7 +5316,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.123
+   "seconds": 0.126
   },
   {
    "group": "M",
@@ -5335,7 +5335,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.376
+   "seconds": 0.329
   },
   {
    "group": "M",
@@ -5354,7 +5354,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.273
+   "seconds": 0.241
   },
   {
    "group": "M",
@@ -5373,7 +5373,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.316
+   "seconds": 0.289
   },
   {
    "group": "M",
@@ -5392,7 +5392,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.24
+   "seconds": 0.217
   },
   {
    "group": "M",
@@ -5411,7 +5411,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.189
+   "seconds": 0.179
   },
   {
    "group": "M",
@@ -5430,7 +5430,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.137
+   "seconds": 0.141
   },
   {
    "group": "M",
@@ -5449,7 +5449,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/khxmpaw4.rtf"
    ],
-   "seconds": 0.194
+   "seconds": 0.183
   },
   {
    "group": "M",
@@ -5468,7 +5468,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.158
+   "seconds": 0.14
   },
   {
    "group": "M",
@@ -5487,7 +5487,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.093
+   "seconds": 0.062
   },
   {
    "group": "M",
@@ -5506,7 +5506,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.131
+   "seconds": 0.126
   },
   {
    "group": "M",
@@ -5525,7 +5525,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.092
+   "seconds": 0.071
   },
   {
    "group": "M",
@@ -5544,7 +5544,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.098
+   "seconds": 0.088
   },
   {
    "group": "M",
@@ -5563,7 +5563,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.018
+   "seconds": 0.014
   },
   {
    "group": "M",
@@ -5582,7 +5582,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.017
+   "seconds": 0.014
   },
   {
    "group": "M",
@@ -5601,7 +5601,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.167
+   "seconds": 0.143
   },
   {
    "group": "M",
@@ -5620,7 +5620,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.042
+   "seconds": 0.037
   },
   {
    "group": "M",
@@ -5639,7 +5639,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.174
+   "seconds": 0.159
   },
   {
    "group": "M",
@@ -5658,7 +5658,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.042
+   "seconds": 0.044
   },
   {
    "group": "M",
@@ -5677,7 +5677,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.091
+   "seconds": 0.09
   },
   {
    "group": "M",
@@ -5689,25 +5689,6 @@
    "precision": 1.0,
    "recall": 0.0625,
    "f1": 0.1176,
-   "entity_recall": 1.0,
-   "rc_hit3": 0.0,
-   "root_causes": [
-    "c:/users/aalsahee/appdata/local/temp/tar2909.tmp",
-    "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
-    "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
-   ],
-   "seconds": 0.016
-  },
-  {
-   "group": "M",
-   "scenario": "M4-CVE_2018_8174_windows_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "full",
-   "story_nodes": 13,
-   "story_events": 191,
-   "precision": 1.0,
-   "recall": 0.0631,
-   "f1": 0.1187,
    "entity_recall": 1.0,
    "rc_hit3": 0.0,
    "root_causes": [
@@ -5716,6 +5697,25 @@
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
    "seconds": 0.015
+  },
+  {
+   "group": "M",
+   "scenario": "M4-CVE_2018_8174_windows_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "full",
+   "story_nodes": 13,
+   "story_events": 191,
+   "precision": 1.0,
+   "recall": 0.0631,
+   "f1": 0.1187,
+   "entity_recall": 1.0,
+   "rc_hit3": 0.0,
+   "root_causes": [
+    "c:/users/aalsahee/appdata/local/temp/tar2909.tmp",
+    "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
+    "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
+   ],
+   "seconds": 0.014
   },
   {
    "group": "M",
@@ -5734,7 +5734,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.187
+   "seconds": 0.163
   },
   {
    "group": "M",
@@ -5753,7 +5753,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.106
+   "seconds": 0.075
   },
   {
    "group": "M",
@@ -5772,7 +5772,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.148
+   "seconds": 0.138
   },
   {
    "group": "M",
@@ -5791,7 +5791,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.1
+   "seconds": 0.078
   },
   {
    "group": "M",
@@ -5810,7 +5810,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.113
+   "seconds": 0.107
   },
   {
    "group": "M",
@@ -5829,7 +5829,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.026
+   "seconds": 0.025
   },
   {
    "group": "M",
@@ -5848,7 +5848,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar2723.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar2712.tmp"
    ],
-   "seconds": 0.035
+   "seconds": 0.032
   },
   {
    "group": "M",
@@ -5867,7 +5867,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.631
+   "seconds": 0.606
   },
   {
    "group": "M",
@@ -5886,7 +5886,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.288
+   "seconds": 0.294
   },
   {
    "group": "M",
@@ -5905,7 +5905,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.671
+   "seconds": 0.661
   },
   {
    "group": "M",
@@ -5924,7 +5924,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.463
+   "seconds": 0.468
   },
   {
    "group": "M",
@@ -5943,7 +5943,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.297
+   "seconds": 0.306
   },
   {
    "group": "M",
@@ -5981,7 +5981,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.188
+   "seconds": 0.192
   },
   {
    "group": "M",
@@ -6000,7 +6000,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.79
+   "seconds": 0.614
   },
   {
    "group": "M",
@@ -6019,7 +6019,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.512
+   "seconds": 0.409
   },
   {
    "group": "M",
@@ -6038,7 +6038,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.555
+   "seconds": 0.572
   },
   {
    "group": "M",
@@ -6057,7 +6057,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.47
+   "seconds": 0.46
   },
   {
    "group": "M",
@@ -6076,7 +6076,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.305
+   "seconds": 0.313
   },
   {
    "group": "M",
@@ -6095,7 +6095,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.157
+   "seconds": 0.174
   },
   {
    "group": "M",
@@ -6114,7 +6114,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.187
+   "seconds": 0.199
   },
   {
    "group": "M",
@@ -6133,7 +6133,7 @@
     "c:/users/aalsahee/downloads/msf.doc",
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc"
    ],
-   "seconds": 0.551
+   "seconds": 0.526
   },
   {
    "group": "M",
@@ -6152,7 +6152,7 @@
     "c:/users/aalsahee/downloads/msf.doc",
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc"
    ],
-   "seconds": 0.406
+   "seconds": 0.31
   },
   {
    "group": "M",
@@ -6171,7 +6171,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.41
+   "seconds": 0.471
   },
   {
    "group": "M",
@@ -6190,7 +6190,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/downloads/msf.doc:zone.identifier"
    ],
-   "seconds": 0.342
+   "seconds": 0.344
   },
   {
    "group": "M",
@@ -6209,7 +6209,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.223
+   "seconds": 0.244
   },
   {
    "group": "M",
@@ -6228,7 +6228,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/downloads/msf.doc:zone.identifier"
    ],
-   "seconds": 0.101
+   "seconds": 0.106
   },
   {
    "group": "M",
@@ -6247,7 +6247,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/downloads/msf.doc:zone.identifier"
    ],
-   "seconds": 0.143
+   "seconds": 0.144
   },
   {
    "group": "M",
@@ -6266,7 +6266,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.816
+   "seconds": 0.824
   },
   {
    "group": "M",
@@ -6285,7 +6285,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.409
+   "seconds": 0.443
   },
   {
    "group": "M",
@@ -6304,7 +6304,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.731
+   "seconds": 0.728
   },
   {
    "group": "M",
@@ -6323,7 +6323,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.541
+   "seconds": 0.519
   },
   {
    "group": "M",
@@ -6342,7 +6342,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.333
+   "seconds": 0.324
   },
   {
    "group": "M",
@@ -6361,7 +6361,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.176
+   "seconds": 0.165
   },
   {
    "group": "M",
@@ -6380,7 +6380,7 @@
     "c:/users/aalsahee/appdata/local/temp/6the1stm.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.206
+   "seconds": 0.195
   },
   {
    "group": "M",
@@ -6399,7 +6399,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.038
+   "seconds": 0.041
   },
   {
    "group": "M",
@@ -6418,13 +6418,165 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.086
+   "seconds": 0.075
   },
   {
    "group": "M",
    "scenario": "M5-CVE-2017-0199_windows_py_h2",
    "pivot": "ioc:192.168.223.3",
    "variant": "time",
+   "story_nodes": 5016,
+   "story_events": 10667,
+   "precision": 1.0,
+   "recall": 0.9588,
+   "f1": 0.979,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.043
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+stops",
+   "story_nodes": 5016,
+   "story_events": 10667,
+   "precision": 1.0,
+   "recall": 0.9588,
+   "f1": 0.979,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.085
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+spine",
+   "story_nodes": 13,
+   "story_events": 274,
+   "precision": 1.0,
+   "recall": 0.0246,
+   "f1": 0.0481,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.022
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+stops+spine",
+   "story_nodes": 12,
+   "story_events": 272,
+   "precision": 1.0,
+   "recall": 0.0244,
+   "f1": 0.0477,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.02
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "full",
+   "story_nodes": 12,
+   "story_events": 272,
+   "precision": 1.0,
+   "recall": 0.0244,
+   "f1": 0.0477,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.02
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive",
+   "story_nodes": 5152,
+   "story_events": 10931,
+   "precision": 1.0,
+   "recall": 0.9826,
+   "f1": 0.9912,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.039
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive+stops",
+   "story_nodes": 5152,
+   "story_events": 10931,
+   "precision": 1.0,
+   "recall": 0.9826,
+   "f1": 0.9912,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.04
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "time",
+   "story_nodes": 5016,
+   "story_events": 10667,
+   "precision": 1.0,
+   "recall": 0.9588,
+   "f1": 0.979,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/$recycle.bin",
+    "c:/users/aalsahee/downloads/pypayload.exe",
+    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
+   ],
+   "seconds": 0.074
+  },
+  {
+   "group": "M",
+   "scenario": "M5-CVE-2017-0199_windows_py_h2",
+   "pivot": "0xalsaheel.com",
+   "variant": "time+stops",
    "story_nodes": 5016,
    "story_events": 10667,
    "precision": 1.0,
@@ -6442,51 +6594,13 @@
   {
    "group": "M",
    "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops",
-   "story_nodes": 5016,
-   "story_events": 10667,
-   "precision": 1.0,
-   "recall": 0.9588,
-   "f1": 0.979,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.099
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
+   "pivot": "0xalsaheel.com",
    "variant": "time+spine",
    "story_nodes": 13,
    "story_events": 274,
    "precision": 1.0,
    "recall": 0.0246,
    "f1": 0.0481,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.024
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops+spine",
-   "story_nodes": 12,
-   "story_events": 272,
-   "precision": 1.0,
-   "recall": 0.0244,
-   "f1": 0.0477,
    "entity_recall": 1.0,
    "rc_hit3": 1.0,
    "root_causes": [
@@ -6499,120 +6613,6 @@
   {
    "group": "M",
    "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "full",
-   "story_nodes": 12,
-   "story_events": 272,
-   "precision": 1.0,
-   "recall": 0.0244,
-   "f1": 0.0477,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.021
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive",
-   "story_nodes": 5152,
-   "story_events": 10931,
-   "precision": 1.0,
-   "recall": 0.9826,
-   "f1": 0.9912,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.044
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive+stops",
-   "story_nodes": 5152,
-   "story_events": 10931,
-   "precision": 1.0,
-   "recall": 0.9826,
-   "f1": 0.9912,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.042
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "time",
-   "story_nodes": 5016,
-   "story_events": 10667,
-   "precision": 1.0,
-   "recall": 0.9588,
-   "f1": 0.979,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.1
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "time+stops",
-   "story_nodes": 5016,
-   "story_events": 10667,
-   "precision": 1.0,
-   "recall": 0.9588,
-   "f1": 0.979,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.045
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
-   "pivot": "0xalsaheel.com",
-   "variant": "time+spine",
-   "story_nodes": 13,
-   "story_events": 274,
-   "precision": 1.0,
-   "recall": 0.0246,
-   "f1": 0.0481,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/$recycle.bin",
-    "c:/users/aalsahee/downloads/pypayload.exe",
-    "c:/users/aalsahee/desktop/sslkeylogfile.txt"
-   ],
-   "seconds": 0.026
-  },
-  {
-   "group": "M",
-   "scenario": "M5-CVE-2017-0199_windows_py_h2",
    "pivot": "0xalsaheel.com",
    "variant": "time+stops+spine",
    "story_nodes": 12,
@@ -6627,7 +6627,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.023
+   "seconds": 0.019
   },
   {
    "group": "M",
@@ -6646,7 +6646,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/desktop/sslkeylogfile.txt"
    ],
-   "seconds": 0.023
+   "seconds": 0.02
   },
   {
    "group": "M",
@@ -6665,7 +6665,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.175
+   "seconds": 0.139
   },
   {
    "group": "M",
@@ -6684,7 +6684,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.151
+   "seconds": 0.118
   },
   {
    "group": "M",
@@ -6703,7 +6703,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.207
+   "seconds": 0.169
   },
   {
    "group": "M",
@@ -6722,7 +6722,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.09
+   "seconds": 0.091
   },
   {
    "group": "M",
@@ -6760,7 +6760,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.046
+   "seconds": 0.047
   },
   {
    "group": "M",
@@ -6779,7 +6779,7 @@
     "c:/users/aalsahee/downloads/pypayload.exe",
     "c:/users/aalsahee/appdata/local/temp/ydnr1uxh.exe.part"
    ],
-   "seconds": 0.117
+   "seconds": 0.098
   },
   {
    "group": "M",
@@ -6798,7 +6798,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.538
+   "seconds": 0.458
   },
   {
    "group": "M",
@@ -6810,6 +6810,158 @@
    "precision": 0.1017,
    "recall": 0.9956,
    "f1": 0.1846,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.279
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time",
+   "story_nodes": 4011,
+   "story_events": 44872,
+   "precision": 0.0911,
+   "recall": 0.9976,
+   "f1": 0.1669,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.335
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+stops",
+   "story_nodes": 3017,
+   "story_events": 32795,
+   "precision": 0.1243,
+   "recall": 0.9951,
+   "f1": 0.221,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.191
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+spine",
+   "story_nodes": 799,
+   "story_events": 9983,
+   "precision": 0.0457,
+   "recall": 0.1113,
+   "f1": 0.0648,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.202
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+stops+spine",
+   "story_nodes": 675,
+   "story_events": 7614,
+   "precision": 0.0583,
+   "recall": 0.1084,
+   "f1": 0.0758,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.189
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "full",
+   "story_nodes": 2705,
+   "story_events": 25332,
+   "precision": 0.1609,
+   "recall": 0.9949,
+   "f1": 0.277,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.174
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive",
+   "story_nodes": 5929,
+   "story_events": 63808,
+   "precision": 0.0641,
+   "recall": 0.9976,
+   "f1": 0.1204,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.425
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive+stops",
+   "story_nodes": 4246,
+   "story_events": 40099,
+   "precision": 0.1017,
+   "recall": 0.9956,
+   "f1": 0.1846,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.rtf",
+    "c:/users/aalsahee/downloads/sample.rtf",
+    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
+   ],
+   "seconds": 0.273
+  },
+  {
+   "group": "M",
+   "scenario": "M6-CVE-2017-11882_windows_h1",
+   "pivot": "0xalsaheel.com",
+   "variant": "time",
+   "story_nodes": 4011,
+   "story_events": 44872,
+   "precision": 0.0911,
+   "recall": 0.9976,
+   "f1": 0.1669,
    "entity_recall": 1.0,
    "rc_hit3": 1.0,
    "root_causes": [
@@ -6822,158 +6974,6 @@
   {
    "group": "M",
    "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time",
-   "story_nodes": 4011,
-   "story_events": 44872,
-   "precision": 0.0911,
-   "recall": 0.9976,
-   "f1": 0.1669,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.387
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops",
-   "story_nodes": 3017,
-   "story_events": 32795,
-   "precision": 0.1243,
-   "recall": 0.9951,
-   "f1": 0.221,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.196
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+spine",
-   "story_nodes": 799,
-   "story_events": 9983,
-   "precision": 0.0457,
-   "recall": 0.1113,
-   "f1": 0.0648,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.222
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops+spine",
-   "story_nodes": 675,
-   "story_events": 7614,
-   "precision": 0.0583,
-   "recall": 0.1084,
-   "f1": 0.0758,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.216
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "full",
-   "story_nodes": 2705,
-   "story_events": 25332,
-   "precision": 0.1609,
-   "recall": 0.9949,
-   "f1": 0.277,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.171
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive",
-   "story_nodes": 5929,
-   "story_events": 63808,
-   "precision": 0.0641,
-   "recall": 0.9976,
-   "f1": 0.1204,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.448
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive+stops",
-   "story_nodes": 4246,
-   "story_events": 40099,
-   "precision": 0.1017,
-   "recall": 0.9956,
-   "f1": 0.1846,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.316
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
-   "pivot": "0xalsaheel.com",
-   "variant": "time",
-   "story_nodes": 4011,
-   "story_events": 44872,
-   "precision": 0.0911,
-   "recall": 0.9976,
-   "f1": 0.1669,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.rtf",
-    "c:/users/aalsahee/downloads/sample.rtf",
-    "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
-   ],
-   "seconds": 0.362
-  },
-  {
-   "group": "M",
-   "scenario": "M6-CVE-2017-11882_windows_h1",
    "pivot": "0xalsaheel.com",
    "variant": "time+stops",
    "story_nodes": 3017,
@@ -6988,7 +6988,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.275
+   "seconds": 0.236
   },
   {
    "group": "M",
@@ -7007,7 +7007,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.278
+   "seconds": 0.244
   },
   {
    "group": "M",
@@ -7026,7 +7026,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.143
+   "seconds": 0.144
   },
   {
    "group": "M",
@@ -7045,7 +7045,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.175
+   "seconds": 0.173
   },
   {
    "group": "M",
@@ -7064,7 +7064,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.395
+   "seconds": 0.375
   },
   {
    "group": "M",
@@ -7083,7 +7083,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.271
+   "seconds": 0.248
   },
   {
    "group": "M",
@@ -7102,7 +7102,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.275
+   "seconds": 0.249
   },
   {
    "group": "M",
@@ -7121,7 +7121,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.202
+   "seconds": 0.181
   },
   {
    "group": "M",
@@ -7140,7 +7140,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.148
+   "seconds": 0.146
   },
   {
    "group": "M",
@@ -7159,7 +7159,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.113
+   "seconds": 0.114
   },
   {
    "group": "M",
@@ -7178,7 +7178,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.185
+   "seconds": 0.172
   },
   {
    "group": "M",
@@ -7197,7 +7197,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.444
+   "seconds": 0.417
   },
   {
    "group": "M",
@@ -7216,7 +7216,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.328
+   "seconds": 0.277
   },
   {
    "group": "M",
@@ -7254,7 +7254,7 @@
     "c:/users/aalsahee/appdata/local/temp/6whdwxgc.rtf",
     "c:/users/aalsahee/appdata/local/temp/tar7687.tmp"
    ],
-   "seconds": 0.16
+   "seconds": 0.133
   },
   {
    "group": "M",
@@ -7273,7 +7273,7 @@
     "c:/users/aalsahee/appdata/local/temp/6whdwxgc.rtf",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.124
+   "seconds": 0.115
   },
   {
    "group": "M",
@@ -7292,7 +7292,7 @@
     "c:/users/aalsahee/appdata/local/temp/6whdwxgc.rtf",
     "c:/users/aalsahee/appdata/local/temp/tar7687.tmp"
    ],
-   "seconds": 0.077
+   "seconds": 0.074
   },
   {
    "group": "M",
@@ -7311,7 +7311,7 @@
     "c:/users/aalsahee/appdata/local/temp/6whdwxgc.rtf",
     "c:/users/aalsahee/appdata/local/temp/tar7687.tmp"
    ],
-   "seconds": 0.087
+   "seconds": 0.082
   },
   {
    "group": "M",
@@ -7330,7 +7330,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.439
+   "seconds": 0.391
   },
   {
    "group": "M",
@@ -7349,7 +7349,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.28
+   "seconds": 0.257
   },
   {
    "group": "M",
@@ -7368,7 +7368,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.314
+   "seconds": 0.293
   },
   {
    "group": "M",
@@ -7387,7 +7387,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.238
+   "seconds": 0.219
   },
   {
    "group": "M",
@@ -7406,7 +7406,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.175
+   "seconds": 0.174
   },
   {
    "group": "M",
@@ -7425,7 +7425,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.141
+   "seconds": 0.136
   },
   {
    "group": "M",
@@ -7444,7 +7444,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/r2g2rimp.rtf"
    ],
-   "seconds": 0.208
+   "seconds": 0.179
   },
   {
    "group": "M",
@@ -7463,7 +7463,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.31
+   "seconds": 0.246
   },
   {
    "group": "M",
@@ -7482,7 +7482,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.049
+   "seconds": 0.043
   },
   {
    "group": "M",
@@ -7501,7 +7501,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.234
+   "seconds": 0.201
   },
   {
    "group": "M",
@@ -7539,7 +7539,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.12
+   "seconds": 0.112
   },
   {
    "group": "M",
@@ -7558,7 +7558,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.02
+   "seconds": 0.017
   },
   {
    "group": "M",
@@ -7577,7 +7577,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.026
+   "seconds": 0.022
   },
   {
    "group": "M",
@@ -7596,7 +7596,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.264
+   "seconds": 0.211
   },
   {
    "group": "M",
@@ -7615,7 +7615,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.125
+   "seconds": 0.087
   },
   {
    "group": "M",
@@ -7634,7 +7634,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.166
+   "seconds": 0.159
   },
   {
    "group": "M",
@@ -7653,7 +7653,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.121
+   "seconds": 0.091
   },
   {
    "group": "M",
@@ -7672,7 +7672,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.122
+   "seconds": 0.111
   },
   {
    "group": "M",
@@ -7691,7 +7691,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.021
+   "seconds": 0.018
   },
   {
    "group": "M",
@@ -7710,7 +7710,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.025
+   "seconds": 0.023
   },
   {
    "group": "M",
@@ -7729,7 +7729,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.271
+   "seconds": 0.225
   },
   {
    "group": "M",
@@ -7748,7 +7748,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.141
+   "seconds": 0.098
   },
   {
    "group": "M",
@@ -7767,7 +7767,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.155
+   "seconds": 0.148
   },
   {
    "group": "M",
@@ -7786,7 +7786,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.058
+   "seconds": 0.054
   },
   {
    "group": "M",
@@ -7805,7 +7805,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.177
+   "seconds": 0.145
   },
   {
    "group": "M",
@@ -7824,7 +7824,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.029
+   "seconds": 0.026
   },
   {
    "group": "M",
@@ -7843,7 +7843,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar7784.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar7753.tmp"
    ],
-   "seconds": 0.038
+   "seconds": 0.031
   },
   {
    "group": "S",
@@ -7862,7 +7862,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.242
+   "seconds": 0.196
   },
   {
    "group": "S",
@@ -7881,7 +7881,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.136
+   "seconds": 0.096
   },
   {
    "group": "S",
@@ -7900,7 +7900,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.094
+   "seconds": 0.084
   },
   {
    "group": "S",
@@ -7919,7 +7919,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.064
+   "seconds": 0.058
   },
   {
    "group": "S",
@@ -7938,7 +7938,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.109
+   "seconds": 0.082
   },
   {
    "group": "S",
@@ -7957,7 +7957,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.04
+   "seconds": 0.035
   },
   {
    "group": "S",
@@ -7976,7 +7976,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.046
+   "seconds": 0.043
   },
   {
    "group": "S",
@@ -7995,7 +7995,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.245
+   "seconds": 0.203
   },
   {
    "group": "S",
@@ -8014,7 +8014,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.077
+   "seconds": 0.068
   },
   {
    "group": "S",
@@ -8033,7 +8033,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.14
+   "seconds": 0.114
   },
   {
    "group": "S",
@@ -8052,7 +8052,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.066
+   "seconds": 0.06
   },
   {
    "group": "S",
@@ -8071,7 +8071,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.064
+   "seconds": 0.059
   },
   {
    "group": "S",
@@ -8090,7 +8090,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.04
+   "seconds": 0.036
   },
   {
    "group": "S",
@@ -8109,7 +8109,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.049
+   "seconds": 0.043
   },
   {
    "group": "S",
@@ -8128,7 +8128,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.3
+   "seconds": 0.217
   },
   {
    "group": "S",
@@ -8147,7 +8147,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.077
+   "seconds": 0.063
   },
   {
    "group": "S",
@@ -8166,7 +8166,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.154
+   "seconds": 0.129
   },
   {
    "group": "S",
@@ -8185,7 +8185,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.073
+   "seconds": 0.067
   },
   {
    "group": "S",
@@ -8204,7 +8204,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.06
+   "seconds": 0.054
   },
   {
    "group": "S",
@@ -8223,7 +8223,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.037
+   "seconds": 0.031
   },
   {
    "group": "S",
@@ -8242,7 +8242,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabd28a.tmp",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.043
+   "seconds": 0.038
   },
   {
    "group": "S",
@@ -8261,7 +8261,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.498
+   "seconds": 0.518
   },
   {
    "group": "S",
@@ -8280,7 +8280,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.335
+   "seconds": 0.35
   },
   {
    "group": "S",
@@ -8299,7 +8299,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.429
+   "seconds": 0.464
   },
   {
    "group": "S",
@@ -8318,7 +8318,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.246
+   "seconds": 0.296
   },
   {
    "group": "S",
@@ -8337,7 +8337,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.221
+   "seconds": 0.203
   },
   {
    "group": "S",
@@ -8356,7 +8356,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.104
+   "seconds": 0.107
   },
   {
    "group": "S",
@@ -8375,7 +8375,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.169
+   "seconds": 0.155
   },
   {
    "group": "S",
@@ -8394,7 +8394,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.465
+   "seconds": 0.491
   },
   {
    "group": "S",
@@ -8413,7 +8413,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.334
+   "seconds": 0.343
   },
   {
    "group": "S",
@@ -8432,7 +8432,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.448
+   "seconds": 0.463
   },
   {
    "group": "S",
@@ -8451,7 +8451,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.322
+   "seconds": 0.328
   },
   {
    "group": "S",
@@ -8470,7 +8470,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.175
+   "seconds": 0.155
   },
   {
    "group": "S",
@@ -8489,7 +8489,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.147
+   "seconds": 0.122
   },
   {
    "group": "S",
@@ -8508,7 +8508,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.125
+   "seconds": 0.112
   },
   {
    "group": "S",
@@ -8527,7 +8527,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.489
+   "seconds": 0.451
   },
   {
    "group": "S",
@@ -8546,7 +8546,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.248
+   "seconds": 0.262
   },
   {
    "group": "S",
@@ -8565,7 +8565,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/appdata/local/temp/tar50ba.tmp"
    ],
-   "seconds": 0.433
+   "seconds": 0.446
   },
   {
    "group": "S",
@@ -8584,7 +8584,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.324
+   "seconds": 0.339
   },
   {
    "group": "S",
@@ -8622,7 +8622,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.13
+   "seconds": 0.106
   },
   {
    "group": "S",
@@ -8641,7 +8641,7 @@
     "c:/users/aalsahee/appdata/local/temp/tar5079.tmp",
     "c:/users/aalsahee/appdata/local/temp/cab50b9.tmp"
    ],
-   "seconds": 0.091
+   "seconds": 0.086
   },
   {
    "group": "S",
@@ -8660,7 +8660,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.227
+   "seconds": 0.199
   },
   {
    "group": "S",
@@ -8679,7 +8679,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.174
+   "seconds": 0.143
   },
   {
    "group": "S",
@@ -8698,7 +8698,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.137
+   "seconds": 0.134
   },
   {
    "group": "S",
@@ -8717,7 +8717,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.15
+   "seconds": 0.126
   },
   {
    "group": "S",
@@ -8736,7 +8736,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.096
+   "seconds": 0.093
   },
   {
    "group": "S",
@@ -8755,7 +8755,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.106
+   "seconds": 0.087
   },
   {
    "group": "S",
@@ -8774,7 +8774,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.083
+   "seconds": 0.079
   },
   {
    "group": "S",
@@ -8793,7 +8793,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.219
+   "seconds": 0.2
   },
   {
    "group": "S",
@@ -8812,7 +8812,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.164
+   "seconds": 0.14
   },
   {
    "group": "S",
@@ -8831,7 +8831,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.192
+   "seconds": 0.175
   },
   {
    "group": "S",
@@ -8850,7 +8850,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.157
+   "seconds": 0.13
   },
   {
    "group": "S",
@@ -8869,7 +8869,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.097
+   "seconds": 0.095
   },
   {
    "group": "S",
@@ -8888,7 +8888,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.058
+   "seconds": 0.057
   },
   {
    "group": "S",
@@ -8907,7 +8907,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.077
+   "seconds": 0.078
   },
   {
    "group": "S",
@@ -8926,7 +8926,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.214
+   "seconds": 0.192
   },
   {
    "group": "S",
@@ -8945,7 +8945,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.161
+   "seconds": 0.13
   },
   {
    "group": "S",
@@ -8964,7 +8964,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.197
+   "seconds": 0.182
   },
   {
    "group": "S",
@@ -8983,7 +8983,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.156
+   "seconds": 0.14
   },
   {
    "group": "S",
@@ -9021,7 +9021,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.053
+   "seconds": 0.052
   },
   {
    "group": "S",
@@ -9040,7 +9040,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.061
+   "seconds": 0.062
   },
   {
    "group": "S",
@@ -9059,7 +9059,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.184
+   "seconds": 0.164
   },
   {
    "group": "S",
@@ -9078,7 +9078,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.141
+   "seconds": 0.111
   },
   {
    "group": "S",
@@ -9097,7 +9097,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.116
+   "seconds": 0.112
   },
   {
    "group": "S",
@@ -9116,7 +9116,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.125
+   "seconds": 0.102
   },
   {
    "group": "S",
@@ -9173,7 +9173,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.115
+   "seconds": 0.095
   },
   {
    "group": "S",
@@ -9192,7 +9192,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.234
+   "seconds": 0.2
   },
   {
    "group": "S",
@@ -9211,7 +9211,7 @@
     "c:/users/aalsahee/downloads/sample.rtf",
     "c:/users/aalsahee/appdata/local/temp/j5ekpdj7.rtf"
    ],
-   "seconds": 0.177
+   "seconds": 0.139
   },
   {
    "group": "S",
@@ -9230,7 +9230,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.054
+   "seconds": 0.049
   },
   {
    "group": "S",
@@ -9249,7 +9249,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabf556.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar847f.tmp"
    ],
-   "seconds": 0.014
+   "seconds": 0.013
   },
   {
    "group": "S",
@@ -9268,7 +9268,7 @@
     "c:/users/aalsahee/desktop/temp.lnk",
     "c:/users/aalsahee/desktop/cmd - shortcut.lnk"
    ],
-   "seconds": 0.058
+   "seconds": 0.051
   },
   {
    "group": "S",
@@ -9287,7 +9287,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabf556.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar847f.tmp"
    ],
-   "seconds": 0.009
+   "seconds": 0.006
   },
   {
    "group": "S",
@@ -9306,7 +9306,7 @@
     "c:/users/aalsahee/appdata/local/temp/cabf556.tmp",
     "c:/users/aalsahee/appdata/local/temp/tar847f.tmp"
    ],
-   "seconds": 0.017
+   "seconds": 0.013
   },
   {
    "group": "S",
@@ -9325,7 +9325,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.273
+   "seconds": 0.202
   },
   {
    "group": "S",
@@ -9344,7 +9344,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.224
+   "seconds": 0.178
   },
   {
    "group": "S",
@@ -9363,145 +9363,12 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.318
+   "seconds": 0.244
   },
   {
    "group": "S",
    "scenario": "S4-CVE-2017-0199_windows_py",
    "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops",
-   "story_nodes": 6538,
-   "story_events": 26943,
-   "precision": 0.4173,
-   "recall": 0.9673,
-   "f1": 0.5831,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.doc",
-    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
-    "c:/$recycle.bin"
-   ],
-   "seconds": 0.13
-  },
-  {
-   "group": "S",
-   "scenario": "S4-CVE-2017-0199_windows_py",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+spine",
-   "story_nodes": 1063,
-   "story_events": 8067,
-   "precision": 0.0837,
-   "recall": 0.0581,
-   "f1": 0.0686,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.doc",
-    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
-    "c:/users/public/desktop/mozilla firefox.lnk"
-   ],
-   "seconds": 0.118
-  },
-  {
-   "group": "S",
-   "scenario": "S4-CVE-2017-0199_windows_py",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "time+stops+spine",
-   "story_nodes": 129,
-   "story_events": 1796,
-   "precision": 0.3575,
-   "recall": 0.0552,
-   "f1": 0.0957,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.doc",
-    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
-    "c:/$recycle.bin"
-   ],
-   "seconds": 0.066
-  },
-  {
-   "group": "S",
-   "scenario": "S4-CVE-2017-0199_windows_py",
-   "pivot": "ioc:192.168.223.3",
-   "variant": "full",
-   "story_nodes": 5893,
-   "story_events": 19670,
-   "precision": 0.5902,
-   "recall": 0.9988,
-   "f1": 0.742,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.doc",
-    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
-    "c:/$recycle.bin"
-   ],
-   "seconds": 0.147
-  },
-  {
-   "group": "S",
-   "scenario": "S4-CVE-2017-0199_windows_py",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive",
-   "story_nodes": 8319,
-   "story_events": 49334,
-   "precision": 0.2356,
-   "recall": 0.9999,
-   "f1": 0.3813,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.doc",
-    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
-    "c:/users/public/desktop/mozilla firefox.lnk"
-   ],
-   "seconds": 0.241
-  },
-  {
-   "group": "S",
-   "scenario": "S4-CVE-2017-0199_windows_py",
-   "pivot": "0xalsaheel.com",
-   "variant": "naive+stops",
-   "story_nodes": 7832,
-   "story_events": 39477,
-   "precision": 0.2941,
-   "recall": 0.9988,
-   "f1": 0.4544,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.doc",
-    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
-    "c:/$recycle.bin"
-   ],
-   "seconds": 0.21
-  },
-  {
-   "group": "S",
-   "scenario": "S4-CVE-2017-0199_windows_py",
-   "pivot": "0xalsaheel.com",
-   "variant": "time",
-   "story_nodes": 6774,
-   "story_events": 33133,
-   "precision": 0.3398,
-   "recall": 0.9684,
-   "f1": 0.503,
-   "entity_recall": 1.0,
-   "rc_hit3": 1.0,
-   "root_causes": [
-    "c:/users/aalsahee/downloads/msf.doc",
-    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
-    "c:/users/public/desktop/mozilla firefox.lnk"
-   ],
-   "seconds": 0.302
-  },
-  {
-   "group": "S",
-   "scenario": "S4-CVE-2017-0199_windows_py",
-   "pivot": "0xalsaheel.com",
    "variant": "time+stops",
    "story_nodes": 6538,
    "story_events": 26943,
@@ -9520,6 +9387,139 @@
   {
    "group": "S",
    "scenario": "S4-CVE-2017-0199_windows_py",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+spine",
+   "story_nodes": 1063,
+   "story_events": 8067,
+   "precision": 0.0837,
+   "recall": 0.0581,
+   "f1": 0.0686,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.doc",
+    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
+    "c:/users/public/desktop/mozilla firefox.lnk"
+   ],
+   "seconds": 0.112
+  },
+  {
+   "group": "S",
+   "scenario": "S4-CVE-2017-0199_windows_py",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "time+stops+spine",
+   "story_nodes": 129,
+   "story_events": 1796,
+   "precision": 0.3575,
+   "recall": 0.0552,
+   "f1": 0.0957,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.doc",
+    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
+    "c:/$recycle.bin"
+   ],
+   "seconds": 0.064
+  },
+  {
+   "group": "S",
+   "scenario": "S4-CVE-2017-0199_windows_py",
+   "pivot": "ioc:192.168.223.3",
+   "variant": "full",
+   "story_nodes": 5893,
+   "story_events": 19670,
+   "precision": 0.5902,
+   "recall": 0.9988,
+   "f1": 0.742,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.doc",
+    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
+    "c:/$recycle.bin"
+   ],
+   "seconds": 0.126
+  },
+  {
+   "group": "S",
+   "scenario": "S4-CVE-2017-0199_windows_py",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive",
+   "story_nodes": 8319,
+   "story_events": 49334,
+   "precision": 0.2356,
+   "recall": 0.9999,
+   "f1": 0.3813,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.doc",
+    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
+    "c:/users/public/desktop/mozilla firefox.lnk"
+   ],
+   "seconds": 0.221
+  },
+  {
+   "group": "S",
+   "scenario": "S4-CVE-2017-0199_windows_py",
+   "pivot": "0xalsaheel.com",
+   "variant": "naive+stops",
+   "story_nodes": 7832,
+   "story_events": 39477,
+   "precision": 0.2941,
+   "recall": 0.9988,
+   "f1": 0.4544,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.doc",
+    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
+    "c:/$recycle.bin"
+   ],
+   "seconds": 0.179
+  },
+  {
+   "group": "S",
+   "scenario": "S4-CVE-2017-0199_windows_py",
+   "pivot": "0xalsaheel.com",
+   "variant": "time",
+   "story_nodes": 6774,
+   "story_events": 33133,
+   "precision": 0.3398,
+   "recall": 0.9684,
+   "f1": 0.503,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.doc",
+    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
+    "c:/users/public/desktop/mozilla firefox.lnk"
+   ],
+   "seconds": 0.241
+  },
+  {
+   "group": "S",
+   "scenario": "S4-CVE-2017-0199_windows_py",
+   "pivot": "0xalsaheel.com",
+   "variant": "time+stops",
+   "story_nodes": 6538,
+   "story_events": 26943,
+   "precision": 0.4173,
+   "recall": 0.9673,
+   "f1": 0.5831,
+   "entity_recall": 1.0,
+   "rc_hit3": 1.0,
+   "root_causes": [
+    "c:/users/aalsahee/downloads/msf.doc",
+    "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
+    "c:/$recycle.bin"
+   ],
+   "seconds": 0.127
+  },
+  {
+   "group": "S",
+   "scenario": "S4-CVE-2017-0199_windows_py",
    "pivot": "0xalsaheel.com",
    "variant": "time+spine",
    "story_nodes": 1063,
@@ -9534,7 +9534,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.113
+   "seconds": 0.111
   },
   {
    "group": "S",
@@ -9553,7 +9553,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.063
+   "seconds": 0.062
   },
   {
    "group": "S",
@@ -9572,7 +9572,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.137
+   "seconds": 0.124
   },
   {
    "group": "S",
@@ -9591,7 +9591,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.174
+   "seconds": 0.143
   },
   {
    "group": "S",
@@ -9610,7 +9610,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/aalsahee/downloads/msf.doc:zone.identifier"
    ],
-   "seconds": 0.143
+   "seconds": 0.11
   },
   {
    "group": "S",
@@ -9629,7 +9629,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.1
+   "seconds": 0.102
   },
   {
    "group": "S",
@@ -9648,7 +9648,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/aalsahee/downloads/msf.doc:zone.identifier"
    ],
-   "seconds": 0.122
+   "seconds": 0.106
   },
   {
    "group": "S",
@@ -9667,7 +9667,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.075
+   "seconds": 0.076
   },
   {
    "group": "S",
@@ -9686,7 +9686,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/aalsahee/downloads/msf.doc:zone.identifier"
    ],
-   "seconds": 0.029
+   "seconds": 0.03
   },
   {
    "group": "S",
@@ -9705,7 +9705,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/aalsahee/downloads/msf.doc:zone.identifier"
    ],
-   "seconds": 0.061
+   "seconds": 0.062
   },
   {
    "group": "S",
@@ -9724,7 +9724,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.286
+   "seconds": 0.277
   },
   {
    "group": "S",
@@ -9743,7 +9743,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.233
+   "seconds": 0.219
   },
   {
    "group": "S",
@@ -9762,7 +9762,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.242
+   "seconds": 0.231
   },
   {
    "group": "S",
@@ -9781,7 +9781,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.213
+   "seconds": 0.199
   },
   {
    "group": "S",
@@ -9800,7 +9800,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/users/public/desktop/mozilla firefox.lnk"
    ],
-   "seconds": 0.118
+   "seconds": 0.121
   },
   {
    "group": "S",
@@ -9819,7 +9819,7 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.065
+   "seconds": 0.066
   },
   {
    "group": "S",
@@ -9838,8 +9838,8 @@
     "c:/users/aalsahee/appdata/local/temp/otfakobt.doc",
     "c:/$recycle.bin"
    ],
-   "seconds": 0.139
+   "seconds": 0.125
   }
  ],
- "wall_seconds": 104.1
+ "wall_seconds": 99.7
 }

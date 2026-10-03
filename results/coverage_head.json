@@ -1913,15 +1913,15 @@
  "provenance": {
   "script": "scripts/bench.py --only coverage --allow-unfrozen",
   "rootline": "1.1.0",
-  "commit": "84404d6cb2715b7701cd5cb0a7b25a628203a8d4",
+  "commit": "cde2a392b1e8999b32a326afed6e52d7985db29e",
   "dirty": false,
   "workflow": "bench",
-  "run_id": 37091479765,
+  "run_id": 37092501921,
   "run_attempt": 1,
   "python": "3.12.14",
   "pythonhashseed": "0",
   "platform": "Linux 6.17.0-1022-azure (x86_64)",
-  "generated_utc": "2026-10-03T02:56:43Z",
+  "generated_utc": "2026-10-03T03:14:36Z",
   "freeze_check": "failed: post-freeze sources"
  },
  "label": "in-sample: dev and dev2 re-scored with the post-freeze code at this commit; sealed is never re-scored here (docs/protocol.md)"
