@@ -153,6 +153,7 @@ def test_exploit_of():
     assert exploit_of("S1-mini") == "?"
 
 
+@pytest.mark.skipif(not (Path(__file__).resolve().parents[1] / "results").is_dir(), reason="git checkout only")
 def test_committed_ablation_summary_is_a_function_of_its_rows():
     """results/ablation.json: the summary must be exactly summarize(rows) (no hand edits)."""
     from rootline.ablation import summarize
@@ -173,3 +174,14 @@ def test_userdir_baseline_and_feature_drop():
     full = IForestTagger(seed=0).score(g)
     dropped = IForestTagger(seed=0, drop=("exec_user_dir",)).score(g)
     assert len(full) == len(dropped) > 0 and "exec_user_dir" in FEATURES
+
+
+@pytest.mark.skipif(not (Path(__file__).resolve().parents[1] / "results").is_dir(), reason="git checkout only")
+def test_derived_sealed_view_is_recomputed_from_committed_rows():
+    """coverage.json's 'sealed-excluding-v03-target-techniques' key equals code applied to the scored rows."""
+    from rootline.bench import sealed_excluding_v03_targets, v03_target_techniques
+    assert {"T1548.001", "T1547.006", "T1003.008"} <= v03_target_techniques()
+    cov = json.loads((Path(__file__).resolve().parents[1] / "results" / "coverage.json").read_text())
+    got = sealed_excluding_v03_targets(cov["rows"])
+    assert got == cov["summary"]["sealed-excluding-v03-target-techniques"]
+    assert (got["datasets"], got["with_events"], got["v03_detected"], got["v03_technique_match"]) == (117, 51, 3, 1)

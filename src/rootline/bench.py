@@ -353,3 +353,35 @@ def run_anomaly_scenario(sc: AtlasScenario, k: int = 10, g: ProvenanceGraph | No
                  f"hits@{k}": round(k * len(bad) / max(1, procs), 3),
                  f"recall@{k}": round(k / max(1, procs), 3)})
     return rows
+
+
+# ------------------------------------------------- derived sealed-split views
+def v03_target_techniques() -> set[str]:
+    """ATT&CK techniques the v0.3 rules (RL-019..024) name, read from the frozen ``rules_v03.py`` source.
+
+    The source is parsed, not imported or edited, so the frozen file stays byte-identical.
+    """
+    import ast
+    import re
+    from pathlib import Path
+
+    tree = ast.parse((Path(__file__).with_name("rules_v03.py")).read_text(encoding="utf-8"))
+    return {n.value for n in ast.walk(tree) if isinstance(n, ast.Constant) and isinstance(n.value, str)
+            and re.fullmatch(r"T\d{4}(\.\d{3})?", n.value)}
+
+
+def sealed_excluding_v03_targets(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """v0.3 coverage on the sealed captures whose parent technique no v0.3 rule targets.
+
+    Derived after the scoring run from its committed rows (no re-scoring): it shows how much
+    of the sealed result rests on techniques the v0.3 rules were written for.
+    """
+    targets = {t.split(".")[0] for t in v03_target_techniques()}
+    rs = [r for r in rows if r["split"] == "sealed" and r["technique"].split(".")[0] not in targets]
+    loaded = [r for r in rs if r["events"] > 0]
+    n = len(loaded)
+    det = sum(1 for r in loaded if r["v03_alerts"])
+    tm = sum(1 for r in loaded if _tech_match(r["v03_techniques"], r["technique"]))
+    return {"datasets": len(rs), "with_events": n, "v03_detected": det, "v03_technique_match": tm,
+            "v03_detected_ci95": [round(x, 3) for x in wilson(det, n)],
+            "v03_technique_match_ci95": [round(x, 3) for x in wilson(tm, n)]}
