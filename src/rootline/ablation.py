@@ -23,14 +23,15 @@ lucky starting point.
 Scenarios are reported in two groups: ``S`` (S1-S4, the four single-host
 attacks the v0.2 traversal heuristics were designed on - in-sample) and ``M``
 (the 12 per-host logs of the multi-host attacks M1-M6, never used for design -
-held out). Uncertainty is a scenario-cluster bootstrap (pivots within one
-scenario are not independent); paired differences against ``naive`` also get an
-exact two-sided sign test over pivots.
+held out). Pivots within one log share a graph and are not independent, so
+uncertainty is computed over logs: a log-cluster bootstrap and a t-interval over
+per-log means, and paired differences against ``naive`` are tested with exact
+sign and sign-flip tests over logs (see :func:`summarize`). With only the four
+S logs no distribution-free test can reach p < 0.125.
 """
 from __future__ import annotations
 
-import math
-import random
+import re
 import time
 from typing import Any
 
@@ -39,6 +40,7 @@ from .graph import ProvenanceGraph
 from .loaders.atlas import AtlasScenario, entity_matches
 from .models import Alert, Severity
 from .reconstruct import contact_window, reconstruct
+from .stats import cluster_bootstrap, mean, paired_log_test, sign_test, t_interval  # noqa: F401
 
 VARIANTS: dict[str, dict[str, bool]] = {
     "naive": {"timed": False, "stops": False, "spine": False, "accessed": False},
@@ -109,10 +111,11 @@ def run_scenario(sc: AtlasScenario, g: ProvenanceGraph, group: str) -> list[dict
 
 # ------------------------------------------------------------------ statistics
 def _mean(xs: list[float]) -> float:
-    return sum(xs) / len(xs) if xs else float("nan")
+    return mean(xs)
 
 
 def scenario_means(rows: list[dict[str, Any]], variant: str, metric: str) -> dict[str, float]:
+    """Per-log mean of ``metric`` for one variant (pivots averaged within each log)."""
     by: dict[str, list[float]] = {}
     for r in rows:
         if r["variant"] == variant and r[metric] is not None:
@@ -120,39 +123,40 @@ def scenario_means(rows: list[dict[str, Any]], variant: str, metric: str) -> dic
     return {k: _mean(v) for k, v in by.items()}
 
 
-def cluster_bootstrap(per_scenario: dict[str, float], b: int = 2000, seed: int = 0) -> tuple[float, float, float]:
-    """Mean of scenario means and a 95 % percentile interval, resampling scenarios."""
-    vals = list(per_scenario.values())
-    if not vals:
-        return float("nan"), float("nan"), float("nan")
-    rng = random.Random(seed)
-    boots = sorted(_mean([rng.choice(vals) for _ in vals]) for _ in range(b))
-    return _mean(vals), boots[int(0.025 * b)], boots[int(0.975 * b) - 1]
-
-
-def sign_test(diffs: list[float]) -> dict[str, Any]:
-    """Exact two-sided sign test (ties dropped)."""
-    pos = sum(1 for d in diffs if d > 0)
-    neg = sum(1 for d in diffs if d < 0)
-    n = pos + neg
-    if n == 0:
-        return {"pos": 0, "neg": 0, "p": 1.0}
-    k = min(pos, neg)
-    p = min(1.0, 2 * sum(math.comb(n, i) for i in range(k + 1)) / 2 ** n)
-    return {"pos": pos, "neg": neg, "p": round(p, 6)}
+def exploit_of(scenario: str) -> str:
+    """The CVE in an ATLAS log name (``M4-CVE_2018_8174_windows_h1`` -> ``CVE-2018-8174``)."""
+    m = re.search(r"CVE[-_](\d{4})[-_](\d+)", scenario)
+    return f"CVE-{m.group(1)}-{m.group(2)}" if m else "?"
 
 
 def summarize(rows: list[dict[str, Any]], base: str = "naive") -> dict[str, Any]:
+    """Aggregate ablation rows per group (``S`` design data, ``M`` held out).
+
+    For every variant and metric: the mean of per-log means with a 95 %
+    log-cluster bootstrap interval (``ci95``), a Student-t interval over the
+    per-log means (``t_ci95``) and, for precision/recall/F1, the per-log values.
+    Paired differences against ``base`` are tested at the **log** level, the unit
+    that is independent: exact sign test, exact sign-flip test and paired t
+    (``logs``). Pivot counts (``pivots``) are descriptive only, because pivots
+    in one log share a graph. p-values are stored unrounded.
+    """
     out: dict[str, Any] = {}
     for group in sorted({r["group"] for r in rows}):
         g_rows = [r for r in rows if r["group"] == group]
-        d: dict[str, Any] = {"scenarios": len({r["scenario"] for r in g_rows}),
-                             "pivots": len({(r["scenario"], r["pivot"]) for r in g_rows})}
+        logs = sorted({r["scenario"] for r in g_rows})
+        d: dict[str, Any] = {"scenarios": len(logs),
+                             "pivots": len({(r["scenario"], r["pivot"]) for r in g_rows}),
+                             "logs": {s: exploit_of(s) for s in logs}}
         for v in VARIANTS:
             vd: dict[str, Any] = {}
             for m in METRICS + ("story_nodes",):
-                mean, lo, hi = cluster_bootstrap(scenario_means(g_rows, v, m))
-                vd[m] = {"mean": round(mean, 4), "ci95": [round(lo, 4), round(hi, 4)]}
+                per = scenario_means(g_rows, v, m)
+                mu, lo, hi = cluster_bootstrap(per)
+                vd[m] = {"mean": round(mu, 4), "ci95": [round(lo, 4), round(hi, 4)]}
+                if m in ("precision", "recall", "f1"):
+                    _, tlo, thi = t_interval(list(per.values()))
+                    vd[m]["t_ci95"] = [round(tlo, 4), round(thi, 4)]
+                    vd[m]["per_log"] = {s: round(per[s], 4) for s in sorted(per)}
             if v != base:
                 for m in ("precision", "f1", "recall"):
                     key = {(r["scenario"], r["pivot"]): r[m] for r in g_rows if r["variant"] == base}
@@ -161,9 +165,16 @@ def summarize(rows: list[dict[str, Any]], base: str = "naive") -> dict[str, Any]
                     per_sc: dict[str, list[float]] = {}
                     for s, x in diffs:
                         per_sc.setdefault(s, []).append(x)
-                    mean, lo, hi = cluster_bootstrap({s: _mean(x) for s, x in per_sc.items()})
-                    vd[f"delta_{m}_vs_{base}"] = {"mean": round(mean, 4), "ci95": [round(lo, 4), round(hi, 4)],
-                                                   "sign_test": sign_test([x for _, x in diffs])}
+                    per_log = {s: _mean(x) for s, x in per_sc.items()}
+                    mu, lo, hi = cluster_bootstrap(per_log)
+                    lt = paired_log_test(per_log)
+                    piv = sign_test([x for _, x in diffs])
+                    vd[f"delta_{m}_vs_{base}"] = {
+                        "mean": round(mu, 4), "ci95": [round(lo, 4), round(hi, 4)],
+                        "t_ci95": [round(x, 4) for x in lt["t_ci95"]],
+                        "logs": {k: lt[k] for k in ("n", "higher", "lower", "tied", "sign_test_p", "sign_flip_p",
+                                                   "t", "df", "t_p", "min_attainable_p")},
+                        "pivots": {k: piv[k] for k in ("higher", "lower", "tied")}}
             d[v] = vd
         out[group] = d
     return out

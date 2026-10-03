@@ -138,7 +138,26 @@ def test_ablation_on_mini_atlas(mini):
     assert full["precision"]["mean"] >= naive["precision"]["mean"]
     lo, hi = full["precision"]["ci95"]
     assert lo <= full["precision"]["mean"] <= hi
+    assert set(full["precision"]["per_log"]) == {mini.name}
+    d = full["delta_precision_vs_naive"]
+    # paired tests are over logs (one here), pivot counts are descriptive only
+    assert d["logs"]["n"] == 1 and d["logs"]["min_attainable_p"] == 1.0
+    assert set(d["pivots"]) == {"higher", "lower", "tied"}
     assert sign_test([1, 1, 1, -1])["p"] == 0.625
+
+
+def test_exploit_of():
+    from rootline.ablation import exploit_of
+    assert exploit_of("M4-CVE_2018_8174_windows_h1") == "CVE-2018-8174"
+    assert exploit_of("S2-CVE-2015-3105_windows") == "CVE-2015-3105"
+    assert exploit_of("S1-mini") == "?"
+
+
+def test_committed_ablation_summary_is_a_function_of_its_rows():
+    """results/ablation.json: the summary must be exactly summarize(rows) (no hand edits)."""
+    from rootline.ablation import summarize
+    res = json.loads((Path(__file__).resolve().parents[1] / "results" / "ablation.json").read_text())
+    assert json.loads(json.dumps(summarize(res["rows"]))) == res["summary"]
 
 
 def test_userdir_baseline_and_feature_drop():
