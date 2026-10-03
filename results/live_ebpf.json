@@ -1,299 +1,3051 @@
 {
-  "workflow": "ci / live-ebpf",
-  "run_id": 36996901332,
-  "commit": "0e86829c3c4923f41dd30c6c2573659dca29368b",
-  "runner": "ubuntu-24.04 (GitHub-hosted)",
-  "probe": "probes/rootline.bt v1.2 (bpftrace -f json)",
-  "bpftrace": "0.20.2",
-  "kernel": "6.17.0-1022-azure (azure, GitHub-hosted)",
-  "repeats": 5,
-  "passed": 5,
-  "run_36996901332_pass_rate_ci95": [
-    0.566,
-    1.0
-  ],
-  "scope_note": "Top-level run_id/passed/per_run fields describe run 36996901332 only (5 jobs). 'repeatability' covers all 9 pushes (42 jobs); per-job chain-recovery detail is committed only for run 36996901332, the other runs give pass/fail counts.",
-  "per_run": [
-    {
-      "run": 1,
-      "passed": true,
-      "records": 1317,
-      "lost_events": 0,
-      "story_vertices": 28,
-      "alerts": [
-        "RL-002",
-        "RL-003",
-        "RL-004",
-        "RL-005",
-        "RL-006",
-        "RL-007"
-      ],
-      "checks": {
-        "probe": true,
-        "self_pid": true,
-        "fork_parents": true,
-        "no_lost": true,
-        "fd_to_path": true,
-        "ipv6": true,
-        "chain": true,
-        "alerts": true
-      }
-    },
-    {
-      "run": 2,
-      "passed": true,
-      "records": 1273,
-      "lost_events": 0,
-      "story_vertices": null,
-      "alerts": [
-        "RL-002",
-        "RL-003",
-        "RL-004",
-        "RL-005",
-        "RL-006",
-        "RL-007"
-      ],
-      "checks": {
-        "probe": true,
-        "self_pid": true,
-        "fork_parents": true,
-        "no_lost": true,
-        "fd_to_path": true,
-        "ipv6": true,
-        "chain": true,
-        "alerts": true
-      }
-    },
-    {
-      "run": 3,
-      "passed": true,
-      "records": 1443,
-      "lost_events": 0,
-      "story_vertices": null,
-      "alerts": [
-        "RL-002",
-        "RL-003",
-        "RL-004",
-        "RL-005",
-        "RL-006",
-        "RL-007"
-      ],
-      "checks": {
-        "probe": true,
-        "self_pid": true,
-        "fork_parents": true,
-        "no_lost": true,
-        "fd_to_path": true,
-        "ipv6": true,
-        "chain": true,
-        "alerts": true
-      }
-    },
-    {
-      "run": 4,
-      "passed": true,
-      "records": 1313,
-      "lost_events": 0,
-      "story_vertices": null,
-      "alerts": [
-        "RL-002",
-        "RL-003",
-        "RL-004",
-        "RL-005",
-        "RL-006",
-        "RL-007"
-      ],
-      "checks": {
-        "probe": true,
-        "self_pid": true,
-        "fork_parents": true,
-        "no_lost": true,
-        "fd_to_path": true,
-        "ipv6": true,
-        "chain": true,
-        "alerts": true
-      }
-    },
-    {
-      "run": 5,
-      "passed": true,
-      "records": 1635,
-      "lost_events": 0,
-      "story_vertices": null,
-      "alerts": [
-        "RL-002",
-        "RL-003",
-        "RL-004",
-        "RL-005",
-        "RL-006",
-        "RL-007"
-      ],
-      "checks": {
-        "probe": true,
-        "self_pid": true,
-        "fork_parents": true,
-        "no_lost": true,
-        "fd_to_path": true,
-        "ipv6": true,
-        "chain": true,
-        "alerts": true
-      }
-    }
-  ],
-  "run1_detail": {
-    "format": "v1.2-json",
-    "lines": 1317,
-    "kinds": {
-      "openat": 1249,
-      "exit": 18,
-      "fork": 16,
-      "execve": 17,
-      "write": 9,
-      "connect": 7,
-      "unlinkat": 1
-    },
-    "lost_events": 0,
-    "invalid_lines": 0,
-    "checks": {
-      "probe": true,
-      "self_pid": true,
-      "fork_parents": true,
-      "no_lost": true,
-      "fd_to_path": true,
-      "ipv6": true,
-      "chain": true,
-      "alerts": true
-    },
-    "decoy_captured": true,
-    "fork_parents_unseen": [],
-    "story": {
-      "dropped_script_in_story": true,
-      "credential_read": true,
-      "persistence_write": true,
-      "listener_connect": true,
-      "download_socket_is_root_cause": true,
-      "downloader_in_story": true,
-      "cron_style_write": true,
-      "ipv6_connect": true,
-      "vertices": 28,
-      "root_causes": [
-        "/tmp/rootline-lab-stage.sh",
-        "198.51.100.7:8081"
-      ],
-      "labels": [
-        ".config",
-        "/dev/null",
-        "/etc/gnutls/config",
-        "/etc/passwd",
-        "/tmp/rl-home/.aws/credentials",
-        "/tmp/rl-home/.bash_history",
-        "/tmp/rl-home/.config/systemd/user/rootline-lab.service",
-        "/tmp/rl-home/lab/cron.d/rootline-lab",
-        "/tmp/rootline-lab-stage.sh",
-        "/usr/bin/cat",
-        "/usr/bin/curl",
-        "/usr/bin/mkdir",
-        "/usr/bin/rm",
-        "198.51.100.7:4444",
-        "198.51.100.7:8081",
-        "[::1]:4445",
-        "cat[2905]",
-        "curl[2902]",
-        "curl[2908]",
-        "lab",
-        "mkdir[2906]",
-        "rm[2907]",
-        "rootline-lab-st[2901]",
-        "rootline-lab-st[2905]",
-        "rootline-lab-st[2906]",
-        "rootline-lab-st[2907]",
-        "rootline-lab-st[2908]",
-        "systemd"
-      ]
-    },
-    "alerts": [
-      "RL-002",
-      "RL-003",
-      "RL-004",
-      "RL-005",
-      "RL-006",
-      "RL-007"
-    ],
-    "graph": {
-      "events": 1301,
-      "nodes": 859,
-      "edges": 1310,
-      "file": 811,
-      "process": 43,
-      "socket": 5
-    },
-    "passed": true
+ "workflow": "ci / live-ebpf",
+ "run_id": 36996901332,
+ "commit": "0e86829c3c4923f41dd30c6c2573659dca29368b",
+ "runner": "ubuntu-24.04 (GitHub-hosted)",
+ "probe": "probes/rootline.bt v1.2 (bpftrace -f json)",
+ "bpftrace": "0.20.2",
+ "kernel": "6.17.0-1022-azure (azure, GitHub-hosted)",
+ "repeats": 5,
+ "passed": 5,
+ "run_36996901332_pass_rate_ci95": [
+  0.566,
+  1.0
+ ],
+ "scope_note": "Top-level run_id/passed/per_run/run1_detail describe run 36996901332 only (5 jobs). 'repeatability' covers every push run in its stated window, one row per job (repeatability.jobs), collected from the CI artefacts by scripts/live/collect_repeatability.py.",
+ "per_run": [
+  {
+   "run": 1,
+   "passed": true,
+   "records": 1317,
+   "lost_events": 0,
+   "story_vertices": 28,
+   "alerts": [
+    "RL-002",
+    "RL-003",
+    "RL-004",
+    "RL-005",
+    "RL-006",
+    "RL-007"
+   ],
+   "checks": {
+    "probe": true,
+    "self_pid": true,
+    "fork_parents": true,
+    "no_lost": true,
+    "fd_to_path": true,
+    "ipv6": true,
+    "chain": true,
+    "alerts": true
+   }
   },
-  "caveats": [
-    "bpftrace on a GitHub-hosted kernel, not a libbpf CO-RE probe",
-    "benign scripted chain, dummy files, traffic only inside the runner",
-    "relative paths (mkdir -p's 'systemd', 'lab') are not resolved to absolute paths",
-    "acceptance criteria were revised once in v1.1 after failing runs; the v1.2 criteria were written before these 5 runs"
-  ],
-  "repeatability": {
-    "scope": "every push to main from the first probe v1.2 run to 85f37f3 (9 CI runs x 5 matrix jobs)",
-    "per_run": {
-      "36996901332": {
-        "passed": 5,
-        "failed": 0,
-        "cancelled": 0
-      },
-      "36997657767": {
-        "passed": 5,
-        "failed": 0,
-        "cancelled": 0
-      },
-      "36998054457": {
-        "passed": 4,
-        "failed": 1,
-        "cancelled": 0
-      },
-      "36998842224": {
-        "passed": 2,
-        "failed": 0,
-        "cancelled": 3
-      },
-      "36999451595": {
-        "passed": 5,
-        "failed": 0,
-        "cancelled": 0
-      },
-      "37000354752": {
-        "passed": 5,
-        "failed": 0,
-        "cancelled": 0
-      },
-      "37000681610": {
-        "passed": 5,
-        "failed": 0,
-        "cancelled": 0
-      },
-      "37000802258": {
-        "passed": 5,
-        "failed": 0,
-        "cancelled": 0
-      },
-      "37000996653": {
-        "passed": 5,
-        "failed": 0,
-        "cancelled": 0
-      }
-    },
-    "completed_jobs": 42,
-    "passed_jobs": 41,
-    "pass_rate_ci95": [
-      0.877,
-      0.996
-    ],
-    "failures": [
-      "36998054457 matrix 4: fork-parent check flagged a pre-existing daemon (pid 1072) that forked once; the chain itself was recovered. The check was corrected in the next commit to test for thread IDs."
-    ],
-    "cancelled_note": "3 jobs of 36998842224 were cancelled by the concurrency group when a newer commit was pushed",
-    "dependabot_pr_runs": "11 further runs on Dependabot PR branches (same probe and scripts): 55/55 jobs passed"
+  {
+   "run": 2,
+   "passed": true,
+   "records": 1273,
+   "lost_events": 0,
+   "story_vertices": null,
+   "alerts": [
+    "RL-002",
+    "RL-003",
+    "RL-004",
+    "RL-005",
+    "RL-006",
+    "RL-007"
+   ],
+   "checks": {
+    "probe": true,
+    "self_pid": true,
+    "fork_parents": true,
+    "no_lost": true,
+    "fd_to_path": true,
+    "ipv6": true,
+    "chain": true,
+    "alerts": true
+   }
+  },
+  {
+   "run": 3,
+   "passed": true,
+   "records": 1443,
+   "lost_events": 0,
+   "story_vertices": null,
+   "alerts": [
+    "RL-002",
+    "RL-003",
+    "RL-004",
+    "RL-005",
+    "RL-006",
+    "RL-007"
+   ],
+   "checks": {
+    "probe": true,
+    "self_pid": true,
+    "fork_parents": true,
+    "no_lost": true,
+    "fd_to_path": true,
+    "ipv6": true,
+    "chain": true,
+    "alerts": true
+   }
+  },
+  {
+   "run": 4,
+   "passed": true,
+   "records": 1313,
+   "lost_events": 0,
+   "story_vertices": null,
+   "alerts": [
+    "RL-002",
+    "RL-003",
+    "RL-004",
+    "RL-005",
+    "RL-006",
+    "RL-007"
+   ],
+   "checks": {
+    "probe": true,
+    "self_pid": true,
+    "fork_parents": true,
+    "no_lost": true,
+    "fd_to_path": true,
+    "ipv6": true,
+    "chain": true,
+    "alerts": true
+   }
+  },
+  {
+   "run": 5,
+   "passed": true,
+   "records": 1635,
+   "lost_events": 0,
+   "story_vertices": null,
+   "alerts": [
+    "RL-002",
+    "RL-003",
+    "RL-004",
+    "RL-005",
+    "RL-006",
+    "RL-007"
+   ],
+   "checks": {
+    "probe": true,
+    "self_pid": true,
+    "fork_parents": true,
+    "no_lost": true,
+    "fd_to_path": true,
+    "ipv6": true,
+    "chain": true,
+    "alerts": true
+   }
   }
+ ],
+ "run1_detail": {
+  "format": "v1.2-json",
+  "lines": 1317,
+  "kinds": {
+   "openat": 1249,
+   "exit": 18,
+   "fork": 16,
+   "execve": 17,
+   "write": 9,
+   "connect": 7,
+   "unlinkat": 1
+  },
+  "lost_events": 0,
+  "invalid_lines": 0,
+  "checks": {
+   "probe": true,
+   "self_pid": true,
+   "fork_parents": true,
+   "no_lost": true,
+   "fd_to_path": true,
+   "ipv6": true,
+   "chain": true,
+   "alerts": true
+  },
+  "decoy_captured": true,
+  "fork_parents_unseen": [],
+  "story": {
+   "dropped_script_in_story": true,
+   "credential_read": true,
+   "persistence_write": true,
+   "listener_connect": true,
+   "download_socket_is_root_cause": true,
+   "downloader_in_story": true,
+   "cron_style_write": true,
+   "ipv6_connect": true,
+   "vertices": 28,
+   "root_causes": [
+    "/tmp/rootline-lab-stage.sh",
+    "198.51.100.7:8081"
+   ],
+   "labels": [
+    ".config",
+    "/dev/null",
+    "/etc/gnutls/config",
+    "/etc/passwd",
+    "/tmp/rl-home/.aws/credentials",
+    "/tmp/rl-home/.bash_history",
+    "/tmp/rl-home/.config/systemd/user/rootline-lab.service",
+    "/tmp/rl-home/lab/cron.d/rootline-lab",
+    "/tmp/rootline-lab-stage.sh",
+    "/usr/bin/cat",
+    "/usr/bin/curl",
+    "/usr/bin/mkdir",
+    "/usr/bin/rm",
+    "198.51.100.7:4444",
+    "198.51.100.7:8081",
+    "[::1]:4445",
+    "cat[2905]",
+    "curl[2902]",
+    "curl[2908]",
+    "lab",
+    "mkdir[2906]",
+    "rm[2907]",
+    "rootline-lab-st[2901]",
+    "rootline-lab-st[2905]",
+    "rootline-lab-st[2906]",
+    "rootline-lab-st[2907]",
+    "rootline-lab-st[2908]",
+    "systemd"
+   ]
+  },
+  "alerts": [
+   "RL-002",
+   "RL-003",
+   "RL-004",
+   "RL-005",
+   "RL-006",
+   "RL-007"
+  ],
+  "graph": {
+   "events": 1301,
+   "nodes": 859,
+   "edges": 1310,
+   "file": 811,
+   "process": 43,
+   "socket": 5
+  },
+  "passed": true
+ },
+ "caveats": [
+  "bpftrace on a GitHub-hosted kernel, not a libbpf CO-RE probe",
+  "benign scripted chain, dummy files, traffic only inside the runner",
+  "relative paths (mkdir -p's 'systemd', 'lab') are not resolved to absolute paths",
+  "acceptance criteria were revised once in v1.1 after failing runs; the v1.2 criteria were written before these 5 runs"
+ ],
+ "repeatability": {
+  "collector": "scripts/live/collect_repeatability.py",
+  "collected_utc": "2026-10-03T03:21:06Z",
+  "scope": "every push run of the ci workflow on main with run id 36996901332..37003827535 (0e86829..2aad2d0), 15 runs x 5 live-ebpf matrix jobs",
+  "selection": {
+   "workflow": "ci.yml",
+   "branch": "main",
+   "event": "push",
+   "first_run_id": 36996901332,
+   "last_run_id": 37003827535
+  },
+  "runs": [
+   {
+    "run_id": 36996901332,
+    "head_sha": "0e86829",
+    "created": "2026-10-02T10:41:54Z",
+    "run_conclusion": "failure",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36997657767,
+    "head_sha": "68be28c",
+    "created": "2026-10-02T10:50:06Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36998054457,
+    "head_sha": "0dc9718",
+    "created": "2026-10-02T10:54:20Z",
+    "run_conclusion": "failure",
+    "live_ebpf": {
+     "success": 4,
+     "failure": 1,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36998842224,
+    "head_sha": "7274f11",
+    "created": "2026-10-02T11:02:54Z",
+    "run_conclusion": "cancelled",
+    "live_ebpf": {
+     "success": 2,
+     "failure": 0,
+     "cancelled": 3
+    }
+   },
+   {
+    "run_id": 36998890924,
+    "head_sha": "1f1f73d",
+    "created": "2026-10-02T11:03:25Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36999451595,
+    "head_sha": "744ecaf",
+    "created": "2026-10-02T11:09:29Z",
+    "run_conclusion": "failure",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37000354752,
+    "head_sha": "89fb904",
+    "created": "2026-10-02T11:19:17Z",
+    "run_conclusion": "failure",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37000681610,
+    "head_sha": "ba96d71",
+    "created": "2026-10-02T11:22:51Z",
+    "run_conclusion": "cancelled",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37000802258,
+    "head_sha": "d4ecd8e",
+    "created": "2026-10-02T11:24:11Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37000996653,
+    "head_sha": "85f37f3",
+    "created": "2026-10-02T11:26:17Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37001302781,
+    "head_sha": "f7c4b47",
+    "created": "2026-10-02T11:29:40Z",
+    "run_conclusion": "cancelled",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37001399360,
+    "head_sha": "6463dcb",
+    "created": "2026-10-02T11:30:40Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37002039540,
+    "head_sha": "f765e44",
+    "created": "2026-10-02T11:37:39Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37003477505,
+    "head_sha": "c69b228",
+    "created": "2026-10-02T11:53:07Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 37003827535,
+    "head_sha": "2aad2d0",
+    "created": "2026-10-02T11:56:48Z",
+    "run_conclusion": "success",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   }
+  ],
+  "completed_jobs": 72,
+  "passed_jobs": 71,
+  "cancelled_jobs": 3,
+  "cancelled_note": "cancelled jobs (the concurrency group cancels a run when a newer commit is pushed) are excluded from the rates; of those, 3 had already written a passing result.json, which is kept in 'jobs'",
+  "pass_rate_ci95": [
+   0.925,
+   0.998
+  ],
+  "jobs_with_result": 72,
+  "chain_recovered": 72,
+  "chain_recovered_ci95": [
+   0.949,
+   1.0
+  ],
+  "failures": [
+   {
+    "run_id": 36998054457,
+    "job_id": 110809199126,
+    "matrix": 4,
+    "head_sha": "0dc9718",
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": false,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "fork_parents_unseen": [
+     "1072"
+    ]
+   }
+  ],
+  "jobs": [
+   {
+    "run_id": 36996901332,
+    "job_id": 110805581985,
+    "matrix": 1,
+    "head_sha": "0e86829",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36996901332,
+    "job_id": 110805581932,
+    "matrix": 2,
+    "head_sha": "0e86829",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36996901332,
+    "job_id": 110805581827,
+    "matrix": 3,
+    "head_sha": "0e86829",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36996901332,
+    "job_id": 110805581884,
+    "matrix": 4,
+    "head_sha": "0e86829",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36996901332,
+    "job_id": 110805581823,
+    "matrix": 5,
+    "head_sha": "0e86829",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36997657767,
+    "job_id": 110807979287,
+    "matrix": 1,
+    "head_sha": "68be28c",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36997657767,
+    "job_id": 110807979256,
+    "matrix": 2,
+    "head_sha": "68be28c",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36997657767,
+    "job_id": 110807979333,
+    "matrix": 3,
+    "head_sha": "68be28c",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36997657767,
+    "job_id": 110807979285,
+    "matrix": 4,
+    "head_sha": "68be28c",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36997657767,
+    "job_id": 110807979322,
+    "matrix": 5,
+    "head_sha": "68be28c",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998054457,
+    "job_id": 110809199030,
+    "matrix": 1,
+    "head_sha": "0dc9718",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998054457,
+    "job_id": 110809199066,
+    "matrix": 2,
+    "head_sha": "0dc9718",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998054457,
+    "job_id": 110809198939,
+    "matrix": 3,
+    "head_sha": "0dc9718",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998054457,
+    "job_id": 110809199126,
+    "matrix": 4,
+    "head_sha": "0dc9718",
+    "conclusion": "failure",
+    "passed": false,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": false,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": [
+     "1072"
+    ]
+   },
+   {
+    "run_id": 36998054457,
+    "job_id": 110809199083,
+    "matrix": 5,
+    "head_sha": "0dc9718",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998842224,
+    "job_id": 110811638830,
+    "matrix": 1,
+    "head_sha": "7274f11",
+    "conclusion": "cancelled",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998842224,
+    "job_id": 110811638720,
+    "matrix": 2,
+    "head_sha": "7274f11",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998842224,
+    "job_id": 110811638689,
+    "matrix": 3,
+    "head_sha": "7274f11",
+    "conclusion": "cancelled",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998842224,
+    "job_id": 110811638663,
+    "matrix": 4,
+    "head_sha": "7274f11",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998842224,
+    "job_id": 110811638850,
+    "matrix": 5,
+    "head_sha": "7274f11",
+    "conclusion": "cancelled",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998890924,
+    "job_id": 110811993581,
+    "matrix": 1,
+    "head_sha": "1f1f73d",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998890924,
+    "job_id": 110811993683,
+    "matrix": 2,
+    "head_sha": "1f1f73d",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998890924,
+    "job_id": 110811993428,
+    "matrix": 3,
+    "head_sha": "1f1f73d",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998890924,
+    "job_id": 110811993401,
+    "matrix": 4,
+    "head_sha": "1f1f73d",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36998890924,
+    "job_id": 110811993479,
+    "matrix": 5,
+    "head_sha": "1f1f73d",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36999451595,
+    "job_id": 110813548047,
+    "matrix": 1,
+    "head_sha": "744ecaf",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36999451595,
+    "job_id": 110813548126,
+    "matrix": 2,
+    "head_sha": "744ecaf",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36999451595,
+    "job_id": 110813548242,
+    "matrix": 3,
+    "head_sha": "744ecaf",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36999451595,
+    "job_id": 110813548091,
+    "matrix": 4,
+    "head_sha": "744ecaf",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 36999451595,
+    "job_id": 110813548051,
+    "matrix": 5,
+    "head_sha": "744ecaf",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000354752,
+    "job_id": 110816409405,
+    "matrix": 1,
+    "head_sha": "89fb904",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000354752,
+    "job_id": 110816409385,
+    "matrix": 2,
+    "head_sha": "89fb904",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000354752,
+    "job_id": 110816409230,
+    "matrix": 3,
+    "head_sha": "89fb904",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000354752,
+    "job_id": 110816409454,
+    "matrix": 4,
+    "head_sha": "89fb904",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000354752,
+    "job_id": 110816409339,
+    "matrix": 5,
+    "head_sha": "89fb904",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000681610,
+    "job_id": 110817432936,
+    "matrix": 1,
+    "head_sha": "ba96d71",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000681610,
+    "job_id": 110817432903,
+    "matrix": 2,
+    "head_sha": "ba96d71",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000681610,
+    "job_id": 110817432961,
+    "matrix": 3,
+    "head_sha": "ba96d71",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000681610,
+    "job_id": 110817432914,
+    "matrix": 4,
+    "head_sha": "ba96d71",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000681610,
+    "job_id": 110817432937,
+    "matrix": 5,
+    "head_sha": "ba96d71",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000802258,
+    "job_id": 110817818306,
+    "matrix": 1,
+    "head_sha": "d4ecd8e",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000802258,
+    "job_id": 110817818526,
+    "matrix": 2,
+    "head_sha": "d4ecd8e",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000802258,
+    "job_id": 110817818423,
+    "matrix": 3,
+    "head_sha": "d4ecd8e",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000802258,
+    "job_id": 110817818630,
+    "matrix": 4,
+    "head_sha": "d4ecd8e",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000802258,
+    "job_id": 110817818373,
+    "matrix": 5,
+    "head_sha": "d4ecd8e",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000996653,
+    "job_id": 110818412879,
+    "matrix": 1,
+    "head_sha": "85f37f3",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000996653,
+    "job_id": 110818412859,
+    "matrix": 2,
+    "head_sha": "85f37f3",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000996653,
+    "job_id": 110818412952,
+    "matrix": 3,
+    "head_sha": "85f37f3",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37000996653,
+    "job_id": 110818412941,
+    "matrix": 4,
+    "head_sha": "85f37f3",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": [
+     "2"
+    ]
+   },
+   {
+    "run_id": 37000996653,
+    "job_id": 110818412884,
+    "matrix": 5,
+    "head_sha": "85f37f3",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001302781,
+    "job_id": 110819382668,
+    "matrix": 1,
+    "head_sha": "f7c4b47",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001302781,
+    "job_id": 110819382572,
+    "matrix": 2,
+    "head_sha": "f7c4b47",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001302781,
+    "job_id": 110819382651,
+    "matrix": 3,
+    "head_sha": "f7c4b47",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001302781,
+    "job_id": 110819382575,
+    "matrix": 4,
+    "head_sha": "f7c4b47",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001302781,
+    "job_id": 110819382703,
+    "matrix": 5,
+    "head_sha": "f7c4b47",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 43,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": [
+     "2"
+    ]
+   },
+   {
+    "run_id": 37001399360,
+    "job_id": 110819765902,
+    "matrix": 1,
+    "head_sha": "6463dcb",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001399360,
+    "job_id": 110819765686,
+    "matrix": 2,
+    "head_sha": "6463dcb",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001399360,
+    "job_id": 110819765719,
+    "matrix": 3,
+    "head_sha": "6463dcb",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001399360,
+    "job_id": 110819765920,
+    "matrix": 4,
+    "head_sha": "6463dcb",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37001399360,
+    "job_id": 110819765956,
+    "matrix": 5,
+    "head_sha": "6463dcb",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37002039540,
+    "job_id": 110821709285,
+    "matrix": 1,
+    "head_sha": "f765e44",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37002039540,
+    "job_id": 110821709394,
+    "matrix": 2,
+    "head_sha": "f765e44",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37002039540,
+    "job_id": 110821709123,
+    "matrix": 3,
+    "head_sha": "f765e44",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37002039540,
+    "job_id": 110821709360,
+    "matrix": 4,
+    "head_sha": "f765e44",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37002039540,
+    "job_id": 110821709241,
+    "matrix": 5,
+    "head_sha": "f765e44",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003477505,
+    "job_id": 110826251882,
+    "matrix": 1,
+    "head_sha": "c69b228",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 54,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": [
+     "2"
+    ]
+   },
+   {
+    "run_id": 37003477505,
+    "job_id": 110826251888,
+    "matrix": 2,
+    "head_sha": "c69b228",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003477505,
+    "job_id": 110826251899,
+    "matrix": 3,
+    "head_sha": "c69b228",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003477505,
+    "job_id": 110826251808,
+    "matrix": 4,
+    "head_sha": "c69b228",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003477505,
+    "job_id": 110826251839,
+    "matrix": 5,
+    "head_sha": "c69b228",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003827535,
+    "job_id": 110827352297,
+    "matrix": 1,
+    "head_sha": "2aad2d0",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003827535,
+    "job_id": 110827352272,
+    "matrix": 2,
+    "head_sha": "2aad2d0",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003827535,
+    "job_id": 110827352440,
+    "matrix": 3,
+    "head_sha": "2aad2d0",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003827535,
+    "job_id": 110827352281,
+    "matrix": 4,
+    "head_sha": "2aad2d0",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": []
+   },
+   {
+    "run_id": 37003827535,
+    "job_id": 110827352237,
+    "matrix": 5,
+    "head_sha": "2aad2d0",
+    "conclusion": "success",
+    "passed": true,
+    "checks": {
+     "probe": true,
+     "self_pid": true,
+     "fork_parents": true,
+     "no_lost": true,
+     "fd_to_path": true,
+     "ipv6": true,
+     "chain": true,
+     "alerts": true
+    },
+    "root_causes": [
+     "/tmp/rootline-lab-stage.sh",
+     "198.51.100.7:8081"
+    ],
+    "story_vertices": 28,
+    "lost_events": 0,
+    "alerts": [
+     "RL-002",
+     "RL-003",
+     "RL-004",
+     "RL-005",
+     "RL-006",
+     "RL-007"
+    ],
+    "fork_parents_unseen": [
+     "2"
+    ]
+   }
+  ],
+  "dependabot_runs": [
+   {
+    "run_id": 36998921068,
+    "event": "push",
+    "branch": "dependabot/pip/rapidfuzz-gte-3.14.5",
+    "head_sha": "9777302",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36998925449,
+    "event": "pull_request",
+    "branch": "dependabot/pip/rapidfuzz-gte-3.14.5",
+    "head_sha": "9777302",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36998932197,
+    "event": "push",
+    "branch": "dependabot/pip/numpy-gte-2.2.6",
+    "head_sha": "569c040",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36998938464,
+    "event": "pull_request",
+    "branch": "dependabot/pip/numpy-gte-2.2.6",
+    "head_sha": "569c040",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36999002032,
+    "event": "push",
+    "branch": "dependabot/pip/torch-gte-2.14.0",
+    "head_sha": "491acf0",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36999006264,
+    "event": "pull_request",
+    "branch": "dependabot/pip/torch-gte-2.14.0",
+    "head_sha": "491acf0",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36999007966,
+    "event": "push",
+    "branch": "dependabot/pip/stix2-gte-3.0.2",
+    "head_sha": "1447eab",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36999011841,
+    "event": "pull_request",
+    "branch": "dependabot/pip/stix2-gte-3.0.2",
+    "head_sha": "1447eab",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36999025961,
+    "event": "push",
+    "branch": "dependabot/pip/ruff-gte-0.16.9",
+    "head_sha": "8f64686",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   },
+   {
+    "run_id": 36999031176,
+    "event": "pull_request",
+    "branch": "dependabot/pip/ruff-gte-0.16.9",
+    "head_sha": "8f64686",
+    "live_ebpf": {
+     "success": 5,
+     "failure": 0,
+     "cancelled": 0
+    }
+   }
+  ]
+ }
 }
