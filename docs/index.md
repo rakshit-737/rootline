@@ -23,7 +23,7 @@ sealed captures detected); both are measured on the [Evaluation](evaluation.md) 
 ## Try it in 60 seconds
 
 ```bash
-docker run --rm -p 127.0.0.1:8000:8000 ghcr.io/rakshit-737/rootline:latest   # then open http://127.0.0.1:8000
+docker run --rm -p 127.0.0.1:8000:8000 ghcr.io/rakshit-737/rootline-provenance-forensics:latest   # then open http://127.0.0.1:8000
 ```
 
 or `pip install -e .` in a clone and

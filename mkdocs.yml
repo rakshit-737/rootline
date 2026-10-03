@@ -1,8 +1,8 @@
 site_name: ROOTLINE
 site_description: Provenance-graph attack reconstruction from eBPF / Sysmon / auditd telemetry
-site_url: https://rakshit-737.github.io/rootline/
-repo_url: https://github.com/rakshit-737/rootline
-repo_name: rakshit-737/rootline
+site_url: https://rakshit-737.github.io/rootline-provenance-forensics/
+repo_url: https://github.com/rakshit-737/rootline-provenance-forensics
+repo_name: rakshit-737/rootline-provenance-forensics
 edit_uri: edit/main/docs/
 
 theme:

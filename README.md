@@ -1,8 +1,8 @@
 # ROOTLINE
 
-[![ci](https://github.com/rakshit-737/rootline/actions/workflows/ci.yml/badge.svg)](https://github.com/rakshit-737/rootline/actions/workflows/ci.yml)
-[![docs](https://github.com/rakshit-737/rootline/actions/workflows/docs.yml/badge.svg)](https://rakshit-737.github.io/rootline/)
-[![release](https://img.shields.io/github/v/release/rakshit-737/rootline)](https://github.com/rakshit-737/rootline/releases)
+[![ci](https://github.com/rakshit-737/rootline-provenance-forensics/actions/workflows/ci.yml/badge.svg)](https://github.com/rakshit-737/rootline-provenance-forensics/actions/workflows/ci.yml)
+[![docs](https://github.com/rakshit-737/rootline-provenance-forensics/actions/workflows/docs.yml/badge.svg)](https://rakshit-737.github.io/rootline-provenance-forensics/)
+[![release](https://img.shields.io/github/v/release/rakshit-737/rootline-provenance-forensics)](https://github.com/rakshit-737/rootline-provenance-forensics/releases)
 ![python](https://img.shields.io/badge/python-3.10%E2%80%933.14-blue)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![runtime deps](https://img.shields.io/badge/runtime%20deps-0-brightgreen)
@@ -29,19 +29,19 @@ Intervals are 95 %: log-cluster bootstrap for the held-out logs, Wilson for coun
 
 ![Attack-replay UI on the OTRF Log4Shell capture](docs/img/replay-ui.png)
 
-**Docs:** <https://rakshit-737.github.io/rootline/> · **Replay UI (static):** <https://rakshit-737.github.io/rootline/demo/> · [How it works](https://rakshit-737.github.io/rootline/how-it-works/) · [Evaluation](https://rakshit-737.github.io/rootline/evaluation/) · [Reproduce](https://rakshit-737.github.io/rootline/reproduce/)
+**Docs:** <https://rakshit-737.github.io/rootline-provenance-forensics/> · **Replay UI (static):** <https://rakshit-737.github.io/rootline-provenance-forensics/demo/> · [How it works](https://rakshit-737.github.io/rootline-provenance-forensics/how-it-works/) · [Evaluation](https://rakshit-737.github.io/rootline-provenance-forensics/evaluation/) · [Reproduce](https://rakshit-737.github.io/rootline-provenance-forensics/reproduce/)
 
 ## Try it in 60 seconds
 
 ```bash
-docker run --rm -p 127.0.0.1:8000:8000 ghcr.io/rakshit-737/rootline:latest
+docker run --rm -p 127.0.0.1:8000:8000 ghcr.io/rakshit-737/rootline-provenance-forensics:latest
 # open http://127.0.0.1:8000 - the replay UI, preloaded with the OTRF Log4Shell capture
 ```
 
 Or without Docker (Python 3.10+; the core needs no third-party packages):
 
 ```bash
-git clone https://github.com/rakshit-737/rootline && cd rootline
+git clone https://github.com/rakshit-737/rootline-provenance-forensics && cd rootline-provenance-forensics
 pip install -e .
 rootline analyze tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_auoms.json
 ```
@@ -105,7 +105,7 @@ The core engine uses only the standard library ([ADR 0005](docs/adr/0005-stdlib-
 
 ## Results
 
-Methodology, every table with its intervals and the comparison with the ATLAS paper are on the [Evaluation](https://rakshit-737.github.io/rootline/evaluation/) page. The tables are rendered from committed JSON into [`results/TABLES.md`](results/TABLES.md) by `scripts/render_tables.py`. The ATLAS, ablation and Log4Shell files were generated in GitHub Actions (`bench` run 37092501921 at commit cde2a39) and carry a provenance block.
+Methodology, every table with its intervals and the comparison with the ATLAS paper are on the [Evaluation](https://rakshit-737.github.io/rootline-provenance-forensics/evaluation/) page. The tables are rendered from committed JSON into [`results/TABLES.md`](results/TABLES.md) by `scripts/render_tables.py`. The ATLAS, ablation and Log4Shell files were generated in GitHub Actions (`bench` run 37092501921 at commit cde2a39) and carry a provenance block.
 
 ### 1. Which component buys the precision? (ATLAS ablation)
 
@@ -231,7 +231,7 @@ python scripts/ablation.py               # results/ablation.json and the ablatio
 python scripts/render_tables.py          # results/TABLES.md
 ```
 
-The same commands run in the manual `bench` workflow, which is where the committed files come from (about 2 minutes per job). The sealed coverage, the live eBPF runs and the LSTM reproduction run in GitHub Actions too (`sealed-coverage`, `ci.yml` job `live-ebpf`, `atlas-repro`). `python scripts/verify_freeze.py --ref 60e3561` confirms that the scored commit equals the freeze. Exact commands, runtimes and expected numbers are on the [Reproduce](https://rakshit-737.github.io/rootline/reproduce/) page.
+The same commands run in the manual `bench` workflow, which is where the committed files come from (about 2 minutes per job). The sealed coverage, the live eBPF runs and the LSTM reproduction run in GitHub Actions too (`sealed-coverage`, `ci.yml` job `live-ebpf`, `atlas-repro`). `python scripts/verify_freeze.py --ref 60e3561` confirms that the scored commit equals the freeze. Exact commands, runtimes and expected numbers are on the [Reproduce](https://rakshit-737.github.io/rootline-provenance-forensics/reproduce/) page.
 
 CI runs lint (including docstrings), tests on Ubuntu and Windows with Python 3.10-3.14, a standard-library-only job, the sealed-protocol checks, a Docker smoke test, a docker-compose job that imports the story into Neo4j, pip-audit, and the live eBPF job.
 

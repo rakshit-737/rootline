@@ -4,7 +4,7 @@
 ROOTLINE is a **defensive, observe-only** research and education tool. Use the eBPF probe only on systems you own or are explicitly authorised to monitor. The synthetic attack generator emits *event records*; it does not execute anything, contact any network, or contain exploit code.
 
 ## Reporting a vulnerability
-Please use GitHub's private vulnerability reporting: **Security → Report a vulnerability** on the repository (<https://github.com/rakshit-737/rootline/security/advisories/new>). Do not open a public issue. Include reproduction steps and the affected version. You should get an acknowledgement within 7 days.
+Please use GitHub's private vulnerability reporting: **Security → Report a vulnerability** on the repository (<https://github.com/rakshit-737/rootline-provenance-forensics/security/advisories/new>). Do not open a public issue. Include reproduction steps and the affected version. You should get an acknowledgement within 7 days.
 
 ## The HTTP API has no authentication
 `rootline serve` is a lab tool. It binds to `127.0.0.1` by default, accepts only loopback `Host` headers (a DNS-rebinding guard), and requires the header `X-Rootline: 1` on POST routes (so a web page in your browser cannot post to it cross-site). If you bind it to another address, `serve` prints a warning: keep it on a private network or behind an authenticating reverse proxy. The Docker image listens on `0.0.0.0` *inside* the container; publish it as `-p 127.0.0.1:8000:8000`.

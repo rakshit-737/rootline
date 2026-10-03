@@ -33,7 +33,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from rootline.stats import wilson  # noqa: E402
 
-REPO = "rakshit-737/rootline"
+REPO = "rakshit-737/rootline-provenance-forensics"
 OUT = ROOT / "results" / "live_ebpf.json"
 
 

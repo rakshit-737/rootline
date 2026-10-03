@@ -6,6 +6,11 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+### Changed
+- The repository was renamed to `rakshit-737/rootline-provenance-forensics`. Docs now live at
+  https://rakshit-737.github.io/rootline-provenance-forensics/ and the container image is
+  `ghcr.io/rakshit-737/rootline-provenance-forensics`. Older entries below keep the old names.
+
 ## [1.1.1] - 2026-10-03
 
 ### Added

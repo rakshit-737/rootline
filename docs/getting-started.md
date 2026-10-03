@@ -3,14 +3,14 @@
 ## Try it in 60 seconds
 
 ```bash
-docker run --rm -p 127.0.0.1:8000:8000 ghcr.io/rakshit-737/rootline:latest
+docker run --rm -p 127.0.0.1:8000:8000 ghcr.io/rakshit-737/rootline-provenance-forensics:latest
 # open http://127.0.0.1:8000 - the replay UI, preloaded with the OTRF Log4Shell capture
 ```
 
 or, without Docker (Python 3.10+, the core needs no third-party packages):
 
 ```bash
-git clone https://github.com/rakshit-737/rootline && cd rootline
+git clone https://github.com/rakshit-737/rootline-provenance-forensics && cd rootline-provenance-forensics
 pip install -e .
 rootline analyze tests/fixtures/log4shell_sysmon.json tests/fixtures/log4shell_auoms.json
 ```

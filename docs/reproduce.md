@@ -9,7 +9,7 @@ nothing is downloaded into the repository.
 ## Setup
 
 ```bash
-git clone https://github.com/rakshit-737/rootline && cd rootline
+git clone https://github.com/rakshit-737/rootline-provenance-forensics && cd rootline-provenance-forensics
 pip install -e ".[dev,bench]"
 export ROOTLINE_DATA=~/rootline-data
 python scripts/download_data.py --list    # 78 files, 736.5 MB (the default set)

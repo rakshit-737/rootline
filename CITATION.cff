@@ -7,6 +7,6 @@ authors:
 version: 1.1.1
 date-released: 2026-10-03
 license: MIT
-repository-code: "https://github.com/rakshit-737/rootline"
-url: "https://rakshit-737.github.io/rootline/"
+repository-code: "https://github.com/rakshit-737/rootline-provenance-forensics"
+url: "https://rakshit-737.github.io/rootline-provenance-forensics/"
 keywords: [provenance graph, attack investigation, eBPF, ATLAS, intrusion detection]
