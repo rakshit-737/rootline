@@ -6,6 +6,8 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-10-03
+
 ### Changed
 - The repository was renamed to `rakshit-737/rootline-provenance-forensics`. Docs now live at
   https://rakshit-737.github.io/rootline-provenance-forensics/ and the container image is
