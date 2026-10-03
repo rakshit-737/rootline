@@ -17,9 +17,17 @@ Optional, for the real-data benchmarks:
 
 ```bash
 python scripts/download_data.py        # ~0.74 GB into $ROOTLINE_DATA (default ~/.cache/rootline)
+python scripts/download_data.py --only atlas/S1.zip atlas/M1.zip
 python -m pytest -q -m realdata        # tests that need the downloads
-python scripts/bench.py                # regenerates results/ - commit the diff with your change
+python scripts/bench.py --only atlas   # results/atlas.json
+python scripts/bench.py --only log4shell
+python scripts/render_tables.py        # results/TABLES.md (the README headline table must match it)
 ```
+
+Commit regenerated results with your change, preferably from the manual `bench` workflow so the
+files carry its run id. Do not regenerate `results/coverage.json`: it is the sealed-protocol
+record, and `scripts/bench.py --only coverage` refuses to rewrite it unless the frozen sources
+are checked out (`--allow-unfrozen` writes the in-sample `results/coverage_head.json` instead).
 
 `make` targets (`make test`, `make bench`, ...) wrap the same commands.
 
@@ -38,8 +46,9 @@ python scripts/bench.py                # regenerates results/ - commit the diff 
   technique and has a test that shows it firing, plus one that shows a benign
   look-alike staying quiet. If you read benchmark captures while writing a rule,
   add those captures to the `dev` split. The `sealed` split was scored once with the
-  frozen v0.3 rules (docs/protocol.md); any rule change is a new version, and its
-  sealed numbers must then be labelled in-sample.
+  frozen v0.3 rules (docs/protocol.md); any rule or loader change is a new version, and its
+  sealed numbers must then be labelled in-sample. Do not edit the files listed in
+  `scripts/freeze_v03.json` for cosmetic reasons (docstrings included).
 - **Report results honestly.** If a change moves a benchmark number, update
   `results/` and the README table in the same PR, including numbers that got worse.
 

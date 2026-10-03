@@ -18,8 +18,10 @@ data:            ## ATLAS S1 zip + OTRF + Splunk dev/dev2 (~0.74 GB, outside the
 data-all:        ## + ATLAS M1 (multi-host), S2-S4 (repro) and the sealed Splunk split
 	$(PY) scripts/download_data.py --all
 
-bench:           ## regenerate results/ (RESULTS.md, JSON, figures)
-	$(PY) scripts/bench.py
+bench:           ## regenerate the ATLAS and Log4Shell results (never the sealed coverage record)
+	$(PY) scripts/bench.py --only atlas
+	$(PY) scripts/bench.py --only log4shell
+	$(PY) scripts/render_tables.py
 
 ablation:        ## ATLAS ablation (S1-S4 + M hosts) -> results/ablation.json
 	$(PY) scripts/ablation.py
