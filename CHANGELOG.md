@@ -6,6 +6,91 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+### Added
+- `rootline.stats`: standard-library Wilson, Student-t and log-cluster bootstrap intervals, a
+  paired t-test, exact sign and sign-flip tests, and p-value formatting that never prints 0.
+- `rootline.provenance`: every result file written by `scripts/bench.py` and
+  `scripts/ablation.py` carries a provenance block (script, version, commit, dirty flag,
+  GitHub workflow and run id, Python, platform); `results/RESULTS.md` names the run of each
+  section.
+- Manual `bench` workflow: regenerates `results/atlas.json`, `ablation.json` and
+  `log4shell.json` in CI, plus an in-sample re-score of dev/dev2 at HEAD
+  (`results/coverage_head.json`). The committed files come from run 37092501921.
+- `scripts/live/collect_repeatability.py`: one row per live-ebpf CI job (checks, root causes,
+  story size, lost events) from the run artefacts, for a stated run-id window.
+- `scripts/verify_freeze.py --ref REF` (hash `git show REF:path`), `--ast BASE`
+  (docstring-insensitive logic check) and `--files`; a `freeze-record` CI job asserts that
+  the freeze holds at 153eade and 60e3561, that the rule logic at HEAD is unchanged, and that
+  `freeze_v03.json` and `results/coverage.json` are untouched since scoring.
+- `scripts/render_tables.py --check` and a "Headline results" block with a source and run-id
+  column; tests keep the README and docs-home headline tables identical to it, and the
+  README's quickstart output identical to the real CLI output.
+- `rootline.bench.sealed_excluding_v03_targets()` recomputes coverage.json's derived sealed
+  key from the committed rows (it matches).
+- `results/figures/ablation_stops.png`: the session-root stop effect per held-out log.
+- `download_data.py --only DEST...`; `docs/protocol.md` "State after scoring"; a References
+  section in the README.
+
+### Changed
+- Ablation statistics are over logs, not pivots: exact sign and sign-flip tests and a paired t
+  over per-log means, p-values to 4 significant digits; S1-S4 is reported as per-log ranges
+  with a t(3) interval on the difference, because four logs cannot support a
+  distribution-free test.
+- `render_tables.py` computes every Wilson interval once from the counts, gives the
+  alert-precision proxy its pre-registered interval, adds across-log intervals and paired
+  tests to the IOC-pivot and anomaly tables, the M2/M4 (new exploit) split, ATLAS's own
+  cleaned list under our scorer as the like-for-like reference, 5-seed ranges for the LSTM
+  reproduction, and separate rows for the detailed live run and the repeatability window.
+- `scripts/bench.py` runs atlas + log4shell by default. Rule coverage runs only with
+  `--only coverage`, behind the freeze check; `--allow-unfrozen` scores dev/dev2 into
+  `coverage_head.json`. Parts that were not run print "reused ... (not re-run)".
+- The replay UI routes edges around vertex labels and shows each IOC once; the static demo
+  serves Mermaid and Cypher exports as text. Hero screenshot refreshed.
+- Supply chain: first-party actions pinned by SHA, the base and Neo4j images by digest, and the
+  image installs its dependencies from the hash-locked `requirements-docker.txt`
+  (`--require-hashes`), which pip-audit also checks.
+- `httpx2` joins the `api` and `dev` extras (starlette's TestClient prefers it).
+- Docstrings on every public function and class outside the frozen sources; ruff D101-D103
+  in lint.
+- `build_demo.py`, `render_tables.py` and `verify_freeze.py` have `--help`.
+
+### Fixed
+- A JSONL capture that is not UTF-8 text crashed `analyze`/`verify` with a traceback and made
+  `POST /api/analyze` return 500; it is now a one-line error and HTTP 422.
+- `bench.py --only atlas` and `ablation.py` overwrote their results with empty files when the
+  ATLAS data was missing; they now exit with an error and write nothing. `bench.py --only
+  log4shell` finds the OTRF captures where the downloader puts them.
+- Full-method held-out precision is 0.62 (0.6249), not 0.63; Wilson bounds rounded twice are
+  corrected (27/45 is [0.45, 0.73], 4/64 is [0.02, 0.15]; ADR 0009 erratum).
+- Live eBPF repeatability: the window missed run 36998890924 and over-counted the Dependabot
+  runs. Over 15 pushes, 71 of 72 completed jobs pass (Wilson [0.925, 0.998]) and the chain is
+  recovered in 72 of 72; the 10 Dependabot runs (50/50 jobs) are listed by id.
+- Wording: hit@3 is 0.40-0.50; time + stops is the highest held-out F1 point estimate, not a
+  significant winner; the paper's Table 3 event counts equal the `+` lines for 9 of 10
+  attacks; all of Table 4's starting entities are listed; the LSTM setup is attributed to
+  ATLAS's released code.
+
+### Documented
+- The sealed numbers belong to commit 60e3561: the normaliser, graph and Sysmon/auditd loaders
+  changed in logic after scoring (f1e71e6, bc6984d), and docstrings changed in frozen rule files
+  (284c125, 580470b). Re-scoring dev/dev2 with the current code reproduces all 73 rows.
+- 8 of the 12 held-out ATLAS logs replay an S1-S4 exploit; the stop effect also holds on the
+  four logs with a new exploit (M2, M4: +0.12 precision, 4 of 4 higher).
+- Roadmap entries for the live multi-sensor ablation, the leave-one-scenario-out redesign with
+  LSTM retraining on M2-M6, and the 1M-event story demo.
+- The v1.1.0 tag produced duplicate release runs (37003642235, 37003644268) that failed with
+  "a release with the same tag name already exists"; the release workflow was fixed in
+  2aad2d0 (serialised per tag, tolerates an existing release).
+
+### Results that got worse (published as is)
+- Held-out full-method precision is reported as 0.62 instead of 0.63.
+- The S1-S4 intervals are wider: full F1 0.66 is now given with the per-log range 0.42-0.78
+  and ΔF1 t(3) interval [0.24, 0.58] instead of a 4-log bootstrap [0.51, 0.78], and the
+  pivot-level p-values (printed as p=0 or p < 1e-6) are replaced by log-level ones
+  (stops: p = 0.0005; full vs naive F1 on held-out logs: p = 0.28).
+- IsolationForest vs the user-dir heuristic: the heuristic's advantage is p = 0.039 by sign
+  test with a mean difference CI that includes 0 ([-0.02, 0.33]).
+
 ## [1.1.0] - 2026-10-02
 
 ### Added
