@@ -149,7 +149,10 @@ def create_app(preload: list[str | list[str]] | None = None, *, allowed_hosts: l
                     fh.write(chunk)
             if not nonblank:
                 raise HTTPException(400, "empty body")
-            a = await run_in_threadpool(lambda: analyze(load_many([tmp], format)))
+            try:
+                a = await run_in_threadpool(lambda: analyze(load_many([tmp], format)))
+            except UnicodeDecodeError:  # the frozen JSONL reader decodes strictly (docs/protocol.md)
+                raise HTTPException(422, "capture is not UTF-8 text") from None
         finally:
             os.unlink(tmp)
         if not a.raw.events:

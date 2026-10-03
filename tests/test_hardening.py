@@ -102,3 +102,29 @@ def test_api_guards():
     assert len(ok.get("/api/stories").json()) == 2  # bounded store
     assert ok.get("/docs").status_code == 404
     assert ok.post("/api/analyze", content=b"ts=inf kind=exit pid=1\n").status_code == 422
+
+
+NOT_UTF8 = [b"garbage\x00\xff\n",
+            b'{"ts": 1, "kind": "exec", "pid": 5, "ppid": 1, "comm": "b\xffsh", "path": "/bin/sh"}\n']
+
+
+@pytest.mark.parametrize("body", NOT_UTF8)
+def test_non_utf8_capture_is_a_one_line_cli_error(tmp_path: Path, capsys, body: bytes):
+    f = tmp_path / "bad.jsonl"
+    f.write_bytes(body)
+    for cmd in (["analyze", str(f)], ["verify", str(f)]):
+        assert cli(cmd) == 1
+        err = capsys.readouterr().err
+        assert err.startswith("error: input is not UTF-8 text (byte 0xff") and "Traceback" not in err
+
+
+@pytest.mark.parametrize("body", NOT_UTF8)
+def test_non_utf8_upload_is_422_not_500(body: bytes):
+    pytest.importorskip("fastapi")
+    pytest.importorskip("httpx")
+    from fastapi.testclient import TestClient
+
+    from rootline.api import create_app
+    ok = TestClient(create_app(), base_url="http://127.0.0.1", headers={"X-Rootline": "1"})
+    r = ok.post("/api/analyze", params={"name": "x.jsonl"}, content=body)
+    assert r.status_code == 422 and "UTF-8" in r.json()["detail"]

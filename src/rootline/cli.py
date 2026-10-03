@@ -196,6 +196,12 @@ def main(argv: list[str] | None = None) -> int:
     except OSError as e:  # missing / unreadable input or output path: one line, no traceback
         print(f"error: {e.strerror or e}: {e.filename or ''}".rstrip(": "), file=sys.stderr)
         return 1
+    except UnicodeDecodeError as e:
+        # The JSONL reader is one of the frozen v0.3 sources (docs/protocol.md), so it is not changed
+        # in place; a capture that is not UTF-8 text is refused here with one line instead of a traceback.
+        print(f"error: input is not UTF-8 text (byte 0x{e.object[e.start]:02x} at offset {e.start}); "
+              "ROOTLINE reads UTF-8 telemetry - convert the capture or pick --format", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
